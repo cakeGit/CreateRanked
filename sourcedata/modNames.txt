@@ -1,0 +1,640 @@
+name
+Create: Fishing Bobber Detector | Automatic Fishing with Create
+Crafting Recipes For Create
+Create: Genderless
+Sophie's Alloys
+Create: Cold Sweat
+Create: Portable Addition
+Create Railways Navigator
+Create Big Cannons
+MinheurModding Bits'n'bobs
+Create: Better Motors
+Create: Structures Arise
+Create: Fantasizing Again
+Ponder for KubeJS
+Ethium Reimagined
+Create Waystones Recipes
+Cobblemon: Create Industries (3D Production Models)
+Create: Food
+HolyPackage
+Flat Pack Tweaks
+Create Horse Power - Together Strong
+Create: Aquatic Ambitions
+Astral Dimension Create Compats (Milling and Crushing)
+Create: Sweets & Treats (Reforged)
+Create: Deep Dark [Forge/NeoForge]
+Create Encased
+Create: Thermantics
+Create : Teleporters
+Create Deco
+Create: Rustic Structures [Forge/Fabric/NeoForge]
+Create: Ice & Creams
+Create: Herbology
+Portal Builder: Create Edition
+Create: More Chocolate
+Create: Easy Structures
+Create : Creating Space
+Create: Creative Glue
+Create Optical
+Create: Smart Crafter
+Create: More Sand Papers
+Create: Curios Jetpack & Backtank [Forge/Fabric/NeoForge]
+Create: Toolbox Utils
+Create: Additional Recipes
+Create Kart
+Create: Sky Village Forge & Fabric
+Integrated Dungeons and Structures
+Create: Blazing Hot
+Create: Addon Compatibility
+Pollution Of Create
+Create Air (A ThinAir compat)
+Create: Interiors
+Create: Extra Casing
+Create: Bells & Whistles
+Create Chromatic Return
+Create: Bio-Factory
+Create: TrainUtilities(Fabric/Forge)
+Better Create
+Create Guardian Beam Defense
+CT++
+Create: Oxidized
+Create: Diesel Generators
+JAEPT
+Create: New Beginnings
+Create: Confectioneering
+Create: Haven Qualities
+Create Low-Heated
+Create: Dreams n' Desires
+Create: Fuel & Water Information
+Ars Creo
+Create: Alloyed
+Create Slice & Dice
+Create: Ender Transmission
+Create: Powerlines
+Create: Cheese Factory [Forge/NeoForge]
+Create Picky Wheels
+Create: Peaceful [Forge/Fabric/NeoForge]
+Create: Unbreakable Tools
+Create : Misc & Things
+KubeJS Create
+Create Contraption Terminals
+Create: Numismatics
+Create: Love & War
+Create Goggles (Create Plus)
+Create: Ranged [Forge/Fabric/NeoForge]
+Create: Simple Ore Doubling [Forge/Fabric/NeoForge]
+Create: Easy Stone Generators [Forge/Fabric/NeoForge]
+Saro´s Create [Forge/NeoForge]
+Create: Copper & Zinc [Forge/Fabric/NeoForge]
+Create Easy Villagers Textures
+Create: Pantographs & Wires
+Create Oritech Compat
+Create: The Factory Must Grow
+Create: Tweaked Controllers
+Create Compressed
+Destroy
+Occult Creations
+Create: The Air War
+Old Elysium
+Doppel's worse Create: Core
+Genesis: Additions
+Create: Experium ore
+Create: Crushing Quartz
+Create: Curios Backtank
+ad astra creating space compatibility (Fixed)
+Create Train Additions
+The Bad Breakers
+Drive-By-Wire
+Create: Bigger Storage
+Create Milk Industry
+Create: Full Automation
+Create Additions & Synthetics
+Create: Goggle Placement
+Sophisticated Injections
+Legendary Survival Addon
+Umbra Poor Ores Create Addon
+Trackwork
+CreateTweaker
+Create Nuka Cola
+Create: Block n' Zapping
+Create: Garnished Additions
+KasugaLib
+CBC: Nuclear
+ARprod's Delight
+Create: Renewable Zeiton
+World of Wonders ( Structures ) Forge
+Create: Timeless and Classics Zero [TaCZ]
+Integrated Cataclysm
+Integrated Stronghold
+Create: Magics
+Iron Chests & Create
+Elevators and Create
+Croptopia and Create
+Create: TaCZ Automation
+Create: Ultimate Factory [Datapack]
+Create: Radars
+Create: New Tempest
+Create: Meds and Herbs: Automated
+Create: Nuke
+Create: Craftable Diamond
+Mekanism The Factory Must Grow Compatibility
+Create: Rags to Riches
+Otherworld - Origins
+Create: Oppenheimered
+Create: Components and Additions
+Create: Cobblemon Industrialized
+Create: Abuti
+VS: Ship Handler
+Create: Molten Metallurgy
+Create Ad Astra Recipes
+Create: JustARecipe
+Fundamentally Fixed
+Create: Steam 'n' Rails
+Create: Stone Generator
+Create: Uncraftables Automation
+Igneo's Mining Revamp
+Create: Let them eat Goo!
+Create: Rainbow Compound
+Creating Space Library
+Create: Numismatics Recipes
+Immersive Engineering Ore Doubling + Balance Tweaks (Datapack Version)
+Immersive Engineering Ore Doubling + Balance Tweaks
+Create: Tool Master
+Create: The Kitchen Must Grow
+[Craftartaro] Food N Stuff
+StoryAnvil's Create: Tools RP
+Create Firearms Patch (kinetic pixel)
+Create: Station Decor
+Create Logistics
+Create: Tank Defenses
+Pixelmon Factory
+Create: Copper & Zinc [Datapack]
+Create: Quark Runes
+Oh The Biomes We've Gone + Create (wood recipes)
+Create: Progression
+Create: Enlightend [Forge/NeoForge]
+Create Renewability
+Blaze Craft Reborn Beta (BCRB)
+Create: More Farmables [Forge/Fabric]
+Create : Potato Firepower
+Create: Arms Race
+USP Unified Space Program
+Create: Poly12gon's Easy Guns
+Create Heat JS
+Spouting Fix
+Create: Unify
+Create Paper Line
+Forgotten structures
+Create: Dynamic Lights
+Create: More Alloys
+Chaosket
+Create: Ethium [Outdated - Check Desc.]
+Waystones and Create
+Create: Curios Backtank [Datapack]
+Create: Halitosis Create: Halitosis
+Creating space ores compatibility
+Venders love and war: Flans mod x Create compat
+CreaTaCZ
+Create Slugma
+TIS-Create
+Create: Vintage Improvements
+Create : Tools n' Weapons [BETA]
+Create: Currency Shops
+Create Jetpack
+Create: Remote Terminal
+Create Stock Bridge
+Create: Filters Anywhere
+Create: Immersive Tacz Integration
+Create: Copycats+
+Integrated Dungeons Arise
+More Create Burners
+Compressed Creativity
+Create: Bigger Storage Updated to Create 6
+Austinsupercar's Dungeons and Bosses
+Create: Fantastic Weapons
+Create: Mechanical Botany
+Create More Recipes
+Create: SomeTricks
+Create Gravel extractors
+Create: Design n' Decor
+Create: Additional Crafts
+Create: Mechanical teleporter
+Steel Armor Blocks Recipes: TFMG
+EnhancedCraft
+Create: Northstar
+Vintage KubeJS
+Create Numismatics Craft
+Vault Fixes
+Create: Cobblemon Tweaks
+Sand Filter
+Create: Deepslate Processing
+Create: Wither's Herb
+Clockwork: Create x Valkyrien Skies
+Create Multimeter
+Create: Dynamic Village
+Create: Automate Everything
+Create Compact Exp
+Create Advanced Horses
+Skylands Core
+Create: Modern Train Parts
+Create Planetary Tweaks
+Apotheotic Creation
+Create Tweaks and Compatibility
+Create: Water Mesh
+Create Panda
+Create: Jet Engine
+Create: Props And Misc
+Cogs of Carminite
+Create: Precise Manufacturing
+Garnished Botany Pots
+create: tempad
+WATERCoRE: Chat Format and Luckperms
+Buddycards Expansions
+Create: Factory
+Create Weaponry
+Create: Edible Belts
+Extreme Reactors Create Compat
+Create: Balanced Flight (Angel Ring)
+Blaze Remover
+Create: Crystal Clear
+Create Style Hopper
+PBI - 3
+CFB
+RedstoneStick's Ironman
+GBPTweaker
+Create Extra Recipes
+Pigeon's Create Recipes
+Create: Cobblemon Factory
+Create Guns
+Create Mob Eggs
+NGS's ScorchedGun Stats and Create Recipe
+Jack's Economy (Create Edition)
+Sticky Foundations
+Create: Amazing Trading
+Create clear glass
+Create: Stuff & Crafts
+Create: More Renewable
+Create Hand Crafting
+Create Cafe
+Create: Broken Bad
+MoeCS
+Oooh, Pinky!
+NGS's ScorchedGun Stats and Create Recipe [Datapack Ver]
+Foxy's Electronics
+Create: The Bots Foundry
+Create: No Fan
+Liquid Burner
+[PROJECT REPLACED] Create: The Coolest Addon Ever
+Create: Basic Additions
+FTB Skies Companion
+FTB Rickety Water Wheel
+Fractal Skylands Tweaks
+Create: ComputerCraft (CC: Tweaked)
+Create: Extended Cogwheels
+Mopeds
+Create Crafts & Additions Plus
+Calemi's Organized Crime
+Create: Recipe Everything
+Create: Irradiated
+Create Blue Skies Compat
+Create: Biomimicry
+Create: Blast Off!
+Create: BlueprintVoid
+Create : Gravity
+Dynamic Trees Create Compat
+Recipe & rebirth
+Create Camera
+Eureka! Create Airships!
+ViboTech: Move Contraptions!
+Creating space gravity addon (DISCONTINUED)
+Copper Lungs: Updated
+Create: Totem Factory
+Create: WooderWheels
+Create: More Drill Heads
+Create: Cobble to Netherrack
+TFC Ore Excavation
+Easy Trains
+EC Create Compatability
+Skyward Recipe Changes
+Gravitas² Core
+Create: More Automation
+Create: More Copycats
+Sanders' More Food
+Create Sandpaper Overhaul
+Create: The Recipe Expansion
+RPM2RF
+Create : The Salt
+Hexcoins: Create Crushin'
+Create Curio Goggles
+Create: Immersive Portals for Forge
+Freeze Create
+Wooden cog
+EnderSMP Economy
+Create : Ammo
+Create : Armory
+Create: Founded
+Create: Extra Motors
+Potato Cannon Ammo Counter
+Create: Raw Brass
+Ender IO: ReCreated
+CC:C Bridge
+Craftable Create Casings (Forge/Fabric)
+Create: Fabilium (Create: decorations, previously)
+TFC Rosia Create Compat
+Create: Netherless (Forge)
+Mechanical Machinery
+EE: Create
+Expanding Technologies
+Little Contraptions
+Create Sabers
+Create: Concrete
+Create: Dall
+Create: Upgraded Armor
+Create Decoration Casing
+More Tools and Stuff
+Tool's Complement: Create
+Create: BioFuel
+Create: Frozen Flavors
+Create Editions
+Create: Trains On Trains
+Create Cherry Addon
+Create: Alloyed Guns
+PokeParts: Pixelmon + Create compat
+Create Recycle Everything
+Pamps Expansion
+Origins: Accessibilities
+Create Chunkloading
+Create x CreatePlus (Forge) ([0.5.1][0.5.1a])
+TerraFirmaBoiler2
+Create: Foundry
+Create Electrified
+Create Infernal Expansion Compat
+Create Ad Astra Compat
+Mechanical Botania
+Colorful Azaleas Trees - Create Compat
+Create: Electric Stonks
+Create: Bronze Age
+Create: Random Adittions
+TFC Create
+Create Theme Armor Addon
+create structures addons
+Sleepable Create
+Create Shrunk
+Proton's Create Additions
+Create: Industrial Chemistry
+Create: Petrol Powered
+jurassic prelude: prehistoric
+Saro´s Create Support For MrCrayfish's Vehicle
+Create: Complexities
+Discover Addon
+TerraFirmaBoiler
+Create: Brass Coated
+Create InfiniDrill
+Milkyway Core
+Create gear addon
+Sequenced Item JS
+More Mounted Storages
+Create: Molten Geodes
+Haywire Robots, Bandits and Guns- A Scorched Bronze Addon
+Create: Pixelfactory
+Create More Potatoes [Forge]
+Create Innovations
+Create: Apothic Enchanting
+Ars Technica
+CreateBarters
+Create: Ultimate Factory [Forge/Fabric/NeoForge]
+Create: Cyber Goggles
+Create Compression
+Create Crafts & Additions
+The Winter Rescue: Frosted Heart
+Create: Steam Powered (1.16/1.18/1.20)
+Create: Vintage
+Create Factory Logistics
+Applied Schematicannon
+ChaosZPack [Lost Cities] Better Cities / Zombie Apocalypse / Abandoned Structures / TacZ
+Create : Arm-made Barbeque
+Create: Ore Processing
+Create: Pattern Schematics
+Create: Extra Gauges
+Sophisticated Backpacks Create Integration
+Sophisticated Storage Create Integration
+Create Cogs Invaders
+Better Unloading
+Ghost's Questionable Consumables
+Create: Connected Block Textures
+Create Compats
+Create: Extended Flywheels
+Create: Mounted Storages
+RSTM
+Potato Canon Plus [FORGE]
+Big Sip
+Tetra Pak
+CreateFoodAdditions
+CreateArmoredCopperBacktanks
+Create - ErasFlo
+Potato Canon Plus [DATAPACK]
+Create: Computing
+Create: Condensed Milk
+Create Curios
+PixelCreate Compat
+Create: Supercharged
+HARDIS
+The Temple Of Kakayaya
+Parkour Universe
+PonderJS
+Create Automated
+Create Gears
+FactoriOres Reforked
+More Create Stuffs
+Cogwheel Tweaker
+Skyland Utils
+Filler
+Boat Contraptions [Create Addon]
+Create Addon: Thermal Expansion Alloys
+Create Addon: Mekanism Alloys
+Create Integration
+Rotate
+Create: Blood is Fuel!
+cbot bc
+Create: Garnished
+Create Nuclear
+Delightful Creators [Fabric] (Create and Farmer's Delight Addon)
+The Amazing Chocolatier
+Create: Framed
+Create BlueMap
+Create: Enchantable Machinery
+Create: Trading Floor
+Create: Bitterballen
+Create: Escalated
+Void Power (for Fabric)
+Create: Tramways
+Create: Cooking
+Iris & Oculus Flywheel Compat
+Create Realism
+Custom Machinery Create
+Create: Missions
+Create: Lazy Engines
+Create: New Age
+Garnished Stone Automation
+Create: Vibrant Vaults
+Create: Ironworks [Forge/Fabric/NeoForge]
+Create: Crafts & (More) Additions [Forge/Fabric]
+Create Ore Excavation
+Create: Deepfried
+Rechiseled: Create
+Create: Estrogen
+Create Cobblestone
+Create: Charcoal to Diamonds
+Create Support for Open Parties and Claims
+DANDYCORP Cobblemon Additions
+Integrated Villages
+CoH item fixes
+Create: Kryeit
+Create: Power Loader (Fabric)
+Create Sifting Fabric
+Ponder Overrides
+Seasonal Adventures
+Respite Creators [Fabric] (Create and Farmer's Respite Addon)
+Create: Storage
+Create: P&S
+FlowerCrops
+KubeJS Create for Fabric
+Cultural Creators [Fabric] (Create and Cultural Delights Addon)
+Create: Molten Metals
+Create: Connected Fabric [experimental]
+Create: Diesel Generators [Fabric]
+Create Deco Fabric
+Create: Netherless (Fabric)
+Create: Extended Cogwheels Fabric
+Create: Switzerland
+Create: Enchantment Industry - Fabric
+Saro´s Create [Fabric/Quilt]
+Chronost Foods [Fabric]
+Create: Mixin mob and drops
+CreateFabric&REIBugFix
+CreateDPCompat
+Astral Vinery
+Create's Delight
+Create Sifting Refabricated
+Create: Extended Flywheels Fabric
+Create More Potatoes [Fabric]
+CreatePlus
+[Discontinued] Create: Sustainable
+Oh no: Create Utilities
+Deeper Drilling
+Gravitas² Re-Cored
+Create: Delivery Director
+Create: Occult Engineering
+Create Sifting
+Create: Nuka Cola Classic
+Create: Magic Recipes
+Create - Forge Frontier Core
+Create Mechanical Spawner
+Create: Designed Decor
+Create: Dreams n' Desires Updated to Create 6
+Create: Mechanical Companion
+Create: Quality Of Life
+Create: Cardboard Things
+Create: Compounds
+Create: Simple Generator
+Survive in the Winter Frontier
+Create Many More Mechanisms
+Create: Central Kitchen
+Create: Dragons Plus
+Greate
+Create: Ender Link
+Create: Power Loader
+Create: Enchantment Industry
+Create: Chromatic Return Extras
+Create: Mobile Packages Unofficial
+Create: Arm-made Cuisine
+Create: Molten Vents
+Alloyed Mining
+Create: Defensive
+Create: Back on Track Core
+Create Jet boots
+Create: Fuel Motor
+Create Mechanical Cow
+Create Mechanical Chicken
+Mechanical trading station
+Create: Limited Draining
+Create: Sound of Steam
+Create: Compatible Storage
+Create: Cobblemon Balls Overhaul
+Create: Classic Blaze Enchanter
+Create:Entity Control
+Create: Direct Chute
+Create: Packagers PSI Compat
+Create Vampirism
+Create:Fluid Stuffs
+Create: Enhanced Mastery
+Create: Liquid Fuel
+Create: Clothes
+EMI: Create Schematics
+Create: Chimneys
+Master of Machinery
+Create: Better Villager
+Create: Dimension, Steamworks Realm
+Quantum Lands
+Create Mechanical Extruder
+Create Immersive Unnecessary Shaft
+Create: Asbestos And More
+TofuCreate
+Create: Chicken Nuggets
+Create: Air Ducts
+CrushBlock
+Create Confectionery
+Create: Gunsmithing
+Modular Machinery Reborn Create
+Automatic Ore No More: Spelunkery
+Automatic Ore No More: Create
+WoodenCog
+Create: Everdrill
+Create: Mechanical Botania
+Create Big Cannons: Advanced Technologies
+Create Factory Ball
+Create: Crate Stuff (Broken Bad Addon)
+Create: Wizardry
+Create Ore Excavation Plus
+Create Enchantment Industry Plus
+Create: Pillager Arise
+Create Stuff 'N Additions
+Create: Spring Loaded
+Create: Tinker's Compat
+Create: Originium Industry
+Create more crushed ores
+Create Powderlogy & Illumination
+Create: Train Announcer
+Create: Metallurgy
+Create Cheezy
+Create Arbitrary
+Create: Reforged Foundations
+Create: Cardboarded Conveynience
+Petrolpark Library
+Petrol's Parts (Create add-on)
+SGJ: Ponder
+Create: Winery [Forge/NeoForge]
+Kitku Create
+Create: Cataclysm
+Create: Security Program
+Valkyrien Skies Copycat Mass Fix
+Create: Truly Modular
+Create: Simple Coins
+Create: Stam1o Tweaks
+Create: Metalwork
+Create: Mobile Packages
+Create: Connected
+Create: Armor Blocks
+Create: Applied Kinetics
+Create: Storage [Neo/Forge]
+Waifing - Passive Skill Tree
+Create : CROWNS
+SmarterContraptionStorage
+Create: Garnished Reworked
+Create: Hypertubes
+Create : New Furnitures
+Vintage Improvenents - SSW Edition
+Create Alchemist's Industry
+Create: Vault Interfaces
+Create Ultimine
+CBC: Warium Projectiles

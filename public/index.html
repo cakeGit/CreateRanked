@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State of Create</title>
+    <style>
+
+    </style>
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:title" content="State of Create" />
+    <meta property="og:description" content="A statistical analysis of Create's ecosystem, with data and charts on downloads, authors, and more." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/cakeGit/The-State-of-Create-Addons/main/images/thumb.png" />
+    <meta property="og:url" content="https://github.com/cakeGit/The-State-of-Create-Addons" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="State of Create" />
+    <meta name="twitter:description" content="A statistical analysis of Create's ecosystem, with data and charts on downloads, authors, and more." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/cakeGit/The-State-of-Create-Addons/main/images/thumb.png" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <canvas id="glCanvas"></canvas>
+    <script src="shader-v2.js"></script>
+    
+    <div id="backgrounded_container">
+    <div id="title_header">
+        <h1 style="margin:0;">Create Mod <span id="create_title">Rankings</span></h1>
+        <span class="dim">everythings a competition if im in it</span>
+    </div>
+    <div id="data-timestamp" class="dim" style="text-align:center;margin-bottom:1em;"></div>
+    <div id="content">
+        <h1>Rankings</h1>
+    
+        <div class="container">
+            <nav id="stat-navbar">
+                <button id="mod_ranking_btn" class="stat-btn active">Mod Ranking</button>
+                <span class="stat-sep">|</span>
+                <button id="author_ranking_btn" class="stat-btn">Author Ranking</button>
+            </nav>
+            <div id="sort-bar">
+                <span>Sort by:</span>
+                <button class="sort-btn" data-sort="downloads" data-for="mods">Downloads <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="downloadsRate" data-for="mods">Download Rate <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="name" data-for="mods">Name <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="time" data-for="mods">Time <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="downloads" data-for="authors">Downloads <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="downloadsRate" data-for="authors">Download Rate <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="mods" data-for="authors">Mods <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="name" data-for="authors">Name <span class="sort-indicator"></span></button>
+                <button class="sort-btn" data-sort="time" data-for="authors">Time <span class="sort-indicator"></span></button>
+                <label for="maxEntries" style="margin-left:1em;">Max entries:</label>
+                <input type="number" id="maxEntries" min="1" max="100" value="20" style="width:60px;">
+                <button id="toggle-pie" style="margin-left:1em;">Pie Chart</button>
+            </div>
+            <input type="text" id="search-bar" placeholder="Search mods or authors..." style="margin-bottom:1em;width:100%;max-width:400px;">
+            <div style="position:relative;height:600px;width:100%;"><canvas id="rankingChart"></canvas></div>
+        </div>
+
+        <script src="chart-v1.js"></script>
+    </div>
+    </div>
+    <footer>
+        <p>
+            Made by <a href="https://github.com/cakeGit">cakeGit</a> with ❤️, git copilot and boredom.
+        </p>
+        <div id="clickme-container" style="margin-top:1em;">
+            <button id="clickme-btn">clickme</button>
+            <span id="clickme-count">0</span>
+        </div>
+        <script>
+            let displayedCount = 0;
+            let targetCount = 0;
+            let lastUpdate = Date.now();
+            let animationFrame;
+            const pollInterval = 10000;
+
+            async function fetchCount() {
+                const res = await fetch('/api/clickme');
+                const { count } = await res.json();
+                setTargetCount(count);
+            }
+
+            function setTargetCount(newCount) {
+                targetCount = newCount;
+                lastUpdate = Date.now();
+                animateCount();
+            }
+            
+            function animateCount() {
+                cancelAnimationFrame(animationFrame);
+                const duration = pollInterval;
+                const start = displayedCount;
+                const end = targetCount;
+                const diff = end - start;
+                if (diff === 0) {
+                    document.getElementById('clickme-count').textContent = Math.round(displayedCount);
+                    return;
+                }
+                const startTime = Date.now();
+
+                function step() {
+                    const now = Date.now();
+                    const elapsed = now - startTime;
+                    let progress = Math.min(elapsed / duration, 1);
+                    // Ease out cubic for a nice effect
+                    progress = 1 - Math.pow(1 - progress, 3);
+                    displayedCount = start + diff * progress;
+                    document.getElementById('clickme-count').textContent = Math.floor(displayedCount);
+                    if (progress < 1) {
+                        animationFrame = requestAnimationFrame(step);
+                    } else {
+                        displayedCount = end;
+                        document.getElementById('clickme-count').textContent = end;
+                    }
+                }
+                step();
+            }
+
+            document.getElementById('clickme-btn').onclick = async () => {
+                displayedCount++;
+                targetCount++;
+                animateCount();
+                await fetch('/api/clickme', { method: 'POST' });
+            };
+
+            setInterval(fetchCount, pollInterval);
+            fetchCount();
+        </script>
+    </footer>
+</body>
+</html>

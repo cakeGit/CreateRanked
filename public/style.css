@@ -1,0 +1,203 @@
+/* Style guide for copliot to use
+
+- No border radius
+- Generally flat
+- Use monospace font for everything
+- Use a light color scheme
+- Avoid using slight color tints,
+- Use small light borders
+
+*/
+
+* {
+    font-family: monospace, Arial, sans-serif;
+}
+
+.zoom-img {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom-img:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 0;
+}
+
+.zoom-container {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+.zoom-img {
+    transition: transform 0.2s ease-in-out;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+        body {
+    font-family: monospace, Arial, sans-serif;
+    background: #fafafa;
+    color: #222;
+    margin: 0;
+}
+#content {
+    background: rgba(255, 255, 255, 0.85);
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1.5px solid #e6e6e6;
+    padding: 2rem 2rem 1rem 2rem;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+h1, h2, h3, h4 {
+    margin: 0.5rem 0;
+}
+ul {
+    margin-left: 2rem;
+}
+a {
+    color: #1565c0;
+}
+code {
+    background: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+.dim {
+    color: #00000066;
+    font-style: italic;
+}
+#create_title {
+    color: #2167a0;
+}
+#title_header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    color: #1a3e5b;
+}
+#title_header h1 {
+    margin: 0;
+    font-size: 5rem;
+    opacity: 0.9;
+    font-weight: bolder;
+}
+#glCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #f0f0f0;
+    color: #555;
+    font-size: 0.9rem;
+}
+#backgrounded_container {
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+    margin: 2rem auto;
+    max-width: max(800px, 90%);
+    /* Center the container */
+    position: relative;
+    z-index: 1;
+    opacity: 0.93;
+}
+#stat-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5em;
+    gap: 0.5em;
+    font-size: 1.2em;
+}
+.stat-btn {
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.3em 2.0em;
+    border-radius: 0;
+    transition: background-color 0.15s;
+}
+.stat-btn.active, .stat-btn:hover {
+    background: #ffffff;
+    border-color: #b0b0b0;
+}
+.stat-sep {
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 1.1em;
+    user-select: none;
+}
+#sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+}
+.sort-btn {
+    background: #f9f9f9aa;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0.3em 0.8em;
+    margin-right: 0.2em;
+    transition: background-color 0.15s;
+    position: relative;
+}
+.sort-btn.active, .sort-btn:hover {
+    background: #ffffffaa;
+}
+.sort-indicator {
+    font-size: 0.9em;
+    margin-left: 0.2em;
+    color: #888;
+}
+
+input[type="number"] {
+    border-radius: 0;
+    border: 1px solid #d3d3d3;
+    background: #fafafa;
+    padding: 0.2em 0.4em;
+    color: #222;
+}

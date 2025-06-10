@@ -1,0 +1,20 @@
+{
+  "name": "antic-liveauthorranking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "mime": "^4.0.7",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7"
+  }
+}

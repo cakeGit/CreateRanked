@@ -1,0 +1,4032 @@
+{
+  "mods": [
+    {
+      "id": 1269363,
+      "name": "Create & Alex's Caves Limestone Compat"
+    },
+    {
+      "id": 1253069,
+      "name": "Create : Magical Abyss - Menu"
+    },
+    {
+      "id": 1160067,
+      "name": "Create : New Coins"
+    },
+    {
+      "id": 1209564,
+      "name": "Create Binc Ingots"
+    },
+    {
+      "id": 1274107,
+      "name": "Create BlueMap"
+    },
+    {
+      "id": 1278383,
+      "name": "Create Horse Power - Together Strong"
+    },
+    {
+      "id": 1224851,
+      "name": "Create Shafts"
+    },
+    {
+      "id": 1266793,
+      "name": "Create Waystone Recipes"
+    },
+    {
+      "id": 1208883,
+      "name": "Create addons compatibility for TFC"
+    },
+    {
+      "id": 1120298,
+      "name": "Create random things  recipes library"
+    },
+    {
+      "id": 1276707,
+      "name": "Create: Additional Crafts"
+    },
+    {
+      "id": 1232277,
+      "name": "Create: Advanced Logistics"
+    },
+    {
+      "id": 1276631,
+      "name": "Create: Apothic Enchanting"
+    },
+    {
+      "id": 1282083,
+      "name": "Create: Armor Blocks"
+    },
+    {
+      "id": 1253699,
+      "name": "Create: Better Goggles"
+    },
+    {
+      "id": 1214925,
+      "name": "Create: Broken Bad BDCraft"
+    },
+    {
+      "id": 1219962,
+      "name": "Create: Charging Gadgets"
+    },
+    {
+      "id": 1245485,
+      "name": "Create: Containers"
+    },
+    {
+      "id": 1250193,
+      "name": "Create: Deez Nuts"
+    },
+    {
+      "id": 1264454,
+      "name": "Create: Enhanced Mastery"
+    },
+    {
+      "id": 1242235,
+      "name": "Create: Eternal Zinc"
+    },
+    {
+      "id": 1283671,
+      "name": "Create: Haunted Sticks"
+    },
+    {
+      "id": 1212676,
+      "name": "Create: McDonalds Stock Keeper Cap"
+    },
+    {
+      "id": 1276978,
+      "name": "Create: Mechanical Botany"
+    },
+    {
+      "id": 1212089,
+      "name": "Create: Mechanical Extrudor: Extra Recipes"
+    },
+    {
+      "id": 1210190,
+      "name": "Create: Missiled"
+    },
+    {
+      "id": 1260821,
+      "name": "Create: Nametags"
+    },
+    {
+      "id": 1232276,
+      "name": "Create: Netherite Factory"
+    },
+    {
+      "id": 1131680,
+      "name": "Create: New Age Recrafting"
+    },
+    {
+      "id": 1233531,
+      "name": "Create: New Copper Stuffs"
+    },
+    {
+      "id": 1213384,
+      "name": "Create: Numismatics (Copper Economy)"
+    },
+    {
+      "id": 1210957,
+      "name": "Create: Numismatics Recipes"
+    },
+    {
+      "id": 1279398,
+      "name": "Create: Portable Addition"
+    },
+    {
+      "id": 1130116,
+      "name": "Create: Progression"
+    },
+    {
+      "id": 1283372,
+      "name": "Create: Pure Glass"
+    },
+    {
+      "id": 1208819,
+      "name": "Create: Quartz Crusing"
+    },
+    {
+      "id": 1249372,
+      "name": "Create: Red Sand to Gunpowder"
+    },
+    {
+      "id": 1278249,
+      "name": "Create: Remote Terminal"
+    },
+    {
+      "id": 1283666,
+      "name": "Create: Saw"
+    },
+    {
+      "id": 1280144,
+      "name": "Create: The brass Knight"
+    },
+    {
+      "id": 1217042,
+      "name": "Create: Veritum"
+    },
+    {
+      "id": 1247518,
+      "name": "Create: Zinc Recipe"
+    },
+    {
+      "id": 1159412,
+      "name": "Create: Zinc+"
+    },
+    {
+      "id": 1258031,
+      "name": "Create:Deep Dark RU"
+    },
+    {
+      "id": 1237974,
+      "name": "Create:Iron Sand Paper"
+    },
+    {
+      "id": 1241115,
+      "name": "CreateMekapipe"
+    },
+    {
+      "id": 1230823,
+      "name": "Hoth's Create Utilities"
+    },
+    {
+      "id": 1244448,
+      "name": "create:unreal"
+    },
+    {
+      "id": 1205311,
+      "name": "the lost city and create"
+    },
+    {
+      "id": 1121163,
+      "name": "Create Deco Stonecutting Industrial Iron Ingot Recipe"
+    },
+    {
+      "id": 1203467,
+      "name": "CreateDecoRecipeUnification"
+    },
+    {
+      "id": 1249509,
+      "name": "Create: Nuclear New Age"
+    },
+    {
+      "id": 1280279,
+      "name": "Create Gourmet Cheese Fix"
+    },
+    {
+      "id": 1276897,
+      "name": "Create: Nether Industry"
+    },
+    {
+      "id": 1162814,
+      "name": "Create x End Remastered Recipes"
+    },
+    {
+      "id": 1242743,
+      "name": "Create: Titanium"
+    },
+    {
+      "id": 1219917,
+      "name": "Create: GeOre"
+    },
+    {
+      "id": 386898,
+      "name": "Create something fixes"
+    },
+    {
+      "id": 1213891,
+      "name": "Create: World Of Adventures"
+    },
+    {
+      "id": 1267351,
+      "name": "Create: Arm-made Cuisine"
+    },
+    {
+      "id": 1056852,
+      "name": "Create Tweaks and Compatibility"
+    },
+    {
+      "id": 857471,
+      "name": "Create Styled Tokenable Storage"
+    },
+    {
+      "id": 1278857,
+      "name": "Create: Zinc craft"
+    },
+    {
+      "id": 857113,
+      "name": "Create: Smooshed"
+    },
+    {
+      "id": 1214797,
+      "name": "Create Style Wooden Hopper"
+    },
+    {
+      "id": 1182637,
+      "name": "Create: Renewable Zeiton"
+    },
+    {
+      "id": 620655,
+      "name": "Create: Chromatic Stuff"
+    },
+    {
+      "id": 618813,
+      "name": "Create Confectionery Recipe Fix"
+    },
+    {
+      "id": 829648,
+      "name": "Create weapons RP"
+    },
+    {
+      "id": 704720,
+      "name": "Create French"
+    },
+    {
+      "id": 996739,
+      "name": "Create raw ores"
+    },
+    {
+      "id": 1232966,
+      "name": "Create - nether recipes"
+    },
+    {
+      "id": 978587,
+      "name": "Create: Copper Splashing"
+    },
+    {
+      "id": 869883,
+      "name": "Create Copper Replacement"
+    },
+    {
+      "id": 439744,
+      "name": "Created Efab"
+    },
+    {
+      "id": 466774,
+      "name": "Create Addon: AE2 Support"
+    },
+    {
+      "id": 1085998,
+      "name": "CreateSalad Datapack"
+    },
+    {
+      "id": 490200,
+      "name": "Create themed Wireless Redstone"
+    },
+    {
+      "id": 1216260,
+      "name": "Create: Bronze"
+    },
+    {
+      "id": 606913,
+      "name": "Create Storage"
+    },
+    {
+      "id": 1077269,
+      "name": "create: andesite catalyst"
+    },
+    {
+      "id": 1027219,
+      "name": "Create Addons Translations RU"
+    },
+    {
+      "id": 1085563,
+      "name": "Create capacitor crafting fix"
+    },
+    {
+      "id": 1023093,
+      "name": "Create new steam engine sound"
+    },
+    {
+      "id": 517504,
+      "name": "Create Potato"
+    },
+    {
+      "id": 782365,
+      "name": "Create Spawn Eggs"
+    },
+    {
+      "id": 1171259,
+      "name": "Create Skyblock Tweaks"
+    },
+    {
+      "id": 405115,
+      "name": "Create 0.2 Texture Touchup"
+    },
+    {
+      "id": 1281781,
+      "name": "Create: Maintenance"
+    },
+    {
+      "id": 702123,
+      "name": "Create - No Remote Antenna"
+    },
+    {
+      "id": 1181470,
+      "name": "Create Man of Many Planes - Recipes"
+    },
+    {
+      "id": 783590,
+      "name": "Create-Spirit"
+    },
+    {
+      "id": 1112454,
+      "name": "CreateBarters"
+    },
+    {
+      "id": 1226664,
+      "name": "Create: Creative Glue"
+    },
+    {
+      "id": 1131336,
+      "name": "Create HND Resources"
+    },
+    {
+      "id": 1211006,
+      "name": "Create Weaponry x Simply Swords compability"
+    },
+    {
+      "id": 711362,
+      "name": "Create: Cybers Better Copper"
+    },
+    {
+      "id": 953633,
+      "name": "Create Int. Spinning Cube Island World"
+    },
+    {
+      "id": 906933,
+      "name": "Create Re-Configured"
+    },
+    {
+      "id": 1174264,
+      "name": "Create : Advanced Mining Dimension"
+    },
+    {
+      "id": 1206596,
+      "name": "Create Cafe Easier Boba Recipe"
+    },
+    {
+      "id": 1261879,
+      "name": "Create Goggles (Create Plus) BDCraft"
+    },
+    {
+      "id": 1244170,
+      "name": "Create Lootr Chest and Barrel"
+    },
+    {
+      "id": 1277244,
+      "name": "Create More: Linked Remote"
+    },
+    {
+      "id": 1273787,
+      "name": "Create OneBlock"
+    },
+    {
+      "id": 1267398,
+      "name": "Create: Aether Industry"
+    },
+    {
+      "id": 1252241,
+      "name": "Create: Bread and Beyond"
+    },
+    {
+      "id": 1266798,
+      "name": "Create: Copper Splashing"
+    },
+    {
+      "id": 1249770,
+      "name": "Create: Copycats+ BDCraft"
+    },
+    {
+      "id": 1131093,
+      "name": "Create: Creative Fluid Tank recipe"
+    },
+    {
+      "id": 1238817,
+      "name": "Create: Easy Bee Products"
+    },
+    {
+      "id": 1283840,
+      "name": "Create: Extended Wrenches"
+    },
+    {
+      "id": 1279337,
+      "name": "Create: Fantasizing Again"
+    },
+    {
+      "id": 1273143,
+      "name": "Create: Gold"
+    },
+    {
+      "id": 1283887,
+      "name": "Create: Limited"
+    },
+    {
+      "id": 1267373,
+      "name": "Create: Limited Draining"
+    },
+    {
+      "id": 1142898,
+      "name": "Create: Mixed Nuclear"
+    },
+    {
+      "id": 1224154,
+      "name": "Create: Must Dye"
+    },
+    {
+      "id": 1208585,
+      "name": "Create: NewMineOrder"
+    },
+    {
+      "id": 1192717,
+      "name": "Create: Obsidian"
+    },
+    {
+      "id": 1274507,
+      "name": "Create: Ore Processing"
+    },
+    {
+      "id": 1115508,
+      "name": "Create: Poly12gon's Easy Guns"
+    },
+    {
+      "id": 1213588,
+      "name": "Create: Steam 'n' Rails BDCraft"
+    },
+    {
+      "id": 1281770,
+      "name": "Create: Storage [Neo/Forge]"
+    },
+    {
+      "id": 1227390,
+      "name": "Create: The Factory Must Grow BDCraft"
+    },
+    {
+      "id": 1220681,
+      "name": "Create: Unbreakable Tools but just the item"
+    },
+    {
+      "id": 1226551,
+      "name": "Created Coins"
+    },
+    {
+      "id": 1275840,
+      "name": "Easy Create Stone"
+    },
+    {
+      "id": 1266786,
+      "name": "Extra Create Recipe"
+    },
+    {
+      "id": 1180465,
+      "name": "Iron Chests & Create"
+    },
+    {
+      "id": 1165525,
+      "name": "cerate aditonal Create: Additional Recipes Redux"
+    },
+    {
+      "id": 1116089,
+      "name": "createsqueezerepair"
+    },
+    {
+      "id": 930286,
+      "name": "Create Creative Survival [data-pack]"
+    },
+    {
+      "id": 867308,
+      "name": "Create Invis Goggles"
+    },
+    {
+      "id": 1200955,
+      "name": "Xtra Create stufz"
+    },
+    {
+      "id": 913392,
+      "name": "Create: Infinite Engineering"
+    },
+    {
+      "id": 1127037,
+      "name": "Create Plus"
+    },
+    {
+      "id": 441623,
+      "name": "Create by Cristofer_YT"
+    },
+    {
+      "id": 466770,
+      "name": "Create Addon: Mekanism Alloys"
+    },
+    {
+      "id": 566469,
+      "name": "Create Materials for Tinker's Construct"
+    },
+    {
+      "id": 912627,
+      "name": "Create GUI (DEMO)"
+    },
+    {
+      "id": 973589,
+      "name": "Create: Cobble to Netherrack"
+    },
+    {
+      "id": 858830,
+      "name": "Create Locomotion & Custom Portal API Integration"
+    },
+    {
+      "id": 503912,
+      "name": "Create Tools - Rockit14 Edition"
+    },
+    {
+      "id": 1277058,
+      "name": "Create-Rington Currency"
+    },
+    {
+      "id": 848377,
+      "name": "Create Scopes"
+    },
+    {
+      "id": 1030961,
+      "name": "Create: Encased Deployable"
+    },
+    {
+      "id": 1243107,
+      "name": "Create: Complete Automation"
+    },
+    {
+      "id": 1003954,
+      "name": "Create: No Fan"
+    },
+    {
+      "id": 946542,
+      "name": "Create: Better Ages"
+    },
+    {
+      "id": 1096898,
+      "name": "Create: Curios Backtank [Datapack]"
+    },
+    {
+      "id": 1150214,
+      "name": "Create: Diesel Generators | Refabricated"
+    },
+    {
+      "id": 719836,
+      "name": "Create - Mechanical saw Chipped compatibility"
+    },
+    {
+      "id": 714245,
+      "name": "Create More Potatoes [Fabric]"
+    },
+    {
+      "id": 978589,
+      "name": "Create: Charcoal Bulk Haunting"
+    },
+    {
+      "id": 1200393,
+      "name": "Create: Numismatic Minting"
+    },
+    {
+      "id": 1250826,
+      "name": "Create: Tweaked Controller (for Fabric)"
+    },
+    {
+      "id": 1112261,
+      "name": "Create: Ore Processing Restored"
+    },
+    {
+      "id": 1258677,
+      "name": "More Automation for Create"
+    },
+    {
+      "id": 513668,
+      "name": "Create Copper Revamp"
+    },
+    {
+      "id": 1144687,
+      "name": "Create: No Gloves Netherite Backtank"
+    },
+    {
+      "id": 1224595,
+      "name": "Create: Toolbox Utils"
+    },
+    {
+      "id": 465125,
+      "name": "Create Addon: TConstruct Support"
+    },
+    {
+      "id": 1276885,
+      "name": "Create: Netherite Automation"
+    },
+    {
+      "id": 1076347,
+      "name": "Create: Man Face Smart Observer"
+    },
+    {
+      "id": 1076359,
+      "name": "Create: Generic Bronze"
+    },
+    {
+      "id": 947857,
+      "name": "Create:Ammo gun changes"
+    },
+    {
+      "id": 1246213,
+      "name": "Zumos: Create Extra Recipes"
+    },
+    {
+      "id": 1234070,
+      "name": "Create: Sweets & Treats (Reforged)"
+    },
+    {
+      "id": 1245562,
+      "name": "Create Arbitrary"
+    },
+    {
+      "id": 1111505,
+      "name": "Create : Creativ-Recipes"
+    },
+    {
+      "id": 932949,
+      "name": "Create: Russian translation"
+    },
+    {
+      "id": 1184100,
+      "name": "Create: Diesel Generators Recolour [Light]"
+    },
+    {
+      "id": 1226877,
+      "name": "Create: Fanta (By SCD)"
+    },
+    {
+      "id": 1270726,
+      "name": "Create:MR"
+    },
+    {
+      "id": 714593,
+      "name": "Create the Skies"
+    },
+    {
+      "id": 1185485,
+      "name": "Create: Invisible Goggles"
+    },
+    {
+      "id": 967461,
+      "name": "Create Ingot Replacement"
+    },
+    {
+      "id": 1221914,
+      "name": "Create: Cola Factory Re-Carbonated"
+    },
+    {
+      "id": 919998,
+      "name": "CreateGD"
+    },
+    {
+      "id": 1133968,
+      "name": "Create: World of Color"
+    },
+    {
+      "id": 1243715,
+      "name": "Create: Biomes O Plenty Casings"
+    },
+    {
+      "id": 1261470,
+      "name": "Create: Refinery Reborn"
+    },
+    {
+      "id": 1274323,
+      "name": "Create Superflat"
+    },
+    {
+      "id": 1267496,
+      "name": "Create Style Hotbar"
+    },
+    {
+      "id": 1186846,
+      "name": "Create: Diesel Train Sounds"
+    },
+    {
+      "id": 851170,
+      "name": "Create Craft Addon"
+    },
+    {
+      "id": 1213597,
+      "name": "Create Better Copper"
+    },
+    {
+      "id": 835430,
+      "name": "Create: Speng Factory"
+    },
+    {
+      "id": 965821,
+      "name": "Create: BCG Additions"
+    },
+    {
+      "id": 1272914,
+      "name": "Create: Mechanical teleporter"
+    },
+    {
+      "id": 1003978,
+      "name": "Create Guns Recipe Tweaks"
+    },
+    {
+      "id": 1279080,
+      "name": "Create: Vault Interfaces"
+    },
+    {
+      "id": 1249299,
+      "name": "Create paradise custom"
+    },
+    {
+      "id": 1260653,
+      "name": "Create: SomeTricks"
+    },
+    {
+      "id": 1127769,
+      "name": "Copper Craft Create Addon"
+    },
+    {
+      "id": 1247513,
+      "name": "Create more crushed ores"
+    },
+    {
+      "id": 1152592,
+      "name": "Create: Ender Transmission BDCraft"
+    },
+    {
+      "id": 1221782,
+      "name": "Create: Nether Bread"
+    },
+    {
+      "id": 1177049,
+      "name": "Create Mechanical Spawner BDCraft"
+    },
+    {
+      "id": 1280431,
+      "name": "Create: Productivity Module"
+    },
+    {
+      "id": 1276624,
+      "name": "Create: Chemistry"
+    },
+    {
+      "id": 934313,
+      "name": "Create Simplified Style"
+    },
+    {
+      "id": 1169830,
+      "name": "Create Sabers: EpicFight Compat"
+    },
+    {
+      "id": 936221,
+      "name": "Create 0.5.0 Textures for Create 0.5.1"
+    },
+    {
+      "id": 721102,
+      "name": "Create: overpowered"
+    },
+    {
+      "id": 661718,
+      "name": "Create more food (Updated)"
+    },
+    {
+      "id": 1234556,
+      "name": "Create : Living Frogport"
+    },
+    {
+      "id": 1152625,
+      "name": "Create Sifting BDCraft"
+    },
+    {
+      "id": 1210922,
+      "name": "Create - MGS Solid Snake's Outfit"
+    },
+    {
+      "id": 1259659,
+      "name": "Create: Direct Chute"
+    },
+    {
+      "id": 1152603,
+      "name": "Create Confectionery BDCraft"
+    },
+    {
+      "id": 990580,
+      "name": "Create: Recipe Everything"
+    },
+    {
+      "id": 1152606,
+      "name": "Create Encased BDCraft"
+    },
+    {
+      "id": 951000,
+      "name": "Create Rocket Alternative - Obsidian Propeller"
+    },
+    {
+      "id": 1173578,
+      "name": "Create: Connected BDCraft"
+    },
+    {
+      "id": 1275340,
+      "name": "Delightful Creators [Forge] (Create and Farmer's Delight Addon)"
+    },
+    {
+      "id": 740048,
+      "name": "Create: Random Adittions"
+    },
+    {
+      "id": 1152631,
+      "name": "Create Utilities BDCraft"
+    },
+    {
+      "id": 1210795,
+      "name": "Create: Metal Pipe"
+    },
+    {
+      "id": 1152623,
+      "name": "Create Jetpack BDCraft"
+    },
+    {
+      "id": 1005574,
+      "name": "Create: Gobber"
+    },
+    {
+      "id": 1248581,
+      "name": "Create Factory Ball"
+    },
+    {
+      "id": 1256076,
+      "name": "Create:Entity Control"
+    },
+    {
+      "id": 1146151,
+      "name": "Create Cobblestone deepslate generators"
+    },
+    {
+      "id": 997556,
+      "name": "Create Mod & Tinker Construct Integration"
+    },
+    {
+      "id": 1273927,
+      "name": "Create: Light It Up"
+    },
+    {
+      "id": 1261550,
+      "name": "Create:OreDoubling"
+    },
+    {
+      "id": 981193,
+      "name": "Create: Switzerland"
+    },
+    {
+      "id": 1102992,
+      "name": "create:wanderlite plus"
+    },
+    {
+      "id": 1225603,
+      "name": "Create: Ice & Creams"
+    },
+    {
+      "id": 1119685,
+      "name": "Create: Automation Galore"
+    },
+    {
+      "id": 1152616,
+      "name": "Create Ore Excavation BDCraft"
+    },
+    {
+      "id": 968169,
+      "name": "TelepostMissions - Create: Missions"
+    },
+    {
+      "id": 1266454,
+      "name": "Create: Mobile Packages Unofficial"
+    },
+    {
+      "id": 969277,
+      "name": "Create Deco fixed window crafts."
+    },
+    {
+      "id": 967660,
+      "name": "VoteMission - Create: Missions"
+    },
+    {
+      "id": 1220764,
+      "name": "Create: Renewable Copper"
+    },
+    {
+      "id": 886674,
+      "name": "Create : Quartz to Xp"
+    },
+    {
+      "id": 1184101,
+      "name": "Create: Diesel Generators Recolour [Dark]"
+    },
+    {
+      "id": 1152628,
+      "name": "Create: New Age BDCraft"
+    },
+    {
+      "id": 1247100,
+      "name": "Create: Train Announcer"
+    },
+    {
+      "id": 628273,
+      "name": "Create Ender Storage"
+    },
+    {
+      "id": 1269043,
+      "name": "Create: Creator Sword"
+    },
+    {
+      "id": 1162875,
+      "name": "Create Sifting Fabric"
+    },
+    {
+      "id": 1263169,
+      "name": "TFC/Create Chain Compat"
+    },
+    {
+      "id": 1057534,
+      "name": "Create: Water Mesh"
+    },
+    {
+      "id": 1256813,
+      "name": "Create Dough Compat (CDC)"
+    },
+    {
+      "id": 887187,
+      "name": "Create Academy Core "
+    },
+    {
+      "id": 1220989,
+      "name": "Portal Builder: Create Edition"
+    },
+    {
+      "id": 1213301,
+      "name": "Create Ultimate Recipes (CUR)"
+    },
+    {
+      "id": 1152612,
+      "name": "Create: Interiors BDCraft"
+    },
+    {
+      "id": 1104186,
+      "name": "Create: Renewable Tuff and Deepslate"
+    },
+    {
+      "id": 985048,
+      "name": "Create: Kryeit"
+    },
+    {
+      "id": 59362,
+      "name": "CreateYourOwnMenus"
+    },
+    {
+      "id": 1098429,
+      "name": "Create:Stuff&Additionas Retexture"
+    },
+    {
+      "id": 876102,
+      "name": "Create HD pack"
+    },
+    {
+      "id": 1152585,
+      "name": "Create: Bells & Whistles BDCraft"
+    },
+    {
+      "id": 694050,
+      "name": "Create Artifacts"
+    },
+    {
+      "id": 1214539,
+      "name": "Create: Hungry!"
+    },
+    {
+      "id": 1277726,
+      "name": "Create: Bigger Storage Updated to Create 6"
+    },
+    {
+      "id": 1072156,
+      "name": "Create: P&S"
+    },
+    {
+      "id": 1275951,
+      "name": "Create - MovieCraft"
+    },
+    {
+      "id": 1162409,
+      "name": "Create Stuff & Additions BDCraft"
+    },
+    {
+      "id": 984626,
+      "name": "Create: Prideful Belts"
+    },
+    {
+      "id": 1212042,
+      "name": "Create Execute Sanity"
+    },
+    {
+      "id": 950063,
+      "name": "Freeze Create"
+    },
+    {
+      "id": 899160,
+      "name": "Create NTL Redone"
+    },
+    {
+      "id": 1246046,
+      "name": "Create: Everdrill"
+    },
+    {
+      "id": 1152619,
+      "name": "Create Slice & Dice BDCraft"
+    },
+    {
+      "id": 1244814,
+      "name": "Create: Fool's Gold"
+    },
+    {
+      "id": 908626,
+      "name": "CreateDPCompat"
+    },
+    {
+      "id": 1076408,
+      "name": "Create Compat for Dye Depot"
+    },
+    {
+      "id": 1225419,
+      "name": "Create Cheezy"
+    },
+    {
+      "id": 1212633,
+      "name": "Create: Pre-Production Copper"
+    },
+    {
+      "id": 920028,
+      "name": "Create Fabric DM-Earth Edition"
+    },
+    {
+      "id": 1160178,
+      "name": "Create: Brassless Steam 'n' Rails"
+    },
+    {
+      "id": 1152609,
+      "name": "Create Enchantment Industry BDCraft"
+    },
+    {
+      "id": 1159033,
+      "name": "Create: Brassless Train Casing"
+    },
+    {
+      "id": 1120297,
+      "name": "Create random things library"
+    },
+    {
+      "id": 1160169,
+      "name": "Create: Brassless Train Controls"
+    },
+    {
+      "id": 910799,
+      "name": "Create Mod - Team Fortress 2 Wrench"
+    },
+    {
+      "id": 920612,
+      "name": "CreateModGui-ByDaxzNort"
+    },
+    {
+      "id": 1009648,
+      "name": "CreateCraft - Enhanced Creativity"
+    },
+    {
+      "id": 1260384,
+      "name": "Create: Train-Deco"
+    },
+    {
+      "id": 1152583,
+      "name": "Create Deco BDCraft"
+    },
+    {
+      "id": 1231605,
+      "name": "Create: Advanced Industries (Main Menu)"
+    },
+    {
+      "id": 1189130,
+      "name": "Create New Age NBT Tag Fix"
+    },
+    {
+      "id": 913331,
+      "name": "Createwarts: Addon"
+    },
+    {
+      "id": 1002698,
+      "name": "Create: Gunpowder Mixing"
+    },
+    {
+      "id": 1257680,
+      "name": "Create: Gregified Storage"
+    },
+    {
+      "id": 1249200,
+      "name": "Create: Package Amazoned"
+    },
+    {
+      "id": 1274414,
+      "name": "Create: Ages"
+    },
+    {
+      "id": 785449,
+      "name": "Create-more-renewables"
+    },
+    {
+      "id": 1268423,
+      "name": "Create: Cardboard Things"
+    },
+    {
+      "id": 557101,
+      "name": "Create Innovations"
+    },
+    {
+      "id": 721060,
+      "name": "Create Toy Factory"
+    },
+    {
+      "id": 837479,
+      "name": "Create Re-Created {DEPRACATED]"
+    },
+    {
+      "id": 918365,
+      "name": "Headlights For London Underground Trains In Create Mod"
+    },
+    {
+      "id": 1094379,
+      "name": "Create: Cuprum"
+    },
+    {
+      "id": 1260229,
+      "name": "Create:Mechanical Confection"
+    },
+    {
+      "id": 1172261,
+      "name": "Create Crafts & Additions BDCraft"
+    },
+    {
+      "id": 1085228,
+      "name": "Create Textures - Refined Cooking "
+    },
+    {
+      "id": 504458,
+      "name": "Created Simple Planes"
+    },
+    {
+      "id": 1233385,
+      "name": "Create: Magic Recipes"
+    },
+    {
+      "id": 940001,
+      "name": "Create: Raw Brass"
+    },
+    {
+      "id": 652297,
+      "name": "Create Mobs"
+    },
+    {
+      "id": 962039,
+      "name": "Create soul sand recipes for quartz"
+    },
+    {
+      "id": 1194431,
+      "name": "Create: Steel"
+    },
+    {
+      "id": 1120817,
+      "name": "Create Netherite Plus (N+)"
+    },
+    {
+      "id": 1213989,
+      "name": "Create no Nether needed"
+    },
+    {
+      "id": 912493,
+      "name": "Create SMP Core"
+    },
+    {
+      "id": 1214865,
+      "name": "GUNCRAFT a create addon"
+    },
+    {
+      "id": 809348,
+      "name": "Create and Food"
+    },
+    {
+      "id": 1162148,
+      "name": "Create Tools"
+    },
+    {
+      "id": 1004420,
+      "name": "Create Dirt Beginning"
+    },
+    {
+      "id": 1232757,
+      "name": "Create: Thermantics"
+    },
+    {
+      "id": 1251349,
+      "name": "Create: More Features Also Illegal Flight"
+    },
+    {
+      "id": 1005566,
+      "name": "Create: The Bots Foundry"
+    },
+    {
+      "id": 1088335,
+      "name": "Create Pastries"
+    },
+    {
+      "id": 1005857,
+      "name": "Create MOP- Core"
+    },
+    {
+      "id": 913091,
+      "name": "Create: Inifinite Engineering"
+    },
+    {
+      "id": 825243,
+      "name": "Create Extra Recipes"
+    },
+    {
+      "id": 1105197,
+      "name": "Create-ive Recipes"
+    },
+    {
+      "id": 1190600,
+      "name": "Cooking with create"
+    },
+    {
+      "id": 867813,
+      "name": "create structures addons"
+    },
+    {
+      "id": 1160170,
+      "name": "Create: Brassless Train Door & Trapdoor"
+    },
+    {
+      "id": 971440,
+      "name": "Create & Thermal extra compat"
+    },
+    {
+      "id": 979246,
+      "name": "Create Candy"
+    },
+    {
+      "id": 1210520,
+      "name": "Create: Old Timey Copper"
+    },
+    {
+      "id": 1147733,
+      "name": "Create: New Age - Readjusted"
+    },
+    {
+      "id": 1075682,
+      "name": "Cosmaztic's Swords : Reworked [Create]"
+    },
+    {
+      "id": 1247697,
+      "name": "Create: Train Deco"
+    },
+    {
+      "id": 1069158,
+      "name": "More Recipe For Automatic Create Farms [MRFA]"
+    },
+    {
+      "id": 904664,
+      "name": "PokeParts: Pixelmon + Create compat"
+    },
+    {
+      "id": 1155047,
+      "name": "Create: FreundeSMP Core"
+    },
+    {
+      "id": 927081,
+      "name": "Create Panda"
+    },
+    {
+      "id": 855898,
+      "name": "Create: Petrol Powered"
+    },
+    {
+      "id": 1201797,
+      "name": "Create: Goggle Placement"
+    },
+    {
+      "id": 1031295,
+      "name": "Simple steel for create"
+    },
+    {
+      "id": 1069942,
+      "name": "Create Thermal Style Crushed Ores"
+    },
+    {
+      "id": 1266763,
+      "name": "Create x Caverns & Chasms Compat"
+    },
+    {
+      "id": 1143515,
+      "name": "Create: JustARecipe"
+    },
+    {
+      "id": 940637,
+      "name": "Create + Biomes O' Plenty Rose Quartz Compatability"
+    },
+    {
+      "id": 1236537,
+      "name": "Create: Garnished Reworked"
+    },
+    {
+      "id": 1205994,
+      "name": "Create: Fantastic Weapons"
+    },
+    {
+      "id": 902050,
+      "name": "Create Battle Shields"
+    },
+    {
+      "id": 901289,
+      "name": "Create Sandpaper Overhaul"
+    },
+    {
+      "id": 1190987,
+      "name": "Create: Dexter"
+    },
+    {
+      "id": 1026360,
+      "name": "Create Trains and Custom Portal API Integration"
+    },
+    {
+      "id": 656273,
+      "name": "Create Powderlogy & Illumination"
+    },
+    {
+      "id": 683327,
+      "name": "Created Storage Drawers"
+    },
+    {
+      "id": 961555,
+      "name": "[PROJECT REPLACED] Create: The Coolest Addon Ever"
+    },
+    {
+      "id": 1235866,
+      "name": "Create : Change Train Sounds"
+    },
+    {
+      "id": 1225485,
+      "name": "Create: Looking Smokey"
+    },
+    {
+      "id": 1204679,
+      "name": "Create: Stuffz [6.0.0]"
+    },
+    {
+      "id": 1241210,
+      "name": "Circuitry For Create"
+    },
+    {
+      "id": 918706,
+      "name": "Create: Tweaky Trinkets"
+    },
+    {
+      "id": 1197508,
+      "name": "HK's Create Ores+"
+    },
+    {
+      "id": 1218991,
+      "name": "Create Nuclear Furnace"
+    },
+    {
+      "id": 1165718,
+      "name": "Create: Crying Obsidian"
+    },
+    {
+      "id": 1151414,
+      "name": "Create: Uncraftables Automation"
+    },
+    {
+      "id": 900482,
+      "name": "Create Legacy Raw Copper"
+    },
+    {
+      "id": 1239730,
+      "name": "Create: Gear"
+    },
+    {
+      "id": 1272092,
+      "name": "Create: Better Pumps"
+    },
+    {
+      "id": 963872,
+      "name": "Create Wireless Admin"
+    },
+    {
+      "id": 818353,
+      "name": "Create: Brass Coated"
+    },
+    {
+      "id": 1051481,
+      "name": "create: tempad"
+    },
+    {
+      "id": 1078807,
+      "name": "Create Numismatics Craft"
+    },
+    {
+      "id": 1039960,
+      "name": "Create-PBR-Beyond"
+    },
+    {
+      "id": 1033807,
+      "name": "Create MMA"
+    },
+    {
+      "id": 1203849,
+      "name": "Create: More Additional Recipes"
+    },
+    {
+      "id": 886763,
+      "name": "Create x CreatePlus (Forge) ([0.5.1][0.5.1a])"
+    },
+    {
+      "id": 1012652,
+      "name": "Create: Stuff & Crafts"
+    },
+    {
+      "id": 1252942,
+      "name": "Create more packages"
+    },
+    {
+      "id": 946036,
+      "name": "Create: christmass"
+    },
+    {
+      "id": 974729,
+      "name": "Better Create Recipes!"
+    },
+    {
+      "id": 1105572,
+      "name": "Create: Discord Notifications"
+    },
+    {
+      "id": 951969,
+      "name": "Create: Winter Village"
+    },
+    {
+      "id": 1024117,
+      "name": "create live block"
+    },
+    {
+      "id": 1015556,
+      "name": "Create: New Age: New Textures"
+    },
+    {
+      "id": 1076129,
+      "name": "Create: Irradiated: Sap Fix"
+    },
+    {
+      "id": 1268890,
+      "name": "Create: Genderless"
+    },
+    {
+      "id": 976157,
+      "name": "Create N more"
+    },
+    {
+      "id": 1109533,
+      "name": "CustomMachinery Create (Fork)"
+    },
+    {
+      "id": 1152174,
+      "name": "Create BDCraft"
+    },
+    {
+      "id": 1030930,
+      "name": "Create Immersive Aircrafts Andesite Chests Compat"
+    },
+    {
+      "id": 1006605,
+      "name": "Create: Ultimate Feast CORE"
+    },
+    {
+      "id": 1239946,
+      "name": "Create: Truly Modular"
+    },
+    {
+      "id": 1039890,
+      "name": "Create: Renewable Netherrack"
+    },
+    {
+      "id": 1281336,
+      "name": "Create: Hypertubes"
+    },
+    {
+      "id": 381881,
+      "name": "Create Integration"
+    },
+    {
+      "id": 1259148,
+      "name": "Create: Chicken Nuggets"
+    },
+    {
+      "id": 869550,
+      "name": "Create: Elitia Addon"
+    },
+    {
+      "id": 1215844,
+      "name": "Create: Let The Adventure Begin (DP)"
+    },
+    {
+      "id": 711921,
+      "name": "Create More Potatoes [Forge]"
+    },
+    {
+      "id": 639615,
+      "name": "CreateArmoredCopperBacktanks"
+    },
+    {
+      "id": 818477,
+      "name": "CreateMon"
+    },
+    {
+      "id": 1235193,
+      "name": "Create: Simple Coins"
+    },
+    {
+      "id": 982344,
+      "name": "Create: Waystones"
+    },
+    {
+      "id": 1147408,
+      "name": "Create Rock Remover (CRR)"
+    },
+    {
+      "id": 1012814,
+      "name": "Create clear glass"
+    },
+    {
+      "id": 1181837,
+      "name": "Create: Cobblemon"
+    },
+    {
+      "id": 709821,
+      "name": "Create Electrified"
+    },
+    {
+      "id": 956524,
+      "name": "Hexcoins: Create Crushin'"
+    },
+    {
+      "id": 1078959,
+      "name": "Create: Superflat & Skyblock Crates"
+    },
+    {
+      "id": 943402,
+      "name": "Create:Automated Gems"
+    },
+    {
+      "id": 1017594,
+      "name": "NGS's ScorchedGun Stats and Create Recipe"
+    },
+    {
+      "id": 916807,
+      "name": "Tool's Complement: Create"
+    },
+    {
+      "id": 858394,
+      "name": "More Create Automation"
+    },
+    {
+      "id": 916716,
+      "name": "Create x Valkyrien Skies (VS-)Clockwork Survival support"
+    },
+    {
+      "id": 689154,
+      "name": "Create & Cold Sweat Air Conditioning"
+    },
+    {
+      "id": 596249,
+      "name": "Create Live 3 Addon"
+    },
+    {
+      "id": 1217628,
+      "name": "Better Create"
+    },
+    {
+      "id": 1266504,
+      "name": "Create Style | Variant Pack for Lightman's Currency"
+    },
+    {
+      "id": 1055859,
+      "name": "Create: Props And Misc"
+    },
+    {
+      "id": 1060898,
+      "name": "Create: Smashing Bedrock"
+    },
+    {
+      "id": 1084633,
+      "name": "Create: Maximized Additions"
+    },
+    {
+      "id": 1239346,
+      "name": "Create Style HUD"
+    },
+    {
+      "id": 1065255,
+      "name": "Create Advanced Horses"
+    },
+    {
+      "id": 1046981,
+      "name": "Create Styled NASA Workbench"
+    },
+    {
+      "id": 986349,
+      "name": "Create Weapons Vanilla"
+    },
+    {
+      "id": 1187758,
+      "name": "Create: Craftable Zinc"
+    },
+    {
+      "id": 866396,
+      "name": "CreateGear"
+    },
+    {
+      "id": 1276341,
+      "name": "Create: Currency Shops"
+    },
+    {
+      "id": 1189086,
+      "name": "Create Nuka Cola"
+    },
+    {
+      "id": 1050001,
+      "name": "Create: Hell And End (HAE)"
+    },
+    {
+      "id": 1057024,
+      "name": "Create: Big Cannons Disguised Creative Autocannon Ammo Container"
+    },
+    {
+      "id": 1061410,
+      "name": "Create: Glow Berry Belts"
+    },
+    {
+      "id": 1097025,
+      "name": "Create: Rent-A-Plate"
+    },
+    {
+      "id": 1152067,
+      "name": "Create: Skyblock Simplified"
+    },
+    {
+      "id": 624839,
+      "name": "Create and Guns Additions"
+    },
+    {
+      "id": 1168107,
+      "name": "Create: Rags to Riches"
+    },
+    {
+      "id": 1188874,
+      "name": "Create: Recipes+"
+    },
+    {
+      "id": 984197,
+      "name": "Create: Colorful Belts"
+    },
+    {
+      "id": 980474,
+      "name": "Create: BlueprintVoid"
+    },
+    {
+      "id": 1182383,
+      "name": "Create:  Smart Compass"
+    },
+    {
+      "id": 1212232,
+      "name": "Create: More Recipes Addon"
+    },
+    {
+      "id": 870830,
+      "name": "Create Automations"
+    },
+    {
+      "id": 1037321,
+      "name": "Create: Mixed Stone"
+    },
+    {
+      "id": 1079364,
+      "name": "Compressed Create Recipes"
+    },
+    {
+      "id": 1204267,
+      "name": "Create: Cogged Up"
+    },
+    {
+      "id": 1180349,
+      "name": "Create - Forge Frontier Core"
+    },
+    {
+      "id": 791843,
+      "name": "Created Spawn Eggs"
+    },
+    {
+      "id": 1153376,
+      "name": "Create: Let them eat Goo!"
+    },
+    {
+      "id": 1181686,
+      "name": "Create: Herbology"
+    },
+    {
+      "id": 910977,
+      "name": "Create: Frozen Flavors"
+    },
+    {
+      "id": 999969,
+      "name": "Create: Finanzamt"
+    },
+    {
+      "id": 897956,
+      "name": "Create: Cosmic Adventures"
+    },
+    {
+      "id": 821990,
+      "name": "Create: Cooking Powder"
+    },
+    {
+      "id": 1075110,
+      "name": "Create: Molten Metallurgy"
+    },
+    {
+      "id": 947354,
+      "name": "Create and Bits Core"
+    },
+    {
+      "id": 1181381,
+      "name": "Create Awesome Outfit"
+    },
+    {
+      "id": 873075,
+      "name": "Create: Foundry"
+    },
+    {
+      "id": 631131,
+      "name": "Create Style Mekanism Pipes"
+    },
+    {
+      "id": 993525,
+      "name": "Create: smalls additions"
+    },
+    {
+      "id": 650208,
+      "name": "Create: Condensed Milk"
+    },
+    {
+      "id": 1241732,
+      "name": "Create: Cataclysm"
+    },
+    {
+      "id": 1218144,
+      "name": "Create Many More Mechanisms"
+    },
+    {
+      "id": 1238271,
+      "name": "Create Cobblemon Potion"
+    },
+    {
+      "id": 484689,
+      "name": "Created Ender Storage"
+    },
+    {
+      "id": 1251712,
+      "name": "Create: Crate Stuff (Broken Bad Addon)"
+    },
+    {
+      "id": 1254589,
+      "name": "Create: Henry"
+    },
+    {
+      "id": 1260129,
+      "name": "Create Immersive Unnecessary Shaft"
+    },
+    {
+      "id": 962961,
+      "name": "Create Custom Commands"
+    },
+    {
+      "id": 1259651,
+      "name": "Create: Packagers PSI Compat"
+    },
+    {
+      "id": 1024199,
+      "name": "CREATE - CRAFTING TABLE"
+    },
+    {
+      "id": 1057779,
+      "name": "Create: Experium ore"
+    },
+    {
+      "id": 837782,
+      "name": "Create Shrunk"
+    },
+    {
+      "id": 1037032,
+      "name": "Create: Legacy Copper Continued"
+    },
+    {
+      "id": 1083156,
+      "name": "Create Milk Industry"
+    },
+    {
+      "id": 934721,
+      "name": "Create : Ammo"
+    },
+    {
+      "id": 949296,
+      "name": "Create: Immersive Portals for Forge"
+    },
+    {
+      "id": 1197712,
+      "name": "CreateRadioactive"
+    },
+    {
+      "id": 1128063,
+      "name": "Create: Cobblestone to Deepslate Compacting"
+    },
+    {
+      "id": 962697,
+      "name": "Create: More Copycats"
+    },
+    {
+      "id": 1274512,
+      "name": "Create : Arm-made Barbeque"
+    },
+    {
+      "id": 1224239,
+      "name": "Tar's create extra food"
+    },
+    {
+      "id": 1251265,
+      "name": "Create (v6) SolidSails - +FPS with Shaders & Create Windmills [ResourcePack]"
+    },
+    {
+      "id": 701556,
+      "name": "Create: Unlock Schematics"
+    },
+    {
+      "id": 1206860,
+      "name": "create: simple andesite recipe"
+    },
+    {
+      "id": 952217,
+      "name": "Create Scannable Complimentary"
+    },
+    {
+      "id": 1242892,
+      "name": "Create: Classic Blaze Enchanter"
+    },
+    {
+      "id": 833601,
+      "name": "Create - Immersive Portal Integration"
+    },
+    {
+      "id": 1242559,
+      "name": "Create: Defensive"
+    },
+    {
+      "id": 1233528,
+      "name": "Create: Complex Recipes"
+    },
+    {
+      "id": 696471,
+      "name": "Create: Mosaic Addition"
+    },
+    {
+      "id": 1009455,
+      "name": "Create: Recipes"
+    },
+    {
+      "id": 1124535,
+      "name": "Create: Project Civilization"
+    },
+    {
+      "id": 1125349,
+      "name": "Create: Engineers"
+    },
+    {
+      "id": 1247193,
+      "name": "Create:Egg Production"
+    },
+    {
+      "id": 1106956,
+      "name": "Create: Tool Master"
+    },
+    {
+      "id": 1232926,
+      "name": "Create: Chocolate Fountain"
+    },
+    {
+      "id": 1065761,
+      "name": "Create: Creative Survival"
+    },
+    {
+      "id": 1229967,
+      "name": "Create: Electric Drive"
+    },
+    {
+      "id": 1089748,
+      "name": "Mini Airport Create"
+    },
+    {
+      "id": 973519,
+      "name": "Create: Blast Off!"
+    },
+    {
+      "id": 934480,
+      "name": "Create + Biomes O' Plenty Rose Quartz Compatability Datapack"
+    },
+    {
+      "id": 1002711,
+      "name": "Create: CookieCookieCookieCookieCookie"
+    },
+    {
+      "id": 1009979,
+      "name": "Create: Universal Ores"
+    },
+    {
+      "id": 652716,
+      "name": "Create: Edible Belts"
+    },
+    {
+      "id": 794213,
+      "name": "Create: Industrial Chemistry"
+    },
+    {
+      "id": 1246525,
+      "name": "Create Jet boots"
+    },
+    {
+      "id": 1075537,
+      "name": "Create Firearms-Kinetic Pixel"
+    },
+    {
+      "id": 1030220,
+      "name": "Create: Colored Casing"
+    },
+    {
+      "id": 914477,
+      "name": "CreateStyleGui-Brass Craft (fancy)"
+    },
+    {
+      "id": 1167047,
+      "name": "Create: Fiberglass"
+    },
+    {
+      "id": 645912,
+      "name": "Create Ore Additions"
+    },
+    {
+      "id": 1048415,
+      "name": "Create: Garnished Additions"
+    },
+    {
+      "id": 955391,
+      "name": "Create: Cooking"
+    },
+    {
+      "id": 1099959,
+      "name": "Elevators and Create"
+    },
+    {
+      "id": 969553,
+      "name": "Create: Fastfood"
+    },
+    {
+      "id": 1065647,
+      "name": "Create Trains and CustomPortalAPI Compability"
+    },
+    {
+      "id": 678956,
+      "name": "Create: Connected Block Textures"
+    },
+    {
+      "id": 1101124,
+      "name": "Oh no: Create Utilities"
+    },
+    {
+      "id": 1243593,
+      "name": "Create Cogs Invaders"
+    },
+    {
+      "id": 1130982,
+      "name": "Create Deco Additions "
+    },
+    {
+      "id": 984726,
+      "name": "Create Re-aged"
+    },
+    {
+      "id": 1242374,
+      "name": "Create: Designed Decor"
+    },
+    {
+      "id": 1274783,
+      "name": "Create: Alex's Caves Compat"
+    },
+    {
+      "id": 1271816,
+      "name": "Create: Delivery Director"
+    },
+    {
+      "id": 1059742,
+      "name": "Create Craftable Experience Nuggets"
+    },
+    {
+      "id": 1063668,
+      "name": "Create: Lagless"
+    },
+    {
+      "id": 953438,
+      "name": "Pigeon's Create Recipes"
+    },
+    {
+      "id": 1271483,
+      "name": "Create: Dreams n' Desires Updated to Create 6"
+    },
+    {
+      "id": 920415,
+      "name": "Create: Deepslate Crushing"
+    },
+    {
+      "id": 1149405,
+      "name": "Create: Numismatics Recipes"
+    },
+    {
+      "id": 1230892,
+      "name": "Create: Cardboarded Conveynience"
+    },
+    {
+      "id": 899724,
+      "name": "Create Paper Line"
+    },
+    {
+      "id": 1156507,
+      "name": "Create Gravel extractors "
+    },
+    {
+      "id": 1088155,
+      "name": "Create: For Science!"
+    },
+    {
+      "id": 856080,
+      "name": "Create Alchemist's Industry"
+    },
+    {
+      "id": 869204,
+      "name": "Create: Chipped Cutting"
+    },
+    {
+      "id": 1101585,
+      "name": "Create: More Alloys"
+    },
+    {
+      "id": 1095941,
+      "name": "Create: Halitosis Create: Halitosis"
+    },
+    {
+      "id": 1178595,
+      "name": "Create: Confectioneering"
+    },
+    {
+      "id": 936724,
+      "name": "Create: Founded"
+    },
+    {
+      "id": 981650,
+      "name": "Create: Chairs on Trains"
+    },
+    {
+      "id": 1081605,
+      "name": "Create: better baking"
+    },
+    {
+      "id": 1003884,
+      "name": "Create: Functional Stuffs & Recipes"
+    },
+    {
+      "id": 1238539,
+      "name": "Create Vampirism"
+    },
+    {
+      "id": 1065775,
+      "name": "Rush's Create Addon Fixes"
+    },
+    {
+      "id": 1088389,
+      "name": "(Archived) Create and Conquer"
+    },
+    {
+      "id": 1025755,
+      "name": "Create Immersive Aircraft : Warship Recipe"
+    },
+    {
+      "id": 606804,
+      "name": "Create Lab"
+    },
+    {
+      "id": 915908,
+      "name": "Create: More Renewable"
+    },
+    {
+      "id": 1023693,
+      "name": "Create: Droid Netherrack"
+    },
+    {
+      "id": 1162691,
+      "name": "Create: Abuti"
+    },
+    {
+      "id": 992253,
+      "name": "Quality Of Life Create"
+    },
+    {
+      "id": 1225057,
+      "name": "Create: Testosterone"
+    },
+    {
+      "id": 1199190,
+      "name": "Create: Advanced Crafting"
+    },
+    {
+      "id": 1023696,
+      "name": "Create: Droid Diamond"
+    },
+    {
+      "id": 623468,
+      "name": "Create Style Redstone Pen"
+    },
+    {
+      "id": 869677,
+      "name": "Create Theme Armor Addon"
+    },
+    {
+      "id": 635569,
+      "name": "Create Curios"
+    },
+    {
+      "id": 1176963,
+      "name": "Create Title Menu - Engineering & Mechanical Aesthetics"
+    },
+    {
+      "id": 1240780,
+      "name": "Create: Vintage"
+    },
+    {
+      "id": 1091600,
+      "name": "Create: Mountain Dew"
+    },
+    {
+      "id": 1033109,
+      "name": "Create: Redstone"
+    },
+    {
+      "id": 1167899,
+      "name": "Create:  Increased Recipes"
+    },
+    {
+      "id": 1098838,
+      "name": "Create: Shiny!"
+    },
+    {
+      "id": 1072144,
+      "name": "Create: Wither's Herb"
+    },
+    {
+      "id": 1084056,
+      "name": "Create: Eternal Copper"
+    },
+    {
+      "id": 1007773,
+      "name": "Create: Mortar"
+    },
+    {
+      "id": 1029998,
+      "name": "Create: Ducks Additions"
+    },
+    {
+      "id": 1106541,
+      "name": "Create: Simple Recipes"
+    },
+    {
+      "id": 1262216,
+      "name": "Create Military Grade"
+    },
+    {
+      "id": 1110034,
+      "name": "Create Creative Item Recipes"
+    },
+    {
+      "id": 678852,
+      "name": "Created Music Discs"
+    },
+    {
+      "id": 1182191,
+      "name": "Create: Vault Terminal"
+    },
+    {
+      "id": 838461,
+      "name": "Create: BioFuel"
+    },
+    {
+      "id": 1087409,
+      "name": "Create: Asbestos And More"
+    },
+    {
+      "id": 1016742,
+      "name": "Create : Drills"
+    },
+    {
+      "id": 715294,
+      "name": "Create: Mounted Storages"
+    },
+    {
+      "id": 986493,
+      "name": "Create : Potato Firepower"
+    },
+    {
+      "id": 1173459,
+      "name": "Create: Chromatic Return Extras"
+    },
+    {
+      "id": 623941,
+      "name": "CreatePlus"
+    },
+    {
+      "id": 987863,
+      "name": "Create Ponder [Frozen]"
+    },
+    {
+      "id": 1108252,
+      "name": "Create: Creative recipes"
+    },
+    {
+      "id": 966843,
+      "name": "Crafting Recipes For Create"
+    },
+    {
+      "id": 1168401,
+      "name": "Create:Fluid Stuffs"
+    },
+    {
+      "id": 962629,
+      "name": "Astral Dimension Create Compats (Milling and Crushing)"
+    },
+    {
+      "id": 1145498,
+      "name": "Create: Magics"
+    },
+    {
+      "id": 934731,
+      "name": "Extreme Reactors Create Compat"
+    },
+    {
+      "id": 931075,
+      "name": "Create: Fabilium (Create: decorations, previously)"
+    },
+    {
+      "id": 1034948,
+      "name": "Create Heat JS"
+    },
+    {
+      "id": 862875,
+      "name": "Create Styled Ad Astra Plates"
+    },
+    {
+      "id": 1103828,
+      "name": "Create Furnace Lava Adapter"
+    },
+    {
+      "id": 805588,
+      "name": "Create: Electric Trains"
+    },
+    {
+      "id": 1203960,
+      "name": "Create Realism"
+    },
+    {
+      "id": 1235880,
+      "name": "Create F&M 3 Core"
+    },
+    {
+      "id": 884163,
+      "name": "Create: Engineer's Construct"
+    },
+    {
+      "id": 1002689,
+      "name": "Create: Craftable Diamond"
+    },
+    {
+      "id": 995593,
+      "name": "Create: Unify"
+    },
+    {
+      "id": 952886,
+      "name": "Create: Resource Geodes"
+    },
+    {
+      "id": 907203,
+      "name": "Create Cherry Addon"
+    },
+    {
+      "id": 1090711,
+      "name": "Create Storage Drawers"
+    },
+    {
+      "id": 981422,
+      "name": "Create: Many more recipes"
+    },
+    {
+      "id": 1246793,
+      "name": "Create: Fuel Motor"
+    },
+    {
+      "id": 659044,
+      "name": "Create: Molten Geodes"
+    },
+    {
+      "id": 1014980,
+      "name": "Create: Storage"
+    },
+    {
+      "id": 1075846,
+      "name": "Create: CEconomy Coins"
+    },
+    {
+      "id": 1062344,
+      "name": "Create Delight Core"
+    },
+    {
+      "id": 1087605,
+      "name": "Create : Tools n' Weapons [BETA]"
+    },
+    {
+      "id": 1165133,
+      "name": "Create: Automated Blaze Cakes"
+    },
+    {
+      "id": 1024772,
+      "name": "Create: Numismatics Crafting Recipe"
+    },
+    {
+      "id": 1172382,
+      "name": "Create : Numismatic Bounties"
+    },
+    {
+      "id": 1087807,
+      "name": "Create:  Fox's Wings"
+    },
+    {
+      "id": 925913,
+      "name": "Create: Interactive"
+    },
+    {
+      "id": 1133130,
+      "name": "Create: Tramways"
+    },
+    {
+      "id": 1247764,
+      "name": "Create Back on Track TP"
+    },
+    {
+      "id": 1029004,
+      "name": "Create: Compounds"
+    },
+    {
+      "id": 645553,
+      "name": "Create InfiniDrill"
+    },
+    {
+      "id": 922814,
+      "name": "Create Recipe Additions"
+    },
+    {
+      "id": 912865,
+      "name": "Create: Irradiated"
+    },
+    {
+      "id": 1176826,
+      "name": "Create: Charcoal to Diamonds"
+    },
+    {
+      "id": 1032011,
+      "name": "Create: Lazy Engines"
+    },
+    {
+      "id": 1086640,
+      "name": "Create: Arms Race"
+    },
+    {
+      "id": 1206040,
+      "name": "Create: Occult Engineering"
+    },
+    {
+      "id": 1262083,
+      "name": "Create: Clothes"
+    },
+    {
+      "id": 901464,
+      "name": "Create Energy"
+    },
+    {
+      "id": 1179503,
+      "name": "Create: No Touching"
+    },
+    {
+      "id": 1076283,
+      "name": "Create: Cola Factory"
+    },
+    {
+      "id": 939836,
+      "name": "Create Redstone craft"
+    },
+    {
+      "id": 485596,
+      "name": "CreateFoodAdditions"
+    },
+    {
+      "id": 1247573,
+      "name": "Create: Compatible Storage"
+    },
+    {
+      "id": 1057729,
+      "name": "Create: Cobblemon Tweaks"
+    },
+    {
+      "id": 1068410,
+      "name": "Create Sheets to Ingots"
+    },
+    {
+      "id": 1024747,
+      "name": "CREATE - VAULT CHEST"
+    },
+    {
+      "id": 1089123,
+      "name": "Create: Spring Loaded"
+    },
+    {
+      "id": 970498,
+      "name": "Create Ultra"
+    },
+    {
+      "id": 1210517,
+      "name": "Create: Old Copper Stuffs"
+    },
+    {
+      "id": 958617,
+      "name": "Create: Ultimate Factory [Datapack]"
+    },
+    {
+      "id": 1095481,
+      "name": "Create ewewukek's Muskets"
+    },
+    {
+      "id": 1233804,
+      "name": "Create: Cyber Goggles"
+    },
+    {
+      "id": 1263228,
+      "name": "Create: Extra Gauges"
+    },
+    {
+      "id": 1076056,
+      "name": "Create: Powerlines"
+    },
+    {
+      "id": 1264989,
+      "name": "Create: Mechanical Companion"
+    },
+    {
+      "id": 1118946,
+      "name": "Create: High Pressure"
+    },
+    {
+      "id": 970024,
+      "name": "Create: Full Automation"
+    },
+    {
+      "id": 961527,
+      "name": "Create Additions & Synthetics"
+    },
+    {
+      "id": 1070575,
+      "name": "Create: Deepslate Processing"
+    },
+    {
+      "id": 1004413,
+      "name": "Create: New Age - Refrubished!"
+    },
+    {
+      "id": 1010812,
+      "name": "Create: Stone Generator"
+    },
+    {
+      "id": 1048662,
+      "name": "Create: Automation"
+    },
+    {
+      "id": 1168399,
+      "name": "Create: Diamond & Factory"
+    },
+    {
+      "id": 1099961,
+      "name": "Create: Nuclear War"
+    },
+    {
+      "id": 833065,
+      "name": "Create: Buffers & Beams"
+    },
+    {
+      "id": 665321,
+      "name": "Create Curios Goggles [DISCONTINUED]"
+    },
+    {
+      "id": 883959,
+      "name": "Create Unlimited"
+    },
+    {
+      "id": 930254,
+      "name": "EC Create Compatability"
+    },
+    {
+      "id": 1216957,
+      "name": "Create: Back on Track Core"
+    },
+    {
+      "id": 968907,
+      "name": "Create: More Farmables [Forge/Fabric]"
+    },
+    {
+      "id": 953832,
+      "name": "Cultural Creators [Fabric] (Create and Cultural Delights Addon)"
+    },
+    {
+      "id": 1042501,
+      "name": "Create: Redstone Additions"
+    },
+    {
+      "id": 1081583,
+      "name": "Create Slugma"
+    },
+    {
+      "id": 1104223,
+      "name": "Mekanism x Create: Northstar"
+    },
+    {
+      "id": 836544,
+      "name": "Create: More Sand Papers"
+    },
+    {
+      "id": 1232975,
+      "name": "Create: Rustic Structures [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 856859,
+      "name": "Create: Dall"
+    },
+    {
+      "id": 990614,
+      "name": "Create: Eternal Deployer Fix"
+    },
+    {
+      "id": 1201003,
+      "name": "Create Numismatics Wallet"
+    },
+    {
+      "id": 1200903,
+      "name": "Create: Bigger Storage"
+    },
+    {
+      "id": 991695,
+      "name": "Create: Meds and Herbs: Automated"
+    },
+    {
+      "id": 1084898,
+      "name": "Create Easy Villagers Textures"
+    },
+    {
+      "id": 1027019,
+      "name": "Create: Nuka Cola Classic"
+    },
+    {
+      "id": 1217247,
+      "name": "Create: Backpack Pixel"
+    },
+    {
+      "id": 1253819,
+      "name": "Create: Propulsion"
+    },
+    {
+      "id": 1105122,
+      "name": "Create & Conquer - Extras"
+    },
+    {
+      "id": 985859,
+      "name": "Create: Netherless (Fabric)"
+    },
+    {
+      "id": 958609,
+      "name": "Create: Copper & Zinc [Datapack]"
+    },
+    {
+      "id": 1022166,
+      "name": "Create: Klinks n' Klangs (for Cobblemon)"
+    },
+    {
+      "id": 1006205,
+      "name": "Create: Crushing Quartz"
+    },
+    {
+      "id": 1140073,
+      "name": "Create: pneumatic equipment"
+    },
+    {
+      "id": 1255522,
+      "name": "Create: Cobblemon  Balls  Overhaul"
+    },
+    {
+      "id": 1010865,
+      "name": "Create:Now that's a train!"
+    },
+    {
+      "id": 1263211,
+      "name": "Cobblemon: Create Industries (3D Production Models)"
+    },
+    {
+      "id": 968670,
+      "name": "Create : CROWNS"
+    },
+    {
+      "id": 1131561,
+      "name": "Create Lootr"
+    },
+    {
+      "id": 478898,
+      "name": "Create Addon"
+    },
+    {
+      "id": 926886,
+      "name": "Create Coins"
+    },
+    {
+      "id": 1214409,
+      "name": "Create: Dimension, Steamworks Realm"
+    },
+    {
+      "id": 925715,
+      "name": "Create: Reclaimed Rocks"
+    },
+    {
+      "id": 1129503,
+      "name": "Create: Enlightend [Forge/NeoForge]"
+    },
+    {
+      "id": 1011284,
+      "name": "Pollution Of Create"
+    },
+    {
+      "id": 863484,
+      "name": "Create Infernal Expansion Compat"
+    },
+    {
+      "id": 1012531,
+      "name": "Create: Quark Runes"
+    },
+    {
+      "id": 1225687,
+      "name": "Create: Recycling Everything [NeoForge Port]"
+    },
+    {
+      "id": 1095874,
+      "name": "Create Mekanism Ore Excavation"
+    },
+    {
+      "id": 1218807,
+      "name": "Create Factory Logistics"
+    },
+    {
+      "id": 1019297,
+      "name": "Create Energistics"
+    },
+    {
+      "id": 1005193,
+      "name": "Create: Connected Fabric [experimental]"
+    },
+    {
+      "id": 566493,
+      "name": "Create Camera"
+    },
+    {
+      "id": 1122968,
+      "name": "Create: Ore Factory"
+    },
+    {
+      "id": 1144636,
+      "name": "Create Dough Compat (CDC) [MOD ver.]"
+    },
+    {
+      "id": 826365,
+      "name": "Create Guns: Scorched "
+    },
+    {
+      "id": 1015326,
+      "name": "Create: Amazing Trading"
+    },
+    {
+      "id": 776497,
+      "name": "Create Enchantment Industry Plus"
+    },
+    {
+      "id": 939431,
+      "name": "Create: militarized"
+    },
+    {
+      "id": 819691,
+      "name": "Created Drawers"
+    },
+    {
+      "id": 865903,
+      "name": "Create Darkmode"
+    },
+    {
+      "id": 1160777,
+      "name": "Create Ad Astra Recipes"
+    },
+    {
+      "id": 813116,
+      "name": "Create : Gravity"
+    },
+    {
+      "id": 870545,
+      "name": "Create Immersive Aircrafts - Recipes"
+    },
+    {
+      "id": 909651,
+      "name": "Create Editions"
+    },
+    {
+      "id": 1070326,
+      "name": "Create: Automate Everything"
+    },
+    {
+      "id": 1118674,
+      "name": "Create: Reforged Foundations"
+    },
+    {
+      "id": 1256341,
+      "name": "Create Stock Bridge"
+    },
+    {
+      "id": 806042,
+      "name": "Create: Basic Additions"
+    },
+    {
+      "id": 1085902,
+      "name": "Create Waystones Texture + GUI"
+    },
+    {
+      "id": 1006891,
+      "name": "Create: More Chocolate"
+    },
+    {
+      "id": 986589,
+      "name": "Create: Creative"
+    },
+    {
+      "id": 1236032,
+      "name": "Create: Simple Generator"
+    },
+    {
+      "id": 945214,
+      "name": "Create Compression"
+    },
+    {
+      "id": 1081007,
+      "name": "Create Renewability"
+    },
+    {
+      "id": 1070455,
+      "name": "Create: Blazing Hot"
+    },
+    {
+      "id": 1029202,
+      "name": "Create: Station Decor"
+    },
+    {
+      "id": 1245539,
+      "name": "Create: Fishery Industry"
+    },
+    {
+      "id": 958151,
+      "name": "Create Coal to Diamonds"
+    },
+    {
+      "id": 923742,
+      "name": "Create: Ethium [Outdated - Check Desc.]"
+    },
+    {
+      "id": 1097714,
+      "name": "Waystones and Create"
+    },
+    {
+      "id": 1060988,
+      "name": "Create Legacy"
+    },
+    {
+      "id": 1104939,
+      "name": "Create: Sky Village Forge & Fabric"
+    },
+    {
+      "id": 1121632,
+      "name": "Create Horse Power"
+    },
+    {
+      "id": 1211589,
+      "name": "Create Oritech Compat"
+    },
+    {
+      "id": 1062293,
+      "name": "Create Refined Storage Recipes"
+    },
+    {
+      "id": 1020000,
+      "name": "Create: Cobblemon Factory"
+    },
+    {
+      "id": 1042380,
+      "name": "Create Thermal Ore Excavation"
+    },
+    {
+      "id": 803076,
+      "name": "Created Pretty Pipes"
+    },
+    {
+      "id": 966467,
+      "name": "Create Crafts & Additions Plus"
+    },
+    {
+      "id": 1085408,
+      "name": "Create: Additional Lights"
+    },
+    {
+      "id": 1111030,
+      "name": "More Create Burners"
+    },
+    {
+      "id": 1070007,
+      "name": "Create Thermal Compat"
+    },
+    {
+      "id": 1119798,
+      "name": "Croptopia and Create"
+    },
+    {
+      "id": 1249131,
+      "name": "Create: Integrated Farming"
+    },
+    {
+      "id": 1165756,
+      "name": "Create: Ranged [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 946379,
+      "name": "Create Netherrack"
+    },
+    {
+      "id": 1026647,
+      "name": "Create Stuff & Netherite Additions"
+    },
+    {
+      "id": 735609,
+      "name": "Create: Rainbow Compound"
+    },
+    {
+      "id": 682954,
+      "name": "Create-PBR"
+    },
+    {
+      "id": 663769,
+      "name": "Create: Extended Flywheels"
+    },
+    {
+      "id": 1206968,
+      "name": "Create Origins Compat"
+    },
+    {
+      "id": 1096395,
+      "name": "Create: Crafts & (More) Additions [Forge/Fabric]"
+    },
+    {
+      "id": 1166909,
+      "name": "Create: New Tempest"
+    },
+    {
+      "id": 1194036,
+      "name": "Create: Gunsmithing"
+    },
+    {
+      "id": 1028420,
+      "name": "Create: TrainUtilities(Fabric/Forge)"
+    },
+    {
+      "id": 715249,
+      "name": "Create: Pixelfactory"
+    },
+    {
+      "id": 952120,
+      "name": "Create Curio Goggles"
+    },
+    {
+      "id": 905897,
+      "name": "Create: Drinks"
+    },
+    {
+      "id": 659838,
+      "name": "Create Experienced (Discontinued)"
+    },
+    {
+      "id": 952760,
+      "name": "Create: The Recipe Expansion"
+    },
+    {
+      "id": 813017,
+      "name": "Create Slime Craft"
+    },
+    {
+      "id": 730824,
+      "name": "Create Ore Excavation Plus"
+    },
+    {
+      "id": 444965,
+      "name": "More Create Stuffs"
+    },
+    {
+      "id": 1003294,
+      "name": "Create: Peaceful [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 1089858,
+      "name": "Create Firearms Patch (kinetic pixel)"
+    },
+    {
+      "id": 976304,
+      "name": "Create: Power Loader (Fabric)"
+    },
+    {
+      "id": 935720,
+      "name": "Craftable Create Casings (Forge/Fabric)"
+    },
+    {
+      "id": 916864,
+      "name": "Create: Villagerology"
+    },
+    {
+      "id": 750818,
+      "name": "Create: Extended Flywheels Fabric"
+    },
+    {
+      "id": 573072,
+      "name": "Create Guns"
+    },
+    {
+      "id": 983234,
+      "name": "Create Ratatouille"
+    },
+    {
+      "id": 1136762,
+      "name": "Create: Bio-Factory"
+    },
+    {
+      "id": 1025399,
+      "name": "Create Immersive Aircraft : Warship"
+    },
+    {
+      "id": 535563,
+      "name": "Create gear addon"
+    },
+    {
+      "id": 1212694,
+      "name": "Create: Tinker's Compat"
+    },
+    {
+      "id": 971512,
+      "name": "Biomes O' Plenty and Create Rose Quartz Compat"
+    },
+    {
+      "id": 873936,
+      "name": "Delightful Creators [Fabric] (Create and Farmer's Delight Addon)"
+    },
+    {
+      "id": 618195,
+      "name": "Create: Supercharged"
+    },
+    {
+      "id": 1152431,
+      "name": "Create: Immersive Tacz Integration"
+    },
+    {
+      "id": 757052,
+      "name": "Create: Alloyed Guns"
+    },
+    {
+      "id": 1241678,
+      "name": "Create Mechanical Cow"
+    },
+    {
+      "id": 821428,
+      "name": "Create Train Additions"
+    },
+    {
+      "id": 1090260,
+      "name": "Create: New Beginnings"
+    },
+    {
+      "id": 833501,
+      "name": "Create: Components and Additions"
+    },
+    {
+      "id": 940673,
+      "name": "EMI: Create Schematics"
+    },
+    {
+      "id": 1232978,
+      "name": "Create: Mobile Packages"
+    },
+    {
+      "id": 944097,
+      "name": "Create Mob Eggs"
+    },
+    {
+      "id": 966928,
+      "name": "Create - Songs and Speakers (Iam Music Player Fork)"
+    },
+    {
+      "id": 911431,
+      "name": "Jack's Economy (Create Edition)"
+    },
+    {
+      "id": 1251719,
+      "name": "Create: Vibrant Vaults"
+    },
+    {
+      "id": 1071749,
+      "name": "Create: Northstar"
+    },
+    {
+      "id": 974537,
+      "name": "Create: WooderWheels"
+    },
+    {
+      "id": 869682,
+      "name": "Create: Biomimicry"
+    },
+    {
+      "id": 1099989,
+      "name": "Create x Caverns & Chasms Compatibility Datapack"
+    },
+    {
+      "id": 1010576,
+      "name": "Create: Applied Energistics 2"
+    },
+    {
+      "id": 980611,
+      "name": "Dynamic Trees Create Compat"
+    },
+    {
+      "id": 1163890,
+      "name": "Create: Cheese Factory [Forge/NeoForge]"
+    },
+    {
+      "id": 1205493,
+      "name": "Create: Clearate"
+    },
+    {
+      "id": 1162995,
+      "name": "Create : New Furnitures"
+    },
+    {
+      "id": 1103188,
+      "name": "Create More Recipes"
+    },
+    {
+      "id": 556927,
+      "name": "Create: Armor and Weapons Addon"
+    },
+    {
+      "id": 877334,
+      "name": "Create: Big Contraptions"
+    },
+    {
+      "id": 1206505,
+      "name": "Create: Easy Stone Generators [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 910134,
+      "name": "Create: Trains On Trains"
+    },
+    {
+      "id": 1094958,
+      "name": "Create: Pillager Arise"
+    },
+    {
+      "id": 750841,
+      "name": "Create Compats"
+    },
+    {
+      "id": 890398,
+      "name": "Create: Arcane Engineering Core"
+    },
+    {
+      "id": 1063150,
+      "name": "Create: Chronicles Core"
+    },
+    {
+      "id": 963802,
+      "name": "Create: Unbreakable Tools"
+    },
+    {
+      "id": 1056947,
+      "name": "Create: Chimneys"
+    },
+    {
+      "id": 1260145,
+      "name": "Create: Escalated"
+    },
+    {
+      "id": 1012729,
+      "name": "Create: Nuke"
+    },
+    {
+      "id": 1237495,
+      "name": "Create: Stam1o Tweaks"
+    },
+    {
+      "id": 1231381,
+      "name": "Create Ultimine"
+    },
+    {
+      "id": 1184450,
+      "name": "Create: Cold Sweat"
+    },
+    {
+      "id": 1020165,
+      "name": "Create: Armor Trim"
+    },
+    {
+      "id": 858897,
+      "name": "Create : Creating Space"
+    },
+    {
+      "id": 1096864,
+      "name": "Create: Curios Backtank"
+    },
+    {
+      "id": 1056743,
+      "name": "Create: Simple Ore Doubling [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 911382,
+      "name": "Create: Missions"
+    },
+    {
+      "id": 1192187,
+      "name": "Create: Extra Casing"
+    },
+    {
+      "id": 1020173,
+      "name": "Create: Deep Dark [Forge/NeoForge]"
+    },
+    {
+      "id": 1076861,
+      "name": "Create: Dynamic Lights"
+    },
+    {
+      "id": 846935,
+      "name": "CreateFabric&REIBugFix"
+    },
+    {
+      "id": 901711,
+      "name": "Respite Creators [Fabric] (Create and Farmer's Respite Addon)"
+    },
+    {
+      "id": 907369,
+      "name": "Create: Steel armor blocks"
+    },
+    {
+      "id": 1000148,
+      "name": "Create: Addon Compatibility"
+    },
+    {
+      "id": 945137,
+      "name": "Create: More Automation"
+    },
+    {
+      "id": 841298,
+      "name": "Create: More Drill Heads"
+    },
+    {
+      "id": 790765,
+      "name": "Create Sifting Refabricated"
+    },
+    {
+      "id": 782293,
+      "name": "Create Decoration Casing"
+    },
+    {
+      "id": 1234318,
+      "name": "Create: Air Ducts"
+    },
+    {
+      "id": 895548,
+      "name": "Create: Haven Qualities"
+    },
+    {
+      "id": 497867,
+      "name": "Create Gears"
+    },
+    {
+      "id": 951106,
+      "name": "Create : The Salt"
+    },
+    {
+      "id": 507435,
+      "name": "Create Automated"
+    },
+    {
+      "id": 1196142,
+      "name": "Create: Sound of Steam"
+    },
+    {
+      "id": 1218836,
+      "name": "Create: Security Program"
+    },
+    {
+      "id": 949995,
+      "name": "Create: Wizardry"
+    },
+    {
+      "id": 961317,
+      "name": "Create: Copies & Cats"
+    },
+    {
+      "id": 1109760,
+      "name": "Create: Timeless and Classics Zero [TaCZ]"
+    },
+    {
+      "id": 919412,
+      "name": "Create: Upgraded Armor"
+    },
+    {
+      "id": 860168,
+      "name": "Create Guardian Beam Defense"
+    },
+    {
+      "id": 1165250,
+      "name": "Create: The Air War"
+    },
+    {
+      "id": 989797,
+      "name": "Create Nuclear"
+    },
+    {
+      "id": 492890,
+      "name": "Create Tweaks & Compats"
+    },
+    {
+      "id": 913878,
+      "name": "Create: Steam Powered Revived"
+    },
+    {
+      "id": 1212722,
+      "name": "Create: Filters Anywhere"
+    },
+    {
+      "id": 1068172,
+      "name": "Create: Ironworks [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 821828,
+      "name": "Create Mechanical Spawner"
+    },
+    {
+      "id": 948877,
+      "name": "Create Hand Crafting"
+    },
+    {
+      "id": 1180196,
+      "name": "Create Big Cannons: Advanced Technologies"
+    },
+    {
+      "id": 905508,
+      "name": "Create: Quality Of Life"
+    },
+    {
+      "id": 1162812,
+      "name": "Create: Better Motors"
+    },
+    {
+      "id": 1084197,
+      "name": "Create: TaCZ Automation"
+    },
+    {
+      "id": 538560,
+      "name": "Create: Balanced Flight (Angel Ring)"
+    },
+    {
+      "id": 834415,
+      "name": "Create: Modern Train Parts"
+    },
+    {
+      "id": 1112333,
+      "name": "Create: Diesel Generators IMPROVED SOUNDS"
+    },
+    {
+      "id": 1146995,
+      "name": "Create Waystone Recipes Datapack"
+    },
+    {
+      "id": 1189941,
+      "name": "Create: Block n' Zapping"
+    },
+    {
+      "id": 1138965,
+      "name": "Create Logistics"
+    },
+    {
+      "id": 503784,
+      "name": "Create Chromatic Return"
+    },
+    {
+      "id": 977947,
+      "name": "Create: Copper & Zinc [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 866839,
+      "name": "Create Picky Wheels"
+    },
+    {
+      "id": 1005816,
+      "name": "Create: Eureka!"
+    },
+    {
+      "id": 991194,
+      "name": "Create: Extended Cogwheels Unofficial"
+    },
+    {
+      "id": 623512,
+      "name": "Create Style Tom's Simple Storage"
+    },
+    {
+      "id": 1108525,
+      "name": "Create: Better Villager"
+    },
+    {
+      "id": 1013196,
+      "name": "Create: Buffers and Beams Overhauled!"
+    },
+    {
+      "id": 969517,
+      "name": "Create: Love & War"
+    },
+    {
+      "id": 1010908,
+      "name": "Create: Molten Metals"
+    },
+    {
+      "id": 986353,
+      "name": "Create: Teleporters Remastered"
+    },
+    {
+      "id": 1068890,
+      "name": "Create: New Age Retexture"
+    },
+    {
+      "id": 635620,
+      "name": "Create: Broken Bad"
+    },
+    {
+      "id": 934958,
+      "name": "Create: Oppenheimered"
+    },
+    {
+      "id": 1091960,
+      "name": "Create: More Features"
+    },
+    {
+      "id": 1175578,
+      "name": "Create: Mob Spawners"
+    },
+    {
+      "id": 873945,
+      "name": "Create Low-Heated"
+    },
+    {
+      "id": 906568,
+      "name": "Create: Diesel Generators [Fabric]"
+    },
+    {
+      "id": 975573,
+      "name": "Create Tweaked Controller unofficial ZH_HK Translation"
+    },
+    {
+      "id": 988047,
+      "name": "Create: Train Perspective Fix"
+    },
+    {
+      "id": 938959,
+      "name": "Create UI"
+    },
+    {
+      "id": 989975,
+      "name": "Create: Advancement Plagues"
+    },
+    {
+      "id": 1093675,
+      "name": "Create Pattern Schematics zh_hk Translation"
+    },
+    {
+      "id": 971920,
+      "name": "Create Questing unofficial ZH_HK Translation"
+    },
+    {
+      "id": 1098566,
+      "name": "create-VI-CA-TFMG-conflict-fix"
+    },
+    {
+      "id": 945095,
+      "name": "Create Quests"
+    },
+    {
+      "id": 978675,
+      "name": "Create: Totem Factory"
+    },
+    {
+      "id": 709112,
+      "name": "Create: Electric Stonks"
+    },
+    {
+      "id": 867626,
+      "name": "Create Weaponry"
+    },
+    {
+      "id": 969657,
+      "name": "Create Tweaked Controller unofficial ZH_TW Translation"
+    },
+    {
+      "id": 845950,
+      "name": "Create : Armory"
+    },
+    {
+      "id": 979661,
+      "name": "Create Questing unofficial ZH_CN Translation"
+    },
+    {
+      "id": 979641,
+      "name": "Create Train Additions clearer names"
+    },
+    {
+      "id": 943893,
+      "name": "Create DnDesires plain text"
+    },
+    {
+      "id": 954735,
+      "name": "Create: Villagerology NO Rail Manager"
+    },
+    {
+      "id": 923234,
+      "name": "Create: Villagers NO CREATIVE RECIPES"
+    },
+    {
+      "id": 971916,
+      "name": "Create Questing unofficial ZH_TW Translation"
+    },
+    {
+      "id": 969656,
+      "name": "Create Confectionery unofficial ZH_TW Translations"
+    },
+    {
+      "id": 1023209,
+      "name": "Create: Fuel & Water Information"
+    },
+    {
+      "id": 927187,
+      "name": "Create: Sweets & Treats"
+    },
+    {
+      "id": 1001456,
+      "name": "Create: Ad Astra Compatibility"
+    },
+    {
+      "id": 840329,
+      "name": "Create Style Hopper"
+    },
+    {
+      "id": 1007872,
+      "name": "Create: Let The Adventure Begin"
+    },
+    {
+      "id": 1057194,
+      "name": "Create: Curios Jetpack & Backtank [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 880593,
+      "name": "Create Air (A ThinAir compat)"
+    },
+    {
+      "id": 867119,
+      "name": "Create Gourmet"
+    },
+    {
+      "id": 923277,
+      "name": "Create: Garnished"
+    },
+    {
+      "id": 1005676,
+      "name": "Create: Aquatic Ambitions"
+    },
+    {
+      "id": 867328,
+      "name": "Create: Applied Kinetics"
+    },
+    {
+      "id": 952062,
+      "name": "Create: The Kitchen Must Grow"
+    },
+    {
+      "id": 1152836,
+      "name": "Create: Radars"
+    },
+    {
+      "id": 990016,
+      "name": "Create: Deepfried"
+    },
+    {
+      "id": 1107296,
+      "name": "Create Mechanical Chicken"
+    },
+    {
+      "id": 918751,
+      "name": "Create: Bitterballen"
+    },
+    {
+      "id": 1016912,
+      "name": "Create: Tank Defenses"
+    },
+    {
+      "id": 1093607,
+      "name": "Petrol's Parts (Create add-on)"
+    },
+    {
+      "id": 920589,
+      "name": "Createful Plaques"
+    },
+    {
+      "id": 1061749,
+      "name": "Create: Enchantable Machinery"
+    },
+    {
+      "id": 881633,
+      "name": "Create: ComputerCraft (CC: Tweaked)"
+    },
+    {
+      "id": 1233526,
+      "name": "Create: Ender Link"
+    },
+    {
+      "id": 594527,
+      "name": "Create Planetary Tweaks"
+    },
+    {
+      "id": 966104,
+      "name": "Create: Metalwork"
+    },
+    {
+      "id": 564792,
+      "name": "Create: Alloyed"
+    },
+    {
+      "id": 941802,
+      "name": "Create Style for Refined Storage"
+    },
+    {
+      "id": 1161283,
+      "name": "Create: Winery [Forge/NeoForge]"
+    },
+    {
+      "id": 1059879,
+      "name": "Create Contraption Terminals"
+    },
+    {
+      "id": 824654,
+      "name": "Create: Molten Vents"
+    },
+    {
+      "id": 949158,
+      "name": "Create: Easy Structures"
+    },
+    {
+      "id": 623265,
+      "name": "Create: Factory"
+    },
+    {
+      "id": 873856,
+      "name": "Create: Cobblemon Industrialized"
+    },
+    {
+      "id": 534610,
+      "name": "Create: Steam Powered (1.16/1.18/1.20)"
+    },
+    {
+      "id": 542235,
+      "name": "Create Cafe"
+    },
+    {
+      "id": 897858,
+      "name": "Create: Fishing Bobber Detector | Automatic Fishing with Create"
+    },
+    {
+      "id": 750806,
+      "name": "Create Compact Exp"
+    },
+    {
+      "id": 959439,
+      "name": "Create: Food"
+    },
+    {
+      "id": 889722,
+      "name": "Create: Numismatics"
+    },
+    {
+      "id": 1105414,
+      "name": "Create: Smart Crafter"
+    },
+    {
+      "id": 898849,
+      "name": "Create: Tweaked Controllers"
+    },
+    {
+      "id": 860090,
+      "name": "Create Blue Skies Compat"
+    },
+    {
+      "id": 1005092,
+      "name": "Create: Mechanical Botania"
+    },
+    {
+      "id": 1023409,
+      "name": "Create: Protection Pixel"
+    },
+    {
+      "id": 1007714,
+      "name": "Create Optical"
+    },
+    {
+      "id": 953547,
+      "name": "Create: Additional Recipes"
+    },
+    {
+      "id": 964705,
+      "name": "Create Addons Fix"
+    },
+    {
+      "id": 807792,
+      "name": "Clockwork: Create x Valkyrien Skies"
+    },
+    {
+      "id": 815006,
+      "name": "Create: Extended Cogwheels Fabric"
+    },
+    {
+      "id": 838932,
+      "name": "Create Ad Astra Compat"
+    },
+    {
+      "id": 739973,
+      "name": "Create: Extended Cogwheels "
+    },
+    {
+      "id": 946579,
+      "name": "Create: Vintage Improvements"
+    },
+    {
+      "id": 876129,
+      "name": "Create: Enchantment Industry - Fabric"
+    },
+    {
+      "id": 377835,
+      "name": "Create Goggles (Create Plus)"
+    },
+    {
+      "id": 737302,
+      "name": "Create: Ender Transmission"
+    },
+    {
+      "id": 1148009,
+      "name": "Create Kart"
+    },
+    {
+      "id": 1006676,
+      "name": "CreateStuffAdditions Fix"
+    },
+    {
+      "id": 881586,
+      "name": "Create Utilities (Fabric/Forge)"
+    },
+    {
+      "id": 1086710,
+      "name": "Create Waystones Recipes"
+    },
+    {
+      "id": 829272,
+      "name": "Create : Teleporters"
+    },
+    {
+      "id": 1023532,
+      "name": "Create Cobblestone"
+    },
+    {
+      "id": 1010066,
+      "name": "Create: Structures Arise"
+    },
+    {
+      "id": 918616,
+      "name": "Create: Steam 'n' Rails Unique Icons"
+    },
+    {
+      "id": 840734,
+      "name": "Create: Liquid Fuel"
+    },
+    {
+      "id": 886773,
+      "name": "Create Compressed"
+    },
+    {
+      "id": 656900,
+      "name": "Create Touch-Ups"
+    },
+    {
+      "id": 1072349,
+      "name": "Create: Pattern Schematics"
+    },
+    {
+      "id": 923238,
+      "name": "Create: Design n' Decor"
+    },
+    {
+      "id": 652202,
+      "name": "Create : Misc & Things"
+    },
+    {
+      "id": 885375,
+      "name": "Create Sabers"
+    },
+    {
+      "id": 739872,
+      "name": "Create Deco Fabric"
+    },
+    {
+      "id": 935929,
+      "name": "Create Railways Navigator"
+    },
+    {
+      "id": 686100,
+      "name": "Create Mechanical Extruder"
+    },
+    {
+      "id": 661938,
+      "name": "Create Sifting"
+    },
+    {
+      "id": 881506,
+      "name": "Create: Netherless (Forge)"
+    },
+    {
+      "id": 693815,
+      "name": "Create: The Factory Must Grow"
+    },
+    {
+      "id": 1007404,
+      "name": "Create: Metallurgy"
+    },
+    {
+      "id": 821020,
+      "name": "Create Immersive Aircrafts"
+    },
+    {
+      "id": 919759,
+      "name": "Create: Dynamic Village"
+    },
+    {
+      "id": 953729,
+      "name": "Create: Oxidized"
+    },
+    {
+      "id": 1217518,
+      "name": "Create Better FPS"
+    },
+    {
+      "id": 953126,
+      "name": "Create: Framed"
+    },
+    {
+      "id": 543275,
+      "name": "Create Reoxidized"
+    },
+    {
+      "id": 650095,
+      "name": "Create Support for Open Parties and Claims"
+    },
+    {
+      "id": 669724,
+      "name": "Create: Crystal Clear"
+    },
+    {
+      "id": 494206,
+      "name": "Create Chunkloading"
+    },
+    {
+      "id": 864781,
+      "name": "Create: Dreams n' Desires"
+    },
+    {
+      "id": 936020,
+      "name": "Create: Power Loader"
+    },
+    {
+      "id": 978125,
+      "name": "Create: Ultimate Factory [Forge/Fabric/NeoForge]"
+    },
+    {
+      "id": 899330,
+      "name": "Create Style Sophisticated Backpacks"
+    },
+    {
+      "id": 829380,
+      "name": "Create Encased"
+    },
+    {
+      "id": 869316,
+      "name": "Create: Diesel Generators"
+    },
+    {
+      "id": 1102591,
+      "name": "Create: Trading Floor"
+    },
+    {
+      "id": 850410,
+      "name": "Create: Estrogen"
+    },
+    {
+      "id": 649832,
+      "name": "Create Ore Excavation"
+    },
+    {
+      "id": 872577,
+      "name": "Create Recycle Everything"
+    },
+    {
+      "id": 591861,
+      "name": "Create Questing"
+    },
+    {
+      "id": 947914,
+      "name": "Create: Connected"
+    },
+    {
+      "id": 906239,
+      "name": "Create: Interiors"
+    },
+    {
+      "id": 1216624,
+      "name": "Create: Dragons Plus"
+    },
+    {
+      "id": 468836,
+      "name": "Created Simple Storage Network"
+    },
+    {
+      "id": 531834,
+      "name": "Create Confectionery"
+    },
+    {
+      "id": 655608,
+      "name": "Create Jetpack"
+    },
+    {
+      "id": 905040,
+      "name": "Create: Bells & Whistles"
+    },
+    {
+      "id": 437717,
+      "name": "CreateTweaker"
+    },
+    {
+      "id": 646668,
+      "name": "Create Big Cannons"
+    },
+    {
+      "id": 624165,
+      "name": "Create Fabric"
+    },
+    {
+      "id": 888624,
+      "name": "Rechiseled: Create"
+    },
+    {
+      "id": 905861,
+      "name": "Create: New Age"
+    },
+    {
+      "id": 820977,
+      "name": "Create: Central Kitchen"
+    },
+    {
+      "id": 466792,
+      "name": "Create Stuff 'N Additions"
+    },
+    {
+      "id": 509285,
+      "name": "Create Deco"
+    },
+    {
+      "id": 659674,
+      "name": "Create Slice & Dice"
+    },
+    {
+      "id": 968398,
+      "name": "Create: Copycats+"
+    },
+    {
+      "id": 688768,
+      "name": "Create: Enchantment Industry"
+    },
+    {
+      "id": 688231,
+      "name": "Create: Steam 'n' Rails"
+    },
+    {
+      "id": 439890,
+      "name": "Create Crafts & Additions"
+    },
+    {
+      "id": 328085,
+      "name": "Create"
+    }
+  ]
+}
