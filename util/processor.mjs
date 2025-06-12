@@ -29,6 +29,7 @@ async function processMods() {
     // Map mods with download stats
     const mappedMods = filtered.map(mod => {
         const author = Array.isArray(mod.authors) && mod.authors.length > 0 ? mod.authors[0].name : null;
+        const authors = Array.isArray(mod.authors) ? mod.authors.map(a => a.name) : null;
         const downloadCount = typeof mod.downloadCount === 'number' ? mod.downloadCount : 0;
         const createdAt = mod.dateCreated || mod.dateReleased || mod.dateModified;
         const days = createdAt ? daysSince(createdAt) : 1;
@@ -38,6 +39,7 @@ async function processMods() {
             id: mod.id,
             name: mod.name,
             author,
+            authors,
             downloadCount,
             downloadRate: Number(downloadRate.toFixed(2)),
             createdAt,
@@ -45,21 +47,21 @@ async function processMods() {
         };
     });
 
-    // Collect unique authors with download stats
     const authorStats = {};
     mappedMods.forEach(mod => {
-        if (!mod.author) return;
-        if (!authorStats[mod.author]) {
-            authorStats[mod.author] = {
-                name: mod.author,
-                downloadCount: 0,
-                mods: 0,
-                createdAtList: [],
-            };
+        for (const author of mod.authors || []) {
+            if (!authorStats[author]) {
+                authorStats[author] = {
+                    name: author,
+                    downloadCount: 0,
+                    mods: 0,
+                    createdAtList: [],
+                };
+            }
+            authorStats[author].downloadCount += mod.downloadCount;
+            authorStats[author].mods += 1;
+            if (mod.createdAt) authorStats[author].createdAtList.push(mod.createdAt);
         }
-        authorStats[mod.author].downloadCount += mod.downloadCount;
-        authorStats[mod.author].mods += 1;
-        if (mod.createdAt) authorStats[mod.author].createdAtList.push(mod.createdAt);
     });
 
     // Calculate author download rates (total downloads / avg days since created for their mods)

@@ -82,6 +82,8 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
             backgroundColor: "rgba(75,192,192,0.6)",
             borderColor: "rgba(75,192,192,1)",
             borderWidth: 1,
+            xAxisID: "rate-x",
+            sortField: "downloadRate",
             hidden: false // Visible by default
         },
         {
@@ -90,6 +92,8 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
             backgroundColor: "rgba(245, 140, 28, 0.6)",
             borderColor: "rgba(245, 140, 28, 1)",
             borderWidth: 1,
+            xAxisID: "downloads-x",
+            sortField: "downloads",
             hidden: true // Hidden by default
         }
     ];
@@ -102,6 +106,7 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
             borderColor: "rgba(100, 100, 255, 1)",
             borderWidth: 1,
             xAxisID: "mods-x",
+            sortField: "mods",
             hidden: true // Hidden by default
         });
     }
@@ -113,6 +118,7 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
         borderColor: "rgba(120,120,120,1)",
         borderWidth: 1,
         xAxisID: "time-x",
+        sortField: "time",
         hidden: true // Hidden by default
     });
 
@@ -128,12 +134,14 @@ function renderChart(chartData) {
         window.rankingChartInstance.destroy();
     }
     if (chartType === 'pie') {
-        // Only use the first dataset for pie
+        // Find the dataset matching the current sort, fallback to first
+        const dataset = chartData.datasets.find(ds => ds.sortField === currentSort) || chartData.datasets[0];
+        dataset.hidden = false; // Ensure the selected dataset is visible
         window.rankingChartInstance = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: chartData.labels,
-                datasets: [chartData.datasets[0]]
+                datasets: [dataset]
             },
             options: {
                 responsive: true
