@@ -47,6 +47,7 @@ async function fetchAllMods() {
 
 try {
     const mods = await fetchAllMods();
+    console.log(`Fetched ${mods.length} mods from CurseForge API, writing to file...`);
     await fs.writeFile(OUTPUT_PATH, JSON.stringify(mods, null, 2), 'utf-8');
     console.log(`Fetched ${mods.length} mods and saved to ${OUTPUT_PATH}`);
 } catch (err) {
