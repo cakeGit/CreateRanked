@@ -1,2 +1,2 @@
 node util/modNameToIdResolver.mjs
-node util/process.mjs
+node util/processor.mjs
