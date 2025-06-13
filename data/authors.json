@@ -1,4541 +1,4548 @@
 {
-  "generatedAt": "2025-06-12T11:04:16.320Z",
+  "generatedAt": "2025-06-13T10:08:34.680Z",
   "authors": [
     {
       "name": "liamhaste64487",
-      "downloadCount": 0,
+      "downloadCount": 105,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 23.62
+      "downloadRate": 4.27,
+      "daysExisting": 24.58
     },
     {
       "name": "Anode1",
-      "downloadCount": 10,
+      "downloadCount": 259,
       "mods": 1,
-      "downloadRate": 0.22,
-      "daysExisting": 46
+      "downloadRate": 5.52,
+      "daysExisting": 46.96
     },
     {
       "name": "arginou57",
-      "downloadCount": 64578,
+      "downloadCount": 66055,
       "mods": 2,
-      "downloadRate": 366.85,
-      "daysExisting": 176.03
+      "downloadRate": 373.2,
+      "daysExisting": 176.99
     },
     {
       "name": "electrovoyage",
-      "downloadCount": 0,
+      "downloadCount": 75,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 104.77
+      "downloadRate": 0.71,
+      "daysExisting": 105.74
     },
     {
       "name": "szedann",
-      "downloadCount": 1,
+      "downloadCount": 52,
       "mods": 1,
-      "downloadRate": 0.06,
-      "daysExisting": 16.72
+      "downloadRate": 2.94,
+      "daysExisting": 17.68
     },
     {
       "name": "TheRealXAgent",
-      "downloadCount": 1,
+      "downloadCount": 157,
       "mods": 1,
-      "downloadRate": 0.09,
-      "daysExisting": 10.58
+      "downloadRate": 13.6,
+      "daysExisting": 11.54
     },
     {
       "name": "kuuhaku02",
-      "downloadCount": 0,
+      "downloadCount": 6,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 0.78
+      "downloadRate": 3.44,
+      "daysExisting": 1.74
     },
     {
       "name": "RuDevOfficial",
-      "downloadCount": 2,
+      "downloadCount": 790,
       "mods": 1,
-      "downloadRate": 0.02,
-      "daysExisting": 82.94
+      "downloadRate": 9.42,
+      "daysExisting": 83.9
     },
     {
       "name": "quickqwek",
-      "downloadCount": 6485304,
+      "downloadCount": 6500921,
       "mods": 18,
-      "downloadRate": 19718.41,
-      "daysExisting": 328.9
+      "downloadRate": 19708.29,
+      "daysExisting": 329.86
     },
     {
       "name": "leo22b",
-      "downloadCount": 87,
+      "downloadCount": 88,
       "mods": 1,
       "downloadRate": 0.82,
-      "daysExisting": 105.77
+      "daysExisting": 106.74
     },
     {
       "name": "Gameingareyou",
-      "downloadCount": 583233,
+      "downloadCount": 583562,
       "mods": 3,
-      "downloadRate": 1396.4,
-      "daysExisting": 417.67
+      "downloadRate": 1393.98,
+      "daysExisting": 418.63
     },
     {
       "name": "zloydrakon",
-      "downloadCount": 286,
+      "downloadCount": 325,
       "mods": 1,
-      "downloadRate": 22.06,
-      "daysExisting": 12.97
+      "downloadRate": 23.34,
+      "daysExisting": 13.93
     },
     {
       "name": "ThePuzzlemaker",
-      "downloadCount": 2397,
+      "downloadCount": 2417,
       "mods": 1,
-      "downloadRate": 32.58,
-      "daysExisting": 73.57
+      "downloadRate": 32.43,
+      "daysExisting": 74.53
     },
     {
       "name": "DragonsPlus",
-      "downloadCount": 41365906,
+      "downloadCount": 41316703,
       "mods": 7,
-      "downloadRate": 104275.69,
-      "daysExisting": 396.7
-    },
-    {
-      "name": "CeoOfGoogle1",
-      "downloadCount": 359926,
-      "mods": 3,
-      "downloadRate": 4705.53,
-      "daysExisting": 76.49
+      "downloadRate": 103899.88,
+      "daysExisting": 397.66
     },
     {
       "name": "madsmods",
-      "downloadCount": 17687,
+      "downloadCount": 17665,
       "mods": 3,
-      "downloadRate": 119.51,
-      "daysExisting": 147.99
+      "downloadRate": 118.59,
+      "daysExisting": 148.95
     },
     {
       "name": "soulvalley11",
-      "downloadCount": 267,
+      "downloadCount": 273,
       "mods": 1,
-      "downloadRate": 5.37,
-      "daysExisting": 49.68
+      "downloadRate": 5.39,
+      "daysExisting": 50.64
     },
     {
       "name": "AepheraStudios",
-      "downloadCount": 12952,
+      "downloadCount": 12422,
       "mods": 7,
-      "downloadRate": 163.91,
-      "daysExisting": 79.02
+      "downloadRate": 155.32,
+      "daysExisting": 79.98
     },
     {
       "name": "Spinx",
-      "downloadCount": 4351,
+      "downloadCount": 4362,
       "mods": 2,
-      "downloadRate": 24.08,
-      "daysExisting": 180.66
-    },
-    {
-      "name": "Adonis_Baffin",
-      "downloadCount": 14398,
-      "mods": 2,
-      "downloadRate": 502.15,
-      "daysExisting": 28.67
+      "downloadRate": 24.02,
+      "daysExisting": 181.62
     },
     {
       "name": "AbyssalLight_",
-      "downloadCount": 79,
+      "downloadCount": 108,
       "mods": 1,
-      "downloadRate": 31.28,
-      "daysExisting": 2.53
+      "downloadRate": 30.97,
+      "daysExisting": 3.49
     },
     {
       "name": "DakotaPrideModding",
-      "downloadCount": 3558961,
+      "downloadCount": 3507196,
       "mods": 6,
-      "downloadRate": 15325.05,
-      "daysExisting": 232.23
+      "downloadRate": 15039.89,
+      "daysExisting": 233.19
     },
     {
       "name": "Glaiden_",
-      "downloadCount": 3972,
+      "downloadCount": 4018,
       "mods": 1,
-      "downloadRate": 38.3,
-      "daysExisting": 103.72
+      "downloadRate": 38.38,
+      "daysExisting": 104.68
     },
     {
       "name": "Tesgo",
-      "downloadCount": 5213,
+      "downloadCount": 6306,
       "mods": 3,
-      "downloadRate": 49.94,
-      "daysExisting": 104.38
+      "downloadRate": 59.86,
+      "daysExisting": 105.34
     },
     {
       "name": "todocom",
-      "downloadCount": 532,
+      "downloadCount": 536,
       "mods": 1,
-      "downloadRate": 7.23,
-      "daysExisting": 73.57
+      "downloadRate": 7.19,
+      "daysExisting": 74.53
     },
     {
       "name": "FLa1c",
-      "downloadCount": 223,
+      "downloadCount": 243,
       "mods": 2,
-      "downloadRate": 26.74,
-      "daysExisting": 8.34
+      "downloadRate": 26.13,
+      "daysExisting": 9.3
     },
     {
       "name": "Nik3310",
-      "downloadCount": 155,
+      "downloadCount": 166,
       "mods": 1,
-      "downloadRate": 17.37,
-      "daysExisting": 8.93
+      "downloadRate": 16.79,
+      "daysExisting": 9.89
     },
     {
       "name": "Kittymaster",
-      "downloadCount": 992,
+      "downloadCount": 1003,
       "mods": 2,
-      "downloadRate": 6.9,
-      "daysExisting": 143.8
+      "downloadRate": 6.93,
+      "daysExisting": 144.76
     },
     {
       "name": "Cotrin",
-      "downloadCount": 768017,
+      "downloadCount": 773216,
       "mods": 3,
-      "downloadRate": 5611.13,
-      "daysExisting": 136.87
+      "downloadRate": 5609.71,
+      "daysExisting": 137.84
     },
     {
       "name": "SmartStreamLabs",
-      "downloadCount": 923278,
+      "downloadCount": 931849,
       "mods": 4,
-      "downloadRate": 3460.36,
-      "daysExisting": 266.82
+      "downloadRate": 3479.95,
+      "daysExisting": 267.78
     },
     {
       "name": "celyarbx",
-      "downloadCount": 42,
+      "downloadCount": 55,
       "mods": 1,
-      "downloadRate": 16.57,
-      "daysExisting": 2.54
+      "downloadRate": 15.73,
+      "daysExisting": 3.5
     },
     {
       "name": "AstroAlchemist",
-      "downloadCount": 1893,
+      "downloadCount": 1908,
       "mods": 1,
-      "downloadRate": 20,
-      "daysExisting": 94.63
+      "downloadRate": 19.96,
+      "daysExisting": 95.59
     },
     {
       "name": "Goomysoda",
-      "downloadCount": 4550,
+      "downloadCount": 4562,
       "mods": 1,
-      "downloadRate": 25.34,
-      "daysExisting": 179.58
+      "downloadRate": 25.27,
+      "daysExisting": 180.54
     },
     {
       "name": "thetj_",
-      "downloadCount": 16604,
+      "downloadCount": 16654,
       "mods": 3,
-      "downloadRate": 104.74,
-      "daysExisting": 158.53
+      "downloadRate": 104.42,
+      "daysExisting": 159.49
     },
     {
       "name": "HoboftheHobby",
-      "downloadCount": 1,
+      "downloadCount": 1448,
       "mods": 1,
-      "downloadRate": 0.01,
-      "daysExisting": 75.57
+      "downloadRate": 18.92,
+      "daysExisting": 76.53
     },
     {
       "name": "Berezka",
-      "downloadCount": 6154,
+      "downloadCount": 6199,
       "mods": 1,
-      "downloadRate": 55.57,
-      "daysExisting": 110.75
+      "downloadRate": 55.49,
+      "daysExisting": 111.71
     },
     {
       "name": "Luna",
-      "downloadCount": 12699064,
+      "downloadCount": 12134599,
       "mods": 9,
-      "downloadRate": 34270.29,
-      "daysExisting": 370.56
+      "downloadRate": 32662.26,
+      "daysExisting": 371.52
     },
     {
       "name": "FayviraDraGon",
-      "downloadCount": 53,
+      "downloadCount": 54,
       "mods": 1,
       "downloadRate": 0.22,
-      "daysExisting": 241.52
+      "daysExisting": 242.48
     },
     {
       "name": "Aupoex",
-      "downloadCount": 3425,
+      "downloadCount": 2396,
       "mods": 3,
-      "downloadRate": 100.15,
-      "daysExisting": 34.2
+      "downloadRate": 68.15,
+      "daysExisting": 35.16
     },
     {
       "name": "GoAchtii",
-      "downloadCount": 738,
+      "downloadCount": 742,
       "mods": 1,
       "downloadRate": 4.25,
-      "daysExisting": 173.76
+      "daysExisting": 174.72
     },
     {
       "name": "D_Angry_Modder",
-      "downloadCount": 1365,
+      "downloadCount": 1389,
       "mods": 1,
-      "downloadRate": 15.11,
-      "daysExisting": 90.32
+      "downloadRate": 15.22,
+      "daysExisting": 91.28
     },
     {
       "name": "P4l3tt3",
       "downloadCount": 131,
       "mods": 1,
       "downloadRate": 0.07,
-      "daysExisting": 1837.92
+      "daysExisting": 1838.88
     },
     {
       "name": "charmandergaming2005",
-      "downloadCount": 514,
+      "downloadCount": 516,
       "mods": 1,
-      "downloadRate": 5.2,
-      "daysExisting": 98.78
+      "downloadRate": 5.17,
+      "daysExisting": 99.74
     },
     {
       "name": "azerbaijan_tech",
-      "downloadCount": 8,
+      "downloadCount": 90,
       "mods": 1,
-      "downloadRate": 1.61,
-      "daysExisting": 4.98
+      "downloadRate": 15.14,
+      "daysExisting": 5.94
     },
     {
       "name": "schrimblo",
-      "downloadCount": 8,
+      "downloadCount": 90,
       "mods": 1,
-      "downloadRate": 1.61,
-      "daysExisting": 4.98
+      "downloadRate": 15.14,
+      "daysExisting": 5.94
     },
     {
       "name": "CakeIsTastyDeveloper",
-      "downloadCount": 3244132,
+      "downloadCount": 2884892,
       "mods": 4,
-      "downloadRate": 14132.53,
-      "daysExisting": 229.55
+      "downloadRate": 12515.15,
+      "daysExisting": 230.51
     },
     {
       "name": "P1nero",
-      "downloadCount": 3259,
+      "downloadCount": 1336,
       "mods": 2,
-      "downloadRate": 154.12,
-      "daysExisting": 21.15
+      "downloadRate": 60.43,
+      "daysExisting": 22.11
     },
     {
       "name": "JoeySchmoe",
-      "downloadCount": 42,
+      "downloadCount": 43,
       "mods": 1,
       "downloadRate": 0.12,
-      "daysExisting": 343.48
+      "daysExisting": 344.44
     },
     {
       "name": "GusandArt",
       "downloadCount": 131,
       "mods": 1,
       "downloadRate": 0.17,
-      "daysExisting": 771.44
+      "daysExisting": 772.41
     },
     {
       "name": "RollsRoyce",
-      "downloadCount": 118,
+      "downloadCount": 127,
       "mods": 1,
-      "downloadRate": 12.1,
-      "daysExisting": 9.75
+      "downloadRate": 11.85,
+      "daysExisting": 10.71
     },
     {
       "name": "Vhaultyr",
       "downloadCount": 26,
       "mods": 1,
-      "downloadRate": 0.27,
-      "daysExisting": 97.47
+      "downloadRate": 0.26,
+      "daysExisting": 98.43
     },
     {
       "name": "Quadruplay",
-      "downloadCount": 76,
+      "downloadCount": 56,
       "mods": 1,
-      "downloadRate": 0.07,
-      "daysExisting": 1140.64
+      "downloadRate": 0.05,
+      "daysExisting": 1141.6
     },
     {
       "name": "tupo_tarakanus",
       "downloadCount": 179,
       "mods": 1,
       "downloadRate": 0.21,
-      "daysExisting": 842.04
+      "daysExisting": 843
     },
     {
       "name": "t0ady_",
       "downloadCount": 152,
       "mods": 1,
       "downloadRate": 0.16,
-      "daysExisting": 937.73
+      "daysExisting": 938.69
     },
     {
       "name": "furious_booth793554",
-      "downloadCount": 5385,
+      "downloadCount": 5362,
       "mods": 2,
-      "downloadRate": 11.61,
-      "daysExisting": 463.99
+      "downloadRate": 11.53,
+      "daysExisting": 464.95
     },
     {
       "name": "CallsignPaladin",
-      "downloadCount": 801,
+      "downloadCount": 841,
       "mods": 3,
-      "downloadRate": 7.96,
-      "daysExisting": 100.57
+      "downloadRate": 8.28,
+      "daysExisting": 101.53
     },
     {
       "name": "Spirit_Studios",
       "downloadCount": 263,
       "mods": 1,
       "downloadRate": 0.36,
-      "daysExisting": 739.49
+      "daysExisting": 740.45
     },
     {
       "name": "sconedb",
-      "downloadCount": 4126,
+      "downloadCount": 4127,
       "mods": 3,
       "downloadRate": 2.7,
-      "daysExisting": 1530.28
+      "daysExisting": 1531.24
     },
     {
       "name": "obewize",
-      "downloadCount": 725,
+      "downloadCount": 692,
       "mods": 1,
-      "downloadRate": 0.49,
-      "daysExisting": 1470.43
+      "downloadRate": 0.47,
+      "daysExisting": 1471.4
     },
     {
       "name": "An539",
-      "downloadCount": 586,
+      "downloadCount": 588,
       "mods": 1,
-      "downloadRate": 6.13,
-      "daysExisting": 95.54
+      "downloadRate": 6.09,
+      "daysExisting": 96.5
     },
     {
       "name": "Svein____",
       "downloadCount": 612,
       "mods": 1,
       "downloadRate": 0.53,
-      "daysExisting": 1160.67
+      "daysExisting": 1161.63
     },
     {
       "name": "SU_5",
       "downloadCount": 153,
       "mods": 1,
       "downloadRate": 0.4,
-      "daysExisting": 378.82
+      "daysExisting": 379.78
     },
     {
       "name": "Mett3z",
-      "downloadCount": 72,
+      "downloadCount": 73,
       "mods": 1,
       "downloadRate": 0.24,
-      "daysExisting": 299.03
+      "daysExisting": 299.99
     },
     {
       "name": "alecalle00",
       "downloadCount": 76,
       "mods": 1,
       "downloadRate": 0.2,
-      "daysExisting": 385.72
+      "daysExisting": 386.68
     },
     {
       "name": "inchezz_the_fourth",
       "downloadCount": 6074,
       "mods": 2,
       "downloadRate": 4.3,
-      "daysExisting": 1411.11
+      "daysExisting": 1412.08
     },
     {
       "name": "lorisc93",
-      "downloadCount": 1372,
+      "downloadCount": 1402,
       "mods": 1,
-      "downloadRate": 1.53,
-      "daysExisting": 896.87
+      "downloadRate": 1.56,
+      "daysExisting": 897.83
     },
     {
       "name": "KalWantsPizza",
-      "downloadCount": 29,
+      "downloadCount": 2172,
       "mods": 1,
-      "downloadRate": 0.18,
-      "daysExisting": 159.53
+      "downloadRate": 13.53,
+      "daysExisting": 160.49
     },
     {
       "name": "user-23546363",
-      "downloadCount": 1348,
+      "downloadCount": 1354,
       "mods": 1,
       "downloadRate": 0.77,
-      "daysExisting": 1748.72
-    },
-    {
-      "name": "Xodus4",
-      "downloadCount": 28,
-      "mods": 1,
-      "downloadRate": 5.33,
-      "daysExisting": 5.25
+      "daysExisting": 1749.68
     },
     {
       "name": "DragonSlayrOfficial",
       "downloadCount": 2196,
       "mods": 1,
       "downloadRate": 2.33,
-      "daysExisting": 941.13
+      "daysExisting": 942.09
     },
     {
       "name": "TheRealLarkas",
-      "downloadCount": 592,
+      "downloadCount": 603,
       "mods": 1,
-      "downloadRate": 4.06,
-      "daysExisting": 145.67
+      "downloadRate": 4.11,
+      "daysExisting": 146.64
     },
     {
       "name": "Roxxane",
-      "downloadCount": 899,
+      "downloadCount": 852,
       "mods": 2,
-      "downloadRate": 3.57,
-      "daysExisting": 251.47
+      "downloadRate": 3.38,
+      "daysExisting": 252.43
     },
     {
       "name": "PBOperator",
-      "downloadCount": 58,
+      "downloadCount": 14,
       "mods": 1,
-      "downloadRate": 0.26,
-      "daysExisting": 224.77
+      "downloadRate": 0.06,
+      "daysExisting": 225.73
     },
     {
       "name": "universeunlimtd",
-      "downloadCount": 139,
+      "downloadCount": 203,
       "mods": 1,
-      "downloadRate": 0.26,
-      "daysExisting": 536.15
+      "downloadRate": 0.38,
+      "daysExisting": 537.11
     },
     {
       "name": "Bracken40",
-      "downloadCount": 1629766,
+      "downloadCount": 1631208,
       "mods": 2,
-      "downloadRate": 2351.98,
-      "daysExisting": 692.94
+      "downloadRate": 2350.79,
+      "daysExisting": 693.9
     },
     {
       "name": "ExAo",
-      "downloadCount": 0,
+      "downloadCount": 87,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 154.91
+      "downloadRate": 0.56,
+      "daysExisting": 155.87
     },
     {
       "name": "PlatinumPunch",
-      "downloadCount": 7492,
+      "downloadCount": 8045,
       "mods": 14,
-      "downloadRate": 43.12,
-      "daysExisting": 173.74
+      "downloadRate": 46.05,
+      "daysExisting": 174.71
     },
     {
       "name": "darkphan",
-      "downloadCount": 0,
+      "downloadCount": 358,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 57.24
+      "downloadRate": 6.15,
+      "daysExisting": 58.2
     },
     {
       "name": "suntflynn",
-      "downloadCount": 0,
+      "downloadCount": 358,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 17.19
+      "downloadRate": 19.72,
+      "daysExisting": 18.15
     },
     {
       "name": "Cyrogeno",
-      "downloadCount": 1,
+      "downloadCount": 681,
       "mods": 1,
-      "downloadRate": 0.04,
-      "daysExisting": 26.09
+      "downloadRate": 25.17,
+      "daysExisting": 27.05
     },
     {
       "name": "kltyton",
-      "downloadCount": 1,
+      "downloadCount": 681,
       "mods": 1,
-      "downloadRate": 0.04,
-      "daysExisting": 26.09
+      "downloadRate": 25.17,
+      "daysExisting": 27.05
     },
     {
       "name": "theblackdragon6yt",
-      "downloadCount": 8956,
+      "downloadCount": 9204,
       "mods": 2,
-      "downloadRate": 58.04,
-      "daysExisting": 154.32
+      "downloadRate": 59.27,
+      "daysExisting": 155.28
     },
     {
       "name": "user_g8um9ikf4zmn2s13",
-      "downloadCount": 1,
+      "downloadCount": 364,
       "mods": 1,
-      "downloadRate": 0.02,
-      "daysExisting": 64.25
+      "downloadRate": 5.58,
+      "daysExisting": 65.21
     },
     {
       "name": "Vercte",
-      "downloadCount": 15,
+      "downloadCount": 162,
       "mods": 1,
-      "downloadRate": 6.86,
-      "daysExisting": 2.19
+      "downloadRate": 51.44,
+      "daysExisting": 3.15
     },
     {
       "name": "JasdewStarfield",
-      "downloadCount": 0,
+      "downloadCount": 526,
       "mods": 1,
-      "downloadRate": 0,
-      "daysExisting": 26.14
+      "downloadRate": 19.41,
+      "daysExisting": 27.1
     },
     {
       "name": "Sup",
-      "downloadCount": 25,
+      "downloadCount": 8013,
       "mods": 1,
-      "downloadRate": 0.12,
-      "daysExisting": 206.86
+      "downloadRate": 38.56,
+      "daysExisting": 207.82
     },
     {
       "name": "munetori",
-      "downloadCount": 1,
+      "downloadCount": 1015,
       "mods": 1,
-      "downloadRate": 0.01,
-      "daysExisting": 106.19
+      "downloadRate": 9.47,
+      "daysExisting": 107.15
     },
     {
       "name": "CluckCoop",
-      "downloadCount": 1,
+      "downloadCount": 630,
       "mods": 1,
-      "downloadRate": 0.01,
-      "daysExisting": 129.07
+      "downloadRate": 4.85,
+      "daysExisting": 130.03
     },
     {
       "name": "laptoppunk",
-      "downloadCount": 1104,
+      "downloadCount": 1265,
       "mods": 2,
-      "downloadRate": 28.01,
-      "daysExisting": 39.42
-    },
-    {
-      "name": "ausmez",
-      "downloadCount": 183,
-      "mods": 1,
-      "downloadRate": 34.66,
-      "daysExisting": 5.28
+      "downloadRate": 31.33,
+      "daysExisting": 40.38
     },
     {
       "name": "blockmath",
-      "downloadCount": 6317,
+      "downloadCount": 6367,
       "mods": 2,
-      "downloadRate": 46.35,
-      "daysExisting": 136.28
+      "downloadRate": 46.39,
+      "daysExisting": 137.24
     },
     {
       "name": "Lova3D",
-      "downloadCount": 80,
+      "downloadCount": 84,
       "mods": 1,
-      "downloadRate": 5.65,
-      "daysExisting": 14.17
+      "downloadRate": 5.55,
+      "daysExisting": 15.13
     },
     {
       "name": "Ducker",
-      "downloadCount": 74567,
+      "downloadCount": 97530,
       "mods": 4,
-      "downloadRate": 315.34,
-      "daysExisting": 236.47
+      "downloadRate": 410.78,
+      "daysExisting": 237.43
     },
     {
       "name": "user_0ud2c9c95k8ng19m",
-      "downloadCount": 642,
+      "downloadCount": 644,
       "mods": 1,
-      "downloadRate": 3.8,
-      "daysExisting": 168.89
+      "downloadRate": 3.79,
+      "daysExisting": 169.86
     },
     {
       "name": "STRANGE_STEEL",
-      "downloadCount": 349,
+      "downloadCount": 350,
       "mods": 1,
       "downloadRate": 0.59,
-      "daysExisting": 590.65
+      "daysExisting": 591.61
     },
     {
       "name": "peterpocketpistol",
       "downloadCount": 302,
       "mods": 1,
-      "downloadRate": 0.41,
-      "daysExisting": 745.1
+      "downloadRate": 0.4,
+      "daysExisting": 746.06
+    },
+    {
+      "name": "Adonis_Baffin",
+      "downloadCount": 14600,
+      "mods": 2,
+      "downloadRate": 492.68,
+      "daysExisting": 29.63
     },
     {
       "name": "Welltrill",
-      "downloadCount": 12241,
+      "downloadCount": 12266,
       "mods": 2,
-      "downloadRate": 104.76,
-      "daysExisting": 116.85
+      "downloadRate": 104.11,
+      "daysExisting": 117.81
     },
     {
       "name": "KilianB",
-      "downloadCount": 4879,
+      "downloadCount": 4890,
       "mods": 1,
-      "downloadRate": 21.06,
-      "daysExisting": 231.63
+      "downloadRate": 21.02,
+      "daysExisting": 232.59
     },
     {
       "name": "Cristofer_PG",
       "downloadCount": 331,
       "mods": 1,
       "downloadRate": 0.21,
-      "daysExisting": 1593.77
+      "daysExisting": 1594.73
     },
     {
       "name": "jetpacker06",
-      "downloadCount": 2103987,
+      "downloadCount": 2099767,
       "mods": 5,
-      "downloadRate": 2736.75,
-      "daysExisting": 768.79
+      "downloadRate": 2727.84,
+      "daysExisting": 769.75
     },
     {
       "name": "TheGasMan",
       "downloadCount": 499,
       "mods": 1,
       "downloadRate": 0.78,
-      "daysExisting": 638.61
+      "daysExisting": 639.57
     },
     {
       "name": "reignoffroze",
       "downloadCount": 661,
       "mods": 1,
       "downloadRate": 0.86,
-      "daysExisting": 767.7
+      "daysExisting": 768.67
     },
     {
       "name": "Wut",
       "downloadCount": 2532,
       "mods": 1,
-      "downloadRate": 3.19,
-      "daysExisting": 794.8
+      "downloadRate": 3.18,
+      "daysExisting": 795.76
     },
     {
       "name": "SubnauFox",
-      "downloadCount": 259,
+      "downloadCount": 58,
       "mods": 1,
-      "downloadRate": 4.41,
-      "daysExisting": 58.67
+      "downloadRate": 0.97,
+      "daysExisting": 59.63
     },
     {
       "name": "devmaxcat",
-      "downloadCount": 14308,
+      "downloadCount": 14356,
       "mods": 1,
-      "downloadRate": 73.54,
-      "daysExisting": 194.57
+      "downloadRate": 73.42,
+      "daysExisting": 195.53
     },
     {
       "name": "SheepyShambler",
       "downloadCount": 3351,
       "mods": 1,
-      "downloadRate": 3.64,
-      "daysExisting": 921.12
+      "downloadRate": 3.63,
+      "daysExisting": 922.08
     },
     {
       "name": "Forsteri123",
-      "downloadCount": 21645,
+      "downloadCount": 21697,
       "mods": 3,
-      "downloadRate": 33.02,
-      "daysExisting": 655.56
+      "downloadRate": 33.05,
+      "daysExisting": 656.53
     },
     {
       "name": "vano201911",
-      "downloadCount": 24513,
+      "downloadCount": 24585,
       "mods": 2,
-      "downloadRate": 104.23,
-      "daysExisting": 235.19
+      "downloadRate": 104.11,
+      "daysExisting": 236.15
     },
     {
       "name": "llyycci",
-      "downloadCount": 718,
+      "downloadCount": 737,
       "mods": 1,
-      "downloadRate": 14.7,
-      "daysExisting": 48.85
+      "downloadRate": 14.8,
+      "daysExisting": 49.81
     },
     {
       "name": "Enterprise12",
       "downloadCount": 786,
       "mods": 1,
-      "downloadRate": 3.08,
-      "daysExisting": 255.35
+      "downloadRate": 3.07,
+      "daysExisting": 256.32
     },
     {
       "name": "sulfire2",
-      "downloadCount": 578,
+      "downloadCount": 583,
       "mods": 1,
-      "downloadRate": 14.91,
-      "daysExisting": 38.76
+      "downloadRate": 14.68,
+      "daysExisting": 39.72
     },
     {
       "name": "MrSirSquishy",
-      "downloadCount": 2229,
+      "downloadCount": 2230,
       "mods": 1,
       "downloadRate": 1.59,
-      "daysExisting": 1403.52
+      "daysExisting": 1404.48
     },
     {
       "name": "Peatral",
-      "downloadCount": 575,
+      "downloadCount": 578,
       "mods": 1,
-      "downloadRate": 6.89,
-      "daysExisting": 83.46
+      "downloadRate": 6.85,
+      "daysExisting": 84.42
+    },
+    {
+      "name": "Xodus4",
+      "downloadCount": 60,
+      "mods": 1,
+      "downloadRate": 9.66,
+      "daysExisting": 6.21
     },
     {
       "name": "PreetMC",
-      "downloadCount": 188,
+      "downloadCount": 197,
       "mods": 1,
-      "downloadRate": 14.78,
-      "daysExisting": 12.72
+      "downloadRate": 14.4,
+      "daysExisting": 13.69
     },
     {
       "name": "DjragWasTaken",
-      "downloadCount": 926,
+      "downloadCount": 939,
       "mods": 1,
-      "downloadRate": 2.95,
-      "daysExisting": 313.69
+      "downloadRate": 2.98,
+      "daysExisting": 314.66
     },
     {
       "name": "Zumotofu69",
-      "downloadCount": 316,
+      "downloadCount": 319,
       "mods": 1,
-      "downloadRate": 5.78,
-      "daysExisting": 54.64
+      "downloadRate": 5.74,
+      "daysExisting": 55.61
     },
     {
       "name": "grosik",
-      "downloadCount": 643,
+      "downloadCount": 645,
       "mods": 1,
-      "downloadRate": 9.07,
-      "daysExisting": 70.89
+      "downloadRate": 8.98,
+      "daysExisting": 71.85
     },
     {
       "name": "Ri0t69",
-      "downloadCount": 747,
+      "downloadCount": 771,
       "mods": 1,
-      "downloadRate": 13.47,
-      "daysExisting": 55.44
+      "downloadRate": 13.67,
+      "daysExisting": 56.4
     },
     {
       "name": "MonkedaModder",
-      "downloadCount": 870,
+      "downloadCount": 872,
       "mods": 1,
       "downloadRate": 3.39,
-      "daysExisting": 256.38
+      "daysExisting": 257.34
     },
     {
       "name": "SCD",
-      "downloadCount": 128,
+      "downloadCount": 133,
       "mods": 1,
-      "downloadRate": 1.6,
-      "daysExisting": 79.87
-    },
-    {
-      "name": "tender_feynman80",
-      "downloadCount": 171,
-      "mods": 1,
-      "downloadRate": 7.95,
-      "daysExisting": 21.5
+      "downloadRate": 1.65,
+      "daysExisting": 80.84
     },
     {
       "name": "LegendaryDestroyerMob",
       "downloadCount": 1566,
       "mods": 1,
       "downloadRate": 1.69,
-      "daysExisting": 927.33
+      "daysExisting": 928.29
     },
     {
       "name": "cz_zw",
       "downloadCount": 893,
       "mods": 1,
       "downloadRate": 1.78,
-      "daysExisting": 501.88
+      "daysExisting": 502.84
+    },
+    {
+      "name": "CeoOfGoogle1",
+      "downloadCount": 366424,
+      "mods": 3,
+      "downloadRate": 4731.02,
+      "daysExisting": 77.45
+    },
+    {
+      "name": "Aycer",
+      "downloadCount": 92,
+      "mods": 1,
+      "downloadRate": 16.05,
+      "daysExisting": 5.73
     },
     {
       "name": "Synn",
-      "downloadCount": 159,
+      "downloadCount": 87,
       "mods": 1,
-      "downloadRate": 9.65,
-      "daysExisting": 16.48
+      "downloadRate": 4.99,
+      "daysExisting": 17.44
     },
     {
       "name": "ogabasferr",
-      "downloadCount": 2139,
+      "downloadCount": 1936,
       "mods": 2,
-      "downloadRate": 47.78,
-      "daysExisting": 44.77
+      "downloadRate": 42.34,
+      "daysExisting": 45.73
     },
     {
       "name": "wutzuket",
       "downloadCount": 410,
       "mods": 1,
       "downloadRate": 0.52,
-      "daysExisting": 787.98
+      "daysExisting": 788.94
     },
     {
       "name": "shrimpLiquid",
-      "downloadCount": 2106,
+      "downloadCount": 2107,
       "mods": 2,
-      "downloadRate": 10.41,
-      "daysExisting": 202.31
+      "downloadRate": 10.37,
+      "daysExisting": 203.27
     },
     {
       "name": "tackinear",
       "downloadCount": 767,
       "mods": 1,
-      "downloadRate": 1.52,
-      "daysExisting": 505.91
+      "downloadRate": 1.51,
+      "daysExisting": 506.87
     },
     {
       "name": "oierbravo",
-      "downloadCount": 9383918,
+      "downloadCount": 9359445,
       "mods": 8,
-      "downloadRate": 19046.64,
-      "daysExisting": 492.68
+      "downloadRate": 18959.97,
+      "daysExisting": 493.64
     },
     {
       "name": "jiggyfabba",
-      "downloadCount": 794,
+      "downloadCount": 1003,
       "mods": 1,
-      "downloadRate": 1.88,
-      "daysExisting": 422.67
-    },
-    {
-      "name": "furtabs",
-      "downloadCount": 119,
-      "mods": 1,
-      "downloadRate": 12.56,
-      "daysExisting": 9.47
+      "downloadRate": 2.37,
+      "daysExisting": 423.63
     },
     {
       "name": "Koen_mods",
-      "downloadCount": 75,
+      "downloadCount": 147,
       "mods": 1,
-      "downloadRate": 1.48,
-      "daysExisting": 50.78
+      "downloadRate": 2.84,
+      "daysExisting": 51.74
     },
     {
       "name": "Retr0visor",
-      "downloadCount": 116,
+      "downloadCount": 192,
       "mods": 1,
-      "downloadRate": 3.24,
-      "daysExisting": 35.8
+      "downloadRate": 5.22,
+      "daysExisting": 36.76
     },
     {
       "name": "KeloX_14",
-      "downloadCount": 71,
+      "downloadCount": 4915,
       "mods": 1,
-      "downloadRate": 0.31,
-      "daysExisting": 230.39
+      "downloadRate": 21.24,
+      "daysExisting": 231.35
     },
     {
       "name": "Dankest0",
-      "downloadCount": 4812,
+      "downloadCount": 4823,
       "mods": 2,
-      "downloadRate": 21.03,
-      "daysExisting": 228.87
+      "downloadRate": 20.99,
+      "daysExisting": 229.83
     },
     {
       "name": "Jacotep2",
-      "downloadCount": 164,
+      "downloadCount": 166,
       "mods": 1,
       "downloadRate": 1.87,
-      "daysExisting": 87.76
+      "daysExisting": 88.72
     },
     {
       "name": "Andria",
-      "downloadCount": 164,
+      "downloadCount": 179,
       "mods": 1,
-      "downloadRate": 22.28,
-      "daysExisting": 7.36
+      "downloadRate": 21.51,
+      "daysExisting": 8.32
     },
     {
       "name": "Gast3rano",
       "downloadCount": 2935,
       "mods": 1,
-      "downloadRate": 5.03,
-      "daysExisting": 583.61
+      "downloadRate": 5.02,
+      "daysExisting": 584.57
     },
     {
       "name": "Mattsonix",
-      "downloadCount": 773,
+      "downloadCount": 783,
       "mods": 1,
-      "downloadRate": 4.78,
-      "daysExisting": 161.65
+      "downloadRate": 4.82,
+      "daysExisting": 162.61
+    },
+    {
+      "name": "furtabs",
+      "downloadCount": 146,
+      "mods": 1,
+      "downloadRate": 13.99,
+      "daysExisting": 10.43
     },
     {
       "name": "Benji07p",
-      "downloadCount": 947,
+      "downloadCount": 948,
       "mods": 1,
       "downloadRate": 1.64,
-      "daysExisting": 578.68
+      "daysExisting": 579.64
     },
     {
       "name": "Mrorm",
-      "downloadCount": 6243,
+      "downloadCount": 6248,
       "mods": 1,
       "downloadRate": 6.06,
-      "daysExisting": 1030.1
+      "daysExisting": 1031.07
     },
     {
       "name": "Mrorm_YT",
-      "downloadCount": 6243,
+      "downloadCount": 6248,
       "mods": 1,
       "downloadRate": 6.06,
-      "daysExisting": 1030.1
+      "daysExisting": 1031.07
     },
     {
       "name": "0231adukuf",
-      "downloadCount": 278,
+      "downloadCount": 283,
       "mods": 1,
-      "downloadRate": 3.96,
-      "daysExisting": 70.28
+      "downloadRate": 3.97,
+      "daysExisting": 71.24
     },
     {
       "name": "Chaolux",
-      "downloadCount": 951,
+      "downloadCount": 767,
       "mods": 2,
-      "downloadRate": 53.43,
-      "daysExisting": 17.8
+      "downloadRate": 40.88,
+      "daysExisting": 18.76
     },
     {
       "name": "ECYsh364",
       "downloadCount": 271,
       "mods": 1,
-      "downloadRate": 2.64,
-      "daysExisting": 102.71
+      "downloadRate": 2.61,
+      "daysExisting": 103.68
     },
     {
       "name": "Klutzer",
       "downloadCount": 654,
       "mods": 1,
       "downloadRate": 1.46,
-      "daysExisting": 447.49
+      "daysExisting": 448.45
     },
     {
       "name": "trusting_shirley83",
-      "downloadCount": 557,
+      "downloadCount": 861,
       "mods": 1,
-      "downloadRate": 1.03,
-      "daysExisting": 543.31
+      "downloadRate": 1.58,
+      "daysExisting": 544.27
     },
     {
       "name": "Flomik",
-      "downloadCount": 977997,
+      "downloadCount": 977015,
       "mods": 5,
-      "downloadRate": 2049.89,
-      "daysExisting": 477.1
+      "downloadRate": 2043.72,
+      "daysExisting": 478.06
     },
     {
       "name": "Kokoio",
-      "downloadCount": 234,
+      "downloadCount": 1329,
       "mods": 1,
-      "downloadRate": 4.52,
-      "daysExisting": 51.75
+      "downloadRate": 25.21,
+      "daysExisting": 52.71
     },
     {
       "name": "Pink_Cats",
-      "downloadCount": 353,
+      "downloadCount": 544,
       "mods": 1,
-      "downloadRate": 8.41,
-      "daysExisting": 41.97
+      "downloadRate": 12.67,
+      "daysExisting": 42.93
     },
     {
       "name": "StarryLandServer",
-      "downloadCount": 353,
+      "downloadCount": 544,
       "mods": 1,
-      "downloadRate": 8.41,
-      "daysExisting": 41.97
+      "downloadRate": 12.67,
+      "daysExisting": 42.93
     },
     {
       "name": "MR_sticky_piston",
-      "downloadCount": 611391,
+      "downloadCount": 560622,
       "mods": 2,
-      "downloadRate": 2087.02,
-      "daysExisting": 292.95
+      "downloadRate": 1907.46,
+      "daysExisting": 293.91
     },
     {
       "name": "CreateItRight",
-      "downloadCount": 108,
+      "downloadCount": 156,
       "mods": 1,
-      "downloadRate": 6.39,
-      "daysExisting": 16.9
+      "downloadRate": 8.73,
+      "daysExisting": 17.86
     },
     {
       "name": "Riftx666",
-      "downloadCount": 461,
+      "downloadCount": 1048,
       "mods": 2,
-      "downloadRate": 18.07,
-      "daysExisting": 25.51
+      "downloadRate": 39.6,
+      "daysExisting": 26.47
     },
     {
       "name": "HackFight",
-      "downloadCount": 656,
+      "downloadCount": 854,
       "mods": 1,
-      "downloadRate": 1.4,
-      "daysExisting": 468.73
+      "downloadRate": 1.82,
+      "daysExisting": 469.69
     },
     {
       "name": "shenka",
-      "downloadCount": 59,
+      "downloadCount": 4408,
       "mods": 1,
-      "downloadRate": 0.22,
-      "daysExisting": 270.38
+      "downloadRate": 16.25,
+      "daysExisting": 271.34
     },
     {
       "name": "axollen",
-      "downloadCount": 1374,
+      "downloadCount": 2716,
       "mods": 2,
-      "downloadRate": 14.21,
-      "daysExisting": 96.72
+      "downloadRate": 27.81,
+      "daysExisting": 97.68
     },
     {
       "name": "RealFX",
-      "downloadCount": 102,
+      "downloadCount": 4787,
       "mods": 1,
-      "downloadRate": 0.42,
-      "daysExisting": 243.69
+      "downloadRate": 19.57,
+      "daysExisting": 244.65
     },
     {
       "name": "MuriPlz",
-      "downloadCount": 655132,
+      "downloadCount": 644869,
       "mods": 6,
-      "downloadRate": 1243.69,
-      "daysExisting": 526.76
-    },
-    {
-      "name": "DadudeGaming",
-      "downloadCount": 222,
-      "mods": 1,
-      "downloadRate": 8.06,
-      "daysExisting": 27.53
+      "downloadRate": 1221.98,
+      "daysExisting": 527.72
     },
     {
       "name": "gigabit",
-      "downloadCount": 1532,
+      "downloadCount": 1830,
       "mods": 1,
-      "downloadRate": 3.08,
-      "daysExisting": 497.43
+      "downloadRate": 3.67,
+      "daysExisting": 498.39
+    },
+    {
+      "name": "tender_feynman80",
+      "downloadCount": 182,
+      "mods": 1,
+      "downloadRate": 8.1,
+      "daysExisting": 22.46
     },
     {
       "name": "simonplayz_forever",
-      "downloadCount": 143,
+      "downloadCount": 347,
       "mods": 1,
-      "downloadRate": 1.61,
-      "daysExisting": 88.95
+      "downloadRate": 3.86,
+      "daysExisting": 89.91
     },
     {
       "name": "ptitkuro_",
-      "downloadCount": 3929,
+      "downloadCount": 4126,
       "mods": 1,
-      "downloadRate": 5.59,
-      "daysExisting": 703.35
+      "downloadRate": 5.86,
+      "daysExisting": 704.31
     },
     {
       "name": "CEntertain",
-      "downloadCount": 182,
+      "downloadCount": 1188,
       "mods": 1,
-      "downloadRate": 3.4,
-      "daysExisting": 53.51
+      "downloadRate": 21.81,
+      "daysExisting": 54.47
     },
     {
       "name": "WeiAL",
-      "downloadCount": 9414,
+      "downloadCount": 9606,
       "mods": 1,
-      "downloadRate": 8.47,
-      "daysExisting": 1111.62
+      "downloadRate": 8.63,
+      "daysExisting": 1112.58
     },
     {
       "name": "Trucklover42",
-      "downloadCount": 172,
+      "downloadCount": 203,
       "mods": 1,
-      "downloadRate": 13.14,
-      "daysExisting": 13.09
+      "downloadRate": 14.45,
+      "daysExisting": 14.05
     },
     {
       "name": "EricXCY",
-      "downloadCount": 240,
+      "downloadCount": 1062,
       "mods": 1,
-      "downloadRate": 10,
-      "daysExisting": 24
+      "downloadRate": 42.54,
+      "daysExisting": 24.96
     },
     {
       "name": "Shulej",
-      "downloadCount": 152,
+      "downloadCount": 3453,
       "mods": 1,
-      "downloadRate": 0.88,
-      "daysExisting": 173.68
+      "downloadRate": 19.77,
+      "daysExisting": 174.65
     },
     {
       "name": "SdataG",
-      "downloadCount": 188,
+      "downloadCount": 419,
       "mods": 1,
-      "downloadRate": 5.78,
-      "daysExisting": 32.51
+      "downloadRate": 12.52,
+      "daysExisting": 33.47
     },
     {
       "name": "soularox",
-      "downloadCount": 646,
+      "downloadCount": 908,
       "mods": 1,
-      "downloadRate": 1.89,
-      "daysExisting": 342.4
+      "downloadRate": 2.64,
+      "daysExisting": 343.37
     },
     {
       "name": "SkellaTex",
-      "downloadCount": 22848,
+      "downloadCount": 26280,
       "mods": 4,
-      "downloadRate": 198.91,
-      "daysExisting": 114.87
+      "downloadRate": 226.89,
+      "daysExisting": 115.83
     },
     {
       "name": "To0pa",
-      "downloadCount": 6221834,
+      "downloadCount": 6138675,
       "mods": 3,
-      "downloadRate": 10122.03,
-      "daysExisting": 614.68
+      "downloadRate": 9971.15,
+      "daysExisting": 615.64
     },
     {
       "name": "bisson2000",
-      "downloadCount": 1002,
+      "downloadCount": 1946,
       "mods": 2,
-      "downloadRate": 13.97,
-      "daysExisting": 71.74
+      "downloadRate": 26.77,
+      "daysExisting": 72.7
     },
     {
       "name": "RomsiVmax",
-      "downloadCount": 155,
+      "downloadCount": 446,
       "mods": 1,
-      "downloadRate": 1.55,
-      "daysExisting": 99.72
+      "downloadRate": 4.43,
+      "daysExisting": 100.68
     },
     {
       "name": "Jpbeat",
-      "downloadCount": 3465,
+      "downloadCount": 2202,
       "mods": 2,
-      "downloadRate": 11.06,
-      "daysExisting": 313.39
+      "downloadRate": 7,
+      "daysExisting": 314.35
     },
     {
       "name": "heimat7",
-      "downloadCount": 6530,
+      "downloadCount": 6331,
       "mods": 1,
-      "downloadRate": 8.98,
-      "daysExisting": 726.86
+      "downloadRate": 8.7,
+      "daysExisting": 727.82
     },
     {
       "name": "Veldanava",
-      "downloadCount": 5166,
+      "downloadCount": 4870,
       "mods": 1,
-      "downloadRate": 5.38,
-      "daysExisting": 959.7
+      "downloadRate": 5.07,
+      "daysExisting": 960.67
     },
     {
       "name": "SiarnaQGames0987",
-      "downloadCount": 317,
+      "downloadCount": 98,
       "mods": 1,
-      "downloadRate": 3.24,
-      "daysExisting": 97.86
+      "downloadRate": 0.99,
+      "daysExisting": 98.82
     },
     {
       "name": "LandscapesReimagined",
-      "downloadCount": 5851,
+      "downloadCount": 5489,
       "mods": 3,
-      "downloadRate": 97.78,
-      "daysExisting": 59.84
+      "downloadRate": 90.28,
+      "daysExisting": 60.8
     },
     {
       "name": "gamma_02",
-      "downloadCount": 5851,
+      "downloadCount": 5489,
       "mods": 3,
-      "downloadRate": 97.78,
-      "daysExisting": 59.84
+      "downloadRate": 90.28,
+      "daysExisting": 60.8
     },
     {
       "name": "TheClashFruit",
-      "downloadCount": 770,
+      "downloadCount": 670,
       "mods": 1,
-      "downloadRate": 2.41,
-      "daysExisting": 320.05
+      "downloadRate": 2.09,
+      "daysExisting": 321.01
     },
     {
       "name": "GreenBoyYoutuber",
-      "downloadCount": 174,
+      "downloadCount": 148,
       "mods": 1,
-      "downloadRate": 12.46,
-      "daysExisting": 13.96
+      "downloadRate": 9.92,
+      "daysExisting": 14.92
     },
     {
       "name": "BUMBLEBELL07",
-      "downloadCount": 526,
+      "downloadCount": 529,
       "mods": 1,
-      "downloadRate": 5.18,
-      "daysExisting": 101.49
+      "downloadRate": 5.16,
+      "daysExisting": 102.45
     },
     {
       "name": "baguchiMC",
-      "downloadCount": 3104,
+      "downloadCount": 3108,
       "mods": 1,
       "downloadRate": 5.68,
-      "daysExisting": 546.1
+      "daysExisting": 547.06
     },
     {
       "name": "deluser",
-      "downloadCount": 5641,
+      "downloadCount": 5642,
       "mods": 1,
-      "downloadRate": 8.34,
-      "daysExisting": 676.76
+      "downloadRate": 8.32,
+      "daysExisting": 677.72
     },
     {
       "name": "ForkBow",
-      "downloadCount": 454,
+      "downloadCount": 457,
       "mods": 1,
-      "downloadRate": 8.05,
-      "daysExisting": 56.37
+      "downloadRate": 7.97,
+      "daysExisting": 57.33
     },
     {
       "name": "Misigno",
-      "downloadCount": 2513,
+      "downloadCount": 2514,
       "mods": 1,
       "downloadRate": 3.86,
-      "daysExisting": 650.81
+      "daysExisting": 651.77
     },
     {
       "name": "a0a7",
-      "downloadCount": 18393257,
+      "downloadCount": 18167829,
       "mods": 4,
-      "downloadRate": 32718.41,
-      "daysExisting": 562.17
+      "downloadRate": 32262.25,
+      "daysExisting": 563.13
     },
     {
       "name": "Heyimlennon",
-      "downloadCount": 442,
+      "downloadCount": 445,
       "mods": 1,
-      "downloadRate": 5.39,
-      "daysExisting": 81.94
+      "downloadRate": 5.37,
+      "daysExisting": 82.9
     },
     {
       "name": "TexTrue",
-      "downloadCount": 4406,
+      "downloadCount": 4407,
       "mods": 1,
-      "downloadRate": 7.16,
-      "daysExisting": 615.14
+      "downloadRate": 7.15,
+      "daysExisting": 616.1
     },
     {
       "name": "ruguysgoingtrickortreating",
-      "downloadCount": 2448,
+      "downloadCount": 2450,
       "mods": 1,
       "downloadRate": 3.8,
-      "daysExisting": 644.35
+      "daysExisting": 645.31
     },
     {
       "name": "NLWaterL9239",
-      "downloadCount": 924,
+      "downloadCount": 317,
       "mods": 1,
-      "downloadRate": 25.48,
-      "daysExisting": 36.27
+      "downloadRate": 8.51,
+      "daysExisting": 37.23
     },
     {
       "name": "Catman311",
-      "downloadCount": 696,
+      "downloadCount": 597,
       "mods": 1,
-      "downloadRate": 5.18,
-      "daysExisting": 134.49
+      "downloadRate": 4.41,
+      "daysExisting": 135.45
     },
     {
       "name": "TerraCrafterE3",
-      "downloadCount": 2297,
+      "downloadCount": 1949,
       "mods": 1,
-      "downloadRate": 3.61,
-      "daysExisting": 635.9
+      "downloadRate": 3.06,
+      "daysExisting": 636.86
     },
     {
       "name": "TankGuy1945",
-      "downloadCount": 1161,
+      "downloadCount": 582,
       "mods": 1,
-      "downloadRate": 2.73,
-      "daysExisting": 424.92
+      "downloadRate": 1.37,
+      "daysExisting": 425.88
     },
     {
       "name": "punyCurvedFootball",
-      "downloadCount": 1161,
+      "downloadCount": 582,
       "mods": 1,
-      "downloadRate": 2.73,
-      "daysExisting": 424.92
+      "downloadRate": 1.37,
+      "daysExisting": 425.88
     },
     {
       "name": "susdwz",
-      "downloadCount": 425,
+      "downloadCount": 282,
       "mods": 1,
-      "downloadRate": 10.65,
-      "daysExisting": 39.89
+      "downloadRate": 6.9,
+      "daysExisting": 40.86
     },
     {
       "name": "Bitboard",
-      "downloadCount": 7756,
+      "downloadCount": 7370,
       "mods": 1,
-      "downloadRate": 6.08,
-      "daysExisting": 1276.02
+      "downloadRate": 5.77,
+      "daysExisting": 1276.98
     },
     {
       "name": "ThePetePabloGaming",
-      "downloadCount": 10743,
+      "downloadCount": 10477,
       "mods": 1,
-      "downloadRate": 11.68,
-      "daysExisting": 919.88
+      "downloadRate": 11.38,
+      "daysExisting": 920.84
     },
     {
       "name": "yaki_yuki",
-      "downloadCount": 12869,
+      "downloadCount": 12402,
       "mods": 1,
-      "downloadRate": 15.67,
-      "daysExisting": 821.24
+      "downloadRate": 15.08,
+      "daysExisting": 822.2
     },
     {
       "name": "coolcat8710",
-      "downloadCount": 4174,
+      "downloadCount": 3959,
       "mods": 1,
-      "downloadRate": 6.73,
-      "daysExisting": 619.95
+      "downloadRate": 6.38,
+      "daysExisting": 620.92
     },
     {
       "name": "KakashoLin",
-      "downloadCount": 762,
+      "downloadCount": 1040,
       "mods": 1,
-      "downloadRate": 2.54,
-      "daysExisting": 299.63
+      "downloadRate": 3.46,
+      "daysExisting": 300.59
     },
     {
       "name": "Clenner",
-      "downloadCount": 361,
+      "downloadCount": 485,
       "mods": 1,
-      "downloadRate": 5.02,
-      "daysExisting": 71.94
+      "downloadRate": 6.65,
+      "daysExisting": 72.9
     },
     {
       "name": "piglk",
-      "downloadCount": 5577,
+      "downloadCount": 6078,
       "mods": 1,
-      "downloadRate": 5.31,
-      "daysExisting": 1049.79
+      "downloadRate": 5.78,
+      "daysExisting": 1050.75
     },
     {
       "name": "Kreiii",
-      "downloadCount": 349,
+      "downloadCount": 497,
       "mods": 1,
-      "downloadRate": 28.64,
-      "daysExisting": 12.19
+      "downloadRate": 37.8,
+      "daysExisting": 13.15
     },
     {
       "name": "100Sp4rk100",
-      "downloadCount": 19751,
+      "downloadCount": 22924,
       "mods": 2,
-      "downloadRate": 36.35,
-      "daysExisting": 543.35
+      "downloadRate": 42.12,
+      "daysExisting": 544.31
     },
     {
       "name": "little62",
-      "downloadCount": 2979,
+      "downloadCount": 3673,
       "mods": 2,
-      "downloadRate": 11.91,
-      "daysExisting": 250.23
+      "downloadRate": 14.62,
+      "daysExisting": 251.19
     },
     {
       "name": "Bastiswelt123",
-      "downloadCount": 417,
+      "downloadCount": 714,
       "mods": 1,
-      "downloadRate": 4.23,
-      "daysExisting": 98.67
+      "downloadRate": 7.17,
+      "daysExisting": 99.63
     },
     {
       "name": "ld_anvil",
-      "downloadCount": 12968,
+      "downloadCount": 14951,
       "mods": 2,
-      "downloadRate": 337.08,
-      "daysExisting": 38.47
+      "downloadRate": 379.15,
+      "daysExisting": 39.43
     },
     {
       "name": "NonsinDev",
-      "downloadCount": 1447,
+      "downloadCount": 2155,
       "mods": 1,
-      "downloadRate": 2.26,
-      "daysExisting": 638.87
+      "downloadRate": 3.37,
+      "daysExisting": 639.83
     },
     {
       "name": "Scientist_239",
-      "downloadCount": 478,
+      "downloadCount": 628,
       "mods": 1,
-      "downloadRate": 4.91,
-      "daysExisting": 97.37
+      "downloadRate": 6.39,
+      "daysExisting": 98.33
     },
     {
       "name": "egorplaytv17",
-      "downloadCount": 11925,
+      "downloadCount": 12413,
       "mods": 1,
-      "downloadRate": 13.55,
-      "daysExisting": 879.99
+      "downloadRate": 14.09,
+      "daysExisting": 880.95
     },
     {
       "name": "ImRosey",
-      "downloadCount": 338,
+      "downloadCount": 4114,
       "mods": 1,
-      "downloadRate": 1.93,
-      "daysExisting": 175.01
+      "downloadRate": 23.38,
+      "daysExisting": 175.97
     },
     {
       "name": "Territ",
-      "downloadCount": 3411,
+      "downloadCount": 3390,
       "mods": 1,
-      "downloadRate": 8.09,
-      "daysExisting": 421.76
+      "downloadRate": 8.02,
+      "daysExisting": 422.72
     },
     {
       "name": "Skytendo06",
-      "downloadCount": 573,
+      "downloadCount": 522,
       "mods": 1,
-      "downloadRate": 7.86,
-      "daysExisting": 72.86
+      "downloadRate": 7.07,
+      "daysExisting": 73.82
     },
     {
       "name": "QyuBot",
-      "downloadCount": 456,
+      "downloadCount": 317,
       "mods": 1,
-      "downloadRate": 9.46,
-      "daysExisting": 48.22
+      "downloadRate": 6.45,
+      "daysExisting": 49.18
     },
     {
       "name": "DepthDrako",
-      "downloadCount": 2509,
+      "downloadCount": 1913,
       "mods": 1,
-      "downloadRate": 5.98,
-      "daysExisting": 419.54
+      "downloadRate": 4.55,
+      "daysExisting": 420.5
     },
     {
       "name": "hopeful_hawking95",
-      "downloadCount": 2509,
+      "downloadCount": 1913,
       "mods": 1,
-      "downloadRate": 5.98,
-      "daysExisting": 419.54
+      "downloadRate": 4.55,
+      "daysExisting": 420.5
     },
     {
       "name": "CatCut",
-      "downloadCount": 4757,
+      "downloadCount": 912,
       "mods": 1,
-      "downloadRate": 16.15,
-      "daysExisting": 294.61
+      "downloadRate": 3.09,
+      "daysExisting": 295.57
     },
     {
       "name": "phicctv",
-      "downloadCount": 1193839,
+      "downloadCount": 1194093,
       "mods": 2,
-      "downloadRate": 1292.26,
-      "daysExisting": 923.84
+      "downloadRate": 1291.19,
+      "daysExisting": 924.8
     },
     {
       "name": "YenHusk",
-      "downloadCount": 26659,
+      "downloadCount": 26724,
       "mods": 2,
-      "downloadRate": 48.56,
-      "daysExisting": 548.99
+      "downloadRate": 48.59,
+      "daysExisting": 549.95
     },
     {
       "name": "Aidenboss434_OFFICIAL",
-      "downloadCount": 6837,
+      "downloadCount": 1647,
       "mods": 2,
-      "downloadRate": 41.5,
-      "daysExisting": 164.76
+      "downloadRate": 9.94,
+      "daysExisting": 165.72
     },
     {
       "name": "kenimoT",
-      "downloadCount": 83669,
+      "downloadCount": 93064,
       "mods": 4,
-      "downloadRate": 180.77,
-      "daysExisting": 462.85
+      "downloadRate": 200.65,
+      "daysExisting": 463.82
     },
     {
       "name": "morgan_iiii",
-      "downloadCount": 5218,
+      "downloadCount": 4594,
       "mods": 1,
-      "downloadRate": 7.01,
-      "daysExisting": 743.99
+      "downloadRate": 6.17,
+      "daysExisting": 744.95
     },
     {
       "name": "breynard",
-      "downloadCount": 2424,
+      "downloadCount": 2427,
       "mods": 1,
       "downloadRate": 5.12,
-      "daysExisting": 473.33
+      "daysExisting": 474.29
     },
     {
       "name": "cosmaztics",
-      "downloadCount": 12660,
+      "downloadCount": 9900,
       "mods": 2,
-      "downloadRate": 41.46,
-      "daysExisting": 305.37
+      "downloadRate": 32.32,
+      "daysExisting": 306.33
     },
     {
       "name": "user_d9hi552qey6p3wqx",
-      "downloadCount": 921,
+      "downloadCount": 947,
       "mods": 1,
-      "downloadRate": 17.47,
-      "daysExisting": 52.72
+      "downloadRate": 17.64,
+      "daysExisting": 53.68
     },
     {
       "name": "night_958",
-      "downloadCount": 5369,
+      "downloadCount": 5377,
       "mods": 1,
-      "downloadRate": 16.54,
-      "daysExisting": 324.58
+      "downloadRate": 16.52,
+      "daysExisting": 325.54
     },
     {
       "name": "ViktorLivingshield",
-      "downloadCount": 5003,
+      "downloadCount": 5016,
       "mods": 1,
-      "downloadRate": 7.55,
-      "daysExisting": 662.21
+      "downloadRate": 7.56,
+      "daysExisting": 663.18
     },
     {
       "name": "ThePandaXXL",
-      "downloadCount": 8087,
+      "downloadCount": 8097,
       "mods": 1,
       "downloadRate": 13.55,
-      "daysExisting": 596.82
+      "daysExisting": 597.78
     },
     {
       "name": "LieOnLion",
-      "downloadCount": 59759,
+      "downloadCount": 48806,
       "mods": 2,
-      "downloadRate": 657.13,
-      "daysExisting": 90.94
+      "downloadRate": 531.07,
+      "daysExisting": 91.9
     },
     {
       "name": "moetzithebest",
-      "downloadCount": 5438,
+      "downloadCount": 5450,
       "mods": 1,
-      "downloadRate": 14.63,
-      "daysExisting": 371.82
+      "downloadRate": 14.62,
+      "daysExisting": 372.78
     },
     {
       "name": "nocubeyt",
-      "downloadCount": 10939168,
+      "downloadCount": 10366097,
       "mods": 7,
-      "downloadRate": 18142.72,
-      "daysExisting": 602.95
+      "downloadRate": 17164.91,
+      "daysExisting": 603.91
     },
     {
       "name": "Doppel_R",
-      "downloadCount": 6674,
+      "downloadCount": 6687,
       "mods": 1,
-      "downloadRate": 32.44,
-      "daysExisting": 205.76
+      "downloadRate": 32.35,
+      "daysExisting": 206.72
     },
     {
       "name": "_justablock_",
-      "downloadCount": 6674,
+      "downloadCount": 6687,
       "mods": 1,
-      "downloadRate": 32.44,
-      "daysExisting": 205.76
+      "downloadRate": 32.35,
+      "daysExisting": 206.72
     },
     {
       "name": "gunsmoke428",
-      "downloadCount": 5413,
+      "downloadCount": 5419,
       "mods": 1,
-      "downloadRate": 9.5,
-      "daysExisting": 570.07
+      "downloadRate": 9.49,
+      "daysExisting": 571.03
     },
     {
       "name": "swayingmushroom",
-      "downloadCount": 4914,
+      "downloadCount": 4919,
       "mods": 1,
       "downloadRate": 7.34,
-      "daysExisting": 669.55
+      "daysExisting": 670.51
     },
     {
       "name": "tiny_ghasto",
-      "downloadCount": 28426,
+      "downloadCount": 28432,
       "mods": 1,
-      "downloadRate": 42.32,
-      "daysExisting": 671.63
+      "downloadRate": 42.27,
+      "daysExisting": 672.59
     },
     {
       "name": "SnowyJX",
-      "downloadCount": 2513,
+      "downloadCount": 2522,
       "mods": 1,
-      "downloadRate": 19.15,
-      "daysExisting": 131.26
+      "downloadRate": 19.07,
+      "daysExisting": 132.22
     },
     {
       "name": "TheRobbie72",
-      "downloadCount": 110254,
+      "downloadCount": 110585,
       "mods": 1,
-      "downloadRate": 289.92,
-      "daysExisting": 380.3
+      "downloadRate": 290.05,
+      "daysExisting": 381.26
     },
     {
       "name": "knalli65hd",
-      "downloadCount": 44394,
+      "downloadCount": 44409,
       "mods": 1,
-      "downloadRate": 42.62,
-      "daysExisting": 1041.69
+      "downloadRate": 42.59,
+      "daysExisting": 1042.65
     },
     {
       "name": "FalSociety",
-      "downloadCount": 24799,
+      "downloadCount": 24819,
       "mods": 3,
-      "downloadRate": 49.91,
-      "daysExisting": 496.87
+      "downloadRate": 49.85,
+      "daysExisting": 497.83
     },
     {
       "name": "kokekabe_madoha",
-      "downloadCount": 1502,
+      "downloadCount": 1526,
       "mods": 1,
-      "downloadRate": 22.05,
-      "daysExisting": 68.12
+      "downloadRate": 22.09,
+      "daysExisting": 69.08
     },
     {
       "name": "thesuperistguyyt",
-      "downloadCount": 1020,
+      "downloadCount": 1030,
       "mods": 1,
-      "downloadRate": 12.46,
-      "daysExisting": 81.85
+      "downloadRate": 12.44,
+      "daysExisting": 82.82
+    },
+    {
+      "name": "ausmez",
+      "downloadCount": 821,
+      "mods": 1,
+      "downloadRate": 131.55,
+      "daysExisting": 6.24
     },
     {
       "name": "Riin1120",
-      "downloadCount": 4395,
+      "downloadCount": 4397,
       "mods": 1,
-      "downloadRate": 7.1,
-      "daysExisting": 619.04
+      "downloadRate": 7.09,
+      "daysExisting": 620
     },
     {
       "name": "UnknownSwthr",
-      "downloadCount": 1276,
+      "downloadCount": 1281,
       "mods": 1,
-      "downloadRate": 10.45,
-      "daysExisting": 122.05
+      "downloadRate": 10.41,
+      "daysExisting": 123.01
     },
     {
       "name": "theishiopian",
-      "downloadCount": 976,
+      "downloadCount": 982,
       "mods": 1,
-      "downloadRate": 10.65,
-      "daysExisting": 91.64
+      "downloadRate": 10.6,
+      "daysExisting": 92.6
     },
     {
       "name": "Notaronzik",
-      "downloadCount": 4751,
+      "downloadCount": 4761,
       "mods": 1,
-      "downloadRate": 24.62,
-      "daysExisting": 192.96
+      "downloadRate": 24.55,
+      "daysExisting": 193.92
     },
     {
       "name": "Kibu",
-      "downloadCount": 6830,
+      "downloadCount": 6834,
       "mods": 1,
-      "downloadRate": 10.14,
-      "daysExisting": 673.54
+      "downloadRate": 10.13,
+      "daysExisting": 674.5
     },
     {
       "name": "Wuppertaler93",
-      "downloadCount": 5329,
+      "downloadCount": 5337,
       "mods": 1,
-      "downloadRate": 10.44,
-      "daysExisting": 510.61
+      "downloadRate": 10.43,
+      "daysExisting": 511.57
     },
     {
       "name": "dayjay1110",
-      "downloadCount": 5329,
+      "downloadCount": 5337,
       "mods": 1,
-      "downloadRate": 10.44,
-      "daysExisting": 510.61
+      "downloadRate": 10.43,
+      "daysExisting": 511.57
     },
     {
       "name": "VAXS",
-      "downloadCount": 2200,
+      "downloadCount": 2208,
       "mods": 1,
-      "downloadRate": 7.1,
-      "daysExisting": 309.78
+      "downloadRate": 7.11,
+      "daysExisting": 310.75
     },
     {
       "name": "Rat15",
-      "downloadCount": 5185,
+      "downloadCount": 5193,
       "mods": 1,
-      "downloadRate": 14.1,
-      "daysExisting": 367.83
+      "downloadRate": 14.08,
+      "daysExisting": 368.79
     },
     {
       "name": "mimikyucrew",
-      "downloadCount": 1450,
+      "downloadCount": 1455,
       "mods": 1,
-      "downloadRate": 12.85,
-      "daysExisting": 112.87
+      "downloadRate": 12.78,
+      "daysExisting": 113.83
     },
     {
       "name": "TTPeter",
-      "downloadCount": 5286,
+      "downloadCount": 5289,
       "mods": 1,
-      "downloadRate": 7.52,
-      "daysExisting": 703.04
+      "downloadRate": 7.51,
+      "daysExisting": 704
     },
     {
       "name": "sonomremi",
-      "downloadCount": 5391,
+      "downloadCount": 5399,
       "mods": 1,
-      "downloadRate": 13.3,
-      "daysExisting": 405.23
+      "downloadRate": 13.29,
+      "daysExisting": 406.19
     },
     {
       "name": "josb55z",
-      "downloadCount": 2820,
+      "downloadCount": 2821,
       "mods": 1,
-      "downloadRate": 5.83,
-      "daysExisting": 483.72
+      "downloadRate": 5.82,
+      "daysExisting": 484.68
     },
     {
       "name": "uberswe",
-      "downloadCount": 2300,
+      "downloadCount": 2303,
       "mods": 1,
-      "downloadRate": 8.65,
-      "daysExisting": 265.87
+      "downloadRate": 8.63,
+      "daysExisting": 266.83
     },
     {
       "name": "ibon972",
-      "downloadCount": 2249,
+      "downloadCount": 2256,
       "mods": 1,
       "downloadRate": 5.86,
-      "daysExisting": 383.88
+      "daysExisting": 384.85
     },
     {
       "name": "_Portality_",
-      "downloadCount": 721,
+      "downloadCount": 749,
       "mods": 1,
-      "downloadRate": 15.62,
-      "daysExisting": 46.17
+      "downloadRate": 15.89,
+      "daysExisting": 47.13
     },
     {
       "name": "chebyrech",
-      "downloadCount": 14609,
+      "downloadCount": 14795,
       "mods": 1,
-      "downloadRate": 46.52,
-      "daysExisting": 314.02
+      "downloadRate": 46.97,
+      "daysExisting": 314.98
     },
     {
       "name": "Cejeka10",
-      "downloadCount": 2613,
+      "downloadCount": 2615,
       "mods": 1,
-      "downloadRate": 5.44,
-      "daysExisting": 480.31
+      "downloadRate": 5.43,
+      "daysExisting": 481.27
     },
     {
       "name": "arketecmc",
-      "downloadCount": 6099,
+      "downloadCount": 6132,
       "mods": 1,
-      "downloadRate": 23.53,
-      "daysExisting": 259.15
+      "downloadRate": 23.57,
+      "daysExisting": 260.11
     },
     {
       "name": "Mortivak",
-      "downloadCount": 4966,
+      "downloadCount": 4995,
       "mods": 1,
-      "downloadRate": 13.33,
-      "daysExisting": 372.54
+      "downloadRate": 13.37,
+      "daysExisting": 373.51
     },
     {
       "name": "MrTinker",
-      "downloadCount": 7928,
+      "downloadCount": 7932,
       "mods": 2,
-      "downloadRate": 16.76,
-      "daysExisting": 473
+      "downloadRate": 16.74,
+      "daysExisting": 473.96
     },
     {
       "name": "almightytallestred",
-      "downloadCount": 1104,
+      "downloadCount": 1109,
       "mods": 1,
-      "downloadRate": 17.6,
-      "daysExisting": 62.72
+      "downloadRate": 17.41,
+      "daysExisting": 63.69
+    },
+    {
+      "name": "DadudeGaming",
+      "downloadCount": 574,
+      "mods": 1,
+      "downloadRate": 20.15,
+      "daysExisting": 28.49
     },
     {
       "name": "Grimmauld",
-      "downloadCount": 307654,
+      "downloadCount": 307657,
       "mods": 1,
-      "downloadRate": 165.33,
-      "daysExisting": 1860.86
+      "downloadRate": 165.25,
+      "daysExisting": 1861.82
     },
     {
       "name": "MaritheVillain",
-      "downloadCount": 883,
+      "downloadCount": 914,
       "mods": 1,
-      "downloadRate": 23.12,
-      "daysExisting": 38.19
+      "downloadRate": 23.35,
+      "daysExisting": 39.15
     },
     {
       "name": "YargenFlargen",
-      "downloadCount": 726,
+      "downloadCount": 774,
       "mods": 1,
-      "downloadRate": 37.22,
-      "daysExisting": 19.51
+      "downloadRate": 37.82,
+      "daysExisting": 20.47
     },
     {
       "name": "ModworldsMC",
-      "downloadCount": 29689,
+      "downloadCount": 29692,
       "mods": 1,
-      "downloadRate": 40.11,
-      "daysExisting": 740.25
+      "downloadRate": 40.06,
+      "daysExisting": 741.21
     },
     {
       "name": "GreatCowG",
-      "downloadCount": 1103,
+      "downloadCount": 1111,
       "mods": 1,
-      "downloadRate": 15.91,
-      "daysExisting": 69.31
+      "downloadRate": 15.81,
+      "daysExisting": 70.27
     },
     {
       "name": "ArrowsendGaming",
-      "downloadCount": 1980,
+      "downloadCount": 1983,
       "mods": 1,
-      "downloadRate": 13.64,
-      "daysExisting": 145.16
+      "downloadRate": 13.57,
+      "daysExisting": 146.12
     },
     {
       "name": "Timeship",
-      "downloadCount": 14398,
+      "downloadCount": 14402,
       "mods": 1,
-      "downloadRate": 15.44,
-      "daysExisting": 932.27
+      "downloadRate": 15.43,
+      "daysExisting": 933.23
     },
     {
       "name": "TardisEngineer",
-      "downloadCount": 14398,
+      "downloadCount": 14402,
       "mods": 1,
-      "downloadRate": 15.44,
-      "daysExisting": 932.27
+      "downloadRate": 15.43,
+      "daysExisting": 933.23
     },
     {
       "name": "droidplays08",
-      "downloadCount": 13377,
+      "downloadCount": 13397,
       "mods": 3,
-      "downloadRate": 37.19,
-      "daysExisting": 359.69
+      "downloadRate": 37.15,
+      "daysExisting": 360.65
     },
     {
       "name": "mattbv32",
-      "downloadCount": 5077,
+      "downloadCount": 5080,
       "mods": 1,
-      "downloadRate": 9.01,
-      "daysExisting": 563.36
+      "downloadRate": 9,
+      "daysExisting": 564.33
     },
     {
       "name": "NeonGreenShades",
-      "downloadCount": 2150,
+      "downloadCount": 2154,
       "mods": 1,
       "downloadRate": 5.43,
-      "daysExisting": 395.8
+      "daysExisting": 396.76
     },
     {
       "name": "Mrthomas20121",
-      "downloadCount": 5378,
+      "downloadCount": 5384,
       "mods": 1,
       "downloadRate": 8.6,
-      "daysExisting": 625.14
+      "daysExisting": 626.1
     },
     {
       "name": "klingicat",
-      "downloadCount": 5446,
+      "downloadCount": 5450,
       "mods": 1,
       "downloadRate": 7.08,
-      "daysExisting": 768.8
+      "daysExisting": 769.76
     },
     {
       "name": "legende__2004",
-      "downloadCount": 19714,
+      "downloadCount": 19725,
       "mods": 1,
-      "downloadRate": 31.51,
-      "daysExisting": 625.57
+      "downloadRate": 31.48,
+      "daysExisting": 626.53
     },
     {
       "name": "Crepper710",
-      "downloadCount": 12891,
+      "downloadCount": 12892,
       "mods": 1,
-      "downloadRate": 13.29,
-      "daysExisting": 969.79
+      "downloadRate": 13.28,
+      "daysExisting": 970.75
     },
     {
       "name": "mammut53",
-      "downloadCount": 191627,
+      "downloadCount": 191633,
       "mods": 1,
-      "downloadRate": 162.28,
-      "daysExisting": 1180.82
+      "downloadRate": 162.16,
+      "daysExisting": 1181.78
     },
     {
       "name": "yuriotavio",
-      "downloadCount": 1305,
+      "downloadCount": 1333,
       "mods": 1,
-      "downloadRate": 13.93,
-      "daysExisting": 93.69
+      "downloadRate": 14.08,
+      "daysExisting": 94.65
     },
     {
       "name": "Dowar_",
-      "downloadCount": 833,
+      "downloadCount": 851,
       "mods": 1,
-      "downloadRate": 30.34,
-      "daysExisting": 27.46
+      "downloadRate": 29.95,
+      "daysExisting": 28.42
     },
     {
       "name": "gamerbenyt",
-      "downloadCount": 5926,
+      "downloadCount": 5938,
       "mods": 1,
-      "downloadRate": 17.18,
-      "daysExisting": 344.94
+      "downloadRate": 17.17,
+      "daysExisting": 345.9
     },
     {
       "name": "star_f0rge",
-      "downloadCount": 6194,
+      "downloadCount": 6204,
       "mods": 1,
-      "downloadRate": 18.36,
-      "daysExisting": 337.35
+      "downloadRate": 18.34,
+      "daysExisting": 338.31
     },
     {
       "name": "LiukRast",
-      "downloadCount": 140776,
+      "downloadCount": 136912,
       "mods": 5,
-      "downloadRate": 1009.8,
-      "daysExisting": 139.41
+      "downloadRate": 975.36,
+      "daysExisting": 140.37
     },
     {
       "name": "potatowen",
-      "downloadCount": 5807,
+      "downloadCount": 5815,
       "mods": 1,
-      "downloadRate": 19.31,
-      "daysExisting": 300.67
+      "downloadRate": 19.28,
+      "daysExisting": 301.63
     },
     {
       "name": "lukeonDaCat",
-      "downloadCount": 6529,
+      "downloadCount": 6538,
       "mods": 1,
-      "downloadRate": 19.75,
-      "daysExisting": 330.54
+      "downloadRate": 19.72,
+      "daysExisting": 331.5
     },
     {
       "name": "Axliss",
-      "downloadCount": 5084,
+      "downloadCount": 5089,
       "mods": 1,
-      "downloadRate": 11.13,
-      "daysExisting": 456.72
+      "downloadRate": 11.12,
+      "daysExisting": 457.68
     },
     {
       "name": "easycopy9",
-      "downloadCount": 2364,
+      "downloadCount": 2375,
       "mods": 1,
-      "downloadRate": 17.31,
-      "daysExisting": 136.59
+      "downloadRate": 17.27,
+      "daysExisting": 137.55
     },
     {
       "name": "flaulox",
-      "downloadCount": 57467,
+      "downloadCount": 53568,
       "mods": 3,
-      "downloadRate": 348.84,
-      "daysExisting": 164.74
+      "downloadRate": 323.29,
+      "daysExisting": 165.7
     },
     {
       "name": "fluffy_unicorn_army",
-      "downloadCount": 2418,
+      "downloadCount": 2430,
       "mods": 1,
-      "downloadRate": 17.97,
-      "daysExisting": 134.56
+      "downloadRate": 17.93,
+      "daysExisting": 135.52
     },
     {
       "name": "Alkra",
-      "downloadCount": 6888,
+      "downloadCount": 6904,
       "mods": 1,
-      "downloadRate": 19.56,
-      "daysExisting": 352.11
+      "downloadRate": 19.55,
+      "daysExisting": 353.07
     },
     {
       "name": "_Meexy",
-      "downloadCount": 6112,
+      "downloadCount": 6122,
       "mods": 1,
-      "downloadRate": 18.16,
-      "daysExisting": 336.55
+      "downloadRate": 18.14,
+      "daysExisting": 337.51
     },
     {
       "name": "fleischboss3300",
-      "downloadCount": 37019,
+      "downloadCount": 37020,
       "mods": 1,
-      "downloadRate": 33.06,
-      "daysExisting": 1119.77
+      "downloadRate": 33.03,
+      "daysExisting": 1120.73
     },
     {
       "name": "Bearman_77",
-      "downloadCount": 2411,
+      "downloadCount": 2419,
       "mods": 1,
-      "downloadRate": 17.88,
-      "daysExisting": 134.84
+      "downloadRate": 17.81,
+      "daysExisting": 135.8
     },
     {
       "name": "xkball",
-      "downloadCount": 5584,
+      "downloadCount": 5596,
       "mods": 1,
       "downloadRate": 11.87,
-      "daysExisting": 470.34
+      "daysExisting": 471.3
     },
     {
       "name": "locus_natit",
-      "downloadCount": 5584,
+      "downloadCount": 5596,
       "mods": 1,
       "downloadRate": 11.87,
-      "daysExisting": 470.34
+      "daysExisting": 471.3
     },
     {
       "name": "camdaloon",
-      "downloadCount": 3106,
+      "downloadCount": 3130,
       "mods": 1,
-      "downloadRate": 30.67,
-      "daysExisting": 101.26
+      "downloadRate": 30.62,
+      "daysExisting": 102.22
     },
     {
       "name": "riehlgamer247",
-      "downloadCount": 20120,
+      "downloadCount": 20121,
       "mods": 1,
-      "downloadRate": 27.29,
-      "daysExisting": 737.37
+      "downloadRate": 27.25,
+      "daysExisting": 738.33
     },
     {
       "name": "JCS",
-      "downloadCount": 7391,
+      "downloadCount": 7399,
       "mods": 1,
-      "downloadRate": 20.41,
-      "daysExisting": 362.11
+      "downloadRate": 20.38,
+      "daysExisting": 363.07
     },
     {
       "name": "BigBarza",
-      "downloadCount": 2705,
+      "downloadCount": 2737,
       "mods": 1,
-      "downloadRate": 8.76,
-      "daysExisting": 308.89
+      "downloadRate": 8.83,
+      "daysExisting": 309.85
     },
     {
       "name": "LampTheModDev",
-      "downloadCount": 2924,
+      "downloadCount": 2940,
       "mods": 1,
-      "downloadRate": 26.04,
-      "daysExisting": 112.28
+      "downloadRate": 25.96,
+      "daysExisting": 113.24
     },
     {
       "name": "RegenStudios",
-      "downloadCount": 6499,
+      "downloadCount": 6512,
       "mods": 1,
-      "downloadRate": 34.25,
-      "daysExisting": 189.76
+      "downloadRate": 34.14,
+      "daysExisting": 190.72
     },
     {
       "name": "Chilllliii",
-      "downloadCount": 4556726,
+      "downloadCount": 4558221,
       "mods": 3,
-      "downloadRate": 5976.73,
-      "daysExisting": 762.41
+      "downloadRate": 5971.17,
+      "daysExisting": 763.37
     },
     {
       "name": "schnecke_7",
-      "downloadCount": 473842,
+      "downloadCount": 475750,
       "mods": 3,
-      "downloadRate": 853.37,
-      "daysExisting": 555.26
+      "downloadRate": 855.32,
+      "daysExisting": 556.22
     },
     {
       "name": "Nazaru",
-      "downloadCount": 5761,
+      "downloadCount": 5764,
       "mods": 1,
-      "downloadRate": 18.25,
-      "daysExisting": 315.73
+      "downloadRate": 18.2,
+      "daysExisting": 316.69
     },
     {
       "name": "JackoDynamics",
-      "downloadCount": 7271,
+      "downloadCount": 7276,
       "mods": 1,
-      "downloadRate": 13.13,
-      "daysExisting": 553.58
+      "downloadRate": 13.12,
+      "daysExisting": 554.54
     },
     {
       "name": "Mordonoth",
-      "downloadCount": 3104,
+      "downloadCount": 3127,
       "mods": 1,
-      "downloadRate": 21.29,
-      "daysExisting": 145.79
+      "downloadRate": 21.31,
+      "daysExisting": 146.75
     },
     {
       "name": "Txni",
-      "downloadCount": 850411,
+      "downloadCount": 851142,
       "mods": 2,
-      "downloadRate": 698.87,
-      "daysExisting": 1216.83
+      "downloadRate": 698.92,
+      "daysExisting": 1217.79
     },
     {
       "name": "la_lime_ace",
-      "downloadCount": 9920,
+      "downloadCount": 9935,
       "mods": 1,
-      "downloadRate": 22.45,
-      "daysExisting": 441.83
+      "downloadRate": 22.44,
+      "daysExisting": 442.8
     },
     {
       "name": "Poly12gon",
-      "downloadCount": 8213,
+      "downloadCount": 8295,
       "mods": 2,
-      "downloadRate": 70.1,
-      "daysExisting": 117.16
+      "downloadRate": 70.22,
+      "daysExisting": 118.13
     },
     {
       "name": "maougaukken__",
-      "downloadCount": 2561,
+      "downloadCount": 2602,
       "mods": 1,
-      "downloadRate": 27.59,
-      "daysExisting": 92.83
+      "downloadRate": 27.74,
+      "daysExisting": 93.79
     },
     {
       "name": "BUGGZDMC",
-      "downloadCount": 12031,
+      "downloadCount": 12183,
       "mods": 1,
-      "downloadRate": 184.94,
-      "daysExisting": 65.05
+      "downloadRate": 184.55,
+      "daysExisting": 66.01
     },
     {
       "name": "ascens_but_on_curseforge",
-      "downloadCount": 1343,
+      "downloadCount": 1377,
       "mods": 1,
-      "downloadRate": 28.13,
-      "daysExisting": 47.75
+      "downloadRate": 28.27,
+      "daysExisting": 48.71
     },
     {
       "name": "ChocoBoy",
-      "downloadCount": 1803,
+      "downloadCount": 1816,
       "mods": 1,
-      "downloadRate": 40.9,
-      "daysExisting": 44.09
+      "downloadRate": 40.31,
+      "daysExisting": 45.05
     },
     {
       "name": "ShinJoy991",
-      "downloadCount": 10862,
+      "downloadCount": 10924,
       "mods": 1,
-      "downloadRate": 21.19,
-      "daysExisting": 512.61
+      "downloadRate": 21.27,
+      "daysExisting": 513.58
     },
     {
       "name": "daxz_nort",
-      "downloadCount": 11514,
+      "downloadCount": 23447,
       "mods": 2,
-      "downloadRate": 30.04,
-      "daysExisting": 383.28
+      "downloadRate": 61.02,
+      "daysExisting": 384.24
     },
     {
       "name": "Apothicon",
-      "downloadCount": 1565783,
+      "downloadCount": 1569221,
       "mods": 2,
-      "downloadRate": 1657.94,
-      "daysExisting": 944.41
+      "downloadRate": 1659.89,
+      "daysExisting": 945.37
     },
     {
       "name": "donne431",
-      "downloadCount": 157315,
+      "downloadCount": 149824,
       "mods": 3,
-      "downloadRate": 453.5,
-      "daysExisting": 346.89
+      "downloadRate": 430.71,
+      "daysExisting": 347.85
     },
     {
       "name": "pm777x2",
-      "downloadCount": 1083,
+      "downloadCount": 1073,
       "mods": 1,
-      "downloadRate": 29.54,
-      "daysExisting": 36.67
+      "downloadRate": 28.51,
+      "daysExisting": 37.63
     },
     {
       "name": "9Octo",
-      "downloadCount": 26609,
+      "downloadCount": 25093,
       "mods": 1,
-      "downloadRate": 32.43,
-      "daysExisting": 820.46
+      "downloadRate": 30.55,
+      "daysExisting": 821.42
     },
     {
       "name": "Koone0",
-      "downloadCount": 15788,
+      "downloadCount": 13872,
       "mods": 1,
-      "downloadRate": 27.1,
-      "daysExisting": 582.68
+      "downloadRate": 23.77,
+      "daysExisting": 583.64
     },
     {
       "name": "ArgenNova",
-      "downloadCount": 31629,
+      "downloadCount": 31610,
       "mods": 1,
-      "downloadRate": 57.68,
-      "daysExisting": 548.36
+      "downloadRate": 57.54,
+      "daysExisting": 549.32
     },
     {
       "name": "IdioticScripts",
-      "downloadCount": 3954,
+      "downloadCount": 2681,
       "mods": 1,
-      "downloadRate": 17.22,
-      "daysExisting": 229.68
+      "downloadRate": 11.62,
+      "daysExisting": 230.64
     },
     {
       "name": "Bennyboy1695",
-      "downloadCount": 15175895,
+      "downloadCount": 15216182,
       "mods": 3,
-      "downloadRate": 26889.73,
-      "daysExisting": 564.38
+      "downloadRate": 26915.26,
+      "daysExisting": 565.34
     },
     {
       "name": "Tary",
-      "downloadCount": 2272,
+      "downloadCount": 1943,
       "mods": 1,
-      "downloadRate": 27.07,
-      "daysExisting": 83.92
+      "downloadRate": 22.89,
+      "daysExisting": 84.88
     },
     {
       "name": "speedbuiz",
-      "downloadCount": 2455,
+      "downloadCount": 1301,
       "mods": 1,
-      "downloadRate": 50.75,
-      "daysExisting": 48.37
+      "downloadRate": 26.37,
+      "daysExisting": 49.33
     },
     {
       "name": "Sleepy_Evelyn",
-      "downloadCount": 7763,
+      "downloadCount": 5846,
       "mods": 1,
-      "downloadRate": 14.37,
-      "daysExisting": 540.15
-    },
-    {
-      "name": "RaymondBlaze",
-      "downloadCount": 41365042,
-      "mods": 6,
-      "downloadRate": 89800.06,
-      "daysExisting": 460.63
-    },
-    {
-      "name": "MarbleGate",
-      "downloadCount": 40465377,
-      "mods": 5,
-      "downloadRate": 75815.69,
-      "daysExisting": 533.73
+      "downloadRate": 10.8,
+      "daysExisting": 541.11
     },
     {
       "name": "davib112",
-      "downloadCount": 35353,
+      "downloadCount": 33681,
       "mods": 1,
-      "downloadRate": 42.51,
-      "daysExisting": 831.62
+      "downloadRate": 40.45,
+      "daysExisting": 832.59
     },
     {
       "name": "zombieboy326_1",
-      "downloadCount": 2264,
+      "downloadCount": 1749,
       "mods": 1,
-      "downloadRate": 31.56,
-      "daysExisting": 71.74
+      "downloadRate": 24.06,
+      "daysExisting": 72.7
     },
     {
       "name": "65kid65",
-      "downloadCount": 9476,
+      "downloadCount": 3557,
       "mods": 1,
-      "downloadRate": 23.01,
-      "daysExisting": 411.75
+      "downloadRate": 8.62,
+      "daysExisting": 412.71
     },
     {
       "name": "ItsRuby05",
-      "downloadCount": 405067,
+      "downloadCount": 405478,
       "mods": 2,
-      "downloadRate": 1280.58,
-      "daysExisting": 316.32
+      "downloadRate": 1277.99,
+      "daysExisting": 317.28
     },
     {
       "name": "average_anime",
-      "downloadCount": 1166990,
+      "downloadCount": 1168820,
       "mods": 3,
-      "downloadRate": 2775.58,
-      "daysExisting": 420.45
+      "downloadRate": 2773.59,
+      "daysExisting": 421.41
     },
     {
       "name": "Robotik",
-      "downloadCount": 6041,
+      "downloadCount": 4681,
       "mods": 1,
-      "downloadRate": 22.91,
-      "daysExisting": 263.64
+      "downloadRate": 17.69,
+      "daysExisting": 264.6
     },
     {
       "name": "KWat_Dev_777",
-      "downloadCount": 9067,
+      "downloadCount": 1343,
       "mods": 1,
-      "downloadRate": 27.5,
-      "daysExisting": 329.68
+      "downloadRate": 4.06,
+      "daysExisting": 330.64
     },
     {
       "name": "akurakuu",
-      "downloadCount": 2685,
+      "downloadCount": 2072,
       "mods": 1,
-      "downloadRate": 34.92,
-      "daysExisting": 76.89
+      "downloadRate": 26.61,
+      "daysExisting": 77.85
     },
     {
       "name": "user_owz5869twp8qroap",
-      "downloadCount": 6617,
+      "downloadCount": 785,
       "mods": 1,
-      "downloadRate": 22.63,
-      "daysExisting": 292.34
+      "downloadRate": 2.68,
+      "daysExisting": 293.3
     },
     {
       "name": "drdeviousahh",
-      "downloadCount": 10726,
+      "downloadCount": 7070,
       "mods": 1,
-      "downloadRate": 22.04,
-      "daysExisting": 486.62
+      "downloadRate": 14.5,
+      "daysExisting": 487.59
     },
     {
       "name": "c0gd1s",
-      "downloadCount": 12117,
+      "downloadCount": 9486,
       "mods": 1,
-      "downloadRate": 20.77,
-      "daysExisting": 583.34
+      "downloadRate": 16.23,
+      "daysExisting": 584.3
     },
     {
       "name": "zealousAcousticOil",
-      "downloadCount": 9519,
+      "downloadCount": 3216,
       "mods": 1,
-      "downloadRate": 22.4,
-      "daysExisting": 424.91
+      "downloadRate": 7.55,
+      "daysExisting": 425.87
     },
     {
       "name": "IdentityTheft__",
-      "downloadCount": 8054,
+      "downloadCount": 5565,
       "mods": 1,
-      "downloadRate": 19.61,
-      "daysExisting": 410.68
+      "downloadRate": 13.52,
+      "daysExisting": 411.64
     },
     {
       "name": "JEDIGD",
-      "downloadCount": 1025805,
+      "downloadCount": 1029191,
       "mods": 4,
-      "downloadRate": 3775.99,
-      "daysExisting": 271.67
+      "downloadRate": 3775.1,
+      "daysExisting": 272.63
     },
     {
       "name": "antopfr90",
-      "downloadCount": 2176814,
+      "downloadCount": 2178986,
       "mods": 2,
-      "downloadRate": 2904.81,
-      "daysExisting": 749.38
+      "downloadRate": 2903.98,
+      "daysExisting": 750.34
     },
     {
       "name": "M_Productions",
-      "downloadCount": 1407202,
+      "downloadCount": 1399968,
       "mods": 3,
-      "downloadRate": 1709.69,
-      "daysExisting": 823.08
+      "downloadRate": 1698.91,
+      "daysExisting": 824.04
     },
     {
       "name": "PanPandaa",
-      "downloadCount": 8687,
+      "downloadCount": 8699,
       "mods": 1,
-      "downloadRate": 24.61,
-      "daysExisting": 352.96
+      "downloadRate": 24.58,
+      "daysExisting": 353.92
     },
     {
       "name": "MrPup",
-      "downloadCount": 13940,
+      "downloadCount": 13956,
       "mods": 1,
-      "downloadRate": 26.23,
-      "daysExisting": 531.54
+      "downloadRate": 26.21,
+      "daysExisting": 532.5
     },
     {
       "name": "IamKikin",
-      "downloadCount": 9065,
+      "downloadCount": 9075,
       "mods": 1,
-      "downloadRate": 18.25,
-      "daysExisting": 496.67
+      "downloadRate": 18.24,
+      "daysExisting": 497.63
+    },
+    {
+      "name": "MarbleGate",
+      "downloadCount": 40398374,
+      "mods": 5,
+      "downloadRate": 75554.07,
+      "daysExisting": 534.69
+    },
+    {
+      "name": "RaymondBlaze",
+      "downloadCount": 41315774,
+      "mods": 6,
+      "downloadRate": 89506.3,
+      "daysExisting": 461.6
     },
     {
       "name": "SnorreTheDev",
-      "downloadCount": 6517,
+      "downloadCount": 6527,
       "mods": 1,
-      "downloadRate": 19.76,
-      "daysExisting": 329.85
+      "downloadRate": 19.73,
+      "daysExisting": 330.81
     },
     {
       "name": "InfinityUniverse999",
-      "downloadCount": 5663,
+      "downloadCount": 5674,
       "mods": 1,
-      "downloadRate": 20.7,
-      "daysExisting": 273.57
+      "downloadRate": 20.67,
+      "daysExisting": 274.53
     },
     {
       "name": "stalosir",
-      "downloadCount": 594342,
+      "downloadCount": 516210,
       "mods": 2,
-      "downloadRate": 2372.54,
-      "daysExisting": 250.51
+      "downloadRate": 2052.77,
+      "daysExisting": 251.47
     },
     {
       "name": "Lalusko",
-      "downloadCount": 2091,
+      "downloadCount": 2123,
       "mods": 1,
-      "downloadRate": 36.04,
-      "daysExisting": 58.02
+      "downloadRate": 35.99,
+      "daysExisting": 58.98
     },
     {
       "name": "BlueBass_",
-      "downloadCount": 6259,
+      "downloadCount": 6289,
       "mods": 1,
-      "downloadRate": 27.76,
-      "daysExisting": 225.43
+      "downloadRate": 27.78,
+      "daysExisting": 226.39
     },
     {
       "name": "Nebulander",
-      "downloadCount": 6961,
+      "downloadCount": 6963,
       "mods": 1,
-      "downloadRate": 15.13,
-      "daysExisting": 460.05
+      "downloadRate": 15.1,
+      "daysExisting": 461.01
     },
     {
       "name": "CreateModFan154",
-      "downloadCount": 2315,
+      "downloadCount": 2353,
       "mods": 1,
-      "downloadRate": 38.85,
-      "daysExisting": 59.59
+      "downloadRate": 38.86,
+      "daysExisting": 60.55
     },
     {
       "name": "HipHo2",
-      "downloadCount": 10042,
+      "downloadCount": 10063,
       "mods": 1,
-      "downloadRate": 29.62,
-      "daysExisting": 338.98
+      "downloadRate": 29.6,
+      "daysExisting": 339.95
     },
     {
       "name": "PigeonholeAu",
-      "downloadCount": 14193,
+      "downloadCount": 14204,
       "mods": 1,
-      "downloadRate": 26.44,
-      "daysExisting": 536.71
+      "downloadRate": 26.42,
+      "daysExisting": 537.67
     },
     {
       "name": "Cashhew",
-      "downloadCount": 331087,
+      "downloadCount": 332710,
       "mods": 3,
-      "downloadRate": 580.51,
-      "daysExisting": 570.34
+      "downloadRate": 582.38,
+      "daysExisting": 571.3
     },
     {
       "name": "cdredstone",
-      "downloadCount": 6554,
+      "downloadCount": 6574,
       "mods": 1,
-      "downloadRate": 33.48,
-      "daysExisting": 195.78
+      "downloadRate": 33.41,
+      "daysExisting": 196.74
     },
     {
       "name": "TakeruDavis",
-      "downloadCount": 8100,
+      "downloadCount": 8262,
       "mods": 1,
-      "downloadRate": 107.32,
-      "daysExisting": 75.47
+      "downloadRate": 108.09,
+      "daysExisting": 76.43
     },
     {
       "name": "Brunixon2",
-      "downloadCount": 5245,
+      "downloadCount": 5260,
       "mods": 1,
-      "downloadRate": 28.42,
-      "daysExisting": 184.57
+      "downloadRate": 28.35,
+      "daysExisting": 185.53
     },
     {
       "name": "ironforcefeild",
-      "downloadCount": 71494,
+      "downloadCount": 71521,
       "mods": 1,
-      "downloadRate": 92.28,
-      "daysExisting": 774.75
+      "downloadRate": 92.2,
+      "daysExisting": 775.71
     },
     {
       "name": "NotTouchedGrass",
       "downloadCount": 4570,
       "mods": 1,
-      "downloadRate": 16.76,
-      "daysExisting": 272.69
+      "downloadRate": 16.7,
+      "daysExisting": 273.65
     },
     {
       "name": "panicnot422",
       "downloadCount": 861,
       "mods": 1,
-      "downloadRate": 3.05,
-      "daysExisting": 282.52
+      "downloadRate": 3.04,
+      "daysExisting": 283.48
     },
     {
       "name": "Rushmead",
       "downloadCount": 6754,
       "mods": 2,
-      "downloadRate": 28.14,
-      "daysExisting": 240.05
+      "downloadRate": 28.02,
+      "daysExisting": 241.01
     },
     {
       "name": "dragoneye_eon",
       "downloadCount": 8668,
       "mods": 1,
-      "downloadRate": 15.01,
-      "daysExisting": 577.51
+      "downloadRate": 14.98,
+      "daysExisting": 578.47
     },
     {
       "name": "ThinkingBeanz",
       "downloadCount": 8016,
       "mods": 1,
-      "downloadRate": 17.14,
-      "daysExisting": 467.56
+      "downloadRate": 17.11,
+      "daysExisting": 468.52
     },
     {
       "name": "Mr_Stardust",
       "downloadCount": 4007,
       "mods": 1,
-      "downloadRate": 9.48,
-      "daysExisting": 422.84
+      "downloadRate": 9.45,
+      "daysExisting": 423.8
     },
     {
       "name": "JoGamer207",
       "downloadCount": 2699,
       "mods": 1,
-      "downloadRate": 41.73,
-      "daysExisting": 64.68
+      "downloadRate": 41.12,
+      "daysExisting": 65.64
     },
     {
       "name": "crazyfl_",
-      "downloadCount": 80391,
+      "downloadCount": 80632,
       "mods": 2,
-      "downloadRate": 210.7,
-      "daysExisting": 381.55
+      "downloadRate": 210.8,
+      "daysExisting": 382.51
     },
     {
       "name": "blukzen",
       "downloadCount": 22107,
       "mods": 1,
-      "downloadRate": 19.04,
-      "daysExisting": 1161
+      "downloadRate": 19.03,
+      "daysExisting": 1161.96
     },
     {
       "name": "cmn1yes",
       "downloadCount": 22811,
       "mods": 1,
-      "downloadRate": 36.33,
-      "daysExisting": 627.83
+      "downloadRate": 36.28,
+      "daysExisting": 628.79
     },
     {
       "name": "goblinmuffins",
       "downloadCount": 4712,
       "mods": 1,
-      "downloadRate": 10.61,
-      "daysExisting": 444.3
+      "downloadRate": 10.58,
+      "daysExisting": 445.27
     },
     {
       "name": "JonMyDude",
       "downloadCount": 3462,
       "mods": 1,
-      "downloadRate": 41.91,
-      "daysExisting": 82.61
+      "downloadRate": 41.42,
+      "daysExisting": 83.57
     },
     {
       "name": "mifort_github",
       "downloadCount": 3462,
       "mods": 1,
-      "downloadRate": 41.91,
-      "daysExisting": 82.61
+      "downloadRate": 41.42,
+      "daysExisting": 83.57
     },
     {
       "name": "wedge1453",
-      "downloadCount": 2445521,
+      "downloadCount": 2447107,
       "mods": 3,
-      "downloadRate": 1976.64,
-      "daysExisting": 1237.21
+      "downloadRate": 1976.38,
+      "daysExisting": 1238.17
     },
     {
       "name": "zrikon",
       "downloadCount": 60532,
       "mods": 1,
-      "downloadRate": 81.82,
-      "daysExisting": 739.84
+      "downloadRate": 81.71,
+      "daysExisting": 740.8
     },
     {
       "name": "luis_joga",
       "downloadCount": 362834,
       "mods": 1,
-      "downloadRate": 333.66,
-      "daysExisting": 1087.44
+      "downloadRate": 333.36,
+      "daysExisting": 1088.4
     },
     {
       "name": "egocrafts",
       "downloadCount": 4944,
       "mods": 1,
-      "downloadRate": 32.42,
-      "daysExisting": 152.51
+      "downloadRate": 32.21,
+      "daysExisting": 153.47
     },
     {
       "name": "Misericordia",
       "downloadCount": 5359,
       "mods": 1,
-      "downloadRate": 44.81,
-      "daysExisting": 119.59
+      "downloadRate": 44.45,
+      "daysExisting": 120.55
     },
     {
       "name": "Chao0004",
       "downloadCount": 4847,
       "mods": 1,
-      "downloadRate": 16.75,
-      "daysExisting": 289.42
+      "downloadRate": 16.69,
+      "daysExisting": 290.38
     },
     {
       "name": "nico721gd",
       "downloadCount": 2330,
       "mods": 1,
-      "downloadRate": 6.32,
-      "daysExisting": 368.86
+      "downloadRate": 6.3,
+      "daysExisting": 369.82
     },
     {
       "name": "user_wiz4ba0l8gzym4r6",
       "downloadCount": 4533,
       "mods": 1,
-      "downloadRate": 27.53,
-      "daysExisting": 164.67
+      "downloadRate": 27.37,
+      "daysExisting": 165.63
     },
     {
       "name": "chezguy__",
       "downloadCount": 5087,
       "mods": 1,
-      "downloadRate": 18.33,
-      "daysExisting": 277.51
+      "downloadRate": 18.27,
+      "daysExisting": 278.47
     },
     {
       "name": "rawsushi",
       "downloadCount": 2246,
       "mods": 1,
-      "downloadRate": 7.02,
-      "daysExisting": 320.08
+      "downloadRate": 7,
+      "daysExisting": 321.04
     },
     {
       "name": "Jiex_Mortar",
       "downloadCount": 16092,
       "mods": 1,
-      "downloadRate": 38.76,
-      "daysExisting": 415.21
+      "downloadRate": 38.67,
+      "daysExisting": 416.18
     },
     {
       "name": "LeDuckest",
       "downloadCount": 3918,
       "mods": 1,
-      "downloadRate": 10.47,
-      "daysExisting": 374.23
+      "downloadRate": 10.44,
+      "daysExisting": 375.19
     },
     {
       "name": "KENYER88",
       "downloadCount": 6210,
       "mods": 1,
-      "downloadRate": 23.51,
-      "daysExisting": 264.17
+      "downloadRate": 23.42,
+      "daysExisting": 265.13
     },
     {
       "name": "joe_vettek",
-      "downloadCount": 7319,
+      "downloadCount": 5136,
       "mods": 1,
-      "downloadRate": 50.58,
-      "daysExisting": 144.7
+      "downloadRate": 35.26,
+      "daysExisting": 145.66
     },
     {
       "name": "tribnutzz",
-      "downloadCount": 25189,
+      "downloadCount": 17305,
       "mods": 1,
-      "downloadRate": 30.77,
-      "daysExisting": 818.57
+      "downloadRate": 21.12,
+      "daysExisting": 819.53
     },
     {
       "name": "notlilswift",
-      "downloadCount": 7617,
+      "downloadCount": 6563,
       "mods": 1,
-      "downloadRate": 25.71,
-      "daysExisting": 296.29
+      "downloadRate": 22.08,
+      "daysExisting": 297.25
     },
     {
       "name": "9127726416op",
-      "downloadCount": 63879,
+      "downloadCount": 5187,
       "mods": 1,
-      "downloadRate": 160.78,
-      "daysExisting": 397.31
+      "downloadRate": 13.02,
+      "daysExisting": 398.28
     },
     {
       "name": "CrimsonCrips",
-      "downloadCount": 15112,
+      "downloadCount": 9524,
       "mods": 1,
-      "downloadRate": 33.11,
-      "daysExisting": 456.37
+      "downloadRate": 20.83,
+      "daysExisting": 457.33
     },
     {
       "name": "Neeco_Arc",
-      "downloadCount": 7859,
+      "downloadCount": 7078,
       "mods": 1,
-      "downloadRate": 50.3,
-      "daysExisting": 156.26
+      "downloadRate": 45.02,
+      "daysExisting": 157.22
     },
     {
       "name": "Westernat233",
-      "downloadCount": 22099,
+      "downloadCount": 8001,
       "mods": 1,
-      "downloadRate": 48.77,
-      "daysExisting": 453.1
+      "downloadRate": 17.62,
+      "daysExisting": 454.06
     },
     {
       "name": "Kaleb_Langley",
-      "downloadCount": 22099,
+      "downloadCount": 8001,
       "mods": 1,
-      "downloadRate": 48.77,
-      "daysExisting": 453.1
+      "downloadRate": 17.62,
+      "daysExisting": 454.06
     },
     {
       "name": "IAFEnvoy",
-      "downloadCount": 22099,
+      "downloadCount": 8001,
       "mods": 1,
-      "downloadRate": 48.77,
-      "daysExisting": 453.1
+      "downloadRate": 17.62,
+      "daysExisting": 454.06
     },
     {
       "name": "braydog2040",
-      "downloadCount": 19625,
+      "downloadCount": 19146,
       "mods": 1,
-      "downloadRate": 38.98,
-      "daysExisting": 503.52
+      "downloadRate": 37.95,
+      "daysExisting": 504.48
     },
     {
       "name": "moepus",
-      "downloadCount": 584145,
+      "downloadCount": 591677,
       "mods": 2,
-      "downloadRate": 4533.6,
-      "daysExisting": 128.85
+      "downloadRate": 4558.05,
+      "daysExisting": 129.81
     },
     {
       "name": "MadSciSlack",
-      "downloadCount": 14871,
+      "downloadCount": 13785,
       "mods": 1,
-      "downloadRate": 28.97,
-      "daysExisting": 513.38
+      "downloadRate": 26.8,
+      "daysExisting": 514.35
     },
     {
       "name": "Vlad_It_and_LPlayer",
-      "downloadCount": 7615,
+      "downloadCount": 6222,
       "mods": 1,
-      "downloadRate": 37.68,
-      "daysExisting": 202.11
+      "downloadRate": 30.64,
+      "daysExisting": 203.07
     },
     {
       "name": "ZeroNoRyouki",
-      "downloadCount": 29099,
+      "downloadCount": 29011,
       "mods": 1,
-      "downloadRate": 49.94,
-      "daysExisting": 582.67
+      "downloadRate": 49.71,
+      "daysExisting": 583.63
     },
     {
       "name": "BlackeagleYT",
-      "downloadCount": 2671,
+      "downloadCount": 2633,
       "mods": 1,
-      "downloadRate": 79.06,
-      "daysExisting": 33.78
+      "downloadRate": 75.78,
+      "daysExisting": 34.75
     },
     {
       "name": "XiaoHuNao",
-      "downloadCount": 14159,
+      "downloadCount": 10035,
       "mods": 1,
-      "downloadRate": 38.69,
-      "daysExisting": 365.94
+      "downloadRate": 27.35,
+      "daysExisting": 366.9
     },
     {
       "name": "grigori995",
-      "downloadCount": 28713,
+      "downloadCount": 20567,
       "mods": 1,
-      "downloadRate": 37.93,
-      "daysExisting": 757.06
+      "downloadRate": 27.13,
+      "daysExisting": 758.02
     },
     {
       "name": "PANINI_0123",
-      "downloadCount": 14634,
+      "downloadCount": 14575,
       "mods": 1,
-      "downloadRate": 34.44,
-      "daysExisting": 424.94
+      "downloadRate": 34.22,
+      "daysExisting": 425.9
     },
     {
       "name": "ExoWarlock9031",
-      "downloadCount": 11177,
+      "downloadCount": 6869,
       "mods": 1,
-      "downloadRate": 41.53,
-      "daysExisting": 269.11
+      "downloadRate": 25.43,
+      "daysExisting": 270.07
     },
     {
       "name": "stacode",
-      "downloadCount": 7547,
+      "downloadCount": 5039,
       "mods": 1,
-      "downloadRate": 66.96,
-      "daysExisting": 112.72
+      "downloadRate": 44.33,
+      "daysExisting": 113.68
     },
     {
       "name": "FmStudios",
-      "downloadCount": 5254,
+      "downloadCount": 4289,
       "mods": 1,
-      "downloadRate": 77.17,
-      "daysExisting": 68.08
+      "downloadRate": 62.12,
+      "daysExisting": 69.05
     },
     {
       "name": "DarkLotus781",
-      "downloadCount": 32425,
+      "downloadCount": 31407,
       "mods": 1,
-      "downloadRate": 60.22,
-      "daysExisting": 538.41
+      "downloadRate": 58.23,
+      "daysExisting": 539.37
     },
     {
       "name": "Kaffeekirsche",
-      "downloadCount": 20056,
+      "downloadCount": 9293,
       "mods": 1,
-      "downloadRate": 30.62,
-      "daysExisting": 655.05
+      "downloadRate": 14.17,
+      "daysExisting": 656.01
     },
     {
       "name": "Lvkzera",
-      "downloadCount": 15122,
+      "downloadCount": 4042,
       "mods": 1,
-      "downloadRate": 52,
-      "daysExisting": 290.81
+      "downloadRate": 13.85,
+      "daysExisting": 291.77
     },
     {
       "name": "Qwerty97475",
-      "downloadCount": 17831,
+      "downloadCount": 14956,
       "mods": 1,
-      "downloadRate": 38.09,
-      "daysExisting": 468.14
+      "downloadRate": 31.88,
+      "daysExisting": 469.1
     },
     {
       "name": "Hemlokwastaken",
-      "downloadCount": 17831,
+      "downloadCount": 14956,
       "mods": 1,
-      "downloadRate": 38.09,
-      "daysExisting": 468.14
+      "downloadRate": 31.88,
+      "daysExisting": 469.1
     },
     {
       "name": "Reggarf",
-      "downloadCount": 1951887,
+      "downloadCount": 1934824,
       "mods": 9,
-      "downloadRate": 9019.5,
-      "daysExisting": 216.41
+      "downloadRate": 8901.12,
+      "daysExisting": 217.37
     },
     {
       "name": "foxynotail",
-      "downloadCount": 81153,
+      "downloadCount": 81095,
       "mods": 1,
-      "downloadRate": 202.44,
-      "daysExisting": 400.87
+      "downloadRate": 201.81,
+      "daysExisting": 401.83
     },
     {
       "name": "CPearl",
-      "downloadCount": 15797,
+      "downloadCount": 4671,
       "mods": 1,
-      "downloadRate": 47.15,
-      "daysExisting": 335.01
+      "downloadRate": 13.9,
+      "daysExisting": 335.97
     },
     {
       "name": "nimeng1299",
-      "downloadCount": 15797,
+      "downloadCount": 4671,
       "mods": 1,
-      "downloadRate": 47.15,
-      "daysExisting": 335.01
+      "downloadRate": 13.9,
+      "daysExisting": 335.97
     },
     {
       "name": "Robo_Dude999999",
-      "downloadCount": 7478,
+      "downloadCount": 6098,
       "mods": 1,
-      "downloadRate": 44.03,
-      "daysExisting": 169.84
+      "downloadRate": 35.7,
+      "daysExisting": 170.8
     },
     {
       "name": "Catcoll458",
-      "downloadCount": 20926,
+      "downloadCount": 17617,
       "mods": 1,
-      "downloadRate": 54.67,
-      "daysExisting": 382.79
+      "downloadRate": 45.91,
+      "daysExisting": 383.75
     },
     {
       "name": "DevDyna",
-      "downloadCount": 8807,
+      "downloadCount": 7281,
       "mods": 1,
-      "downloadRate": 55.81,
-      "daysExisting": 157.8
+      "downloadRate": 45.86,
+      "daysExisting": 158.76
     },
     {
       "name": "SirFox",
-      "downloadCount": 15647,
+      "downloadCount": 15683,
       "mods": 1,
-      "downloadRate": 52.95,
-      "daysExisting": 295.5
+      "downloadRate": 52.9,
+      "daysExisting": 296.46
     },
     {
       "name": "C1200",
-      "downloadCount": 8953,
+      "downloadCount": 10362,
       "mods": 1,
-      "downloadRate": 40.39,
-      "daysExisting": 221.65
+      "downloadRate": 46.55,
+      "daysExisting": 222.61
     },
     {
       "name": "titammods",
-      "downloadCount": 4998,
+      "downloadCount": 6729,
       "mods": 1,
-      "downloadRate": 94.91,
-      "daysExisting": 52.66
+      "downloadRate": 125.48,
+      "daysExisting": 53.62
     },
     {
       "name": "terentre4e25caracteres",
-      "downloadCount": 15520,
+      "downloadCount": 17410,
       "mods": 2,
-      "downloadRate": 210.62,
-      "daysExisting": 73.69
+      "downloadRate": 233.23,
+      "daysExisting": 74.65
     },
     {
       "name": "Project8gbDeRam",
-      "downloadCount": 11533,
+      "downloadCount": 12916,
       "mods": 1,
-      "downloadRate": 30.69,
-      "daysExisting": 375.8
+      "downloadRate": 34.28,
+      "daysExisting": 376.76
     },
     {
       "name": "Drazuam",
-      "downloadCount": 101709,
+      "downloadCount": 108732,
       "mods": 1,
-      "downloadRate": 95.81,
-      "daysExisting": 1061.53
+      "downloadRate": 102.34,
+      "daysExisting": 1062.49
     },
     {
       "name": "redwoodsteve",
-      "downloadCount": 28494,
+      "downloadCount": 32470,
       "mods": 1,
-      "downloadRate": 46.9,
-      "daysExisting": 607.53
+      "downloadRate": 53.36,
+      "daysExisting": 608.49
     },
     {
       "name": "triode_",
-      "downloadCount": 2020817,
+      "downloadCount": 2024687,
       "mods": 2,
-      "downloadRate": 2728.98,
-      "daysExisting": 740.5
-    },
-    {
-      "name": "rubydesic",
-      "downloadCount": 2020817,
-      "mods": 2,
-      "downloadRate": 2728.98,
-      "daysExisting": 740.5
+      "downloadRate": 2730.66,
+      "daysExisting": 741.46
     },
     {
       "name": "brickyboy",
-      "downloadCount": 89833,
+      "downloadCount": 90409,
       "mods": 1,
-      "downloadRate": 149.85,
-      "daysExisting": 599.5
+      "downloadRate": 150.56,
+      "daysExisting": 600.47
+    },
+    {
+      "name": "rubydesic",
+      "downloadCount": 2024687,
+      "mods": 2,
+      "downloadRate": 2730.66,
+      "daysExisting": 741.46
     },
     {
       "name": "ThePlasticPotato",
-      "downloadCount": 2020817,
+      "downloadCount": 2024687,
       "mods": 2,
-      "downloadRate": 2728.98,
-      "daysExisting": 740.5
+      "downloadRate": 2730.66,
+      "daysExisting": 741.46
     },
     {
       "name": "TT_TCS",
-      "downloadCount": 16809,
+      "downloadCount": 35143,
       "mods": 1,
-      "downloadRate": 26.36,
-      "daysExisting": 637.64
+      "downloadRate": 55.03,
+      "daysExisting": 638.6
     },
     {
       "name": "EnjoyerOfE",
-      "downloadCount": 3593,
+      "downloadCount": 10277,
       "mods": 1,
-      "downloadRate": 23.53,
-      "daysExisting": 152.67
+      "downloadRate": 66.9,
+      "daysExisting": 153.63
     },
     {
       "name": "NatiM6",
-      "downloadCount": 14713,
+      "downloadCount": 17915,
       "mods": 1,
-      "downloadRate": 39.69,
-      "daysExisting": 370.73
+      "downloadRate": 48.2,
+      "daysExisting": 371.69
     },
     {
       "name": "perl",
-      "downloadCount": 12591,
+      "downloadCount": 15280,
       "mods": 1,
-      "downloadRate": 42.32,
-      "daysExisting": 297.51
+      "downloadRate": 51.19,
+      "daysExisting": 298.47
     },
     {
       "name": "irishgreencitrus",
-      "downloadCount": 8066,
+      "downloadCount": 9708,
       "mods": 1,
-      "downloadRate": 73.51,
-      "daysExisting": 109.72
+      "downloadRate": 87.71,
+      "daysExisting": 110.68
     },
     {
       "name": "Techiend",
-      "downloadCount": 39771,
+      "downloadCount": 42735,
       "mods": 1,
-      "downloadRate": 59.25,
-      "daysExisting": 671.24
+      "downloadRate": 63.57,
+      "daysExisting": 672.2
     },
     {
       "name": "LagXLR8",
-      "downloadCount": 8714,
+      "downloadCount": 13445,
       "mods": 1,
-      "downloadRate": 58.54,
-      "daysExisting": 148.85
+      "downloadRate": 89.75,
+      "daysExisting": 149.81
     },
     {
       "name": "PearlStudios",
-      "downloadCount": 24631,
+      "downloadCount": 24861,
       "mods": 1,
-      "downloadRate": 78.49,
-      "daysExisting": 313.8
+      "downloadRate": 78.98,
+      "daysExisting": 314.76
     },
     {
       "name": "subthy",
-      "downloadCount": 60475,
+      "downloadCount": 74738,
       "mods": 2,
-      "downloadRate": 128.42,
-      "daysExisting": 470.92
+      "downloadRate": 158.38,
+      "daysExisting": 471.88
     },
     {
       "name": "Dadamalda",
-      "downloadCount": 4791,
+      "downloadCount": 4899,
       "mods": 1,
-      "downloadRate": 90.68,
-      "daysExisting": 52.84
-    },
-    {
-      "name": "Blzinite",
-      "downloadCount": 17581,
-      "mods": 1,
-      "downloadRate": 59.92,
-      "daysExisting": 293.43
-    },
-    {
-      "name": "MrUltra",
-      "downloadCount": 20446,
-      "mods": 1,
-      "downloadRate": 41.37,
-      "daysExisting": 494.19
-    },
-    {
-      "name": "TRlNlTlTE",
-      "downloadCount": 14357,
-      "mods": 1,
-      "downloadRate": 50.69,
-      "daysExisting": 283.25
-    },
-    {
-      "name": "ForgeStove",
-      "downloadCount": 7632,
-      "mods": 1,
-      "downloadRate": 106.99,
-      "daysExisting": 71.33
-    },
-    {
-      "name": "Deepacat",
-      "downloadCount": 12124,
-      "mods": 1,
-      "downloadRate": 38.59,
-      "daysExisting": 314.17
-    },
-    {
-      "name": "MarcosJoestar",
-      "downloadCount": 369610,
-      "mods": 3,
-      "downloadRate": 1593.38,
-      "daysExisting": 231.97
-    },
-    {
-      "name": "Alessio_324",
-      "downloadCount": 13317,
-      "mods": 1,
-      "downloadRate": 54.39,
-      "daysExisting": 244.82
-    },
-    {
-      "name": "donbarzlol",
-      "downloadCount": 24289,
-      "mods": 1,
-      "downloadRate": 49.03,
-      "daysExisting": 495.41
-    },
-    {
-      "name": "MrAtomicBombHead",
-      "downloadCount": 47316,
-      "mods": 2,
-      "downloadRate": 115.64,
-      "daysExisting": 409.15
-    },
-    {
-      "name": "WorkLifeBalance",
-      "downloadCount": 43080,
-      "mods": 1,
-      "downloadRate": 83.49,
-      "daysExisting": 516
-    },
-    {
-      "name": "HrajtoStudio",
-      "downloadCount": 12642,
-      "mods": 1,
-      "downloadRate": 77.13,
-      "daysExisting": 163.9
-    },
-    {
-      "name": "Ngbatz",
-      "downloadCount": 15738,
-      "mods": 1,
-      "downloadRate": 57.11,
-      "daysExisting": 275.56
-    },
-    {
-      "name": "OrangeJewce92",
-      "downloadCount": 66367,
-      "mods": 1,
-      "downloadRate": 65.08,
-      "daysExisting": 1019.74
-    },
-    {
-      "name": "rdh",
-      "downloadCount": 18467264,
-      "mods": 4,
-      "downloadRate": 27928.58,
-      "daysExisting": 661.23
-    },
-    {
-      "name": "Userofbricks",
-      "downloadCount": 41191,
-      "mods": 1,
-      "downloadRate": 69.73,
-      "daysExisting": 590.71
-    },
-    {
-      "name": "Rockiecraft",
-      "downloadCount": 35437,
-      "mods": 1,
-      "downloadRate": 71.09,
-      "daysExisting": 498.48
-    },
-    {
-      "name": "Slimik42",
-      "downloadCount": 14038,
-      "mods": 1,
-      "downloadRate": 39.47,
-      "daysExisting": 355.7
-    },
-    {
-      "name": "R3charged",
-      "downloadCount": 31799,
-      "mods": 1,
-      "downloadRate": 104.14,
-      "daysExisting": 305.36
-    },
-    {
-      "name": "Wolfieboy09",
-      "downloadCount": 25146,
-      "mods": 1,
-      "downloadRate": 93.67,
-      "daysExisting": 268.46
-    },
-    {
-      "name": "robinfrt",
-      "downloadCount": 3858091,
-      "mods": 14,
-      "downloadRate": 13548.65,
-      "daysExisting": 284.76
-    },
-    {
-      "name": "Reyals",
-      "downloadCount": 168998,
-      "mods": 2,
-      "downloadRate": 432.66,
-      "daysExisting": 390.6
-    },
-    {
-      "name": "Googly12",
-      "downloadCount": 210054,
-      "mods": 2,
-      "downloadRate": 596.74,
-      "daysExisting": 352
-    },
-    {
-      "name": "DeltaSF",
-      "downloadCount": 7070,
-      "mods": 1,
-      "downloadRate": 156.55,
-      "daysExisting": 45.16
-    },
-    {
-      "name": "Isk053",
-      "downloadCount": 18716,
-      "mods": 1,
-      "downloadRate": 70.18,
-      "daysExisting": 266.7
-    },
-    {
-      "name": "Mlodziak00",
-      "downloadCount": 18714,
-      "mods": 1,
-      "downloadRate": 40.88,
-      "daysExisting": 457.76
-    },
-    {
-      "name": "DariusZeBaguette",
-      "downloadCount": 3139875,
-      "mods": 3,
-      "downloadRate": 5427.09,
-      "daysExisting": 578.56
-    },
-    {
-      "name": "Supermarshadow",
-      "downloadCount": 2662788,
-      "mods": 2,
-      "downloadRate": 4538.06,
-      "daysExisting": 586.77
+      "downloadRate": 91.07,
+      "daysExisting": 53.8
     },
     {
       "name": "pixelsenpai",
-      "downloadCount": 39641,
+      "downloadCount": 39688,
       "mods": 1,
-      "downloadRate": 102.31,
-      "daysExisting": 387.45
+      "downloadRate": 102.18,
+      "daysExisting": 388.41
+    },
+    {
+      "name": "Blzinite",
+      "downloadCount": 19585,
+      "mods": 1,
+      "downloadRate": 66.53,
+      "daysExisting": 294.39
+    },
+    {
+      "name": "MrUltra",
+      "downloadCount": 32998,
+      "mods": 1,
+      "downloadRate": 66.64,
+      "daysExisting": 495.15
+    },
+    {
+      "name": "TRlNlTlTE",
+      "downloadCount": 22455,
+      "mods": 1,
+      "downloadRate": 79.01,
+      "daysExisting": 284.21
+    },
+    {
+      "name": "ForgeStove",
+      "downloadCount": 9917,
+      "mods": 1,
+      "downloadRate": 137.17,
+      "daysExisting": 72.3
+    },
+    {
+      "name": "Deepacat",
+      "downloadCount": 13959,
+      "mods": 1,
+      "downloadRate": 44.3,
+      "daysExisting": 315.14
+    },
+    {
+      "name": "MarcosJoestar",
+      "downloadCount": 373939,
+      "mods": 3,
+      "downloadRate": 1605.39,
+      "daysExisting": 232.93
+    },
+    {
+      "name": "Alessio_324",
+      "downloadCount": 15722,
+      "mods": 1,
+      "downloadRate": 63.97,
+      "daysExisting": 245.78
+    },
+    {
+      "name": "donbarzlol",
+      "downloadCount": 30826,
+      "mods": 1,
+      "downloadRate": 62.1,
+      "daysExisting": 496.37
+    },
+    {
+      "name": "MrAtomicBombHead",
+      "downloadCount": 62973,
+      "mods": 2,
+      "downloadRate": 153.55,
+      "daysExisting": 410.12
+    },
+    {
+      "name": "WorkLifeBalance",
+      "downloadCount": 43921,
+      "mods": 1,
+      "downloadRate": 84.96,
+      "daysExisting": 516.96
+    },
+    {
+      "name": "HrajtoStudio",
+      "downloadCount": 12681,
+      "mods": 1,
+      "downloadRate": 76.92,
+      "daysExisting": 164.86
+    },
+    {
+      "name": "Ngbatz",
+      "downloadCount": 15798,
+      "mods": 1,
+      "downloadRate": 57.13,
+      "daysExisting": 276.53
+    },
+    {
+      "name": "OrangeJewce92",
+      "downloadCount": 66385,
+      "mods": 1,
+      "downloadRate": 65.04,
+      "daysExisting": 1020.7
+    },
+    {
+      "name": "rdh",
+      "downloadCount": 18241936,
+      "mods": 4,
+      "downloadRate": 27547.76,
+      "daysExisting": 662.19
+    },
+    {
+      "name": "Userofbricks",
+      "downloadCount": 41216,
+      "mods": 1,
+      "downloadRate": 69.66,
+      "daysExisting": 591.67
+    },
+    {
+      "name": "Rockiecraft",
+      "downloadCount": 35462,
+      "mods": 1,
+      "downloadRate": 71,
+      "daysExisting": 499.44
+    },
+    {
+      "name": "Slimik42",
+      "downloadCount": 14060,
+      "mods": 1,
+      "downloadRate": 39.42,
+      "daysExisting": 356.66
+    },
+    {
+      "name": "R3charged",
+      "downloadCount": 31858,
+      "mods": 1,
+      "downloadRate": 104,
+      "daysExisting": 306.32
+    },
+    {
+      "name": "Wolfieboy09",
+      "downloadCount": 25210,
+      "mods": 1,
+      "downloadRate": 93.57,
+      "daysExisting": 269.42
+    },
+    {
+      "name": "robinfrt",
+      "downloadCount": 3746909,
+      "mods": 14,
+      "downloadRate": 13113.94,
+      "daysExisting": 285.72
+    },
+    {
+      "name": "Reyals",
+      "downloadCount": 149598,
+      "mods": 2,
+      "downloadRate": 382.05,
+      "daysExisting": 391.57
+    },
+    {
+      "name": "Googly12",
+      "downloadCount": 211054,
+      "mods": 2,
+      "downloadRate": 597.95,
+      "daysExisting": 352.96
+    },
+    {
+      "name": "DeltaSF",
+      "downloadCount": 7203,
+      "mods": 1,
+      "downloadRate": 156.17,
+      "daysExisting": 46.12
+    },
+    {
+      "name": "Isk053",
+      "downloadCount": 18794,
+      "mods": 1,
+      "downloadRate": 70.22,
+      "daysExisting": 267.66
+    },
+    {
+      "name": "Mlodziak00",
+      "downloadCount": 18758,
+      "mods": 1,
+      "downloadRate": 40.89,
+      "daysExisting": 458.72
+    },
+    {
+      "name": "DariusZeBaguette",
+      "downloadCount": 3015615,
+      "mods": 3,
+      "downloadRate": 5203.67,
+      "daysExisting": 579.52
+    },
+    {
+      "name": "Supermarshadow",
+      "downloadCount": 2537509,
+      "mods": 2,
+      "downloadRate": 4317.48,
+      "daysExisting": 587.73
     },
     {
       "name": "MrKM",
-      "downloadCount": 22371,
+      "downloadCount": 22473,
       "mods": 1,
       "downloadRate": 106.62,
-      "daysExisting": 209.82
+      "daysExisting": 210.78
     },
     {
       "name": "xKcinnay",
-      "downloadCount": 7885,
+      "downloadCount": 8018,
       "mods": 1,
-      "downloadRate": 184.68,
-      "daysExisting": 42.7
+      "downloadRate": 183.66,
+      "daysExisting": 43.66
     },
     {
       "name": "R3muss",
-      "downloadCount": 32023,
+      "downloadCount": 32085,
       "mods": 1,
-      "downloadRate": 78.32,
-      "daysExisting": 408.9
+      "downloadRate": 78.28,
+      "daysExisting": 409.86
     },
     {
       "name": "RealAntEngineer",
-      "downloadCount": 595211,
+      "downloadCount": 595649,
       "mods": 2,
-      "downloadRate": 939.74,
-      "daysExisting": 633.38
+      "downloadRate": 939.01,
+      "daysExisting": 634.34
     },
     {
       "name": "FieroLam",
-      "downloadCount": 20178,
+      "downloadCount": 20266,
       "mods": 1,
-      "downloadRate": 89.89,
-      "daysExisting": 224.46
+      "downloadRate": 89.9,
+      "daysExisting": 225.43
     },
     {
       "name": "celsiusqc",
-      "downloadCount": 4263281,
+      "downloadCount": 4274840,
       "mods": 5,
-      "downloadRate": 4308.58,
-      "daysExisting": 989.49
+      "downloadRate": 4316.07,
+      "daysExisting": 990.45
     },
     {
       "name": "Bluejamathons",
-      "downloadCount": 65610,
+      "downloadCount": 65661,
       "mods": 1,
-      "downloadRate": 109.82,
-      "daysExisting": 597.41
-    },
-    {
-      "name": "Cobblemore_Studio",
-      "downloadCount": 8640,
-      "mods": 1,
-      "downloadRate": 266.29,
-      "daysExisting": 32.45
+      "downloadRate": 109.73,
+      "daysExisting": 598.37
     },
     {
       "name": "LittleButter66",
-      "downloadCount": 45772,
+      "downloadCount": 74243,
       "mods": 2,
-      "downloadRate": 157.04,
-      "daysExisting": 291.46
+      "downloadRate": 253.89,
+      "daysExisting": 292.42
     },
     {
       "name": "MangoYT",
-      "downloadCount": 13082,
+      "downloadCount": 13971,
       "mods": 1,
-      "downloadRate": 160.26,
-      "daysExisting": 81.63
+      "downloadRate": 169.16,
+      "daysExisting": 82.59
     },
     {
       "name": "Tomtaru",
-      "downloadCount": 92136,
+      "downloadCount": 94243,
       "mods": 2,
-      "downloadRate": 288.6,
-      "daysExisting": 319.25
+      "downloadRate": 294.32,
+      "daysExisting": 320.21
+    },
+    {
+      "name": "Cobblemore_Studio",
+      "downloadCount": 9177,
+      "mods": 1,
+      "downloadRate": 274.7,
+      "daysExisting": 33.41
     },
     {
       "name": "Halex",
-      "downloadCount": 23925,
+      "downloadCount": 113089,
       "mods": 1,
-      "downloadRate": 60.97,
-      "daysExisting": 392.4
+      "downloadRate": 287.49,
+      "daysExisting": 393.36
     },
     {
       "name": "sashafiesta",
-      "downloadCount": 8179,
+      "downloadCount": 32397,
       "mods": 1,
-      "downloadRate": 19.47,
-      "daysExisting": 420.1
+      "downloadRate": 76.94,
+      "daysExisting": 421.06
     },
     {
       "name": "End_Rage",
-      "downloadCount": 1885099,
+      "downloadCount": 1896519,
       "mods": 2,
-      "downloadRate": 1518.82,
-      "daysExisting": 1241.16
-    },
-    {
-      "name": "zznty",
-      "downloadCount": 9804,
-      "mods": 1,
-      "downloadRate": 106.72,
-      "daysExisting": 91.86
+      "downloadRate": 1526.84,
+      "daysExisting": 1242.12
     },
     {
       "name": "Ribs498",
-      "downloadCount": 1304169,
+      "downloadCount": 1309401,
       "mods": 1,
-      "downloadRate": 1534.42,
-      "daysExisting": 849.94
+      "downloadRate": 1538.84,
+      "daysExisting": 850.9
     },
     {
       "name": "Robocraft999",
-      "downloadCount": 6586590,
+      "downloadCount": 6580300,
       "mods": 2,
-      "downloadRate": 5784.67,
-      "daysExisting": 1138.63
+      "downloadRate": 5774.27,
+      "daysExisting": 1139.59
     },
     {
       "name": "tiestoettoet08",
-      "downloadCount": 212516,
+      "downloadCount": 215757,
       "mods": 2,
-      "downloadRate": 234.46,
-      "daysExisting": 906.4
-    },
-    {
-      "name": "Lavundel",
-      "downloadCount": 28845,
-      "mods": 1,
-      "downloadRate": 38.52,
-      "daysExisting": 748.87
-    },
-    {
-      "name": "Sweetygamer",
-      "downloadCount": 57125,
-      "mods": 1,
-      "downloadRate": 65.24,
-      "daysExisting": 875.62
-    },
-    {
-      "name": "Cadentem",
-      "downloadCount": 57125,
-      "mods": 1,
-      "downloadRate": 65.24,
-      "daysExisting": 875.62
-    },
-    {
-      "name": "nicky__21",
-      "downloadCount": 3789890,
-      "mods": 2,
-      "downloadRate": 4740.99,
-      "daysExisting": 799.39
-    },
-    {
-      "name": "TheDukeOfCamorr",
-      "downloadCount": 158380,
-      "mods": 1,
-      "downloadRate": 244.5,
-      "daysExisting": 647.78
-    },
-    {
-      "name": "SpokenWig620933",
-      "downloadCount": 90933,
-      "mods": 1,
-      "downloadRate": 102.91,
-      "daysExisting": 883.6
-    },
-    {
-      "name": "drenough455",
-      "downloadCount": 9866,
-      "mods": 1,
-      "downloadRate": 23.66,
-      "daysExisting": 416.91
-    },
-    {
-      "name": "pyzpre",
-      "downloadCount": 3228887,
-      "mods": 4,
-      "downloadRate": 6271.01,
-      "daysExisting": 514.89
-    },
-    {
-      "name": "flipperpanda706",
-      "downloadCount": 125644,
-      "mods": 1,
-      "downloadRate": 224.76,
-      "daysExisting": 559.01
-    },
-    {
-      "name": "TerraPixel",
-      "downloadCount": 387931,
-      "mods": 2,
-      "downloadRate": 1276.85,
-      "daysExisting": 303.82
-    },
-    {
-      "name": "dudko",
-      "downloadCount": 39069,
-      "mods": 1,
-      "downloadRate": 121.06,
-      "daysExisting": 322.73
-    },
-    {
-      "name": "Blue_PHS",
-      "downloadCount": 14497,
-      "mods": 1,
-      "downloadRate": 235.62,
-      "daysExisting": 61.53
-    },
-    {
-      "name": "lukas_helms12321",
-      "downloadCount": 118993,
-      "mods": 2,
-      "downloadRate": 220.23,
-      "daysExisting": 540.32
-    },
-    {
-      "name": "siepert",
-      "downloadCount": 63763,
-      "mods": 1,
-      "downloadRate": 189.11,
-      "daysExisting": 337.17
-    },
-    {
-      "name": "moddingforreal",
-      "downloadCount": 63763,
-      "mods": 1,
-      "downloadRate": 189.11,
-      "daysExisting": 337.17
-    },
-    {
-      "name": "SteamPunkNation",
-      "downloadCount": 20114,
-      "mods": 1,
-      "downloadRate": 83.56,
-      "daysExisting": 240.7
-    },
-    {
-      "name": "fixdol",
-      "downloadCount": 27134,
-      "mods": 1,
-      "downloadRate": 266.19,
-      "daysExisting": 101.93
-    },
-    {
-      "name": "Sh4d0wJ0J0",
-      "downloadCount": 53623,
-      "mods": 1,
-      "downloadRate": 137.19,
-      "daysExisting": 390.88
-    },
-    {
-      "name": "ProFake",
-      "downloadCount": 53623,
-      "mods": 1,
-      "downloadRate": 137.19,
-      "daysExisting": 390.88
+      "downloadRate": 237.79,
+      "daysExisting": 907.36
     },
     {
       "name": "StarlightCraft",
-      "downloadCount": 96564,
+      "downloadCount": 96648,
       "mods": 1,
-      "downloadRate": 191.47,
-      "daysExisting": 504.32
+      "downloadRate": 191.27,
+      "daysExisting": 505.29
+    },
+    {
+      "name": "zznty",
+      "downloadCount": 10970,
+      "mods": 1,
+      "downloadRate": 118.18,
+      "daysExisting": 92.82
+    },
+    {
+      "name": "Lavundel",
+      "downloadCount": 40223,
+      "mods": 1,
+      "downloadRate": 53.64,
+      "daysExisting": 749.84
+    },
+    {
+      "name": "Sweetygamer",
+      "downloadCount": 65106,
+      "mods": 1,
+      "downloadRate": 74.27,
+      "daysExisting": 876.58
+    },
+    {
+      "name": "Cadentem",
+      "downloadCount": 65106,
+      "mods": 1,
+      "downloadRate": 74.27,
+      "daysExisting": 876.58
+    },
+    {
+      "name": "nicky__21",
+      "downloadCount": 3767818,
+      "mods": 2,
+      "downloadRate": 4707.72,
+      "daysExisting": 800.35
+    },
+    {
+      "name": "TheDukeOfCamorr",
+      "downloadCount": 165425,
+      "mods": 1,
+      "downloadRate": 255,
+      "daysExisting": 648.74
+    },
+    {
+      "name": "SpokenWig620933",
+      "downloadCount": 94841,
+      "mods": 1,
+      "downloadRate": 107.22,
+      "daysExisting": 884.57
+    },
+    {
+      "name": "pyzpre",
+      "downloadCount": 2392531,
+      "mods": 4,
+      "downloadRate": 4638.02,
+      "daysExisting": 515.85
+    },
+    {
+      "name": "flipperpanda706",
+      "downloadCount": 127645,
+      "mods": 1,
+      "downloadRate": 227.95,
+      "daysExisting": 559.97
+    },
+    {
+      "name": "TerraPixel",
+      "downloadCount": 391115,
+      "mods": 2,
+      "downloadRate": 1283.27,
+      "daysExisting": 304.78
+    },
+    {
+      "name": "dudko",
+      "downloadCount": 40592,
+      "mods": 1,
+      "downloadRate": 125.4,
+      "daysExisting": 323.69
+    },
+    {
+      "name": "Blue_PHS",
+      "downloadCount": 22355,
+      "mods": 1,
+      "downloadRate": 357.74,
+      "daysExisting": 62.49
+    },
+    {
+      "name": "lukas_helms12321",
+      "downloadCount": 128341,
+      "mods": 2,
+      "downloadRate": 237.11,
+      "daysExisting": 541.28
+    },
+    {
+      "name": "siepert",
+      "downloadCount": 67855,
+      "mods": 1,
+      "downloadRate": 200.68,
+      "daysExisting": 338.13
+    },
+    {
+      "name": "moddingforreal",
+      "downloadCount": 67855,
+      "mods": 1,
+      "downloadRate": 200.68,
+      "daysExisting": 338.13
+    },
+    {
+      "name": "SteamPunkNation",
+      "downloadCount": 44005,
+      "mods": 1,
+      "downloadRate": 182.09,
+      "daysExisting": 241.66
+    },
+    {
+      "name": "fixdol",
+      "downloadCount": 27321,
+      "mods": 1,
+      "downloadRate": 265.52,
+      "daysExisting": 102.9
+    },
+    {
+      "name": "Sh4d0wJ0J0",
+      "downloadCount": 53682,
+      "mods": 1,
+      "downloadRate": 137,
+      "daysExisting": 391.84
+    },
+    {
+      "name": "ProFake",
+      "downloadCount": 53682,
+      "mods": 1,
+      "downloadRate": 137,
+      "daysExisting": 391.84
     },
     {
       "name": "MrCyberdragon",
-      "downloadCount": 39403,
+      "downloadCount": 39694,
       "mods": 1,
-      "downloadRate": 131.6,
-      "daysExisting": 299.4
+      "downloadRate": 132.15,
+      "daysExisting": 300.37
     },
     {
       "name": "DragonEgg",
-      "downloadCount": 49789,
+      "downloadCount": 50004,
       "mods": 1,
-      "downloadRate": 193.75,
-      "daysExisting": 256.98
+      "downloadRate": 193.86,
+      "daysExisting": 257.94
     },
     {
       "name": "Thirace",
-      "downloadCount": 49789,
+      "downloadCount": 50004,
       "mods": 1,
-      "downloadRate": 193.75,
-      "daysExisting": 256.98
+      "downloadRate": 193.86,
+      "daysExisting": 257.94
     },
     {
       "name": "FabeTune",
-      "downloadCount": 63046,
+      "downloadCount": 63172,
       "mods": 1,
-      "downloadRate": 166,
-      "daysExisting": 379.79
-    },
-    {
-      "name": "Ellipog",
-      "downloadCount": 30979,
-      "mods": 1,
-      "downloadRate": 285.17,
-      "daysExisting": 108.63
-    },
-    {
-      "name": "GoatMorreti",
-      "downloadCount": 56181,
-      "mods": 1,
-      "downloadRate": 337.47,
-      "daysExisting": 166.48
+      "downloadRate": 165.91,
+      "daysExisting": 380.76
     },
     {
       "name": "Jetug",
-      "downloadCount": 29508,
+      "downloadCount": 29737,
       "mods": 1,
-      "downloadRate": 232.41,
-      "daysExisting": 126.96
+      "downloadRate": 232.46,
+      "daysExisting": 127.93
+    },
+    {
+      "name": "Ellipog",
+      "downloadCount": 31194,
+      "mods": 1,
+      "downloadRate": 284.63,
+      "daysExisting": 109.6
+    },
+    {
+      "name": "GoatMorreti",
+      "downloadCount": 56655,
+      "mods": 1,
+      "downloadRate": 338.36,
+      "daysExisting": 167.44
+    },
+    {
+      "name": "drenough455",
+      "downloadCount": 25349,
+      "mods": 1,
+      "downloadRate": 60.66,
+      "daysExisting": 417.87
     },
     {
       "name": "ProgrammerLP",
-      "downloadCount": 85676,
+      "downloadCount": 85827,
       "mods": 1,
-      "downloadRate": 227.36,
-      "daysExisting": 376.84
+      "downloadRate": 227.18,
+      "daysExisting": 377.8
     },
     {
       "name": "GlekTarssza",
-      "downloadCount": 60258,
+      "downloadCount": 60335,
       "mods": 1,
-      "downloadRate": 111.49,
-      "daysExisting": 540.49
+      "downloadRate": 111.43,
+      "daysExisting": 541.45
     },
     {
       "name": "Sietse",
-      "downloadCount": 164138,
+      "downloadCount": 164250,
       "mods": 1,
-      "downloadRate": 249.1,
-      "daysExisting": 658.91
+      "downloadRate": 248.91,
+      "daysExisting": 659.87
     },
     {
       "name": "krabby7_plays",
-      "downloadCount": 185862,
+      "downloadCount": 185886,
       "mods": 1,
-      "downloadRate": 180.03,
-      "daysExisting": 1032.4
+      "downloadRate": 179.88,
+      "daysExisting": 1033.36
     },
     {
       "name": "INFInight897",
-      "downloadCount": 91208,
+      "downloadCount": 91477,
       "mods": 1,
-      "downloadRate": 169.31,
-      "daysExisting": 538.7
+      "downloadRate": 169.51,
+      "daysExisting": 539.66
     },
     {
       "name": "Alex_ytLives",
-      "downloadCount": 96907,
+      "downloadCount": 96996,
       "mods": 1,
-      "downloadRate": 110.65,
-      "daysExisting": 875.8
+      "downloadRate": 110.63,
+      "daysExisting": 876.77
     },
     {
       "name": "mikecraft13",
-      "downloadCount": 156221,
+      "downloadCount": 156458,
       "mods": 1,
-      "downloadRate": 170.94,
-      "daysExisting": 913.89
+      "downloadRate": 171.02,
+      "daysExisting": 914.85
     },
     {
       "name": "JerryLu086",
-      "downloadCount": 1173490,
+      "downloadCount": 1173612,
       "mods": 1,
-      "downloadRate": 740.94,
-      "daysExisting": 1583.79
+      "downloadRate": 740.56,
+      "daysExisting": 1584.76
     },
     {
       "name": "Lysine",
-      "downloadCount": 22187803,
+      "downloadCount": 22002508,
       "mods": 4,
-      "downloadRate": 42045.6,
-      "daysExisting": 527.71
-    },
-    {
-      "name": "Lord_Of_Crumbs",
-      "downloadCount": 1765612,
-      "mods": 2,
-      "downloadRate": 2695.14,
-      "daysExisting": 655.11
-    },
-    {
-      "name": "abhishekrishnan",
-      "downloadCount": 151257,
-      "mods": 1,
-      "downloadRate": 242.04,
-      "daysExisting": 624.92
+      "downloadRate": 41618.66,
+      "daysExisting": 528.67
     },
     {
       "name": "Neve3",
-      "downloadCount": 210435,
+      "downloadCount": 210673,
       "mods": 1,
-      "downloadRate": 453.66,
-      "daysExisting": 463.86
+      "downloadRate": 453.24,
+      "daysExisting": 464.82
     },
     {
       "name": "sweetfizz",
-      "downloadCount": 210435,
+      "downloadCount": 210673,
       "mods": 1,
-      "downloadRate": 453.66,
-      "daysExisting": 463.86
+      "downloadRate": 453.24,
+      "daysExisting": 464.82
+    },
+    {
+      "name": "Lord_Of_Crumbs",
+      "downloadCount": 1767164,
+      "mods": 2,
+      "downloadRate": 2693.55,
+      "daysExisting": 656.07
+    },
+    {
+      "name": "abhishekrishnan",
+      "downloadCount": 151417,
+      "mods": 1,
+      "downloadRate": 241.93,
+      "daysExisting": 625.88
     },
     {
       "name": "Elenterius",
-      "downloadCount": 51318,
+      "downloadCount": 51526,
       "mods": 1,
-      "downloadRate": 238.6,
-      "daysExisting": 215.08
+      "downloadRate": 238.51,
+      "daysExisting": 216.04
     },
     {
       "name": "xaros74",
-      "downloadCount": 505323,
+      "downloadCount": 505419,
       "mods": 1,
-      "downloadRate": 376.85,
-      "daysExisting": 1340.92
+      "downloadRate": 376.65,
+      "daysExisting": 1341.88
     },
     {
       "name": "danniitv_",
-      "downloadCount": 42068,
+      "downloadCount": 42475,
       "mods": 1,
-      "downloadRate": 418.11,
-      "daysExisting": 100.61
+      "downloadRate": 418.16,
+      "daysExisting": 101.58
     },
     {
       "name": "PicAxeProduction",
-      "downloadCount": 437774,
+      "downloadCount": 428426,
       "mods": 1,
-      "downloadRate": 509.11,
-      "daysExisting": 859.88
+      "downloadRate": 497.68,
+      "daysExisting": 860.84
     },
     {
       "name": "Kessatsu",
-      "downloadCount": 81705,
+      "downloadCount": 48805,
       "mods": 1,
-      "downloadRate": 280.33,
-      "daysExisting": 291.47
+      "downloadRate": 166.9,
+      "daysExisting": 292.43
     },
     {
       "name": "StormDragon_64",
-      "downloadCount": 480790,
+      "downloadCount": 465894,
       "mods": 1,
-      "downloadRate": 578.02,
-      "daysExisting": 831.78
+      "downloadRate": 559.47,
+      "daysExisting": 832.74
     },
     {
       "name": "eightkv",
-      "downloadCount": 154470,
+      "downloadCount": 135931,
       "mods": 1,
-      "downloadRate": 275.02,
-      "daysExisting": 561.67
+      "downloadRate": 241.6,
+      "daysExisting": 562.63
     },
     {
       "name": "billnotic",
-      "downloadCount": 252020,
+      "downloadCount": 247585,
       "mods": 1,
-      "downloadRate": 500.76,
-      "daysExisting": 503.28
+      "downloadRate": 491.01,
+      "daysExisting": 504.24
     },
     {
       "name": "FlapjacksMods",
-      "downloadCount": 224565,
+      "downloadCount": 223916,
       "mods": 1,
-      "downloadRate": 349.69,
-      "daysExisting": 642.18
+      "downloadRate": 348.16,
+      "daysExisting": 643.15
     },
     {
       "name": "ZLT",
-      "downloadCount": 52706,
+      "downloadCount": 23741,
       "mods": 1,
-      "downloadRate": 1104.07,
-      "daysExisting": 47.74
+      "downloadRate": 487.5,
+      "daysExisting": 48.7
     },
     {
       "name": "iylo",
-      "downloadCount": 78419,
+      "downloadCount": 42197,
       "mods": 1,
-      "downloadRate": 161.92,
-      "daysExisting": 484.3
+      "downloadRate": 86.96,
+      "daysExisting": 485.26
     },
     {
       "name": "WitherTM",
-      "downloadCount": 145566,
+      "downloadCount": 117054,
       "mods": 1,
-      "downloadRate": 196.76,
-      "daysExisting": 739.83
+      "downloadRate": 158.01,
+      "daysExisting": 740.79
     },
     {
       "name": "timplay33",
-      "downloadCount": 29675,
+      "downloadCount": 29260,
       "mods": 1,
-      "downloadRate": 408.75,
-      "daysExisting": 72.6
+      "downloadRate": 397.76,
+      "daysExisting": 73.56
     },
     {
       "name": "Amygdaloideae",
-      "downloadCount": 77634,
+      "downloadCount": 35137,
       "mods": 1,
-      "downloadRate": 165.21,
-      "daysExisting": 469.9
+      "downloadRate": 74.62,
+      "daysExisting": 470.86
     },
     {
       "name": "iglee42",
-      "downloadCount": 4477892,
+      "downloadCount": 4464373,
       "mods": 3,
-      "downloadRate": 7578.54,
-      "daysExisting": 590.86
+      "downloadRate": 7543.39,
+      "daysExisting": 591.83
     },
     {
       "name": "Sindarin27",
-      "downloadCount": 254578,
+      "downloadCount": 246313,
       "mods": 1,
-      "downloadRate": 393.79,
-      "daysExisting": 646.47
+      "downloadRate": 380.44,
+      "daysExisting": 647.44
     },
     {
       "name": "FortnitePro420Xx",
-      "downloadCount": 266370,
+      "downloadCount": 218028,
       "mods": 1,
-      "downloadRate": 383.33,
-      "daysExisting": 694.88
+      "downloadRate": 313.33,
+      "daysExisting": 695.84
     },
     {
       "name": "PigTurtle",
-      "downloadCount": 266370,
+      "downloadCount": 218028,
       "mods": 1,
-      "downloadRate": 383.33,
-      "daysExisting": 694.88
+      "downloadRate": 313.33,
+      "daysExisting": 695.84
     },
     {
       "name": "anvian",
-      "downloadCount": 161764,
+      "downloadCount": 139475,
       "mods": 1,
-      "downloadRate": 316.71,
-      "daysExisting": 510.76
+      "downloadRate": 272.56,
+      "daysExisting": 511.72
     },
     {
       "name": "FuriusMaximus",
-      "downloadCount": 91730,
+      "downloadCount": 86414,
       "mods": 1,
-      "downloadRate": 267.18,
-      "daysExisting": 343.33
+      "downloadRate": 250.99,
+      "daysExisting": 344.29
     },
     {
       "name": "rbasamoyai",
-      "downloadCount": 9273706,
+      "downloadCount": 9272066,
       "mods": 2,
-      "downloadRate": 16932.49,
-      "daysExisting": 547.69
+      "downloadRate": 16899.83,
+      "daysExisting": 548.65
     },
     {
       "name": "golden__skeleton",
-      "downloadCount": 140429,
+      "downloadCount": 80511,
       "mods": 1,
-      "downloadRate": 346.73,
-      "daysExisting": 405.01
+      "downloadRate": 198.32,
+      "daysExisting": 405.97
     },
     {
       "name": "TheOrionPax",
-      "downloadCount": 74759,
+      "downloadCount": 74093,
       "mods": 1,
-      "downloadRate": 527.54,
-      "daysExisting": 141.71
+      "downloadRate": 519.31,
+      "daysExisting": 142.68
     },
     {
       "name": "ChAoS_UnItY_",
-      "downloadCount": 47175,
+      "downloadCount": 42271,
       "mods": 1,
-      "downloadRate": 631.21,
-      "daysExisting": 74.74
+      "downloadRate": 558.41,
+      "daysExisting": 75.7
     },
     {
       "name": "OrdanaryMods",
-      "downloadCount": 23387854,
+      "downloadCount": 22678399,
       "mods": 4,
-      "downloadRate": 29965.01,
-      "daysExisting": 780.51
+      "downloadRate": 29020.3,
+      "daysExisting": 781.47
     },
     {
       "name": "DrapNard",
-      "downloadCount": 582333,
+      "downloadCount": 582658,
       "mods": 1,
-      "downloadRate": 758.63,
-      "daysExisting": 767.61
+      "downloadRate": 758.1,
+      "daysExisting": 768.57
     },
     {
       "name": "Icicles",
-      "downloadCount": 582333,
+      "downloadCount": 582658,
       "mods": 1,
-      "downloadRate": 758.63,
-      "daysExisting": 767.61
+      "downloadRate": 758.1,
+      "daysExisting": 768.57
     },
     {
       "name": "MrRedRhino",
-      "downloadCount": 453479,
+      "downloadCount": 454002,
       "mods": 1,
-      "downloadRate": 705.91,
-      "daysExisting": 642.41
+      "downloadRate": 705.66,
+      "daysExisting": 643.37
     },
     {
       "name": "leon_mout",
-      "downloadCount": 281777,
+      "downloadCount": 282312,
       "mods": 1,
-      "downloadRate": 900.7,
-      "daysExisting": 312.84
+      "downloadRate": 899.64,
+      "daysExisting": 313.8
     },
     {
       "name": "arhos_minucios",
-      "downloadCount": 233254,
+      "downloadCount": 234143,
       "mods": 1,
-      "downloadRate": 356.29,
-      "daysExisting": 654.68
+      "downloadRate": 357.12,
+      "daysExisting": 655.64
     },
     {
       "name": "Amronos",
-      "downloadCount": 198955,
+      "downloadCount": 199332,
       "mods": 1,
-      "downloadRate": 462.69,
-      "daysExisting": 430
+      "downloadRate": 462.53,
+      "daysExisting": 430.96
     },
     {
       "name": "Snakeypro",
-      "downloadCount": 359002,
+      "downloadCount": 359386,
       "mods": 1,
-      "downloadRate": 641.9,
-      "daysExisting": 559.28
+      "downloadRate": 641.48,
+      "daysExisting": 560.24
     },
     {
       "name": "Monster__zero",
-      "downloadCount": 487394,
+      "downloadCount": 487395,
       "mods": 1,
-      "downloadRate": 548.23,
-      "daysExisting": 889.02
+      "downloadRate": 547.64,
+      "daysExisting": 889.99
     },
     {
       "name": "thatguynamedalpha",
-      "downloadCount": 487394,
+      "downloadCount": 487395,
       "mods": 1,
-      "downloadRate": 548.23,
-      "daysExisting": 889.02
+      "downloadRate": 547.64,
+      "daysExisting": 889.99
     },
     {
       "name": "TheLynkYT",
-      "downloadCount": 682012,
+      "downloadCount": 682352,
       "mods": 1,
-      "downloadRate": 760.24,
-      "daysExisting": 897.1
+      "downloadRate": 759.81,
+      "daysExisting": 898.06
     },
     {
       "name": "ATeamOf_1",
-      "downloadCount": 37211,
+      "downloadCount": 38113,
       "mods": 1,
-      "downloadRate": 526.94,
-      "daysExisting": 70.62
+      "downloadRate": 532.47,
+      "daysExisting": 71.58
     },
     {
       "name": "CathieNova",
-      "downloadCount": 783331,
+      "downloadCount": 783808,
       "mods": 1,
-      "downloadRate": 1142.39,
-      "daysExisting": 685.7
+      "downloadRate": 1141.48,
+      "daysExisting": 686.66
     },
     {
       "name": "kotakotik22",
-      "downloadCount": 1749627,
+      "downloadCount": 1750050,
       "mods": 2,
-      "downloadRate": 1220.18,
-      "daysExisting": 1433.91
+      "downloadRate": 1219.66,
+      "daysExisting": 1434.87
     },
     {
       "name": "TorsePoil",
-      "downloadCount": 351073,
+      "downloadCount": 351246,
       "mods": 1,
-      "downloadRate": 646.57,
-      "daysExisting": 542.98
+      "downloadRate": 645.74,
+      "daysExisting": 543.94
     },
     {
       "name": "finchymcfinch",
-      "downloadCount": 131718,
+      "downloadCount": 135180,
       "mods": 1,
-      "downloadRate": 1062.93,
-      "daysExisting": 123.92
+      "downloadRate": 1082.47,
+      "daysExisting": 124.88
     },
     {
       "name": "tom54541",
-      "downloadCount": 11321875,
+      "downloadCount": 11338277,
       "mods": 3,
-      "downloadRate": 23686.58,
-      "daysExisting": 477.99
+      "downloadRate": 23673.28,
+      "daysExisting": 478.95
     },
     {
       "name": "thetruezeraora",
-      "downloadCount": 389956,
+      "downloadCount": 390673,
       "mods": 1,
-      "downloadRate": 713.76,
-      "daysExisting": 546.34
+      "downloadRate": 713.82,
+      "daysExisting": 547.3
     },
     {
       "name": "Redcat",
-      "downloadCount": 14008696,
+      "downloadCount": 14048645,
       "mods": 2,
-      "downloadRate": 27564.55,
-      "daysExisting": 508.21
+      "downloadRate": 27590.96,
+      "daysExisting": 509.18
     },
     {
       "name": "sonima",
-      "downloadCount": 149505,
+      "downloadCount": 150324,
       "mods": 1,
-      "downloadRate": 881.32,
-      "daysExisting": 169.64
+      "downloadRate": 881.15,
+      "daysExisting": 170.6
     },
     {
       "name": "Ethrtn",
-      "downloadCount": 149505,
+      "downloadCount": 150324,
       "mods": 1,
-      "downloadRate": 881.32,
-      "daysExisting": 169.64
+      "downloadRate": 881.15,
+      "daysExisting": 170.6
     },
     {
       "name": "Plunger_Boy",
-      "downloadCount": 401446,
+      "downloadCount": 401725,
       "mods": 1,
-      "downloadRate": 650.72,
-      "daysExisting": 616.93
+      "downloadRate": 650.16,
+      "daysExisting": 617.89
     },
     {
       "name": "ibarnstormer_",
-      "downloadCount": 716747,
+      "downloadCount": 717183,
       "mods": 1,
-      "downloadRate": 937.64,
-      "daysExisting": 764.42
+      "downloadRate": 937.03,
+      "daysExisting": 765.38
     },
     {
       "name": "CreateNuclearTeam",
-      "downloadCount": 174038,
+      "downloadCount": 175231,
       "mods": 1,
-      "downloadRate": 387.57,
-      "daysExisting": 449.05
+      "downloadRate": 389.39,
+      "daysExisting": 450.01
     },
     {
       "name": "Giovanniricotta45",
-      "downloadCount": 174038,
+      "downloadCount": 175231,
       "mods": 1,
-      "downloadRate": 387.57,
-      "daysExisting": 449.05
+      "downloadRate": 389.39,
+      "daysExisting": 450.01
     },
     {
       "name": "ArcEnStone",
-      "downloadCount": 174038,
+      "downloadCount": 175231,
       "mods": 1,
-      "downloadRate": 387.57,
-      "daysExisting": 449.05
+      "downloadRate": 389.39,
+      "daysExisting": 450.01
     },
     {
       "name": "the_iwolfking",
-      "downloadCount": 118702,
+      "downloadCount": 120751,
       "mods": 1,
-      "downloadRate": 1180.02,
-      "daysExisting": 100.59
+      "downloadRate": 1189.03,
+      "daysExisting": 101.55
     },
     {
       "name": "sir_Robson",
-      "downloadCount": 456203,
+      "downloadCount": 456801,
       "mods": 1,
-      "downloadRate": 830.01,
-      "daysExisting": 549.63
+      "downloadRate": 829.65,
+      "daysExisting": 550.6
     },
     {
       "name": "dsvv_modding",
-      "downloadCount": 208028,
+      "downloadCount": 209623,
       "mods": 1,
-      "downloadRate": 1407.23,
-      "daysExisting": 147.83
+      "downloadRate": 1408.86,
+      "daysExisting": 148.79
     },
     {
       "name": "dugske",
-      "downloadCount": 914094,
+      "downloadCount": 914919,
       "mods": 1,
-      "downloadRate": 1101.55,
-      "daysExisting": 829.82
+      "downloadRate": 1101.27,
+      "daysExisting": 830.78
     },
     {
       "name": "Furti_Two",
-      "downloadCount": 32102228,
+      "downloadCount": 32103243,
       "mods": 3,
-      "downloadRate": 31117.25,
-      "daysExisting": 1031.65
+      "downloadRate": 31089.26,
+      "daysExisting": 1032.62
     },
     {
       "name": "zeh_maria",
-      "downloadCount": 978561,
+      "downloadCount": 980408,
       "mods": 2,
-      "downloadRate": 1325.96,
-      "daysExisting": 738
+      "downloadRate": 1326.73,
+      "daysExisting": 738.96
     },
     {
       "name": "FixerSchis",
-      "downloadCount": 410054,
+      "downloadCount": 410930,
       "mods": 1,
-      "downloadRate": 978.9,
-      "daysExisting": 418.89
+      "downloadRate": 978.75,
+      "daysExisting": 419.85
     },
     {
       "name": "alastors_game",
-      "downloadCount": 202142,
+      "downloadCount": 203053,
       "mods": 1,
-      "downloadRate": 453,
-      "daysExisting": 446.23
+      "downloadRate": 454.06,
+      "daysExisting": 447.19
     },
     {
       "name": "Railraider",
-      "downloadCount": 215599,
+      "downloadCount": 216509,
       "mods": 1,
-      "downloadRate": 533.68,
-      "daysExisting": 403.98
+      "downloadRate": 534.66,
+      "daysExisting": 404.95
     },
     {
       "name": "khaitrainsfun13",
-      "downloadCount": 215599,
+      "downloadCount": 216509,
       "mods": 1,
-      "downloadRate": 533.68,
-      "daysExisting": 403.98
+      "downloadRate": 534.66,
+      "daysExisting": 404.95
     },
     {
       "name": "pttheta",
-      "downloadCount": 611608,
+      "downloadCount": 612938,
       "mods": 1,
-      "downloadRate": 1231.2,
-      "daysExisting": 496.76
+      "downloadRate": 1231.49,
+      "daysExisting": 497.72
     },
     {
       "name": "betathunder1",
-      "downloadCount": 484298,
+      "downloadCount": 485378,
       "mods": 1,
-      "downloadRate": 831.89,
-      "daysExisting": 582.17
+      "downloadRate": 832.37,
+      "daysExisting": 583.13
     },
     {
       "name": "daniil_white",
-      "downloadCount": 202330,
+      "downloadCount": 202706,
       "mods": 1,
-      "downloadRate": 700.66,
-      "daysExisting": 288.77
+      "downloadRate": 699.63,
+      "daysExisting": 289.73
     },
     {
       "name": "3xpl01t",
-      "downloadCount": 206096,
+      "downloadCount": 207239,
       "mods": 1,
-      "downloadRate": 1346.78,
-      "daysExisting": 153.03
+      "downloadRate": 1345.8,
+      "daysExisting": 153.99
     },
     {
       "name": "MrSterner_",
-      "downloadCount": 2203856,
+      "downloadCount": 2207322,
       "mods": 2,
-      "downloadRate": 2864.93,
-      "daysExisting": 769.25
+      "downloadRate": 2865.86,
+      "daysExisting": 770.21
     },
     {
       "name": "MrJulsen",
-      "downloadCount": 2474550,
+      "downloadCount": 2471281,
       "mods": 2,
-      "downloadRate": 4794.45,
-      "daysExisting": 516.13
+      "downloadRate": 4779.21,
+      "daysExisting": 517.09
     },
     {
       "name": "jargames99",
-      "downloadCount": 290151,
+      "downloadCount": 291319,
       "mods": 1,
-      "downloadRate": 611.46,
-      "daysExisting": 474.52
+      "downloadRate": 612.68,
+      "daysExisting": 475.48
     },
     {
       "name": "DuckPond",
-      "downloadCount": 1854861,
+      "downloadCount": 1858859,
       "mods": 4,
-      "downloadRate": 3792.98,
-      "daysExisting": 489.02
+      "downloadRate": 3793.7,
+      "daysExisting": 489.99
     },
     {
       "name": "Jopgood",
-      "downloadCount": 251807,
+      "downloadCount": 252828,
       "mods": 1,
-      "downloadRate": 653.11,
-      "daysExisting": 385.55
+      "downloadRate": 654.12,
+      "daysExisting": 386.51
     },
     {
       "name": "AstralButOnCurseForge",
-      "downloadCount": 698217,
+      "downloadCount": 699469,
       "mods": 1,
-      "downloadRate": 1170.34,
-      "daysExisting": 596.59
+      "downloadRate": 1170.55,
+      "daysExisting": 597.56
     },
     {
       "name": "moromorochan",
-      "downloadCount": 548450,
+      "downloadCount": 549643,
       "mods": 1,
-      "downloadRate": 673.77,
-      "daysExisting": 814
+      "downloadRate": 674.44,
+      "daysExisting": 814.96
     },
     {
       "name": "Not_Juno",
-      "downloadCount": 402292,
+      "downloadCount": 403900,
       "mods": 1,
-      "downloadRate": 969.45,
-      "daysExisting": 414.97
+      "downloadRate": 971.08,
+      "daysExisting": 415.93
     },
     {
       "name": "Silopante",
-      "downloadCount": 1724554,
+      "downloadCount": 1725562,
       "mods": 1,
-      "downloadRate": 2401.78,
-      "daysExisting": 718.03
+      "downloadRate": 2399.97,
+      "daysExisting": 718.99
     },
     {
       "name": "SilverGoId",
-      "downloadCount": 791642,
+      "downloadCount": 793104,
       "mods": 1,
-      "downloadRate": 1061.76,
-      "daysExisting": 745.6
+      "downloadRate": 1062.35,
+      "daysExisting": 746.56
     },
     {
       "name": "daviOliva",
-      "downloadCount": 324113,
+      "downloadCount": 325792,
       "mods": 1,
-      "downloadRate": 772.99,
-      "daysExisting": 419.3
+      "downloadRate": 775.22,
+      "daysExisting": 420.26
     },
     {
       "name": "MilkyFur",
-      "downloadCount": 5699370,
+      "downloadCount": 5689226,
       "mods": 2,
-      "downloadRate": 9937.88,
-      "daysExisting": 573.5
+      "downloadRate": 9903.59,
+      "daysExisting": 574.46
     },
     {
       "name": "Dr_Mango_Tea",
-      "downloadCount": 9806701,
+      "downloadCount": 9801800,
       "mods": 3,
-      "downloadRate": 13959.05,
-      "daysExisting": 702.53
+      "downloadRate": 13933.01,
+      "daysExisting": 703.49
     },
     {
       "name": "happysg",
-      "downloadCount": 356215,
+      "downloadCount": 362041,
       "mods": 1,
-      "downloadRate": 1867.28,
-      "daysExisting": 190.77
+      "downloadRate": 1888.31,
+      "daysExisting": 191.73
     },
     {
       "name": "Petrolpark",
-      "downloadCount": 491484,
+      "downloadCount": 493385,
       "mods": 1,
-      "downloadRate": 1718.72,
-      "daysExisting": 285.96
+      "downloadRate": 1719.59,
+      "daysExisting": 286.92
     },
     {
       "name": "BlackAuresArt",
-      "downloadCount": 1215866,
+      "downloadCount": 1217643,
       "mods": 1,
-      "downloadRate": 2144.43,
-      "daysExisting": 566.99
+      "downloadRate": 2143.93,
+      "daysExisting": 567.95
     },
     {
       "name": "LucasTheDrgn",
-      "downloadCount": 1629007,
+      "downloadCount": 1630413,
       "mods": 1,
-      "downloadRate": 2231.41,
-      "daysExisting": 730.03
+      "downloadRate": 2230.4,
+      "daysExisting": 731
     },
     {
       "name": "yuesha_yc",
-      "downloadCount": 2113607,
+      "downloadCount": 2115167,
       "mods": 1,
-      "downloadRate": 1572.45,
-      "daysExisting": 1344.15
+      "downloadRate": 1572.49,
+      "daysExisting": 1345.11
     },
     {
       "name": "khjxiaogu",
-      "downloadCount": 2113607,
+      "downloadCount": 2115167,
       "mods": 1,
-      "downloadRate": 1572.45,
-      "daysExisting": 1344.15
+      "downloadRate": 1572.49,
+      "daysExisting": 1345.11
     },
     {
       "name": "Myst",
-      "downloadCount": 3529476,
+      "downloadCount": 3531540,
       "mods": 1,
-      "downloadRate": 2668.93,
-      "daysExisting": 1322.43
+      "downloadRate": 2668.55,
+      "daysExisting": 1323.39
     },
     {
       "name": "GLaD0S",
-      "downloadCount": 1475382,
+      "downloadCount": 1477693,
       "mods": 1,
-      "downloadRate": 2169.48,
-      "daysExisting": 680.06
+      "downloadRate": 2169.81,
+      "daysExisting": 681.02
     },
     {
       "name": "IThundxr",
-      "downloadCount": 42492116,
+      "downloadCount": 42496586,
       "mods": 2,
-      "downloadRate": 50903.22,
-      "daysExisting": 834.76
+      "downloadRate": 50850.02,
+      "daysExisting": 835.72
     },
     {
       "name": "slimeistdev",
-      "downloadCount": 42492116,
+      "downloadCount": 42496586,
       "mods": 2,
-      "downloadRate": 50903.22,
-      "daysExisting": 834.76
+      "downloadRate": 50850.02,
+      "daysExisting": 835.72
     },
     {
       "name": "spottytheturtle",
-      "downloadCount": 42492116,
+      "downloadCount": 42496586,
       "mods": 2,
-      "downloadRate": 50903.22,
-      "daysExisting": 834.76
+      "downloadRate": 50850.02,
+      "daysExisting": 835.72
     },
     {
       "name": "Tatnux",
-      "downloadCount": 301194,
+      "downloadCount": 303004,
       "mods": 1,
-      "downloadRate": 1132.01,
-      "daysExisting": 266.07
+      "downloadRate": 1134.71,
+      "daysExisting": 267.03
     },
     {
       "name": "getItemFromBlock",
-      "downloadCount": 1002457,
+      "downloadCount": 1005110,
       "mods": 1,
-      "downloadRate": 1479.18,
-      "daysExisting": 677.71
+      "downloadRate": 1481,
+      "daysExisting": 678.67
     },
     {
       "name": "Micaxs",
-      "downloadCount": 232824,
+      "downloadCount": 234054,
       "mods": 1,
-      "downloadRate": 553.82,
-      "daysExisting": 420.4
+      "downloadRate": 555.47,
+      "daysExisting": 421.36
     },
     {
       "name": "lpcamors",
-      "downloadCount": 693840,
+      "downloadCount": 696095,
       "mods": 1,
-      "downloadRate": 1670.18,
-      "daysExisting": 415.43
+      "downloadRate": 1671.74,
+      "daysExisting": 416.39
     },
     {
       "name": "TheGuy790",
-      "downloadCount": 1607970,
+      "downloadCount": 1610240,
       "mods": 1,
-      "downloadRate": 2997.29,
-      "daysExisting": 536.47
+      "downloadRate": 2996.15,
+      "daysExisting": 537.44
     },
     {
       "name": "ankiolyne",
-      "downloadCount": 1930984,
+      "downloadCount": 1934278,
       "mods": 1,
-      "downloadRate": 2190.57,
-      "daysExisting": 881.5
+      "downloadRate": 2191.91,
+      "daysExisting": 882.46
     },
     {
       "name": "ssm227",
-      "downloadCount": 2829785,
+      "downloadCount": 2623388,
       "mods": 1,
-      "downloadRate": 3462.5,
-      "daysExisting": 817.27
+      "downloadRate": 3206.18,
+      "daysExisting": 818.23
     },
     {
       "name": "Negodya1",
-      "downloadCount": 1370298,
+      "downloadCount": 1359102,
       "mods": 1,
-      "downloadRate": 2466.52,
-      "daysExisting": 555.56
+      "downloadRate": 2442.14,
+      "daysExisting": 556.52
     },
     {
       "name": "duquee___",
-      "downloadCount": 2738551,
+      "downloadCount": 2736897,
       "mods": 1,
-      "downloadRate": 3827.3,
-      "daysExisting": 715.53
+      "downloadRate": 3819.85,
+      "daysExisting": 716.49
     },
     {
       "name": "Spydnel",
-      "downloadCount": 2957934,
+      "downloadCount": 2942424,
       "mods": 1,
-      "downloadRate": 2844.09,
-      "daysExisting": 1040.03
+      "downloadRate": 2826.57,
+      "daysExisting": 1040.99
     },
     {
       "name": "Leroidesafk",
-      "downloadCount": 3506762,
+      "downloadCount": 3490563,
       "mods": 1,
-      "downloadRate": 4962.86,
-      "daysExisting": 706.6
+      "downloadRate": 4933.23,
+      "daysExisting": 707.56
     },
     {
       "name": "talrey",
-      "downloadCount": 22829845,
+      "downloadCount": 22172803,
       "mods": 2,
-      "downloadRate": 19658.88,
-      "daysExisting": 1161.3
+      "downloadRate": 19077.3,
+      "daysExisting": 1162.26
     },
     {
       "name": "Kayladillo",
-      "downloadCount": 22829845,
+      "downloadCount": 22172803,
       "mods": 2,
-      "downloadRate": 19658.88,
-      "daysExisting": 1161.3
+      "downloadRate": 19077.3,
+      "daysExisting": 1162.26
     },
     {
       "name": "Luc_Creeper74",
-      "downloadCount": 1563675,
+      "downloadCount": 1239917,
       "mods": 1,
-      "downloadRate": 3759.31,
-      "daysExisting": 415.95
+      "downloadRate": 2974.07,
+      "daysExisting": 416.91
     },
     {
       "name": "Fatasiangamer",
-      "downloadCount": 3671096,
+      "downloadCount": 3548316,
       "mods": 1,
-      "downloadRate": 5960.09,
-      "daysExisting": 615.95
+      "downloadRate": 5751.78,
+      "daysExisting": 616.91
     },
     {
       "name": "db3k",
-      "downloadCount": 1509349,
+      "downloadCount": 1341009,
       "mods": 1,
-      "downloadRate": 1144,
-      "daysExisting": 1319.36
+      "downloadRate": 1015.67,
+      "daysExisting": 1320.33
     },
     {
       "name": "xaero96",
-      "downloadCount": 5035890,
+      "downloadCount": 4529702,
       "mods": 1,
-      "downloadRate": 4783.5,
-      "daysExisting": 1052.76
+      "downloadRate": 4298.75,
+      "daysExisting": 1053.72
     },
     {
       "name": "singularity_cyvack",
-      "downloadCount": 5849562,
+      "downloadCount": 3782972,
       "mods": 1,
-      "downloadRate": 5788.61,
-      "daysExisting": 1010.53
+      "downloadRate": 3739.99,
+      "daysExisting": 1011.49
     },
     {
       "name": "embeddedt",
-      "downloadCount": 7130181,
+      "downloadCount": 6882511,
       "mods": 1,
-      "downloadRate": 4888.46,
-      "daysExisting": 1458.58
+      "downloadRate": 4715.55,
+      "daysExisting": 1459.54
     },
     {
       "name": "george8188262",
-      "downloadCount": 4331268,
+      "downloadCount": 4331783,
       "mods": 1,
-      "downloadRate": 5846.92,
-      "daysExisting": 740.78
-    },
-    {
-      "name": "tazer",
-      "downloadCount": 2171441,
-      "mods": 1,
-      "downloadRate": 8016.35,
-      "daysExisting": 270.88
+      "downloadRate": 5840.03,
+      "daysExisting": 741.74
     },
     {
       "name": "Mayaqq",
-      "downloadCount": 5834532,
+      "downloadCount": 5834523,
       "mods": 1,
-      "downloadRate": 7387.41,
-      "daysExisting": 789.79
+      "downloadRate": 7378.42,
+      "daysExisting": 790.76
+    },
+    {
+      "name": "tazer",
+      "downloadCount": 1880725,
+      "mods": 1,
+      "downloadRate": 6918.55,
+      "daysExisting": 271.84
     },
     {
       "name": "ElocinDev",
-      "downloadCount": 7261912,
+      "downloadCount": 7050934,
       "mods": 1,
-      "downloadRate": 6108.46,
-      "daysExisting": 1188.83
+      "downloadRate": 5926.2,
+      "daysExisting": 1189.79
     },
     {
       "name": "possible_triangle",
       "downloadCount": 38415204,
       "mods": 2,
-      "downloadRate": 37001.93,
-      "daysExisting": 1038.19
+      "downloadRate": 36967.7,
+      "daysExisting": 1039.16
     },
     {
       "name": "tropheusj",
       "downloadCount": 11697318,
       "mods": 1,
-      "downloadRate": 10421.67,
-      "daysExisting": 1122.4
+      "downloadRate": 10412.76,
+      "daysExisting": 1123.36
     },
     {
       "name": "SuperMartijn642",
       "downloadCount": 12073247,
       "mods": 1,
-      "downloadRate": 17273.85,
-      "daysExisting": 698.93
+      "downloadRate": 17250.12,
+      "daysExisting": 699.89
     },
     {
       "name": "nullBlade",
       "downloadCount": 14178559,
       "mods": 1,
-      "downloadRate": 21514.37,
-      "daysExisting": 659.03
+      "downloadRate": 21483.04,
+      "daysExisting": 659.99
     },
     {
       "name": "talstoj",
       "downloadCount": 14178559,
       "mods": 1,
-      "downloadRate": 21514.37,
-      "daysExisting": 659.03
+      "downloadRate": 21483.04,
+      "daysExisting": 659.99
     },
     {
       "name": "MRHminer",
       "downloadCount": 65013947,
       "mods": 1,
-      "downloadRate": 40660.01,
-      "daysExisting": 1598.97
+      "downloadRate": 40635.58,
+      "daysExisting": 1599.93
     }
   ]
 }
