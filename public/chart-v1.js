@@ -22,6 +22,7 @@ let currentSortDir = 'desc';
 let currentMax = 20;
 let chartType = 'bar';
 let currentSearch = "";
+let currentDisplayedEntriesCount = 1;
 
 function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 20, sortDir = 'desc') {
     // Support both mods and authors endpoints
@@ -213,8 +214,9 @@ async function updateChart() {
     const chartData = transformInfoToChartData(rawData, currentSort, currentMax, currentSortDir);
     const chartCanvas = document.getElementById('rankingChart');
     // Only set height for bar chart
+    currentDisplayedEntriesCount = chartData.labels.length;
     if (chartType === 'bar') {
-        chartCanvas.parentElement.style.height = Math.max(currentMax * 30, 20 * 30) + "px";
+        chartCanvas.parentElement.style.height = Math.max(currentDisplayedEntriesCount * 30, 20 * 30) + "px";
     } else {
         chartCanvas.parentElement.style.height = ""; // Reset for pie
     }

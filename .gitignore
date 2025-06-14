@@ -1,3 +1,4 @@
 .env
 clickme-count.txt
 node_modules/
+data/
