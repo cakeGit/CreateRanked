@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import mime from 'mime';
 
-const PORT = 3000;
+const PORT = 8080;
 const PUBLIC_DIR = path.resolve('public');
 const DATA_DIR = path.resolve('data');
 const CACHE_ENABLED = false;
@@ -16,8 +16,12 @@ fs.readFile(CLICKME_FILE, 'utf8')
     .catch(() => { clickmeCount = 0; });
 
 const server = http.createServer(async (req, res) => {
-    if (req.url.startsWith('/api/mods')) {
+    if (req.url.startsWith('/api/mods-prev')) {
+        await serveJson(res, 'mods-prev.json');
+    } else if (req.url.startsWith('/api/mods')) {
         await serveJson(res, 'mods.json');
+    } else if (req.url.startsWith('/api/authors-prev')) {
+        await serveJson(res, 'authors-prev.json');
     } else if (req.url.startsWith('/api/authors')) {
         await serveJson(res, 'authors.json');
     } else if (req.url.startsWith('/api/clickme')) {

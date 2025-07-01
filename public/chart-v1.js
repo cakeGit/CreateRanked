@@ -2,14 +2,14 @@ const fetchChartDataCache = new Map();
 
 async function fetchChartData(apiUrl) {
     if (fetchChartDataCache.has(apiUrl)) {
-        return fetchChartDataCache.get(apiUrl);
+        return JSON.parse(JSON.stringify(fetchChartDataCache.get(apiUrl)))
     }
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         fetchChartDataCache.set(apiUrl, data);
-        return data;
+        return JSON.parse(JSON.stringify(data))
     } catch (error) {
         console.error("Failed to fetch chart data:", error);
         return null;
@@ -202,8 +202,38 @@ function renderChart(chartData) {
     }
 }
 
+let alreadyLoggedMissing = false;
 async function updateChart() {
     const rawData = await fetchChartData(currentEndpoint);
+    
+    // const oldEndpoint = currentEndpoint.replace('.json', '-prev.json');
+    // const oldRawData = await fetchChartData(oldEndpoint);
+    // const dataKey = oldRawData?.mods ? "mods" : (oldRawData?.authors ? "authors" : null);
+    // if (rawData && oldRawData && dataKey && dataKey) {
+    //     console.log(`Updating download counts based on previous data for ${dataKey}`);
+    //     for (let i = 0; i < rawData[dataKey].length; i++) {
+    //         const currentEntry = rawData[dataKey][i];
+    //         var found = false;
+    //         for (let j = 0; j < oldRawData[dataKey].length; j++) {
+    //             const oldEntry = oldRawData[dataKey][j];
+    //             if (currentEntry.name === oldEntry.name) {
+    //                 currentEntry.downloadCount = (currentEntry.downloadCount || 0) - (oldEntry.downloadCount || 0);
+    //                 currentEntry.downloadRate = (currentEntry.downloadRate || 0) - (oldEntry.downloadRate || 0);
+    //                 found = true;
+    //                 break;
+    //             }
+    //         }
+    //         if (!alreadyLoggedMissing && !found) {
+    //             console.log(`No match found for ${currentEntry.name} in previous data.`);
+    //         }
+    //     }
+    // } else {
+    //     console.warn("No previous data available to update download counts.");
+    // }
+    // alreadyLoggedMissing = true;
+
+    // window.RAW = rawData; // Store raw data globally for debugging
+
     // Show timestamp
     const ts = rawData?.generatedAt;
     if (ts) {
@@ -283,6 +313,8 @@ function setSortBarHandlers() {
     document.getElementById('maxEntries').oninput = async function(e) {
         // Fetch the current data to determine the max possible entries
         const rawData = await fetchChartData(currentEndpoint);
+
+        // Determine if we're on mods or authors
         const dataKey = rawData?.mods ? "mods" : (rawData?.authors ? "authors" : null);
         const totalEntries = rawData && dataKey && Array.isArray(rawData[dataKey]) ? rawData[dataKey].length : 1;
 
