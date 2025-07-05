@@ -198,7 +198,7 @@ async function sendAzerbaijanRanking() {
             console.error('Discord channel not found.');
             return;
         }
-        await deletePreviousMessages(client, DISCORD_CHANNEL_ID);
+        // await deletePreviousMessages(client, DISCORD_CHANNEL_ID);
         // Send the message
         if (channel && channel.isTextBased()) {
             await channel.send(message);
