@@ -41,7 +41,7 @@ async function fetchAllMods() {
         allMods.push(...data.data);
         fetched += data.data.length;
         index += PAGE_SIZE;
-    } while (fetched < totalCount && fetched < MAX_MODS);
+    } while (fetched < totalCount && index < MAX_MODS);
 
     return allMods;
 }
