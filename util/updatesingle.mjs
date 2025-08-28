@@ -136,8 +136,8 @@ async function processMods() {
     };
 
     await fs.writeFile(MODS_OUTPUT_PATH, JSON.stringify(result, null, 2), 'utf-8');
-    authorFileData = JSON.stringify({ generatedAt: result.generatedAt, authors }, null, 2);
-    await fs.writeFile(AUTHORS_OUTPUT_PATH, authorFileData, 'utf-8');
+    authorFileData = { generatedAt: result.generatedAt, authors };
+    await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify(authorFileData, null, 2), 'utf-8');
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
 }
