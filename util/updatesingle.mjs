@@ -12,6 +12,7 @@ const API_URL = 'https://api.curseforge.com/v1/mods/search';
 const PAGE_SIZE = 50;
 const GAME_ID = 432;
 const SEARCH_FILTER = 'create';
+const MAX_MODS = parseInt(process.env.MAX_MODS, 10) || 10000;
 
 async function fetchAllMods() {
     let allMods = [];
@@ -40,7 +41,7 @@ async function fetchAllMods() {
         allMods.push(...data.data);
         fetched += data.data.length;
         index += PAGE_SIZE;
-    } while (fetched < totalCount);
+    } while (fetched < totalCount && fetched < MAX_MODS);
 
     return allMods;
 }
