@@ -57,8 +57,8 @@ try {
     throw err;
 }
 
-const MODS_OUTPUT_PATH = path.resolve('/data/mods.json');
-const AUTHORS_OUTPUT_PATH = path.resolve('/data/authors.json');
+const MODS_OUTPUT_PATH = path.resolve('./data/mods.json');
+const AUTHORS_OUTPUT_PATH = path.resolve('./data/authors.json');
 
 function daysSince(dateString) {
     const created = new Date(dateString);
