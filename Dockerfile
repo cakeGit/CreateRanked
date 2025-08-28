@@ -1,17 +1,10 @@
-FROM node:20-alpine
+FROM node:18-alpine
 
-WORKDIR /app
+# Copy application
+COPY / ./
 
-RUN apk add --no-cache cronie bash
+RUN npm config set registry https://registry.npmjs.org/ && npm install --production && npm run build
 
-COPY package.json ./
-RUN npm install --production
+EXPOSE 8080
 
-COPY . .
-
-COPY entrypoint.sh ./
-RUN chmod +x entrypoint.sh && chmod +x update.sh
-
-RUN echo "0 0 * * * /update.sh >> /update.log 2>&1" | crontab -
-
-ENTRYPOINT ["./entrypoint.sh"]
+CMD ["node", "src/index.mjs"]
