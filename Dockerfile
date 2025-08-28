@@ -7,4 +7,6 @@ RUN npm config set registry https://registry.npmjs.org/ && npm install --product
 
 EXPOSE 8080
 
+VOLUME ["/data"]
+
 CMD ["node", "src/index.mjs"]
