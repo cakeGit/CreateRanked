@@ -196,7 +196,8 @@ function renderChart(chartData) {
             options: {
                 indexAxis: 'y',
                 responsive: true,
-                scales
+                scales,
+                animation: false
             }
         });
     }

@@ -9,6 +9,10 @@
 
 */
 
+body {
+    min-height: 100vh;
+}
+
 * {
     font-family: monospace, Arial, sans-serif;
 }
@@ -67,7 +71,8 @@ html, body {
     margin: 0;
     padding: 0;
 }
-        body {
+
+body {
     font-family: monospace, Arial, sans-serif;
     background: #fafafa;
     color: #222;
@@ -134,12 +139,15 @@ footer {
 }
 #backgrounded_container {
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 2rem;
     max-width: max(800px, 90%);
     /* Center the container */
     position: relative;
     z-index: 1;
     opacity: 0.93;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 #stat-navbar {
     display: flex;
@@ -200,4 +208,12 @@ input[type="number"] {
     background: #fafafa;
     padding: 0.2em 0.4em;
     color: #222;
+}
+
+.largeCodeBlock {
+    background-color:#f4f4f4;
+    padding:1em;
+    border:1px solid #ccc;
+    max-height:400px;
+    overflow:auto;
 }

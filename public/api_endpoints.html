@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Ranked</title>
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:title" content="Create Ranked" />
+    <meta property="og:description" content="Frequently updated rankings of create mods and their authors." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/cakeGit/The-State-of-Create-Addons/main/images/thumb.png" />
+    <meta property="og:url" content="https://github.com/cakeGit/The-State-of-Create-Addons" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Create Ranked" />
+    <meta name="twitter:description" content="Frequently updated rankings of create mods and their authors." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/cakeGit/The-State-of-Create-Addons/main/images/thumb.png" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <canvas id="glCanvas"></canvas>
+    <script src="shader-v2.js"></script>
+    
+    <div id="backgrounded_container">
+    <div id="title_header">
+        <h1 style="margin:0;">Create Mod <span id="create_title">Rankings</span></h1>
+        <span class="dim">everythings a competition if im in it</span>
+    </div>
+    <div id="data-timestamp" class="dim" style="text-align:center;margin-bottom:1em;"></div>
+    <div id="content">
+        <h1>API Endpoints</h1>
+    
+        <div class="container">
+            <h2>Available Endpoints</h2>
+            <ul>
+                <li>List all mods - <span class="apiurl"><span class="window_location"></span>/api/mods.json</span></li>
+                <li>List all authors - <span class="apiurl"><span class="window_location"></span>/api/authors.json</span></li>
+            </ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const locationSpans = document.querySelectorAll(".window_location");
+                    const currentLocation = window.location.origin;
+                    locationSpans.forEach(span => {
+                        span.textContent = currentLocation;
+                    });
+                });
+            </script>
+
+            <h2>API tester</h2>
+            <p>Try out the API endpoints directly from your browser:</p>
+            <form id="apiTesterForm">
+                <label for="endpointSelect">Select Endpoint:</label>
+                <select id="endpointSelect" name="endpoint">
+                    <option value="/api/mods.json">/api/mods.json</option>
+                    <option value="/api/authors.json">/api/authors.json</option>
+                </select>
+                <button type="submit">Fetch Data</button>
+            </form>
+            <pre id="apiJsFetch" class="largeCodeBlock"></pre>
+            <pre id="apiResponse" class="largeCodeBlock"></pre>
+            <script>
+                document.getElementById('apiTesterForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const endpoint = document.getElementById('endpointSelect').value;
+                    const url = window.location.origin + endpoint;
+
+                    const apiJsFetchCodeContainer = document.getElementById('apiJsFetch');
+                    apiJsFetchCodeContainer.textContent = `fetch('${url}')\n    .then(response => response.json())\n    .then(data => console.log(data))\n    .catch(error => console.error('Error:', error));`;
+
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok ' + response.statusText);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
+                        })
+                        .catch(error => {
+                            document.getElementById('apiResponse').textContent = 'Error: ' + error.message;
+                        });
+                });
+            </script>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <p>
+            Made by <a href="https://github.com/cakeGit">cakeGit</a> with ❤️, git copilot and boredom.
+        </p>
+    </footer>
+</body>
+</html>
