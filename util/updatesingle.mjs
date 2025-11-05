@@ -198,7 +198,7 @@ async function processMods() {
     let prevModsMap = new Map();
     let period = 0;
     
-    if (oldArchive) {
+    if (oldArchive && oldArchive.daysDiff > 0) {
         monthlyRateAvailable = true;
         period = oldArchive.daysDiff;
         if (oldArchive.data.mods) {
@@ -230,7 +230,7 @@ async function processMods() {
         };
         
         // Add monthly download rate if archive is available
-        if (monthlyRateAvailable) {
+        if (monthlyRateAvailable && period > 0) {
             const prevDownloads = prevModsMap.has(mod.id) ? prevModsMap.get(mod.id) : 0;
             const downloadDiff = downloadCount - prevDownloads;
             const monthlyRate = downloadDiff / period;
