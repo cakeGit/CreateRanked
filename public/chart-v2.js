@@ -5,14 +5,14 @@ const fetchChartDataCache = new Map();
 
 async function fetchChartData(apiUrl) {
     if (fetchChartDataCache.has(apiUrl)) {
-        return JSON.parse(JSON.stringify(fetchChartDataCache.get(apiUrl)))
+        return fetchChartDataCache.get(apiUrl);
     }
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         fetchChartDataCache.set(apiUrl, data);
-        return JSON.parse(JSON.stringify(data))
+        return data;
     } catch (error) {
         console.error("Failed to fetch chart data:", error);
         return null;
