@@ -59,6 +59,9 @@ try {
 
 const MODS_OUTPUT_PATH = path.resolve('./data/mods.json');
 const AUTHORS_OUTPUT_PATH = path.resolve('./data/authors.json');
+const DATA_DIR = path.resolve('./data');
+const ARCHIVE_DIR = path.resolve('./data/archive');
+const LOG_FILE = path.resolve('./data/dataCollectionLog.txt');
 
 function daysSince(dateString) {
     const created = new Date(dateString);
@@ -67,7 +70,118 @@ function daysSince(dateString) {
     return diff > 0 ? diff : 1; // Avoid division by zero
 }
 
+async function archivePreviousData() {
+    // Create archive directory if it doesn't exist
+    try {
+        await fs.access(ARCHIVE_DIR);
+    } catch {
+        await fs.mkdir(ARCHIVE_DIR, { recursive: true });
+    }
+
+    // Archive mods.json and authors.json if they exist
+    try {
+        const modsData = await fs.readFile(MODS_OUTPUT_PATH, 'utf-8');
+        const authorsData = await fs.readFile(AUTHORS_OUTPUT_PATH, 'utf-8');
+        
+        const mods = JSON.parse(modsData);
+        const timestamp = mods.generatedAt ? new Date(mods.generatedAt) : new Date();
+        const dateStr = timestamp.toISOString().split('T')[0]; // YYYY-MM-DD format
+        
+        await fs.writeFile(path.join(ARCHIVE_DIR, `mods-${dateStr}.json`), modsData, 'utf-8');
+        await fs.writeFile(path.join(ARCHIVE_DIR, `authors-${dateStr}.json`), authorsData, 'utf-8');
+        
+        console.log(`Archived previous data as mods-${dateStr}.json and authors-${dateStr}.json`);
+    } catch (err) {
+        console.log('No previous data to archive or error archiving:', err.message);
+    }
+}
+
+async function getArchivedDates() {
+    try {
+        const files = await fs.readdir(ARCHIVE_DIR);
+        const modFiles = files.filter(f => f.startsWith('mods-') && f.endsWith('.json'));
+        const dates = modFiles.map(f => f.replace('mods-', '').replace('.json', '')).sort();
+        return dates;
+    } catch {
+        return [];
+    }
+}
+
+async function findOldArchive(minDaysOld = 20) {
+    const dates = await getArchivedDates();
+    const now = new Date();
+    
+    for (const dateStr of dates) {
+        const archiveDate = new Date(dateStr);
+        const daysDiff = (now - archiveDate) / (1000 * 60 * 60 * 24);
+        
+        if (daysDiff >= minDaysOld) {
+            try {
+                const archiveData = await fs.readFile(path.join(ARCHIVE_DIR, `mods-${dateStr}.json`), 'utf-8');
+                return { dateStr, data: JSON.parse(archiveData), daysDiff };
+            } catch {
+                continue;
+            }
+        }
+    }
+    return null;
+}
+
+async function cleanupOldArchives(maxDays = 32) {
+    const dates = await getArchivedDates();
+    
+    if (dates.length <= maxDays) {
+        return;
+    }
+    
+    // Delete the oldest archives
+    const toDelete = dates.length - maxDays;
+    for (let i = 0; i < toDelete; i++) {
+        const dateStr = dates[i];
+        try {
+            await fs.unlink(path.join(ARCHIVE_DIR, `mods-${dateStr}.json`));
+            await fs.unlink(path.join(ARCHIVE_DIR, `authors-${dateStr}.json`));
+            console.log(`Deleted old archive: ${dateStr}`);
+        } catch (err) {
+            console.error(`Failed to delete archive ${dateStr}:`, err.message);
+        }
+    }
+}
+
+async function logDataCollection(currentModCount, previousModCount) {
+    const timestamp = new Date().toISOString();
+    let diff = '';
+    
+    if (previousModCount !== null) {
+        const added = Math.max(0, currentModCount - previousModCount);
+        const removed = Math.max(0, previousModCount - currentModCount);
+        diff = ` (diff +${added} -${removed})`;
+    }
+    
+    const logEntry = `[${timestamp}] Mods collected ${currentModCount}${diff}\n`;
+    
+    try {
+        await fs.appendFile(LOG_FILE, logEntry, 'utf-8');
+        console.log(`Mods collected ${currentModCount}${diff}`);
+    } catch (err) {
+        console.error('Failed to write to log file:', err.message);
+    }
+}
+
 async function processMods() {
+    // Archive previous data before processing
+    await archivePreviousData();
+    
+    // Get previous mod count for integrity check
+    let previousModCount = null;
+    try {
+        const prevData = await fs.readFile(MODS_OUTPUT_PATH, 'utf-8');
+        const prevMods = JSON.parse(prevData);
+        previousModCount = prevMods.mods ? prevMods.mods.length : null;
+    } catch {
+        // No previous data
+    }
+    
     const filtered = mods.filter(mod => {
         if (mod.links?.websiteUrl?.includes('/modpacks/') || mod.links?.websiteUrl?.includes("/bukkit-plugins/")) return false;
 
@@ -78,6 +192,23 @@ async function processMods() {
         return hasCreateCategory || nameStartsWithCreate;
     });
 
+    // Check for archive at least 20 days old
+    const oldArchive = await findOldArchive(20);
+    let monthlyRateAvailable = false;
+    let prevModsMap = new Map();
+    let period = 0;
+    
+    if (oldArchive) {
+        monthlyRateAvailable = true;
+        period = oldArchive.daysDiff;
+        if (oldArchive.data.mods) {
+            oldArchive.data.mods.forEach(mod => {
+                prevModsMap.set(mod.id, mod.downloadCount || 0);
+            });
+        }
+        console.log(`Found archive from ${oldArchive.dateStr} (${period.toFixed(2)} days ago) for monthly rate calculation`);
+    }
+
     // Map mods with download stats
     const mappedMods = filtered.map(mod => {
         const author = Array.isArray(mod.authors) && mod.authors.length > 0 ? mod.authors[0].name : null;
@@ -87,7 +218,7 @@ async function processMods() {
         const days = createdAt ? daysSince(createdAt) : 1;
         const downloadRate = downloadCount / days;
 
-        return {
+        const modData = {
             id: mod.id,
             name: mod.name,
             author,
@@ -97,6 +228,16 @@ async function processMods() {
             createdAt,
             daysExisting: Number(days.toFixed(2))
         };
+        
+        // Add monthly download rate if archive is available
+        if (monthlyRateAvailable) {
+            const prevDownloads = prevModsMap.has(mod.id) ? prevModsMap.get(mod.id) : 0;
+            const downloadDiff = downloadCount - prevDownloads;
+            const monthlyRate = downloadDiff / period;
+            modData.downloadRateMonthly = Number(monthlyRate.toFixed(2));
+        }
+        
+        return modData;
     });
 
     const authorStats = {};
@@ -132,6 +273,7 @@ async function processMods() {
 
     const result = {
         generatedAt: new Date().toISOString(),
+        monthlyRate: monthlyRateAvailable ? 'available' : 'unavailable',
         mods: mappedMods
     };
 
@@ -140,6 +282,12 @@ async function processMods() {
     await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify(authorFileData, null, 2), 'utf-8');
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
+    
+    // Log data collection with integrity check
+    await logDataCollection(result.mods.length, previousModCount);
+    
+    // Cleanup old archives (keep only 32 days)
+    await cleanupOldArchives(32);
 }
 
 const DISCORD_TOKEN = process.env.DISCORD_BOT_TOKEN;
