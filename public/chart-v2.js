@@ -426,9 +426,17 @@ function renderChart(chartData) {
         }
         chartInstance.setData(chartData);
     } else {
-        // Fallback to Chart.js for pie chart
+        // Fallback to Chart.js for pie chart (if available)
         if (chartInstance) {
             chartInstance = null;
+        }
+        
+        // Check if Chart.js is available
+        if (typeof Chart === 'undefined') {
+            // Chart.js not available, show message
+            const parent = document.getElementById('rankingChart').parentElement;
+            parent.innerHTML = '<div style="padding:20px;text-align:center;color:#666;">Pie chart requires Chart.js library. Please use bar chart view.</div>';
+            return;
         }
         
         // Create canvas element if it doesn't exist or wrong type
