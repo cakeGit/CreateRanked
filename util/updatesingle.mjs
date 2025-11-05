@@ -12,6 +12,9 @@ const API_URL = 'https://api.curseforge.com/v1/mods/search';
 const PAGE_SIZE = 50;
 const GAME_ID = 432;
 const SEARCH_FILTER = 'create';
+const MAX_MODS = parseInt(process.env.MAX_MODS, 10) || 10000;
+
+var authorFileData = {};
 
 async function fetchAllMods() {
     let allMods = [];
@@ -40,7 +43,7 @@ async function fetchAllMods() {
         allMods.push(...data.data);
         fetched += data.data.length;
         index += PAGE_SIZE;
-    } while (fetched < totalCount);
+    } while (fetched < totalCount && index < MAX_MODS);
 
     return allMods;
 }
@@ -133,14 +136,11 @@ async function processMods() {
     };
 
     await fs.writeFile(MODS_OUTPUT_PATH, JSON.stringify(result, null, 2), 'utf-8');
-    await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify({ generatedAt: result.generatedAt, authors }, null, 2), 'utf-8');
+    authorFileData = { generatedAt: result.generatedAt, authors };
+    await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify(authorFileData, null, 2), 'utf-8');
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
 }
-
-processMods().catch(err => {
-    console.error('Error processing mods:', err);
-});
 
 const DISCORD_TOKEN = process.env.DISCORD_BOT_TOKEN;
 const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
@@ -161,9 +161,9 @@ async function deletePreviousMessages(client, channelId) {
         }
     }
 }
-async function sendAzerbaijanRanking() {
+async function sendAzerbaijanRanking(authorFileData) {
     // Read authors.json
-    const authorsData = JSON.parse(await fs.readFile(AUTHORS_OUTPUT_PATH, 'utf-8'));
+    const authorsData = authorFileData;
     const authors = authorsData.authors;
 
     // Find Azerbaijan Technologies and its ranking by downloadRate
@@ -224,6 +224,10 @@ async function sendAzerbaijanRanking() {
     client.login(DISCORD_TOKEN);
 }
 
-sendAzerbaijanRanking().catch(err => {
-    console.error('Error sending Discord message:', err);
+processMods().catch(err => {
+    console.error('Error processing mods:', err);
+}).then(() => {
+    sendAzerbaijanRanking(authorFileData).catch(err => {
+        console.error('Error sending Discord message:', err);
+    });
 });

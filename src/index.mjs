@@ -2,6 +2,8 @@ import http from 'http';
 import fs from 'fs/promises';
 import path from 'path';
 import mime from 'mime';
+import cron from 'node-cron';
+import { fileURLToPath } from 'url';
 
 const PORT = 8080;
 const PUBLIC_DIR = path.resolve('public');
@@ -74,4 +76,17 @@ function serveStatic(res, url) {
 
 server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
+});
+
+// Schedule daily job at 00:00 (midnight)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+cron.schedule('0 0 * * *', () => {
+    console.log('Running daily updatesingle.mjs task...');
+    import(path.resolve(__dirname, '../util/updatesingle.mjs')).then(module => {
+        if (typeof module.default === 'function') {
+            module.default();
+        }
+    }).catch(err => {
+        console.error('Error running updatesingle.mjs:', err);
+    });
 });
