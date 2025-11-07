@@ -37,6 +37,8 @@ downloadRateMonthly = sum of all downloadRateMonthly from their mods
 - If a mod exists in the current data but not in the archive, `previousDownloads` is treated as 0
 - The rate represents average downloads per day over the period
 - Author monthly rates are the sum of monthly rates from all their mods
+- The `downloadRateMonthly` field is always included in the output for consistent API shape
+- When monthly rates are unavailable, the field is set to `null`
 
 #### Output Format
 
@@ -69,6 +71,7 @@ When monthly rates are unavailable (no archive ≥20 days old):
       "name": "Example Mod",
       "downloadCount": 1000,
       "downloadRate": 5.23,
+      "downloadRateMonthly": null,
       ...
     }
   ]
@@ -104,13 +107,14 @@ When monthly rates are unavailable:
       "downloadCount": 5000,
       "mods": 3,
       "downloadRate": 25.5,
-      "daysExisting": 196.2
+      "daysExisting": 196.2,
+      "downloadRateMonthly": null
     }
   ]
 }
 ```
 
-Note: The `downloadRateMonthly` field is only added to mods and authors when `monthlyRate` is "available".
+Note: The `downloadRateMonthly` field is always present in the output for consistent API shape. When monthly rates are unavailable, it is set to `null`.
 
 ### 3. Archive Cleanup
 

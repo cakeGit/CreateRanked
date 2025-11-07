@@ -62,6 +62,10 @@ const AUTHORS_OUTPUT_PATH = path.resolve('./data/authors.json');
 const ARCHIVE_DIR = path.resolve('./data/archive');
 const LOG_FILE = path.resolve('./data/dataCollectionLog.txt');
 
+// Archive configuration constants
+const MIN_ARCHIVE_AGE_DAYS = 20;  // Minimum age for archive to be used for monthly rate calculation
+const MAX_ARCHIVE_DAYS = 32;      // Maximum number of days to keep in archive
+
 function daysSince(dateString) {
     const created = new Date(dateString);
     const now = new Date();
@@ -222,8 +226,8 @@ async function processMods() {
         return hasCreateCategory || nameStartsWithCreate;
     });
 
-    // Check for archive at least 20 days old
-    const oldArchive = await findOldArchive(20);
+    // Check for archive at least MIN_ARCHIVE_AGE_DAYS old
+    const oldArchive = await findOldArchive(MIN_ARCHIVE_AGE_DAYS);
     let monthlyRateAvailable = false;
     let prevModsMap = new Map();
     let period = 0;
@@ -256,10 +260,11 @@ async function processMods() {
             downloadCount,
             downloadRate: Number(downloadRate.toFixed(2)),
             createdAt,
-            daysExisting: Number(days.toFixed(2))
+            daysExisting: Number(days.toFixed(2)),
+            downloadRateMonthly: null  // Always include field, set to null when unavailable
         };
         
-        // Add monthly download rate if archive is available
+        // Calculate monthly download rate if archive is available
         if (monthlyRateAvailable && period > 0) {
             const prevDownloads = prevModsMap.has(mod.id) ? prevModsMap.get(mod.id) : 0;
             const downloadDiff = downloadCount - prevDownloads;
@@ -302,10 +307,11 @@ async function processMods() {
             downloadCount: author.downloadCount,
             mods: author.mods,
             downloadRate: Number((author.downloadCount / avgDays).toFixed(2)),
-            daysExisting: Number(avgDays.toFixed(2))
+            daysExisting: Number(avgDays.toFixed(2)),
+            downloadRateMonthly: null  // Always include field, set to null when unavailable
         };
         
-        // Add monthly download rate if available
+        // Calculate monthly download rate if available
         if (monthlyRateAvailable) {
             authorData.downloadRateMonthly = Number(author.monthlyDownloadRate.toFixed(2));
         }
@@ -332,8 +338,8 @@ async function processMods() {
     // Log data collection with integrity check
     await logDataCollection(result.mods.length, previousModCount);
     
-    // Cleanup old archives (keep only 32 days)
-    await cleanupOldArchives(32);
+    // Cleanup old archives (keep only MAX_ARCHIVE_DAYS)
+    await cleanupOldArchives(MAX_ARCHIVE_DAYS);
 }
 
 const DISCORD_TOKEN = process.env.DISCORD_BOT_TOKEN;
