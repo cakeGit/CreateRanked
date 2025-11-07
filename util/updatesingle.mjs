@@ -225,7 +225,7 @@ async function processMods() {
     let prevModsMap = new Map();
     let period = 0;
     
-    if (oldArchive && oldArchive.daysDiff > 0) {
+    if (oldArchive) {
         monthlyRateAvailable = true;
         period = oldArchive.daysDiff;
         if (oldArchive.data.mods) {
