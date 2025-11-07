@@ -735,7 +735,18 @@ function setSortBarHandlers() {
         };
     });
     updateSortUI();
-    document.getElementById('maxEntries').oninput = async function(e) {
+    
+    // Only allow numeric input and validate on blur
+    const maxEntriesInput = document.getElementById('maxEntries');
+    
+    maxEntriesInput.addEventListener('keypress', function(e) {
+        // Only allow numbers
+        if (e.key && !/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+    
+    maxEntriesInput.addEventListener('blur', async function(e) {
         // Fetch the current data to determine the max possible entries
         const rawData = await fetchChartData(currentEndpoint);
 
@@ -744,10 +755,27 @@ function setSortBarHandlers() {
         const totalEntries = rawData && dataKey && Array.isArray(rawData[dataKey]) ? rawData[dataKey].length : 1;
 
         // Clamp to available entries
-        currentMax = Math.max(1, Math.min(totalEntries, parseInt(e.target.value) || 1));
+        const value = parseInt(e.target.value) || 1;
+        currentMax = Math.max(1, Math.min(totalEntries, value));
         e.target.value = currentMax; // Update input to reflect clamp
         updateChart();
-    };
+    });
+    
+    maxEntriesInput.addEventListener('change', async function(e) {
+        // Fetch the current data to determine the max possible entries
+        const rawData = await fetchChartData(currentEndpoint);
+
+        // Determine if we're on mods or authors
+        const dataKey = rawData?.mods ? "mods" : (rawData?.authors ? "authors" : null);
+        const totalEntries = rawData && dataKey && Array.isArray(rawData[dataKey]) ? rawData[dataKey].length : 1;
+
+        // Clamp to available entries
+        const value = parseInt(e.target.value) || 1;
+        currentMax = Math.max(1, Math.min(totalEntries, value));
+        e.target.value = currentMax; // Update input to reflect clamp
+        updateChart();
+    });
+    
     updateSortBar();
 }
 

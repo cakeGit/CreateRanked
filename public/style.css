@@ -210,6 +210,20 @@ input[type="number"] {
     color: #222;
 }
 
+#toggle-pie {
+    background: #f9f9f9aa;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0.3em 0.8em;
+    margin-left: 1em;
+    transition: background-color 0.15s;
+}
+
+#toggle-pie:hover {
+    background: #ffffffaa;
+}
+
 .largeCodeBlock {
     background-color:#f4f4f4;
     padding:1em;
