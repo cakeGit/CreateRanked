@@ -38,31 +38,41 @@ export class PieChart {
     }
     
     setupEventListeners() {
-        this.canvas.addEventListener('mousemove', (e) => {
+        // Use bound handlers so they can be removed on dispose
+        this._onMouseMove = (e) => {
             const rect = this.canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             this.handleMouseMove(x, y);
-        });
-
-        // Prevent wheel from scrolling the page while interacting with the pie canvas
-        // This mirrors the bar chart behaviour which uses wheel for scrolling the list.
-        this.canvas.addEventListener('wheel', (e) => {
-            // Prevent default so the page doesn't scroll unexpectedly when the user
-            // scrolls over the pie canvas.
-            e.preventDefault();
-        }, { passive: false });
-        
-        this.canvas.addEventListener('mouseleave', () => {
+        };
+        this._onMouseLeave = () => {
             this.hoveredIndex = -1;
             this.hoveredSegment = null;
             this.render();
-        });
-        
-        window.addEventListener('resize', () => {
+        };
+        this._onResize = () => {
             this.setupCanvas();
             this.render();
-        });
+        };
+        this._onWheel = (e) => {
+            // Prevent default so the page doesn't scroll unexpectedly when the user
+            // scrolls over the pie canvas.
+            e.preventDefault();
+        };
+
+        this.canvas.addEventListener('mousemove', this._onMouseMove);
+        this.canvas.addEventListener('wheel', this._onWheel, { passive: false });
+        this.canvas.addEventListener('mouseleave', this._onMouseLeave);
+        window.addEventListener('resize', this._onResize);
+    }
+
+    // Clean up listeners when this chart is no longer used so old handlers do not
+    // redraw the canvas after the chart type was switched.
+    dispose() {
+        if (this._onMouseMove) this.canvas.removeEventListener('mousemove', this._onMouseMove);
+        if (this._onMouseLeave) this.canvas.removeEventListener('mouseleave', this._onMouseLeave);
+        if (this._onWheel) this.canvas.removeEventListener('wheel', this._onWheel);
+        if (this._onResize) window.removeEventListener('resize', this._onResize);
     }
     
     setData(data) {

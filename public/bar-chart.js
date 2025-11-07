@@ -40,34 +40,45 @@ export class ScrollableChart {
     }
     
     setupEventListeners() {
-        // Mouse wheel scrolling
-        this.canvas.addEventListener('wheel', (e) => {
+        // Bound handlers so we can remove them on dispose
+        this._onWheel = (e) => {
             e.preventDefault();
             this.scrollOffset += e.deltaY * 0.5;
             this.clampScroll();
             this.render();
-        }, { passive: false });
-        
-        // Mouse move for hover effects
-        this.canvas.addEventListener('mousemove', (e) => {
+        };
+
+        this._onMouseMove = (e) => {
             const rect = this.canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             this.handleMouseMove(x, y);
-        });
-        
-        // Mouse leave
-        this.canvas.addEventListener('mouseleave', () => {
+        };
+
+        this._onMouseLeave = () => {
             this.hoveredIndex = -1;
             this.hoveredBar = null;
             this.render();
-        });
-        
-        // Resize handling
-        window.addEventListener('resize', () => {
+        };
+
+        this._onResize = () => {
             this.setupCanvas();
             this.render();
-        });
+        };
+
+        this.canvas.addEventListener('wheel', this._onWheel, { passive: false });
+        this.canvas.addEventListener('mousemove', this._onMouseMove);
+        this.canvas.addEventListener('mouseleave', this._onMouseLeave);
+        window.addEventListener('resize', this._onResize);
+    }
+
+    // Remove listeners when chart is disposed so old handlers can't redraw
+    // the canvas after switching chart types.
+    dispose() {
+        if (this._onWheel) this.canvas.removeEventListener('wheel', this._onWheel);
+        if (this._onMouseMove) this.canvas.removeEventListener('mousemove', this._onMouseMove);
+        if (this._onMouseLeave) this.canvas.removeEventListener('mouseleave', this._onMouseLeave);
+        if (this._onResize) window.removeEventListener('resize', this._onResize);
     }
     
     setData(data) {

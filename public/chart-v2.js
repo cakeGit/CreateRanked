@@ -86,13 +86,21 @@ function renderChart(chartData) {
     const container = document.getElementById('rankingChart').parentElement;
     
     if (chartType === 'bar') {
-        // Use custom scrollable chart
+        // Switch to bar chart; if an existing different chart instance exists, dispose it
+        if (chartInstance && !(chartInstance instanceof ScrollableChart) && typeof chartInstance.dispose === 'function') {
+            chartInstance.dispose();
+            chartInstance = null;
+        }
         if (!chartInstance || !(chartInstance instanceof ScrollableChart)) {
             chartInstance = new ScrollableChart('rankingChart');
         }
         chartInstance.setData(chartData);
     } else {
-        // Use custom pie chart
+        // Switch to pie chart; dispose previous if it was a different type
+        if (chartInstance && !(chartInstance instanceof PieChart) && typeof chartInstance.dispose === 'function') {
+            chartInstance.dispose();
+            chartInstance = null;
+        }
         if (!chartInstance || !(chartInstance instanceof PieChart)) {
             chartInstance = new PieChart('rankingChart');
         }
