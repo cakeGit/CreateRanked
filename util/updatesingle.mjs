@@ -78,21 +78,48 @@ async function archivePreviousData() {
         await fs.mkdir(ARCHIVE_DIR, { recursive: true });
     }
 
-    // Archive mods.json and authors.json if they exist
+    // Archive mods.json if it exists
+    let archivedAny = false;
+    let dateStr = null;
     try {
+        await fs.access(MODS_OUTPUT_PATH);
         const modsData = await fs.readFile(MODS_OUTPUT_PATH, 'utf-8');
-        const authorsData = await fs.readFile(AUTHORS_OUTPUT_PATH, 'utf-8');
-        
         const mods = JSON.parse(modsData);
         const timestamp = mods.generatedAt ? new Date(mods.generatedAt) : new Date();
-        const dateStr = timestamp.toISOString().split('T')[0]; // YYYY-MM-DD format
-        
+        dateStr = timestamp.toISOString().split('T')[0]; // YYYY-MM-DD format
         await fs.writeFile(path.join(ARCHIVE_DIR, `mods-${dateStr}.json`), modsData, 'utf-8');
-        await fs.writeFile(path.join(ARCHIVE_DIR, `authors-${dateStr}.json`), authorsData, 'utf-8');
-        
-        console.log(`Archived previous data as mods-${dateStr}.json and authors-${dateStr}.json`);
+        console.log(`Archived previous mods data as mods-${dateStr}.json`);
+        archivedAny = true;
     } catch (err) {
-        console.log('No previous data to archive or error archiving:', err.message);
+        if (err.code !== 'ENOENT') {
+            console.log('Error archiving mods.json:', err.message);
+        } else {
+            console.log('No previous mods.json to archive.');
+        }
+    }
+
+    // Archive authors.json if it exists
+    try {
+        await fs.access(AUTHORS_OUTPUT_PATH);
+        const authorsData = await fs.readFile(AUTHORS_OUTPUT_PATH, 'utf-8');
+        // Use dateStr from mods.json if available, otherwise use current date
+        let authorsDateStr = dateStr;
+        if (!authorsDateStr) {
+            authorsDateStr = new Date().toISOString().split('T')[0];
+        }
+        await fs.writeFile(path.join(ARCHIVE_DIR, `authors-${authorsDateStr}.json`), authorsData, 'utf-8');
+        console.log(`Archived previous authors data as authors-${authorsDateStr}.json`);
+        archivedAny = true;
+    } catch (err) {
+        if (err.code !== 'ENOENT') {
+            console.log('Error archiving authors.json:', err.message);
+        } else {
+            console.log('No previous authors.json to archive.');
+        }
+    }
+
+    if (!archivedAny) {
+        console.log('No previous data to archive.');
     }
 }
 
