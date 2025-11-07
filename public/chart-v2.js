@@ -102,7 +102,7 @@ class ScrollableChart {
         this.barHeight = 40;
         this.barSpacing = 5;
         this.leftPadding = 50;
-        this.rightPadding = 100;
+        this.rightPadding = 70;
         this.topPadding = 10;
         this.bottomPadding = 10;
         this.hoveredIndex = -1;
@@ -274,27 +274,26 @@ class ScrollableChart {
             ctx.fillText(`#${item._staticRank}`, this.leftPadding - 10, barY + this.barHeight / 2);
             
             // Draw name inside bar
-            ctx.fillStyle = barValueWidth > 100 ? COLORS.background : COLORS.text;
-            ctx.font = 'bold 14px monospace';
-            ctx.textAlign = 'left';
-            ctx.textBaseline = 'middle';
-            
-            // Truncate name if too long
             let displayName = item.name;
             if (item.author && !this.data.isAuthor) {
                 displayName += ` (${item.author})`;
             }
-            const maxTextWidth = Math.min(barValueWidth - 10, barWidth - 20);
-            displayName = this.truncateText(ctx, displayName, maxTextWidth);
+            let textWidth = ctx.measureText(displayName).width;
+            let isInside = barValueWidth > this.width - textWidth;
+
+            ctx.fillStyle = isInside ? COLORS.background : COLORS.text;
+            ctx.font = 'bold 14px monospace';
+            ctx.textAlign = isInside ? 'right' : 'left';
+            ctx.textBaseline = 'middle';
             
-            const textX = barValueWidth > 100 ? this.leftPadding + 10 : this.leftPadding + barValueWidth + 10;
+            const textX = isInside ? this.width - this.rightPadding - 10 : this.leftPadding + barValueWidth + 10;
             ctx.fillText(displayName, textX, barY + this.barHeight / 2);
             
             // Draw value on the right
             ctx.fillStyle = COLORS.textDim;
             ctx.font = '12px monospace';
             ctx.textAlign = 'right';
-            ctx.fillText(this.formatValue(value), this.leftPadding + barWidth - 5, barY + this.barHeight / 2);
+            ctx.fillText(this.formatValue(value), this.width - 20, barY + this.barHeight / 2);
         }
         
         // Draw hover tooltip
