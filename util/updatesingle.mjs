@@ -135,11 +135,15 @@ async function getArchivedDates() {
 
 async function findOldArchive(minDaysOld = 20) {
     const dates = await getArchivedDates();
+    // Get current date in UTC midnight
     const now = new Date();
+    const nowUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
     
     for (const dateStr of dates) {
-        const archiveDate = new Date(dateStr);
-        const daysDiff = (now - archiveDate) / (1000 * 60 * 60 * 24);
+        // Parse archiveDate as UTC midnight
+        const [year, month, day] = dateStr.split('-').map(Number);
+        const archiveDateUTC = Date.UTC(year, month - 1, day);
+        const daysDiff = (nowUTC - archiveDateUTC) / (1000 * 60 * 60 * 24);
         
         if (daysDiff >= minDaysOld) {
             try {
