@@ -496,14 +496,14 @@ class ScrollableChart {
                 displayName += ` (${item.author})`;
             }
             let textWidth = ctx.measureText(displayName).width;
-            let isInside = barValueWidth > this.width - textWidth;
+            let isInside = barValueWidth + textWidth + 10 > barWidth;
 
             ctx.fillStyle = isInside ? COLORS.background : COLORS.text;
             ctx.font = 'bold 14px monospace';
-            ctx.textAlign = isInside ? 'right' : 'left';
+            ctx.textAlign = 'left';
             ctx.textBaseline = 'middle';
             
-            const textX = isInside ? this.width - this.rightPadding - 10 : this.leftPadding + barValueWidth + 10;
+            const textX = isInside ? barValueWidth - textWidth : barValueWidth + 10 + this.leftPadding;
             ctx.fillText(displayName, textX, barY + this.barHeight / 2);
             
             // Draw value on the right
