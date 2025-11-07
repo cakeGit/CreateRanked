@@ -200,7 +200,6 @@ Output:
 
 ```
 Archived previous data as mods-2025-11-05.json and authors-2025-11-05.json
-No archive 20+ days old found - monthly rates will be unavailable
 Processed 871 mods and saved to ./data/mods.json
 Saved 247 unique authors to ./data/authors.json
 Mods collected 871 (diff +2 -0)
