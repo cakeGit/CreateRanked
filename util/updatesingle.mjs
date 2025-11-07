@@ -59,7 +59,6 @@ try {
 
 const MODS_OUTPUT_PATH = path.resolve('./data/mods.json');
 const AUTHORS_OUTPUT_PATH = path.resolve('./data/authors.json');
-const DATA_DIR = path.resolve('./data');
 const ARCHIVE_DIR = path.resolve('./data/archive');
 const LOG_FILE = path.resolve('./data/dataCollectionLog.txt');
 
