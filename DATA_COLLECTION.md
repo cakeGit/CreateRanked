@@ -20,20 +20,27 @@ data/archive/authors-2025-11-05.json
 
 ### 2. Monthly Download Rate Calculation
 
-When an archive exists that is at least 20 days old, the system calculates a `downloadRateMonthly` for each mod.
+When an archive exists that is at least 20 days old, the system calculates a `downloadRateMonthly` for each mod and author.
 
 #### Calculation Formula
 
+For mods:
 ```
 downloadRateMonthly = (currentDownloads - previousDownloads) / daysSinceArchive
 ```
 
+For authors:
+```
+downloadRateMonthly = sum of all downloadRateMonthly from their mods
+```
+
 - If a mod exists in the current data but not in the archive, `previousDownloads` is treated as 0
 - The rate represents average downloads per day over the period
+- Author monthly rates are the sum of monthly rates from all their mods
 
 #### Output Format
 
-When monthly rates are available:
+**Mods** - When monthly rates are available:
 ```json
 {
   "generatedAt": "2025-11-05T10:00:00.000Z",
@@ -68,7 +75,42 @@ When monthly rates are unavailable (no archive ≥20 days old):
 }
 ```
 
-Note: The `downloadRateMonthly` field is only added to mods when `monthlyRate` is "available".
+**Authors** - When monthly rates are available:
+```json
+{
+  "generatedAt": "2025-11-05T10:00:00.000Z",
+  "monthlyRate": "available",
+  "authors": [
+    {
+      "name": "ExampleAuthor",
+      "downloadCount": 5000,
+      "mods": 3,
+      "downloadRate": 25.5,
+      "daysExisting": 196.2,
+      "downloadRateMonthly": 30.5
+    }
+  ]
+}
+```
+
+When monthly rates are unavailable:
+```json
+{
+  "generatedAt": "2025-11-05T10:00:00.000Z",
+  "monthlyRate": "unavailable",
+  "authors": [
+    {
+      "name": "ExampleAuthor",
+      "downloadCount": 5000,
+      "mods": 3,
+      "downloadRate": 25.5,
+      "daysExisting": 196.2
+    }
+  ]
+}
+```
+
+Note: The `downloadRateMonthly` field is only added to mods and authors when `monthlyRate` is "available".
 
 ### 3. Archive Cleanup
 

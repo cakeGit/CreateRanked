@@ -249,11 +249,16 @@ async function processMods() {
                     downloadCount: 0,
                     mods: 0,
                     createdAtList: [],
+                    monthlyDownloadRate: 0,
                 };
             }
             authorStats[author].downloadCount += mod.downloadCount;
             authorStats[author].mods += 1;
             if (mod.createdAt) authorStats[author].createdAtList.push(mod.createdAt);
+            // Sum up monthly download rates for this author
+            if (monthlyRateAvailable && mod.downloadRateMonthly !== undefined) {
+                authorStats[author].monthlyDownloadRate += mod.downloadRateMonthly;
+            }
         }
     });
 
@@ -262,13 +267,20 @@ async function processMods() {
         const avgDays = author.createdAtList.length
             ? author.createdAtList.map(daysSince).reduce((a, b) => a + b, 0) / author.createdAtList.length
             : 1;
-        return {
+        const authorData = {
             name: author.name,
             downloadCount: author.downloadCount,
             mods: author.mods,
             downloadRate: Number((author.downloadCount / avgDays).toFixed(2)),
             daysExisting: Number(avgDays.toFixed(2))
         };
+        
+        // Add monthly download rate if available
+        if (monthlyRateAvailable) {
+            authorData.downloadRateMonthly = Number(author.monthlyDownloadRate.toFixed(2));
+        }
+        
+        return authorData;
     });
 
     const result = {
@@ -278,7 +290,11 @@ async function processMods() {
     };
 
     await fs.writeFile(MODS_OUTPUT_PATH, JSON.stringify(result, null, 2), 'utf-8');
-    authorFileData = { generatedAt: result.generatedAt, authors };
+    authorFileData = { 
+        generatedAt: result.generatedAt, 
+        monthlyRate: monthlyRateAvailable ? 'available' : 'unavailable',
+        authors 
+    };
     await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify(authorFileData, null, 2), 'utf-8');
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
