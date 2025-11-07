@@ -100,6 +100,9 @@ class PieChart {
         this.data = null;
         this.hoveredIndex = -1;
         this.hoveredSegment = null;
+        this.maxPieItems = 20;
+        this.alphaHover = 'cc';
+        this.alphaNormal = '99';
         
         this.setupCanvas();
         this.setupEventListeners();
@@ -107,8 +110,6 @@ class PieChart {
     
     setupCanvas() {
         const rect = this.container.getBoundingClientRect();
-        this.canvas.width = rect.width;
-        this.canvas.height = rect.height;
         
         const dpr = window.devicePixelRatio || 1;
         this.canvas.width = rect.width * dpr;
@@ -163,7 +164,7 @@ class PieChart {
             let angle = Math.atan2(dy, dx);
             if (angle < 0) angle += 2 * Math.PI;
             
-            const items = this.data.items.slice(0, 20);
+            const items = this.data.items.slice(0, this.maxPieItems);
             const values = items.map(item => this.getValueForSort(item));
             const total = values.reduce((a, b) => a + b, 0);
             
@@ -214,7 +215,7 @@ class PieChart {
         ctx.fillStyle = COLORS.background;
         ctx.fillRect(0, 0, this.width, this.height);
         
-        const items = this.data.items.slice(0, 20);
+        const items = this.data.items.slice(0, this.maxPieItems);
         const values = items.map(item => this.getValueForSort(item));
         const total = values.reduce((a, b) => a + b, 0);
         
@@ -236,7 +237,7 @@ class PieChart {
             ctx.closePath();
             
             const color = this.getColorForIndex(i);
-            ctx.fillStyle = isHovered ? color + 'cc' : color + '99';
+            ctx.fillStyle = isHovered ? color + this.alphaHover : color + this.alphaNormal;
             ctx.fill();
             
             ctx.strokeStyle = COLORS.background;
