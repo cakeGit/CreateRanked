@@ -291,7 +291,7 @@ async function processMods() {
             authorStats[author].mods += 1;
             if (mod.createdAt) authorStats[author].createdAtList.push(mod.createdAt);
             // Sum up monthly download rates for this author
-            if (monthlyRateAvailable && mod.downloadRateMonthly !== undefined) {
+            if (monthlyRateAvailable && mod.downloadRateMonthly !== null) {
                 authorStats[author].monthlyDownloadRate += mod.downloadRateMonthly;
             }
         }
