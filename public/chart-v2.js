@@ -746,7 +746,8 @@ function setSortBarHandlers() {
         }
     });
     
-    maxEntriesInput.addEventListener('blur', async function(e) {
+    // Shared validation function
+    async function validateAndUpdateMaxEntries(e) {
         // Fetch the current data to determine the max possible entries
         const rawData = await fetchChartData(currentEndpoint);
 
@@ -759,22 +760,10 @@ function setSortBarHandlers() {
         currentMax = Math.max(1, Math.min(totalEntries, value));
         e.target.value = currentMax; // Update input to reflect clamp
         updateChart();
-    });
+    }
     
-    maxEntriesInput.addEventListener('change', async function(e) {
-        // Fetch the current data to determine the max possible entries
-        const rawData = await fetchChartData(currentEndpoint);
-
-        // Determine if we're on mods or authors
-        const dataKey = rawData?.mods ? "mods" : (rawData?.authors ? "authors" : null);
-        const totalEntries = rawData && dataKey && Array.isArray(rawData[dataKey]) ? rawData[dataKey].length : 1;
-
-        // Clamp to available entries
-        const value = parseInt(e.target.value) || 1;
-        currentMax = Math.max(1, Math.min(totalEntries, value));
-        e.target.value = currentMax; // Update input to reflect clamp
-        updateChart();
-    });
+    maxEntriesInput.addEventListener('blur', validateAndUpdateMaxEntries);
+    maxEntriesInput.addEventListener('change', validateAndUpdateMaxEntries);
     
     updateSortBar();
 }
