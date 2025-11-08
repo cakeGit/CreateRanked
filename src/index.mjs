@@ -26,6 +26,8 @@ const server = http.createServer(async (req, res) => {
         await serveJson(res, 'authors-prev.json');
     } else if (req.url.startsWith('/api/authors')) {
         await serveJson(res, 'authors.json');
+    } else if (req.url.startsWith('/collection_log/')) {
+        await serveCollectionLog(res);
     } else if (req.url.startsWith('/api/clickme')) {
         if (req.method === 'POST') {
             clickmeCount++;
@@ -54,6 +56,22 @@ function serveJson(res, filename) {
         .catch(() => {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'File not found' }));
+        });
+}
+
+function serveCollectionLog(res) {
+    const logFilePath = path.join(DATA_DIR, 'dataCollectionLog.txt');
+    fs.readFile(logFilePath, 'utf8')
+        .then((data) => {
+            res.writeHead(200, {
+                'Content-Type': 'text/plain',
+                ...(CACHE_ENABLED ? { 'Cache-Control': 'max-age=60' } : {})
+            });
+            res.end(data);
+        })
+        .catch(() => {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Collection log not found');
         });
 }
 

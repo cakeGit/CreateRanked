@@ -48,10 +48,88 @@ async function fetchAllMods() {
     return allMods;
 }
 
+async function fetchModById(modId) {
+    console.log(`Fetching mod ${modId} directly from API...`);
+    const url = `https://api.curseforge.com/v1/mods/${modId}`;
+    const res = await fetch(url, {
+        headers: {
+            'Accept': 'application/json',
+            'x-api-key': API_KEY
+        }
+    });
+
+    if (!res.ok) {
+        console.error(`Failed to fetch mod ${modId}: ${res.statusText}`);
+        return null;
+    }
+
+    const data = await res.json();
+    return data.data;
+}
+
+async function loadDiscoveredModIds() {
+    try {
+        const data = await fs.readFile(DISCOVERED_MODS_PATH, 'utf-8');
+        return new Set(JSON.parse(data));
+    } catch {
+        return new Set();
+    }
+}
+
+async function saveDiscoveredModIds(modIds) {
+    await fs.writeFile(DISCOVERED_MODS_PATH, JSON.stringify([...modIds], null, 2), 'utf-8');
+}
+
+async function removeDuplicatesAndRecoverMods(searchMods) {
+    // Load previously discovered mod IDs
+    const discoveredModIds = await loadDiscoveredModIds();
+    
+    // Remove duplicates from search results
+    const uniqueModsMap = new Map();
+    for (const mod of searchMods) {
+        if (!uniqueModsMap.has(mod.id)) {
+            uniqueModsMap.set(mod.id, mod);
+        }
+    }
+    
+    let uniqueMods = Array.from(uniqueModsMap.values());
+    const searchModIds = new Set(uniqueMods.map(m => m.id));
+    
+    // Find mods that were previously discovered but are missing from search
+    const missingModIds = [...discoveredModIds].filter(id => !searchModIds.has(id));
+    
+    let recoveredCount = 0;
+    if (missingModIds.length > 0) {
+        console.log(`Found ${missingModIds.length} previously discovered mods missing from search, attempting recovery...`);
+        
+        // Fetch missing mods directly
+        for (const modId of missingModIds) {
+            const mod = await fetchModById(modId);
+            if (mod) {
+                uniqueMods.push(mod);
+                recoveredCount++;
+            }
+        }
+        
+        if (recoveredCount > 0) {
+            console.log(`Successfully recovered ${recoveredCount} mods`);
+        }
+    }
+    
+    return { mods: uniqueMods, recoveredCount };
+}
+
 var mods;
+var recoveredModsCount = 0;
 try {
-    mods = await fetchAllMods();
-    console.log(`Fetched ${mods.length} mods from CurseForge API, going to processor`);
+    const searchMods = await fetchAllMods();
+    console.log(`Fetched ${searchMods.length} mods from CurseForge API search`);
+    
+    const result = await removeDuplicatesAndRecoverMods(searchMods);
+    mods = result.mods;
+    recoveredModsCount = result.recoveredCount;
+    
+    console.log(`Total mods after deduplication and recovery: ${mods.length}`);
 } catch (err) {
     console.error('Error fetching mods:', err);
     throw err;
@@ -61,6 +139,7 @@ const MODS_OUTPUT_PATH = path.resolve('./data/mods.json');
 const AUTHORS_OUTPUT_PATH = path.resolve('./data/authors.json');
 const ARCHIVE_DIR = path.resolve('./data/archive');
 const LOG_FILE = path.resolve('./data/dataCollectionLog.txt');
+const DISCOVERED_MODS_PATH = path.resolve('./data/discoveredModIds.json');
 
 // Archive configuration constants
 const MIN_ARCHIVE_AGE_DAYS = 20;  // Minimum age for archive to be used for monthly rate calculation
@@ -182,7 +261,7 @@ async function cleanupOldArchives(maxDays = 32) {
     }
 }
 
-async function logDataCollection(currentModCount, previousModCount) {
+async function logDataCollection(currentModCount, previousModCount, recoveredCount = 0) {
     const timestamp = new Date().toISOString();
     let diff = '';
     
@@ -192,11 +271,16 @@ async function logDataCollection(currentModCount, previousModCount) {
         diff = ` (diff +${added} -${removed})`;
     }
     
-    const logEntry = `[${timestamp}] Mods collected ${currentModCount}${diff}\n`;
+    let recoveryInfo = '';
+    if (recoveredCount > 0) {
+        recoveryInfo = ` [Recovered ${recoveredCount} mod${recoveredCount > 1 ? 's' : ''} from direct query]`;
+    }
+    
+    const logEntry = `[${timestamp}] Mods collected ${currentModCount}${diff}${recoveryInfo}\n`;
     
     try {
         await fs.appendFile(LOG_FILE, logEntry, 'utf-8');
-        console.log(`Mods collected ${currentModCount}${diff}`);
+        console.log(`Mods collected ${currentModCount}${diff}${recoveryInfo}`);
     } catch (err) {
         console.error('Failed to write to log file:', err.message);
     }
@@ -335,8 +419,13 @@ async function processMods() {
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
     
-    // Log data collection with integrity check
-    await logDataCollection(result.mods.length, previousModCount);
+    // Save discovered mod IDs for future recovery
+    const discoveredModIds = new Set(mappedMods.map(mod => mod.id));
+    await saveDiscoveredModIds(discoveredModIds);
+    console.log(`Saved ${discoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
+    
+    // Log data collection with integrity check and recovery info
+    await logDataCollection(result.mods.length, previousModCount, recoveredModsCount);
     
     // Cleanup old archives (keep only MAX_ARCHIVE_DAYS)
     await cleanupOldArchives(MAX_ARCHIVE_DAYS);
