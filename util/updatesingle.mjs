@@ -39,11 +39,16 @@ async function fetchAllMods() {
         const data = await res.json();
         if (index === 0) {
             totalCount = data.pagination?.totalCount || 0;
+            console.log(`Total mods matching search: ${totalCount}`);
         }
         allMods.push(...data.data);
         fetched += data.data.length;
         index += PAGE_SIZE;
     } while (fetched < totalCount && index < MAX_MODS);
+    
+    if (index >= MAX_MODS && fetched < totalCount) {
+        console.log(`Warning: Reached MAX_MODS limit (${MAX_MODS}). Some mods beyond this limit may require recovery.`);
+    }
 
     return allMods;
 }
@@ -108,6 +113,10 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
     const failedModIds = [];
     if (missingModIds.length > 0) {
         console.log(`Found ${missingModIds.length} previously discovered mods missing from search, attempting recovery...`);
+        console.log(`Note: Mods may be missing from search due to:`);
+        console.log(`  - Search API ranking/relevance changes`);
+        console.log(`  - Pagination limits (MAX_MODS=${MAX_MODS})`);
+        console.log(`  - Temporary API inconsistencies`);
         
         // Fetch missing mods directly
         for (const modId of missingModIds) {
@@ -122,10 +131,11 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
         }
         
         if (recoveredCount > 0) {
-            console.log(`Recovered missing mod data for: ${recoveredMods.join(', ')}`);
+            console.log(`Successfully recovered ${recoveredCount} mod(s): ${recoveredMods.join(', ')}`);
         }
         if (failedModIds.length > 0) {
             console.log(`Failed to fetch ${failedModIds.length} mod(s) with ID(s): ${failedModIds.join(', ')}`);
+            console.log(`These mods may have been deleted or made private.`);
         }
     }
     
