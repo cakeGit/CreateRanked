@@ -105,6 +105,7 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
     
     let recoveredCount = 0;
     const recoveredMods = [];
+    const failedModIds = [];
     if (missingModIds.length > 0) {
         console.log(`Found ${missingModIds.length} previously discovered mods missing from search, attempting recovery...`);
         
@@ -115,11 +116,16 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
                 uniqueMods.push(mod);
                 recoveredMods.push(mod.name);
                 recoveredCount++;
+            } else {
+                failedModIds.push(modId);
             }
         }
         
         if (recoveredCount > 0) {
             console.log(`Recovered missing mod data for: ${recoveredMods.join(', ')}`);
+        }
+        if (failedModIds.length > 0) {
+            console.log(`Failed to fetch ${failedModIds.length} mod(s) with ID(s): ${failedModIds.join(', ')}`);
         }
     }
     
