@@ -291,8 +291,10 @@ async function logDataCollection(currentModCount, previousModCount, recoveredCou
     let diffDetails = '';
     
     if (previousModCount !== null) {
-        const added = Math.max(0, currentModCount - previousModCount);
-        const removed = Math.max(0, previousModCount - currentModCount);
+        // Calculate GROSS additions and removals (not NET)
+        // This shows all movements including recoveries
+        const added = recoveredMods.length + addedMods.length;
+        const removed = droppedMods.length;
         diff = ` (diff +${added} -${removed})`;
         
         // Add detailed diff with mod names, showing each mod with +/- prefix
