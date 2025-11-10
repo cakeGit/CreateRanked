@@ -80,6 +80,11 @@ async function saveDiscoveredModIds(modIds) {
     await fs.writeFile(DISCOVERED_MODS_PATH, JSON.stringify([...modIds], null, 2), 'utf-8');
 }
 
+/**
+ * Remove duplicate mods from search results and attempt to recover previously discovered mods
+ * that are missing from the current search.
+ * @returns {Object} Object containing mods array, recoveredCount, and recoveredMods array with names
+ */
 async function removeDuplicatesAndRecoverMods(searchMods) {
     // Load previously discovered mod IDs
     const discoveredModIds = await loadDiscoveredModIds();
@@ -263,6 +268,14 @@ async function cleanupOldArchives(maxDays = 32) {
     }
 }
 
+/**
+ * Log data collection results with detailed information about added, dropped, and recovered mods
+ * @param {number} currentModCount - Current number of mods
+ * @param {number|null} previousModCount - Previous number of mods (null if first run)
+ * @param {number} recoveredCount - Number of mods recovered from direct API queries
+ * @param {string[]} addedMods - Array of names of newly added mods
+ * @param {string[]} droppedMods - Array of names of dropped mods
+ */
 async function logDataCollection(currentModCount, previousModCount, recoveredCount = 0, addedMods = [], droppedMods = []) {
     const timestamp = new Date().toISOString();
     let diff = '';
