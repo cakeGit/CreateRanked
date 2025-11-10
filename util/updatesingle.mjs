@@ -134,6 +134,7 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
 
 var mods;
 var recoveredModsCount = 0;
+var recoveredModNames = [];
 try {
     const searchMods = await fetchAllMods();
     console.log(`Fetched ${searchMods.length} mods from CurseForge API search`);
@@ -141,6 +142,7 @@ try {
     const result = await removeDuplicatesAndRecoverMods(searchMods);
     mods = result.mods;
     recoveredModsCount = result.recoveredCount;
+    recoveredModNames = result.recoveredMods;
     
     console.log(`Total mods after deduplication and recovery: ${mods.length}`);
 } catch (err) {
@@ -279,10 +281,11 @@ async function cleanupOldArchives(maxDays = 32) {
  * @param {number} currentModCount - Current number of mods
  * @param {number|null} previousModCount - Previous number of mods (null if first run)
  * @param {number} recoveredCount - Number of mods recovered from direct API queries
+ * @param {string[]} recoveredMods - Array of names of recovered mods
  * @param {string[]} addedMods - Array of names of newly added mods
  * @param {string[]} droppedMods - Array of names of dropped mods
  */
-async function logDataCollection(currentModCount, previousModCount, recoveredCount = 0, addedMods = [], droppedMods = []) {
+async function logDataCollection(currentModCount, previousModCount, recoveredCount = 0, recoveredMods = [], addedMods = [], droppedMods = []) {
     const timestamp = new Date().toISOString();
     let diff = '';
     let diffDetails = '';
@@ -292,12 +295,26 @@ async function logDataCollection(currentModCount, previousModCount, recoveredCou
         const removed = Math.max(0, previousModCount - currentModCount);
         diff = ` (diff +${added} -${removed})`;
         
-        // Add detailed diff with mod names
-        if (removed > 0 && droppedMods.length > 0) {
-            diffDetails += `\nDiff -${removed} (${droppedMods.join(', ')})`;
+        // Add detailed diff with mod names, showing each mod with +/- prefix
+        const modChanges = [];
+        
+        // Add recovered mods first (with + prefix since they were recovered)
+        if (recoveredMods.length > 0) {
+            recoveredMods.forEach(name => modChanges.push(`+${name}`));
         }
-        if (added > 0 && addedMods.length > 0) {
-            diffDetails += `\nDiff +${added} (${addedMods.join(', ')})`;
+        
+        // Add newly added mods (with + prefix)
+        if (addedMods.length > 0) {
+            addedMods.forEach(name => modChanges.push(`+${name}`));
+        }
+        
+        // Add dropped mods (with - prefix)
+        if (droppedMods.length > 0) {
+            droppedMods.forEach(name => modChanges.push(`-${name}`));
+        }
+        
+        if (modChanges.length > 0) {
+            diffDetails = `\nDiff: ${modChanges.join(', ')}`;
         }
     }
     
@@ -468,24 +485,33 @@ async function processMods() {
     let droppedModNames = [];
     
     if (previousModsMap.size > 0) {
+        // Create a set of recovered mod names for quick lookup
+        const recoveredModNamesSet = new Set(recoveredModNames);
+        
         // Find mods that are in current but not in previous (added)
         const currentModIds = new Set(mappedMods.map(mod => mod.id));
         mappedMods.forEach(mod => {
             if (!previousModsMap.has(mod.id)) {
-                addedModNames.push(mod.name);
+                // Only add to addedModNames if not in recoveredModNames
+                if (!recoveredModNamesSet.has(mod.name)) {
+                    addedModNames.push(mod.name);
+                }
             }
         });
         
         // Find mods that are in previous but not in current (dropped)
         previousModsMap.forEach((name, id) => {
             if (!currentModIds.has(id)) {
-                droppedModNames.push(name);
+                // Only add to droppedModNames if not in recoveredModNames
+                if (!recoveredModNamesSet.has(name)) {
+                    droppedModNames.push(name);
+                }
             }
         });
     }
     
     // Log data collection with integrity check, recovery info, and mod names
-    await logDataCollection(result.mods.length, previousModCount, recoveredModsCount, addedModNames, droppedModNames);
+    await logDataCollection(result.mods.length, previousModCount, recoveredModsCount, recoveredModNames, addedModNames, droppedModNames);
 
     
     // Cleanup old archives (keep only MAX_ARCHIVE_DAYS)
