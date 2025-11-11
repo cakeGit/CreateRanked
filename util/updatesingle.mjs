@@ -489,11 +489,7 @@ async function processMods() {
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
     
     // Save discovered mod IDs for future recovery
-    // Include IDs from current mods (all discovered, not just filtered) AND previous run
-    // This ensures mods from previous runs can be recovered even if they're completely missing from current search
-    const discoveredModIds = new Set(mods.map(mod => mod.id));
-    // Merge in IDs from previous run's mods.json
-    previousModsMap.forEach((name, id) => discoveredModIds.add(id));
+    const discoveredModIds = new Set(mappedMods.map(mod => mod.id));
     await saveDiscoveredModIds(discoveredModIds);
     console.log(`Saved ${discoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
     
