@@ -488,7 +488,9 @@ async function processMods() {
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
     
     // Save discovered mod IDs for future recovery
-    const discoveredModIds = new Set(mappedMods.map(mod => mod.id));
+    // Use 'mods' (unfiltered) instead of 'mappedMods' (filtered) to include ALL discovered mods,
+    // even those that don't pass the filter. This ensures recovered mods are persisted.
+    const discoveredModIds = new Set(mods.map(mod => mod.id));
     await saveDiscoveredModIds(discoveredModIds);
     console.log(`Saved ${discoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
     
