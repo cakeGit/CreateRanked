@@ -349,184 +349,155 @@ async function logDataCollection(currentModCount, previousModCount, recoveredCou
 }
 
 async function processMods() {
-    // Archive previous data before processing
     await archivePreviousData();
-    
-    // Get previous mod data for comparison
+
     let previousModCount = null;
-    let previousModsMap = new Map(); // Map of id -> name
+    const previousModNames = new Map();
     try {
         const prevData = await fs.readFile(MODS_OUTPUT_PATH, 'utf-8');
         const prevMods = JSON.parse(prevData);
-        if (prevMods.mods) {
+        if (Array.isArray(prevMods.mods)) {
             previousModCount = prevMods.mods.length;
             prevMods.mods.forEach(mod => {
-                previousModsMap.set(mod.id, mod.name);
+                previousModNames.set(mod.id, mod.name);
             });
         }
     } catch {
         // No previous data
     }
-    
-    const filtered = mods.filter(mod => {
-        if (mod.links?.websiteUrl?.includes('/modpacks/') || mod.links?.websiteUrl?.includes("/bukkit-plugins/")) return false;
+
+    const createMods = mods.filter(mod => {
+        if (mod.links?.websiteUrl?.includes('/modpacks/') || mod.links?.websiteUrl?.includes('/bukkit-plugins/')) {
+            return false;
+        }
 
         const hasCreateCategory = Array.isArray(mod.categories) && mod.categories.some(cat => cat.id === 6484);
-
-        const nameStartsWithCreate = typeof mod.name === 'string' && (/^create(?:)\s/.test(mod.name.trim().toLowerCase()));
+        const nameStartsWithCreate = typeof mod.name === 'string' && /^create(?:)\s/.test(mod.name.trim().toLowerCase());
 
         return hasCreateCategory || nameStartsWithCreate;
     });
 
-    // Check for archive at least MIN_ARCHIVE_AGE_DAYS old
-    const oldArchive = await findOldArchive(MIN_ARCHIVE_AGE_DAYS);
+    const archive = await findOldArchive(MIN_ARCHIVE_AGE_DAYS);
+    const archiveDownloadCounts = new Map();
+    let archivePeriodDays = 0;
     let monthlyRateAvailable = false;
-    let prevModsMap = new Map();
-    let period = 0;
-    
-    if (oldArchive) {
-        monthlyRateAvailable = true;
-        period = oldArchive.daysDiff;
-        if (oldArchive.data.mods) {
-            oldArchive.data.mods.forEach(mod => {
-                prevModsMap.set(mod.id, mod.downloadCount || 0);
+
+    if (archive) {
+        archivePeriodDays = archive.daysDiff;
+        if (Array.isArray(archive.data.mods)) {
+            archive.data.mods.forEach(mod => {
+                archiveDownloadCounts.set(mod.id, mod.downloadCount || 0);
             });
         }
-        console.log(`Found archive from ${oldArchive.dateStr} (${period.toFixed(2)} days ago) for monthly rate calculation`);
+        if (archivePeriodDays > 0) {
+            monthlyRateAvailable = true;
+            console.log(`Found archive from ${archive.dateStr} (${archivePeriodDays.toFixed(2)} days ago) for monthly rate calculation`);
+        } else {
+            console.log(`Found archive from ${archive.dateStr} but it is too recent for monthly rate calculation`);
+        }
     }
 
-    // Map mods with download stats
-    const mappedMods = filtered.map(mod => {
+    const enrichedMods = createMods.map(mod => {
         const author = Array.isArray(mod.authors) && mod.authors.length > 0 ? mod.authors[0].name : null;
         const authors = Array.isArray(mod.authors) ? mod.authors.map(a => a.name) : null;
         const downloadCount = typeof mod.downloadCount === 'number' ? mod.downloadCount : 0;
         const createdAt = mod.dateCreated || mod.dateReleased || mod.dateModified;
         const days = createdAt ? daysSince(createdAt) : 1;
-        const downloadRate = downloadCount / days;
-
         const modData = {
             id: mod.id,
             name: mod.name,
             author,
             authors,
             downloadCount,
-            downloadRate: Number(downloadRate.toFixed(2)),
+            downloadRate: Number((downloadCount / days).toFixed(2)),
             createdAt,
             daysExisting: Number(days.toFixed(2)),
-            downloadRateMonthly: null  // Always include field, set to null when unavailable
+            downloadRateMonthly: null
         };
-        
-        // Calculate monthly download rate if archive is available
-        if (monthlyRateAvailable && period > 0) {
-            const prevDownloads = prevModsMap.has(mod.id) ? prevModsMap.get(mod.id) : 0;
-            const downloadDiff = downloadCount - prevDownloads;
-            const monthlyRate = downloadDiff / period;
+
+        if (monthlyRateAvailable) {
+            const previousDownloads = archiveDownloadCounts.get(mod.id) || 0;
+            const monthlyRate = (downloadCount - previousDownloads) / archivePeriodDays;
             modData.downloadRateMonthly = Number(monthlyRate.toFixed(2));
         }
-        
+
         return modData;
     });
 
-    const authorStats = {};
-    mappedMods.forEach(mod => {
-        for (const author of mod.authors || []) {
-            if (!authorStats[author]) {
-                authorStats[author] = {
-                    name: author,
-                    downloadCount: 0,
-                    mods: 0,
-                    createdAtList: [],
-                    monthlyDownloadRate: 0,
-                };
-            }
-            authorStats[author].downloadCount += mod.downloadCount;
-            authorStats[author].mods += 1;
-            if (mod.createdAt) authorStats[author].createdAtList.push(mod.createdAt);
-            // Sum up monthly download rates for this author
+    const authorStats = new Map();
+    enrichedMods.forEach(mod => {
+        const authorNames = mod.authors || [];
+        authorNames.forEach(name => {
+            const stats = authorStats.get(name) || {
+                name,
+                downloadCount: 0,
+                mods: 0,
+                totalDays: 0,
+                monthlyDownloadRate: 0,
+            };
+            stats.downloadCount += mod.downloadCount;
+            stats.mods += 1;
+            stats.totalDays += mod.daysExisting;
             if (monthlyRateAvailable && mod.downloadRateMonthly !== null) {
-                authorStats[author].monthlyDownloadRate += mod.downloadRateMonthly;
+                stats.monthlyDownloadRate += mod.downloadRateMonthly;
             }
-        }
+            authorStats.set(name, stats);
+        });
     });
 
-    // Calculate author download rates (total downloads / avg days since created for their mods)
-    const authors = Object.values(authorStats).map(author => {
-        const avgDays = author.createdAtList.length
-            ? author.createdAtList.map(daysSince).reduce((a, b) => a + b, 0) / author.createdAtList.length
-            : 1;
-        const authorData = {
-            name: author.name,
-            downloadCount: author.downloadCount,
-            mods: author.mods,
-            downloadRate: Number((author.downloadCount / avgDays).toFixed(2)),
-            daysExisting: Number(avgDays.toFixed(2)),
-            downloadRateMonthly: null  // Always include field, set to null when unavailable
+    const authors = [...authorStats.values()].map(stats => {
+        const averageDays = stats.totalDays > 0 ? stats.totalDays / stats.mods : 1;
+        return {
+            name: stats.name,
+            downloadCount: stats.downloadCount,
+            mods: stats.mods,
+            downloadRate: Number((stats.downloadCount / averageDays).toFixed(2)),
+            daysExisting: Number(averageDays.toFixed(2)),
+            downloadRateMonthly: monthlyRateAvailable ? Number(stats.monthlyDownloadRate.toFixed(2)) : null,
         };
-        
-        // Calculate monthly download rate if available
-        if (monthlyRateAvailable) {
-            authorData.downloadRateMonthly = Number(author.monthlyDownloadRate.toFixed(2));
-        }
-        
-        return authorData;
     });
 
     const result = {
         generatedAt: new Date().toISOString(),
         monthlyRate: monthlyRateAvailable ? 'available' : 'unavailable',
-        mods: mappedMods
+        mods: enrichedMods,
     };
 
     await fs.writeFile(MODS_OUTPUT_PATH, JSON.stringify(result, null, 2), 'utf-8');
-    authorFileData = { 
-        generatedAt: result.generatedAt, 
-        monthlyRate: monthlyRateAvailable ? 'available' : 'unavailable',
-        authors 
+    authorFileData = {
+        generatedAt: result.generatedAt,
+        monthlyRate: result.monthlyRate,
+        authors,
     };
     await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify(authorFileData, null, 2), 'utf-8');
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
-    
-    // Save discovered mod IDs for future recovery
-    const discoveredModIds = new Set(mappedMods.map(mod => mod.id));
+
+    const discoveredModIds = new Set(mods.map(mod => mod.id));
     await saveDiscoveredModIds(discoveredModIds);
     console.log(`Saved ${discoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
-    
-    // Calculate added and dropped mods for detailed logging
-    let addedModNames = [];
-    let droppedModNames = [];
-    
-    if (previousModsMap.size > 0) {
-        // Create a set of recovered mod names for quick lookup
-        const recoveredModNamesSet = new Set(recoveredModNames);
-        
-        // Find mods that are in current but not in previous (added)
-        const currentModIds = new Set(mappedMods.map(mod => mod.id));
-        mappedMods.forEach(mod => {
-            if (!previousModsMap.has(mod.id)) {
-                // Only add to addedModNames if not in recoveredModNames
-                if (!recoveredModNamesSet.has(mod.name)) {
-                    addedModNames.push(mod.name);
-                }
+
+    const recoveredModNamesSet = new Set(recoveredModNames);
+    const currentModIds = new Set(enrichedMods.map(mod => mod.id));
+    const addedModNames = [];
+    const droppedModNames = [];
+
+    if (previousModNames.size > 0) {
+        enrichedMods.forEach(mod => {
+            if (!previousModNames.has(mod.id) && !recoveredModNamesSet.has(mod.name)) {
+                addedModNames.push(mod.name);
             }
         });
-        
-        // Find mods that are in previous but not in current (dropped)
-        previousModsMap.forEach((name, id) => {
-            if (!currentModIds.has(id)) {
-                // Only add to droppedModNames if not in recoveredModNames
-                if (!recoveredModNamesSet.has(name)) {
-                    droppedModNames.push(name);
-                }
+
+        previousModNames.forEach((name, id) => {
+            if (!currentModIds.has(id) && !recoveredModNamesSet.has(name)) {
+                droppedModNames.push(name);
             }
         });
     }
-    
-    // Log data collection with integrity check, recovery info, and mod names
+
     await logDataCollection(result.mods.length, previousModCount, recoveredModsCount, recoveredModNames, addedModNames, droppedModNames);
 
-    
-    // Cleanup old archives (keep only MAX_ARCHIVE_DAYS)
     await cleanupOldArchives(MAX_ARCHIVE_DAYS);
 }
 
