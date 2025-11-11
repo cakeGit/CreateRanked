@@ -373,7 +373,8 @@ async function processMods() {
 
         const hasCreateCategory = Array.isArray(mod.categories) && mod.categories.some(cat => cat.id === 6484);
 
-        const nameStartsWithCreate = typeof mod.name === 'string' && (/^create(?:)\s/.test(mod.name.trim().toLowerCase()));
+        // Match names starting with "create" followed by space, colon, or other non-letter character
+        const nameStartsWithCreate = typeof mod.name === 'string' && (/^create(?:[:\s]|$)/i.test(mod.name.trim()));
 
         return hasCreateCategory || nameStartsWithCreate;
     });
@@ -488,9 +489,11 @@ async function processMods() {
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
     
     // Save discovered mod IDs for future recovery
-    // Use 'mods' (unfiltered) instead of 'mappedMods' (filtered) to include ALL discovered mods,
-    // even those that don't pass the filter. This ensures recovered mods are persisted.
+    // Include IDs from current mods (all discovered, not just filtered) AND previous run
+    // This ensures mods from previous runs can be recovered even if they're completely missing from current search
     const discoveredModIds = new Set(mods.map(mod => mod.id));
+    // Merge in IDs from previous run's mods.json
+    previousModsMap.forEach((name, id) => discoveredModIds.add(id));
     await saveDiscoveredModIds(discoveredModIds);
     console.log(`Saved ${discoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
     
