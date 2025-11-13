@@ -13,8 +13,39 @@ const PAGE_SIZE = 50;
 const GAME_ID = 432;
 const SEARCH_FILTER = 'create';
 const MAX_MODS = parseInt(process.env.MAX_MODS, 10) || 10000;
+// Define discovered mods path early to avoid TDZ when used by helpers
+const DISCOVERED_MODS_PATH = path.resolve('./data/discoveredModIds.json');
 
 var authorFileData = {};
+
+function logRateLimitHeaders(res, context) {
+    const limit = res.headers.get('x-ratelimit-limit');
+    const remaining = res.headers.get('x-ratelimit-remaining');
+    const reset = res.headers.get('x-ratelimit-reset');
+    const retryAfter = res.headers.get('retry-after');
+
+    if (res.status === 429) {
+        console.warn(`[RateLimit][${context}] Received 429 Too Many Requests. Remaining=${remaining ?? 'unknown'}, reset=${reset ?? 'unknown'}, retryAfter=${retryAfter ?? 'n/a'}`);
+        return;
+    }
+
+    if (retryAfter) {
+        console.warn(`[RateLimit][${context}] Retry-After header present: ${retryAfter}`);
+    }
+
+    if (limit || remaining || reset) {
+        const limitText = limit ?? 'unknown';
+        const remainingText = remaining ?? 'unknown';
+        const resetText = reset ?? 'unknown';
+        const message = `[RateLimit][${context}] limit ${limitText}, remaining ${remainingText}, reset ${resetText}`;
+        const remainingNumber = Number(remaining);
+        if (!Number.isNaN(remainingNumber) && remainingNumber <= 5) {
+            console.warn(message);
+        } else {
+            console.log(message);
+        }
+    }
+}
 
 async function fetchAllMods() {
     let allMods = [];
@@ -32,8 +63,11 @@ async function fetchAllMods() {
             }
         });
 
+        logRateLimitHeaders(res, `search index ${index}`);
+
         if (!res.ok) {
-            throw new Error(`Failed to fetch mods: ${res.statusText}`);
+            const body = await res.text();
+            throw new Error(`Failed to fetch mods (status ${res.status}): ${res.statusText}. Body: ${body}`);
         }
 
         const data = await res.json();
@@ -63,8 +97,11 @@ async function fetchModById(modId) {
         }
     });
 
+    logRateLimitHeaders(res, `modId ${modId}`);
+
     if (!res.ok) {
-        console.error(`Failed to fetch mod ${modId}: ${res.statusText}`);
+        const body = await res.text();
+        console.error(`Failed to fetch mod ${modId} (status ${res.status}): ${res.statusText}. Body: ${body}`);
         return null;
     }
 
@@ -107,6 +144,16 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
     
     // Find mods that were previously discovered but are missing from search
     const missingModIds = [...discoveredModIds].filter(id => !searchModIds.has(id));
+    console.log(`[Recovery] Discovered set size=${discoveredModIds.size}, Search unique=${searchModIds.size}, Missing=${missingModIds.length}`);
+    if (missingModIds.length > 0) {
+        console.log(`[Recovery] Missing ID sample (up to 10): ${missingModIds.slice(0, 10).join(', ')}`);
+    } else {
+        if (discoveredModIds.size === 0) {
+            console.log('[Recovery] No missing mods to recover (discovered set is empty on this run).');
+        } else {
+            console.log('[Recovery] No previously discovered mods are missing from the current search.');
+        }
+    }
     
     let recoveredCount = 0;
     const recoveredMods = [];
@@ -120,12 +167,31 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
         
         // Fetch missing mods directly
         for (const modId of missingModIds) {
+            console.log(`[Recovery] Attempting to recover modId=${modId} via direct API fetch...`);
             const mod = await fetchModById(modId);
             if (mod) {
+                // Basic format/introspection logging to verify structure
+                const issues = [];
+                if (mod.id !== modId) issues.push(`id mismatch (got ${mod.id})`);
+                if (typeof mod.name !== 'string' || !mod.name.trim()) issues.push('invalid name');
+                if (!Array.isArray(mod.authors)) issues.push('authors not array');
+                if (Array.isArray(mod.authors) && mod.authors.length === 0) issues.push('authors empty');
+                if (!Array.isArray(mod.categories)) issues.push('categories not array');
+                if (typeof mod.downloadCount !== 'number') issues.push('downloadCount not number');
+
+                const authorsLen = Array.isArray(mod.authors) ? mod.authors.length : 'n/a';
+                const categoriesLen = Array.isArray(mod.categories) ? mod.categories.length : 'n/a';
+                const namePreview = typeof mod.name === 'string' ? mod.name : String(mod.name);
+                console.log(`[Recovery] OK modId=${modId} -> name="${namePreview}" | authors=${authorsLen} | categories=${categoriesLen} | downloads=${mod.downloadCount ?? 'n/a'}`);
+                if (issues.length > 0) {
+                    console.warn(`[Recovery][modId=${modId}] Potential format issues: ${issues.join('; ')}`);
+                }
+
                 uniqueMods.push(mod);
                 recoveredMods.push(mod.name);
                 recoveredCount++;
             } else {
+                console.warn(`[Recovery] Failed to recover modId=${modId}`);
                 failedModIds.push(modId);
             }
         }
@@ -139,12 +205,16 @@ async function removeDuplicatesAndRecoverMods(searchMods) {
         }
     }
     
-    return { mods: uniqueMods, recoveredCount, recoveredMods };
+    const updatedDiscoveredModIds = new Set(discoveredModIds);
+    uniqueMods.forEach(mod => updatedDiscoveredModIds.add(mod.id));
+
+    return { mods: uniqueMods, recoveredCount, recoveredMods, discoveredModIds: updatedDiscoveredModIds };
 }
 
 var mods;
 var recoveredModsCount = 0;
 var recoveredModNames = [];
+var knownDiscoveredModIds = new Set();
 try {
     const searchMods = await fetchAllMods();
     console.log(`Fetched ${searchMods.length} mods from CurseForge API search`);
@@ -153,6 +223,7 @@ try {
     mods = result.mods;
     recoveredModsCount = result.recoveredCount;
     recoveredModNames = result.recoveredMods;
+    knownDiscoveredModIds = result.discoveredModIds;
     
     console.log(`Total mods after deduplication and recovery: ${mods.length}`);
 } catch (err) {
@@ -164,7 +235,6 @@ const MODS_OUTPUT_PATH = path.resolve('./data/mods.json');
 const AUTHORS_OUTPUT_PATH = path.resolve('./data/authors.json');
 const ARCHIVE_DIR = path.resolve('./data/archive');
 const LOG_FILE = path.resolve('./data/dataCollectionLog.txt');
-const DISCOVERED_MODS_PATH = path.resolve('./data/discoveredModIds.json');
 
 // Archive configuration constants
 const MIN_ARCHIVE_AGE_DAYS = 20;  // Minimum age for archive to be used for monthly rate calculation
@@ -366,16 +436,24 @@ async function processMods() {
         // No previous data
     }
 
+    const totalModsBeforeFilter = mods.length;
     const createMods = mods.filter(mod => {
-        if (mod.links?.websiteUrl?.includes('/modpacks/') || mod.links?.websiteUrl?.includes('/bukkit-plugins/')) {
+        const websiteUrl = mod.links?.websiteUrl?.toLowerCase() || '';
+        if (websiteUrl.includes('/modpacks/') || websiteUrl.includes('/bukkit-plugins/')) {
             return false;
         }
 
         const hasCreateCategory = Array.isArray(mod.categories) && mod.categories.some(cat => cat.id === 6484);
-        const nameStartsWithCreate = typeof mod.name === 'string' && /^create(?:)\s/.test(mod.name.trim().toLowerCase());
+        const normalizedName = typeof mod.name === 'string' ? mod.name.trim().toLowerCase() : '';
+        const nameStartsWithCreate = /^create(:|\s)/.test(normalizedName);
 
         return hasCreateCategory || nameStartsWithCreate;
     });
+
+    const filteredOutCount = totalModsBeforeFilter - createMods.length;
+    if (filteredOutCount > 0) {
+        console.log(`Filtered out ${filteredOutCount} non-Create mods from ${totalModsBeforeFilter} fetched entries`);
+    }
 
     const archive = await findOldArchive(MIN_ARCHIVE_AGE_DAYS);
     const archiveDownloadCounts = new Map();
@@ -473,9 +551,8 @@ async function processMods() {
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
 
-    const discoveredModIds = new Set(mods.map(mod => mod.id));
-    await saveDiscoveredModIds(discoveredModIds);
-    console.log(`Saved ${discoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
+    await saveDiscoveredModIds(knownDiscoveredModIds);
+    console.log(`Saved ${knownDiscoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);
 
     const recoveredModNamesSet = new Set(recoveredModNames);
     const currentModIds = new Set(enrichedMods.map(mod => mod.id));
