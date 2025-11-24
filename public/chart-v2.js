@@ -263,13 +263,14 @@ function setRowCountHandler() {
     if (!rowCountInput) return;
     
     rowCountInput.addEventListener('keypress', function(e) {
-        // Only allow numbers
-        if (e.key && !/[0-9]/.test(e.key)) {
+        // Only allow numbers and essential control keys
+        if (e.key && !/[0-9]/.test(e.key) && 
+            !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key)) {
             e.preventDefault();
         }
     });
     
-    async function validateAndUpdateRowCount(e) {
+    function validateAndUpdateRowCount(e) {
         const value = parseInt(e.target.value) || 1;
         // Clamp between 1 and 100
         currentRowCount = Math.max(1, Math.min(100, value));
