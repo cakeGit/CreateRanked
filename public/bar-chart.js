@@ -17,6 +17,7 @@ export class ScrollableChart {
         this.bottomPadding = 10;
         this.hoveredIndex = -1;
         this.hoveredBar = null;
+        this.rowCount = 20; // Default row count for visible bars
         
         this.setupCanvas();
         this.setupEventListeners();
@@ -63,6 +64,7 @@ export class ScrollableChart {
 
         this._onResize = () => {
             this.setupCanvas();
+            this.calculateBarHeight();
             this.render();
         };
 
@@ -81,12 +83,23 @@ export class ScrollableChart {
         if (this._onResize) window.removeEventListener('resize', this._onResize);
     }
     
-    setData(data) {
+    setData(data, rowCount = 20) {
         this.data = data;
+        this.rowCount = rowCount;
         this.scrollOffset = 0;
         this.hoveredIndex = -1;
         this.hoveredBar = null;
+        this.calculateBarHeight();
         this.render();
+    }
+    
+    calculateBarHeight() {
+        // Calculate bar height based on row count to fit in visible area
+        const visibleHeight = this.height - this.topPadding - this.bottomPadding;
+        // Total height needed = rowCount * barHeight + (rowCount - 1) * barSpacing
+        // Solve for barHeight: visibleHeight = rowCount * barHeight + (rowCount - 1) * barSpacing
+        // barHeight = (visibleHeight - (rowCount - 1) * barSpacing) / rowCount
+        this.barHeight = Math.max(10, (visibleHeight - (this.rowCount - 1) * this.barSpacing) / this.rowCount);
     }
     
     clampScroll() {
