@@ -262,10 +262,10 @@ function setRowCountHandler() {
     const rowCountInput = document.getElementById('rowCount');
     if (!rowCountInput) return;
     
-    rowCountInput.addEventListener('keypress', function(e) {
-        // Only allow numbers and essential control keys
-        if (e.key && !/[0-9]/.test(e.key) && 
-            !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key)) {
+    rowCountInput.addEventListener('keydown', function(e) {
+        // Allow numbers, navigation keys, and control keys
+        const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+        if (e.key && !/[0-9]/.test(e.key) && !allowedKeys.includes(e.key)) {
             e.preventDefault();
         }
     });
