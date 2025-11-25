@@ -226,6 +226,27 @@ try {
     knownDiscoveredModIds = result.discoveredModIds;
     
     console.log(`Total mods after deduplication and recovery: ${mods.length}`);
+    
+    // Always fetch the original Create mod (ID: 328085) directly
+    const CREATE_MOD_ID = 328085;
+    const hasCreateMod = mods.some(mod => mod.id === CREATE_MOD_ID);
+    if (!hasCreateMod) {
+        console.log(`[Create Mod] Original Create mod not found in search, fetching directly...`);
+        const createMod = await fetchModById(CREATE_MOD_ID);
+        if (createMod) {
+            console.log(`[Create Mod] Successfully fetched original Create mod: "${createMod.name}"`);
+            mods.push(createMod);
+            knownDiscoveredModIds.add(CREATE_MOD_ID);
+            recoveredModsCount++;
+            recoveredModNames.push(createMod.name);
+        } else {
+            console.warn(`[Create Mod] Failed to fetch original Create mod (ID: ${CREATE_MOD_ID})`);
+        }
+    } else {
+        console.log(`[Create Mod] Original Create mod already present in search results`);
+    }
+    
+    console.log(`Total mods after including Create mod: ${mods.length}`);
 } catch (err) {
     console.error('Error fetching mods:', err);
     throw err;

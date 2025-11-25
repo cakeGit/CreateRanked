@@ -231,3 +231,38 @@ input[type="number"] {
     max-height:400px;
     overflow:auto;
 }
+
+#bubble-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 5;
+}
+
+#bubble-controls button {
+    background: #fafafa;
+    border: 1px solid #d3d3d3;
+    color: #222;
+    font-size: 18px;
+    font-family: monospace;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bubble-controls button:hover {
+    background: #ffffff;
+    border-color: #999;
+}
+
+#bubble-controls button:active {
+    background: #e6e6e6;
+}

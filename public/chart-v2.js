@@ -254,7 +254,12 @@ function setSearchHandler() {
     if (!searchInput) return;
     searchInput.oninput = function(e) {
         currentSearch = e.target.value;
-        updateChart();
+        // For bubble chart, just update search term without recreating
+        if (chartType === 'bubble' && chartInstance && chartInstance instanceof BubbleChart) {
+            chartInstance.setSearchTerm(currentSearch);
+        } else {
+            updateChart();
+        }
     };
 }
 

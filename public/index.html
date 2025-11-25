@@ -61,7 +61,14 @@
                 <button id="toggle-pie" style="margin-left:1em;">Pie Chart</button>
             </div>
             <input type="text" id="search-bar" placeholder="Search mods or authors..." style="margin-bottom:1em;width:100%;max-width:400px;">
-            <div id="chartContainer" style="position:relative;height:95vh;width:100%;"><canvas id="rankingChart"></canvas></div>
+            <div id="chartContainer" style="position:relative;height:95vh;width:100%;">
+                <canvas id="rankingChart"></canvas>
+                <div id="bubble-controls" style="display:none;">
+                    <button id="zoom-in-btn" title="Zoom In">+</button>
+                    <button id="zoom-out-btn" title="Zoom Out">−</button>
+                    <button id="reset-zoom-btn" title="Reset View">⟲</button>
+                </div>
+            </div>
         </div>
 
         <script type="module" src="chart-v2.js"></script>
