@@ -46,12 +46,12 @@ export class BubbleChart {
         this.lastPanY = 0;
         
         // Cohesion forces to keep clusters from splitting apart
-        this.cohesionStrength = 0.005; // base pull between all mods
+        this.cohesionStrength = 0.002; // base pull between all mods
         this.cohesionDecay = 200; // distance scale for exponential pull (updated on resize)
         
         // Physics constants
         this.friction = 0.5;
-        this.gravity = 0.05;
+        this.gravity = 0.4;
         this.collisionStrength = 0.2;
         this.attractionStrength = 0.9; // stronger author connections
         this.unrelatedRepulsion = 1.2; // soft push between nodes with no shared authors
@@ -160,16 +160,15 @@ export class BubbleChart {
         const otherDownloadRate = otherMods.reduce((sum, m) => sum + (m.downloadRate || 0), 0);
         const otherCount = otherMods.length;
 
-        // 3. Create Nodes
-        const jitter = Math.min(this.width, this.height) * 0.03; // tighter initial placement near center
+        // 3. Create Nodes with better initial spacing
         this.nodes = mainMods.map(mod => ({
             id: mod.id,
             name: mod.name,
             downloadCount: mod.downloadCount,
             downloadRate: mod.downloadRate,
             authors: mod.authors || [],
-            x: this.centerX + (Math.random() - 0.5) * jitter,
-            y: this.centerY + (Math.random() - 0.5) * jitter,
+            x: this.centerX,
+            y: this.centerY,
             vx: 0,
             vy: 0,
             radius: 1, // placeholder; will be set by dynamic scaling
@@ -188,8 +187,8 @@ export class BubbleChart {
                 downloadCount: otherDownloadsTotal, // Or sum
                 downloadRate: otherDownloadRate,
                 authors: [],
-                x: this.centerX + (Math.random() - 0.5) * (jitter * 0.5),
-                y: this.centerY + (Math.random() - 0.5) * (jitter * 0.5),
+                x: this.centerX,
+                y: this.centerY,
                 vx: 0,
                 vy: 0,
                 radius: 1, // placeholder; will be set by dynamic scaling
@@ -201,6 +200,9 @@ export class BubbleChart {
 
         // 4. Assign Colors
         this.assignColors();
+        
+        // 4.5. Initialize positions based on components to start with better separation
+        this.initializeComponentPositions();
 
         // Store search term for highlight-only behavior
         this.searchTermLower = (data.searchTerm || '').toLowerCase();
@@ -259,6 +261,42 @@ export class BubbleChart {
             mainMods: mainMods,
             otherMods: remaining
         };
+    }
+    
+    initializeComponentPositions() {
+        // Group nodes by component
+        const componentGroups = new Map();
+        for (const node of this.nodes) {
+            if (node.isOther) continue;
+            const cid = node.componentId ?? -1;
+            if (!componentGroups.has(cid)) {
+                componentGroups.set(cid, []);
+            }
+            componentGroups.get(cid).push(node);
+        }
+        
+        // Arrange components in a grid
+        const components = Array.from(componentGroups.entries());
+        const gridSize = Math.ceil(Math.sqrt(components.length));
+        const spacing = Math.min(this.width, this.height) / (gridSize + 1);
+        
+        components.forEach(([cid, nodes], index) => {
+            const row = Math.floor(index / gridSize);
+            const col = index % gridSize;
+            const cx = this.centerX + (col - gridSize / 2 + 0.5) * spacing;
+            const cy = this.centerY + (row - gridSize / 2 + 0.5) * spacing;
+            
+            // Spread nodes in this component in a circle
+            const componentSize = nodes.length;
+            const avgRadius = nodes.reduce((sum, n) => sum + (n.radius || 50), 0) / componentSize;
+            const spreadRadius = avgRadius * Math.sqrt(componentSize) * 0.5;
+            
+            nodes.forEach((node, i) => {
+                const angle = (i / componentSize) * Math.PI * 2;
+                node.x = cx + Math.cos(angle) * spreadRadius;
+                node.y = cy + Math.sin(angle) * spreadRadius;
+            });
+        });
     }
     
     assignColors() {
@@ -366,9 +404,10 @@ export class BubbleChart {
             node.vx += dx * this.gravity * 0.01;
             node.vy += dy * this.gravity * 0.01;
 
-            // Drag/Friction
-            node.vx *= this.friction;
-            node.vy *= this.friction;
+            // Drag/Friction (high to reduce jitter)
+            const frictionMultiplier = (node.componentSize && node.componentSize > 5) ? 0.75 : 0.88;
+            node.vx *= this.friction * frictionMultiplier;
+            node.vy *= this.friction * frictionMultiplier;
 
             // Update Position
             node.x += node.vx;
@@ -397,6 +436,23 @@ export class BubbleChart {
             }
         }
 
+        // Apply group cohesion forces
+        this.applyGroupCohesion();
+        
+        // Cap velocities for nodes in large groups to prevent oscillation
+        for (let i = 0; i < len; i++) {
+            const node = nodes[i];
+            if (node.componentSize && node.componentSize > 5) {
+                const maxVel = 3.0;
+                const velMag = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+                if (velMag > maxVel) {
+                    const scale = maxVel / velMag;
+                    node.vx *= scale;
+                    node.vy *= scale;
+                }
+            }
+        }
+
         // Collision and Attraction
         for (let i = 0; i < len; i++) {
             for (let j = i + 1; j < len; j++) {
@@ -410,10 +466,10 @@ export class BubbleChart {
                 const nx = dx / dist;
                 const ny = dy / dist;
 
-                // Collision
-                const minDist = n1.radius + n2.radius + 2; // +2 padding
+                // Collision - gentle resolution
+                const minDist = n1.radius + n2.radius + 3; // +3 padding
                 if (dist < minDist) {
-                    // Positional correction to resolve overlap
+                    // Gentle positional correction
                     const overlap = (minDist - dist);
                     const correction = overlap * 0.5;
                     n1.x -= nx * correction;
@@ -421,58 +477,67 @@ export class BubbleChart {
                     n2.x += nx * correction;
                     n2.y += ny * correction;
 
-                    // Dampen relative velocity along normal to prevent jitter
+                    // Gentle repulsive impulse
                     const rvx = n2.vx - n1.vx;
                     const rvy = n2.vy - n1.vy;
                     const relN = rvx * nx + rvy * ny;
                     if (relN < 0) {
-                        const restitution = 0.2;
-                        const impulse = -(1 + restitution) * relN * 0.5;
+                        const restitution = 0.1;
+                        const impulse = -(1 + restitution) * relN * 0.3;
                         n1.vx -= nx * impulse;
                         n1.vy -= ny * impulse;
                         n2.vx += nx * impulse;
                         n2.vy += ny * impulse;
                     }
+                    
+                    // Gentle separation force
+                    const separationForce = overlap * 0.05;
+                    n1.vx -= nx * separationForce;
+                    n1.vy -= ny * separationForce;
+                    n2.vx += nx * separationForce;
+                    n2.vy += ny * separationForce;
                 }
 
                 // Attraction (if sharing authors) or soft repulsion (if unrelated)
                 if (!n1.isOther && !n2.isOther) {
                     const sharedAuthors = n1.authors.filter(a => n2.authors.includes(a));
                     if (sharedAuthors.length > 0) {
-                        // Calculate component size scaling factor (larger groups = weaker individual connections)
-                        const componentSize = Math.max(n1.componentSize || 1, n2.componentSize || 1);
-                        const sizeScale = 1 / componentSize; // Direct linear scaling: N mods = 1/N strength
+                        // For nodes in same component, only use group-center cohesion (handled above)
+                        // Skip individual connection forces to avoid fighting with group cohesion
+                        const sameComponent = (n1.componentId != null && n1.componentId === n2.componentId && (n1.componentSize || 0) > 2);
                         
-                        // Hard clamp: limit max separation to sum of radii
-                        const maxLinkDist = 2 * (n1.radius + n2.radius);
-                        if (dist > maxLinkDist) {
-                            const excess = dist - maxLinkDist;
-                            const correction = excess * 0.5 * sizeScale;
-                            n1.x += nx * correction;
-                            n1.y += ny * correction;
-                            n2.x -= nx * correction;
-                            n2.y -= ny * correction;
-                        }
+                        if (!sameComponent) {
+                            // Small groups or different components: use direct connection forces
+                            const componentSize = Math.max(n1.componentSize || 1, n2.componentSize || 1);
+                            const sizeScale = 1 / componentSize;
+                            
+                            const maxLinkDist = 2 * (n1.radius + n2.radius);
+                            if (dist > maxLinkDist) {
+                                const excess = dist - maxLinkDist;
+                                const correction = excess * 0.5 * sizeScale;
+                                n1.x += nx * correction;
+                                n1.y += ny * correction;
+                                n2.x -= nx * correction;
+                                n2.y -= ny * correction;
+                            }
 
-                        // Distance-aware spring attraction: pull towards a rest length beyond collision
-                        const rest = minDist + 6; // small gap to avoid overlap under attraction
-                        if (dist > rest) {
-                            let force = this.attractionStrength * sharedAuthors.length * (dist - rest) * 0.02 * sizeScale;
-                            // Cap force to avoid instability/clipping
-                            force = Math.min(force, 2.0);
-                            const fx = nx * force;
-                            const fy = ny * force;
-                            n1.vx += fx;
-                            n1.vy += fy;
-                            n2.vx -= fx;
-                            n2.vy -= fy;
-                        } else {
-                            // Mild separation force when closer than rest (counter sticky overlap)
-                            const repel = (rest - dist) * 0.01;
-                            n1.vx -= nx * repel;
-                            n1.vy -= ny * repel;
-                            n2.vx += nx * repel;
-                            n2.vy += ny * repel;
+                            const rest = minDist + 6;
+                            if (dist > rest) {
+                                let force = this.attractionStrength * sharedAuthors.length * (dist - rest) * 0.02 * sizeScale;
+                                force = Math.min(force, 2.0);
+                                const fx = nx * force;
+                                const fy = ny * force;
+                                n1.vx += fx;
+                                n1.vy += fy;
+                                n2.vx -= fx;
+                                n2.vy -= fy;
+                            } else {
+                                const repel = (rest - dist) * 0.01;
+                                n1.vx -= nx * repel;
+                                n1.vy -= ny * repel;
+                                n2.vx += nx * repel;
+                                n2.vy += ny * repel;
+                            }
                         }
                     } else {
                         // Soft repulsion for unrelated nodes (no shared authors)
@@ -547,14 +612,10 @@ export class BubbleChart {
     runWarmup(steps) {
         const s = Math.max(0, steps | 0);
         for (let i = 0; i < s; i++) {
-            // Every 5 ticks, snap connected nodes to their component centroid
-            if (i % 5 === 0) {
-                this.snapComponentsToCentroids();
-            }
             this.updatePhysics();
         }
-        // Run 1 second of normal simulation (60 ticks at 60fps)
-        for (let i = 0; i < 60; i++) {
+        // Run 30 ticks (0.5 seconds) - let animation handle the rest
+        for (let i = 0; i < 30; i++) {
             this.updatePhysics();
         }
         // After warmup, set view to current target to avoid initial jump
@@ -689,9 +750,12 @@ export class BubbleChart {
         this.ctx.restore();
     }
 
-    // Snap all nodes in each component to their centroid position
-    snapComponentsToCentroids() {
+    // Apply gentle cohesion force to keep groups together without hard snapping
+    applyGroupCohesion() {
         const componentNodes = new Map();
+        const componentCentroids = new Map();
+        
+        // Build component node lists and compute centroids
         for (const n of this.nodes) {
             if (n.isOther) continue;
             if (n.componentId == null || n.componentSize <= 1) continue;
@@ -707,11 +771,55 @@ export class BubbleChart {
                 sumX += n.x;
                 sumY += n.y;
             }
-            const cx = sumX / nodes.length;
-            const cy = sumY / nodes.length;
+            componentCentroids.set(compId, {
+                x: sumX / nodes.length,
+                y: sumY / nodes.length
+            });
+        }
+        
+        // Apply strong pull toward component centroid to keep groups together
+        for (const [compId, nodes] of componentNodes) {
+            const centroid = componentCentroids.get(compId);
+            const componentSize = nodes.length;
+            
+            // Calculate average radius of nodes in this group
+            const avgRadius = nodes.reduce((sum, n) => sum + n.radius, 0) / nodes.length;
+            
+            // Target radius for circular arrangement (scales with group size)
+            const targetRadius = avgRadius * Math.sqrt(componentSize) * 0.8;
+            
+            // Moderate cohesion force to center
+            const cohesionStrength = 0.08; // Gentle pull to center
+            const boundaryStrength = 0.25; // Moderate push outward
+            
             for (const n of nodes) {
-                n.x = cx;
-                n.y = cy;
+                const dx = n.x - centroid.x;
+                const dy = n.y - centroid.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist > 0.1) {
+                    const nx = dx / dist;
+                    const ny = dy / dist;
+                    
+                    // Strong spring to target radius
+                    const distError = dist - targetRadius;
+                    const force = distError * cohesionStrength;
+                    n.vx -= nx * force;
+                    n.vy -= ny * force;
+                    
+                    // Moderate outward push if too close
+                    if (dist < targetRadius * 0.5) {
+                        const pushRatio = 1 - (dist / (targetRadius * 0.5));
+                        const pushForce = pushRatio * boundaryStrength * 2;
+                        n.vx += nx * pushForce;
+                        n.vy += ny * pushForce;
+                    }
+                } else {
+                    // Node is at centroid, push it in a stable direction
+                    const angle = (nodes.indexOf(n) / nodes.length) * Math.PI * 2;
+                    n.vx += Math.cos(angle) * boundaryStrength * 2;
+                    n.vy += Math.sin(angle) * boundaryStrength * 2;
+                }
             }
         }
     }
@@ -722,7 +830,7 @@ export class BubbleChart {
 
         // Calculate total area budget (as fraction of canvas)
         const totalCanvasArea = this.width * this.height;
-        const budgetFraction = 0.3; // Use 50% of canvas for bubbles (allows proper scaling with overlap)
+        const budgetFraction = 0.1; // Use 10% of canvas for bubbles (allows proper scaling with overlap)
         const availableArea = totalCanvasArea * budgetFraction;
 
         // Sum of all download rates to determine area scaling
