@@ -1112,8 +1112,6 @@ export class BubbleChart {
 
     // Mouse handlers
     onMouseMove(e) {
-        if (this.isPanning) return; // Don't update hover during pan
-        
         const rect = this.canvas.getBoundingClientRect();
         const scaleX = this.canvas.width / rect.width;
         const scaleY = this.canvas.height / rect.height;

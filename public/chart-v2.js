@@ -3,6 +3,7 @@
 
 import { PieChart } from './pie-chart.js';
 import { ScrollableChart } from './bar-chart.js';
+import { BubbleChart } from './bubble-chart.js';
 
 const fetchChartDataCache = new Map();
 
@@ -62,8 +63,9 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
 
     // Now filter by search
     let items = [...fullItems];
-    if (currentSearch && currentSearch.trim().length > 0) {
-        const searchLower = currentSearch.trim().toLowerCase();
+    const searchLower = (currentSearch || '').trim().toLowerCase();
+    if (searchLower && chartType !== 'bubble') {
+        // For bar/pie: filter list
         items = items.filter(item =>
             (item.name && item.name.toLowerCase().includes(searchLower)) ||
             (item.author && item.author.toLowerCase().includes(searchLower))
@@ -75,7 +77,8 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
     return {
         items: items,
         sortKey: mappedSortKey,
-        isAuthor: !!rawData.authors
+        isAuthor: !!rawData.authors,
+        searchTerm: searchLower
     };
 }
 
@@ -96,6 +99,15 @@ function renderChart(chartData) {
             chartInstance = new ScrollableChart('rankingChart');
         }
         chartInstance.setData(chartData, currentRowCount);
+    } else if (chartType === 'bubble') {
+        if (chartInstance && !(chartInstance instanceof BubbleChart) && typeof chartInstance.dispose === 'function') {
+            chartInstance.dispose();
+            chartInstance = null;
+        }
+        if (!chartInstance || !(chartInstance instanceof BubbleChart)) {
+            chartInstance = new BubbleChart('rankingChart');
+        }
+        chartInstance.setData(chartData);
     } else {
         // Switch to pie chart; dispose previous if it was a different type
         if (chartInstance && !(chartInstance instanceof PieChart) && typeof chartInstance.dispose === 'function') {
@@ -123,7 +135,10 @@ async function updateChart() {
     // Allow the pie chart to display the requested number of entries.
     // Previously this capped pies to 20 entries which prevented users from
     // seeing larger requested counts from the input control.
-    const maxEntries = currentMax;
+    let maxEntries = currentMax;
+    if (chartType === 'bubble') {
+        maxEntries = 10000; // Fetch all for bubble chart
+    }
     const chartData = transformInfoToChartData(rawData, currentSort, maxEntries, currentSortDir);
     const chartContainer = document.getElementById('rankingChart').parentElement;
     
@@ -138,12 +153,28 @@ async function updateChart() {
     // Toggle row count visibility based on chart type
     const rowCountLabel = document.getElementById('rowCountLabel');
     const rowCountInput = document.getElementById('rowCount');
+    const togglePieBtn = document.getElementById('toggle-pie');
+    const toggleLabelsBtn = document.getElementById('toggle-labels');
+
     if (chartType === 'bar') {
         rowCountLabel.style.display = '';
         rowCountInput.style.display = '';
-    } else {
+        togglePieBtn.style.display = '';
+        toggleLabelsBtn.style.display = 'none';
+    } else if (chartType === 'pie') {
         rowCountLabel.style.display = 'none';
         rowCountInput.style.display = 'none';
+        togglePieBtn.style.display = '';
+        toggleLabelsBtn.style.display = 'none';
+    } else if (chartType === 'bubble') {
+        rowCountLabel.style.display = 'none';
+        rowCountInput.style.display = 'none';
+        togglePieBtn.style.display = 'none';
+        toggleLabelsBtn.style.display = '';
+        // Sync button text with chart's current label state
+        if (chartInstance && chartInstance instanceof BubbleChart) {
+            toggleLabelsBtn.textContent = chartInstance.showLabels ? 'Hide Labels' : 'Show Labels';
+        }
     }
 
     if (chartData) {
@@ -157,21 +188,32 @@ async function updateChart() {
 function setStatNavbarHandlers() {
     const modBtn = document.getElementById('mod_ranking_btn');
     const authorBtn = document.getElementById('author_ranking_btn');
-    function setActive(isMod) {
-        if (isMod) {
+    const distBtn = document.getElementById('mod_distribution_btn');
+
+    function setActive(mode) {
+        modBtn.classList.remove('active');
+        authorBtn.classList.remove('active');
+        distBtn.classList.remove('active');
+
+        if (mode === 'mod') {
             modBtn.classList.add('active');
-            authorBtn.classList.remove('active');
             currentEndpoint = '/api/mods.json';
-        } else {
+            if (chartType === 'bubble') chartType = 'bar';
+        } else if (mode === 'author') {
             authorBtn.classList.add('active');
-            modBtn.classList.remove('active');
             currentEndpoint = '/api/authors.json';
+            if (chartType === 'bubble') chartType = 'bar';
+        } else if (mode === 'dist') {
+            distBtn.classList.add('active');
+            currentEndpoint = '/api/mods.json';
+            chartType = 'bubble';
         }
         updateSortBar();
         updateChart();
     }
-    modBtn.onclick = () => setActive(true);
-    authorBtn.onclick = () => setActive(false);
+    modBtn.onclick = () => setActive('mod');
+    authorBtn.onclick = () => setActive('author');
+    distBtn.onclick = () => setActive('dist');
 }
 
 function setSortBarHandlers() {
@@ -237,9 +279,14 @@ function setSortBarHandlers() {
 
 function updateSortBar() {
     const isAuthor = currentEndpoint.includes('author');
+    const isBubble = chartType === 'bubble';
     document.querySelectorAll('.sort-btn').forEach(btn => {
         const forType = btn.getAttribute('data-for');
-        btn.style.display = (isAuthor && forType === 'authors') || (!isAuthor && forType === 'mods') ? '' : 'none';
+        if (isBubble) {
+            btn.style.display = 'none';
+        } else {
+            btn.style.display = (isAuthor && forType === 'authors') || (!isAuthor && forType === 'mods') ? '' : 'none';
+        }
     });
 }
 
@@ -247,6 +294,14 @@ document.getElementById('toggle-pie').onclick = function() {
     chartType = chartType === 'bar' ? 'pie' : 'bar';
     this.textContent = chartType === 'bar' ? 'Pie Chart' : 'Bar Chart';
     updateChart();
+};
+
+document.getElementById('toggle-labels').onclick = function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        const newState = !chartInstance.showLabels;
+        chartInstance.toggleLabels(newState);
+        this.textContent = newState ? 'Hide Labels' : 'Show Labels';
+    }
 };
 
 function setSearchHandler() {
