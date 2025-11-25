@@ -468,7 +468,7 @@ async function processMods() {
         const normalizedName = typeof mod.name === 'string' ? mod.name.trim().toLowerCase() : '';
         const nameStartsWithCreate = /^create(:|\s)/.test(normalizedName);
 
-        return hasCreateCategory || nameStartsWithCreate;
+        return mod.id == CREATE_MOD_ID || hasCreateCategory || nameStartsWithCreate;
     });
 
     const filteredOutCount = totalModsBeforeFilter - createMods.length;
@@ -625,7 +625,7 @@ async function sendAzerbaijanRanking(authorFileData) {
 
     // Find Azerbaijan Technologies and its ranking by downloadRate
     const sorted = [...authors].sort((a, b) => b.downloadRate - a.downloadRate);
-    const index = sorted.findIndex(a => a.name.toLowerCase() === 'azerbaijan_tech');
+    const index = sorted.findIndex(a => a.name.toLowerCase() === 'az_tech');
     if (index === -1) {
         console.log('Azerbaijan Technologies not found in author list.');
         return;
