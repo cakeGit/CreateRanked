@@ -14,6 +14,7 @@ export class BubbleChart {
         this.warmupStepsDefault = 120; // run physics without drawing initially
         this.warmupSteps = 0;
         this.topNExplicit = 100; // always show top N by downloadRate
+        this.includeFullGroups = false; // whether to include all connected mods in groups
 
         // View/zoom state for smooth auto-fit
         this.viewScale = 1;
@@ -50,10 +51,10 @@ export class BubbleChart {
         
         // Physics constants
         this.friction = 0.5;
-        this.gravity = 0.1;
-        this.collisionStrength = 0.05;
+        this.gravity = 0.05;
+        this.collisionStrength = 0.2;
         this.attractionStrength = 0.9; // stronger author connections
-        this.unrelatedRepulsion = 0.7; // soft push between nodes with no shared authors
+        this.unrelatedRepulsion = 1.2; // soft push between nodes with no shared authors
         
         this.resizeObserver = new ResizeObserver(() => this.resize());
         this.resizeObserver.observe(this.canvas.parentElement);
@@ -126,6 +127,14 @@ export class BubbleChart {
         this.searchTermLower = (searchTerm || '').toLowerCase();
     }
     
+    setIncludeFullGroups(include) {
+        // Update full groups option and rebuild if data exists
+        this.includeFullGroups = include;
+        if (this.rawData) {
+            this.setData(this.rawData);
+        }
+    }
+    
     setData(data) {
         // Stop any existing animation
         if (this.animationFrame) {
@@ -133,15 +142,25 @@ export class BubbleChart {
         }
 
         if (!data || !data.items) return;
+        
+        // Store raw data for rebuilding when options change
+        this.rawData = data;
 
         // 1. Filter and Group: explicitly take top N by downloadRate
         const sortedByRate = [...data.items].sort((a, b) => (b.downloadRate || 0) - (a.downloadRate || 0));
-        const mainMods = sortedByRate.slice(0, this.topNExplicit);
-        const otherMods = sortedByRate.slice(this.topNExplicit);
+        let mainMods = sortedByRate.slice(0, this.topNExplicit);
+        let otherMods = sortedByRate.slice(this.topNExplicit);
+        
+        // 2. If includeFullGroups is enabled, recursively expand groups
+        if (this.includeFullGroups && otherMods.length > 0) {
+            const expanded = this.expandGroups(mainMods, otherMods);
+            mainMods = expanded.mainMods;
+            otherMods = expanded.otherMods;
+        }
         const otherDownloadRate = otherMods.reduce((sum, m) => sum + (m.downloadRate || 0), 0);
         const otherCount = otherMods.length;
 
-        // 2. Create Nodes
+        // 3. Create Nodes
         const jitter = Math.min(this.width, this.height) * 0.03; // tighter initial placement near center
         this.nodes = mainMods.map(mod => ({
             id: mod.id,
@@ -180,25 +199,68 @@ export class BubbleChart {
             });
         }
 
-        // 3. Assign Colors
+        // 4. Assign Colors
         this.assignColors();
 
         // Store search term for highlight-only behavior
         this.searchTermLower = (data.searchTerm || '').toLowerCase();
 
-        // 4. Dynamic radius scaling (fit to canvas and count)
+        // 5. Dynamic radius scaling (fit to canvas and count)
         this.updateRadiusScale();
 
-        // 5. Compute component stats for leaderboard
+        // 6. Compute component stats for leaderboard
         this.computeComponentStats();
 
-        // 6. Fast warm-up: run physics steps synchronously before first draw
+        // 7. Fast warm-up: run physics steps synchronously before first draw
         this.runWarmup(this.warmupStepsDefault);
 
-        // 7. Start Animation
+        // 8. Start Animation
         this.animate();
     }
 
+    expandGroups(mainMods, otherMods) {
+        // Recursively expand groups to include all connected mods from otherMods
+        // that share authors with any mod in mainMods
+        
+        const included = new Set(mainMods.map(m => m.id));
+        const remaining = [...otherMods];
+        let addedInLastPass = true;
+        
+        // Keep searching until no new mods are found
+        while (addedInLastPass && remaining.length > 0) {
+            addedInLastPass = false;
+            
+            // Build author set from currently included mods
+            const includedAuthors = new Set();
+            for (const mod of mainMods) {
+                for (const author of (mod.authors || [])) {
+                    includedAuthors.add(author);
+                }
+            }
+            
+            // Find mods in remaining that share any author with included mods
+            for (let i = remaining.length - 1; i >= 0; i--) {
+                const mod = remaining[i];
+                const modAuthors = mod.authors || [];
+                
+                // Check if this mod shares any author with included mods
+                const hasSharedAuthor = modAuthors.some(author => includedAuthors.has(author));
+                
+                if (hasSharedAuthor) {
+                    mainMods.push(mod);
+                    included.add(mod.id);
+                    remaining.splice(i, 1);
+                    addedInLastPass = true;
+                }
+            }
+        }
+        
+        return {
+            mainMods: mainMods,
+            otherMods: remaining
+        };
+    }
+    
     assignColors() {
         // Build connected components by shared authors (visible nodes only)
         const visibleNodes = this.nodes.filter(n => !n.isOther);
@@ -377,11 +439,15 @@ export class BubbleChart {
                 if (!n1.isOther && !n2.isOther) {
                     const sharedAuthors = n1.authors.filter(a => n2.authors.includes(a));
                     if (sharedAuthors.length > 0) {
+                        // Calculate component size scaling factor (larger groups = weaker individual connections)
+                        const componentSize = Math.max(n1.componentSize || 1, n2.componentSize || 1);
+                        const sizeScale = 1 / componentSize; // Direct linear scaling: N mods = 1/N strength
+                        
                         // Hard clamp: limit max separation to sum of radii
                         const maxLinkDist = 2 * (n1.radius + n2.radius);
                         if (dist > maxLinkDist) {
                             const excess = dist - maxLinkDist;
-                            const correction = excess * 0.5;
+                            const correction = excess * 0.5 * sizeScale;
                             n1.x += nx * correction;
                             n1.y += ny * correction;
                             n2.x -= nx * correction;
@@ -391,7 +457,7 @@ export class BubbleChart {
                         // Distance-aware spring attraction: pull towards a rest length beyond collision
                         const rest = minDist + 6; // small gap to avoid overlap under attraction
                         if (dist > rest) {
-                            let force = this.attractionStrength * sharedAuthors.length * (dist - rest) * 0.02;
+                            let force = this.attractionStrength * sharedAuthors.length * (dist - rest) * 0.02 * sizeScale;
                             // Cap force to avoid instability/clipping
                             force = Math.min(force, 2.0);
                             const fx = nx * force;
@@ -410,10 +476,12 @@ export class BubbleChart {
                         }
                     } else {
                         // Soft repulsion for unrelated nodes (no shared authors)
-                        // Inverse square falloff with distance, only effective at close range
-                        const repelRange = (n1.radius + n2.radius) * 2.5;
+                        // Stronger repulsion with extended range
+                        const repelRange = (n1.radius + n2.radius) * 4.0; // Extended from 2.5 to 4.0
                         if (dist < repelRange) {
-                            const strength = this.unrelatedRepulsion * (1 - dist / repelRange);
+                            // Quadratic falloff for stronger push at medium distances
+                            const distRatio = 1 - dist / repelRange;
+                            const strength = this.unrelatedRepulsion * distRatio * distRatio;
                             const fx = -nx * strength;
                             const fy = -ny * strength;
                             n1.vx += fx;

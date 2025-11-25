@@ -155,6 +155,7 @@ async function updateChart() {
     const rowCountInput = document.getElementById('rowCount');
     const togglePieBtn = document.getElementById('toggle-pie');
     const toggleLabelsBtn = document.getElementById('toggle-labels');
+    const toggleFullGroupsBtn = document.getElementById('toggle-full-groups');
     const bubbleControls = document.getElementById('bubble-controls');
 
     if (chartType === 'bar') {
@@ -162,22 +163,28 @@ async function updateChart() {
         rowCountInput.style.display = '';
         togglePieBtn.style.display = '';
         toggleLabelsBtn.style.display = 'none';
+        if (toggleFullGroupsBtn) toggleFullGroupsBtn.style.display = 'none';
         if (bubbleControls) bubbleControls.style.display = 'none';
     } else if (chartType === 'pie') {
         rowCountLabel.style.display = 'none';
         rowCountInput.style.display = 'none';
         togglePieBtn.style.display = '';
         toggleLabelsBtn.style.display = 'none';
+        if (toggleFullGroupsBtn) toggleFullGroupsBtn.style.display = 'none';
         if (bubbleControls) bubbleControls.style.display = 'none';
     } else if (chartType === 'bubble') {
         rowCountLabel.style.display = 'none';
         rowCountInput.style.display = 'none';
         togglePieBtn.style.display = 'none';
         toggleLabelsBtn.style.display = '';
+        if (toggleFullGroupsBtn) toggleFullGroupsBtn.style.display = '';
         if (bubbleControls) bubbleControls.style.display = 'flex';
         // Sync button text with chart's current label state
         if (chartInstance && chartInstance instanceof BubbleChart) {
             toggleLabelsBtn.textContent = chartInstance.showLabels ? 'Hide Labels' : 'Show Labels';
+            if (toggleFullGroupsBtn) {
+                toggleFullGroupsBtn.textContent = chartInstance.includeFullGroups ? 'Show Top Only' : 'Include Full Groups';
+            }
         }
     }
 
@@ -305,6 +312,14 @@ document.getElementById('toggle-labels').onclick = function() {
         const newState = !chartInstance.showLabels;
         chartInstance.toggleLabels(newState);
         this.textContent = newState ? 'Hide Labels' : 'Show Labels';
+    }
+};
+
+document.getElementById('toggle-full-groups').onclick = function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        const newState = !chartInstance.includeFullGroups;
+        chartInstance.setIncludeFullGroups(newState);
+        this.textContent = newState ? 'Show Top Only' : 'Include Full Groups';
     }
 };
 
