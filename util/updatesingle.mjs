@@ -215,6 +215,8 @@ var mods;
 var recoveredModsCount = 0;
 var recoveredModNames = [];
 var knownDiscoveredModIds = new Set();
+const CREATE_MOD_ID = 328085;
+
 try {
     const searchMods = await fetchAllMods();
     console.log(`Fetched ${searchMods.length} mods from CurseForge API search`);
@@ -228,7 +230,6 @@ try {
     console.log(`Total mods after deduplication and recovery: ${mods.length}`);
     
     // Always fetch the original Create mod (ID: 328085) directly
-    const CREATE_MOD_ID = 328085;
     const hasCreateMod = mods.some(mod => mod.id === CREATE_MOD_ID);
     if (!hasCreateMod) {
         console.log(`[Create Mod] Original Create mod not found in search, fetching directly...`);
