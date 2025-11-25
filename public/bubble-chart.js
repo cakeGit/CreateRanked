@@ -118,6 +118,8 @@ export class BubbleChart {
 
         // Leaderboard state
         this.componentStats = [];
+    this.componentStatsMap = new Map();
+    this.showGroupLabels = false; // whether to paint component-level author labels
 
         this.resize();
     }
@@ -817,6 +819,12 @@ export class BubbleChart {
             })
             .sort((a, b) => b.downloadRate - a.downloadRate)
             .slice(0, 20);
+
+            // Build a quick lookup map by component id for runtime drawing
+            this.componentStatsMap = new Map();
+            for (const s of this.componentStats) {
+                this.componentStatsMap.set(s.id, s);
+            }
     }
 
     drawLeaderboard() {
@@ -1243,6 +1251,97 @@ export class BubbleChart {
         });
 
         // Draw leaderboard
+        // Draw group labels (top author) if enabled
+        if (this.showGroupLabels) {
+            // Build component node screen-space lists
+            const compNodes = new Map();
+            for (const n of this.nodes) {
+                if (n.isOther) continue;
+                if (n.componentId == null || (n.componentSize || 0) <= 1) continue;
+                // Compute screen position like above
+                const framedX = (n.x - this.viewCenterX) * this.viewScale;
+                const framedY = (n.y - this.viewCenterY) * this.viewScale;
+                const framedR = n.radius * this.viewScale;
+                const cx = (framedX - this.userPanX) * this.userZoom + this.width / 2;
+                const cy = (framedY - this.userPanY) * this.userZoom + this.height / 2;
+                const r = Math.max(1, framedR * this.userZoom);
+                if (!compNodes.has(n.componentId)) compNodes.set(n.componentId, []);
+                compNodes.get(n.componentId).push({ x: cx, y: cy, r: r, node: n });
+            }
+
+            this.ctx.save();
+            for (const [compId, list] of compNodes.entries()) {
+                if (!list || list.length === 0) continue;
+                // Centroid of screen-space positions
+                let sx = 0, sy = 0, avgR = 0;
+                for (const p of list) { sx += p.x; sy += p.y; avgR += p.r; }
+                sx /= list.length; sy /= list.length; avgR /= list.length;
+
+                // Determine top author from componentStatsMap if available
+                let topAuthor = null;
+                if (this.componentStatsMap && this.componentStatsMap.has(compId)) {
+                    const stat = this.componentStatsMap.get(compId);
+                    if (stat && Array.isArray(stat.rankedAuthors) && stat.rankedAuthors.length > 0) {
+                        topAuthor = stat.rankedAuthors[0];
+                    }
+                }
+                // Fallback: extract most common author among nodes
+                if (!topAuthor) {
+                    const counts = new Map();
+                    for (const p of list) {
+                        const authors = (p.node.authors || []);
+                        for (const a of authors) counts.set(a, (counts.get(a) || 0) + 1);
+                    }
+                    let best = null, bestCount = 0;
+                    for (const [a, c] of counts.entries()) if (c > bestCount) { best = a; bestCount = c; }
+                    topAuthor = best || '';
+                }
+
+                if (!topAuthor) continue;
+
+                // Font sizing: base on avgR but clamp
+                const fontSize = Math.max(10, Math.min(28, Math.round(avgR * 0.6)));
+                this.ctx.font = `bold ${fontSize}px Arial`;
+                this.ctx.textAlign = 'center';
+                this.ctx.textBaseline = 'middle';
+                // Measure and shrink if too wide
+                const maxWidth = Math.max(32, avgR * 2.2);
+                let drawText = topAuthor;
+                let measured = this.ctx.measureText(drawText).width;
+                if (measured > maxWidth) {
+                    // Try shrinking font to fit
+                    const shrinkFactor = maxWidth / measured;
+                    const newFont = Math.max(8, Math.floor(fontSize * shrinkFactor));
+                    this.ctx.font = `bold ${newFont}px Arial`;
+                    measured = this.ctx.measureText(drawText).width;
+                    if (measured > maxWidth) {
+                        // truncate
+                        const ell = '...';
+                        const ellW = this.ctx.measureText(ell).width;
+                        let left = 0, right = drawText.length, best = '';
+                        while (left <= right) {
+                            const mid = Math.floor((left + right) / 2);
+                            const test = drawText.substring(0, mid);
+                            if (this.ctx.measureText(test).width + ellW <= maxWidth) { best = test; left = mid + 1; }
+                            else right = mid - 1;
+                        }
+                        if (best.length > 0) drawText = best + ell; else drawText = '';
+                    }
+                }
+                if (!drawText) continue;
+
+                // Slight transparent bold rendering with subtle stroke for contrast
+                this.ctx.globalAlpha = 0.85;
+                this.ctx.lineWidth = 2;
+                this.ctx.strokeStyle = 'rgba(0,0,0,0.45)';
+                this.ctx.strokeText(drawText, sx, sy);
+                this.ctx.fillStyle = 'rgba(255,255,255,0.95)';
+                this.ctx.fillText(drawText, sx, sy);
+                this.ctx.globalAlpha = 1.0;
+            }
+            this.ctx.restore();
+        }
+
         this.drawLeaderboard();
     }
 
@@ -1483,6 +1582,10 @@ export class BubbleChart {
     
     toggleLabels(show) {
         this.showLabels = show;
+    }
+
+    toggleGroupLabels(show) {
+        this.showGroupLabels = show;
     }
     
     // Pan and Zoom methods

@@ -159,6 +159,7 @@ async function updateChart() {
     const rowCountInput = document.getElementById('rowCount');
     const togglePieBtn = document.getElementById('toggle-pie');
     const toggleLabelsBtn = document.getElementById('toggle-labels');
+    const toggleGroupLabelsBtn = document.getElementById('toggle-group-labels');
     const toggleFullGroupsBtn = document.getElementById('toggle-full-groups');
     const bubbleControls = document.getElementById('bubble-controls');
 
@@ -181,11 +182,13 @@ async function updateChart() {
         rowCountInput.style.display = 'none';
         togglePieBtn.style.display = 'none';
         toggleLabelsBtn.style.display = '';
+        if (toggleGroupLabelsBtn) toggleGroupLabelsBtn.style.display = '';
         if (toggleFullGroupsBtn) toggleFullGroupsBtn.style.display = '';
         if (bubbleControls) bubbleControls.style.display = 'flex';
         // Sync button text with chart's current label state
         if (chartInstance && chartInstance instanceof BubbleChart) {
             toggleLabelsBtn.textContent = chartInstance.showLabels ? 'Hide Labels' : 'Show Labels';
+            if (toggleGroupLabelsBtn) toggleGroupLabelsBtn.textContent = chartInstance.showGroupLabels ? 'Hide Group Label' : 'Show Group Label';
             if (toggleFullGroupsBtn) {
                 toggleFullGroupsBtn.textContent = chartInstance.includeFullGroups ? 'Show Top Only' : 'Include Full Groups';
             }
@@ -318,6 +321,14 @@ document.getElementById('toggle-labels').onclick = function() {
         const newState = !chartInstance.showLabels;
         chartInstance.toggleLabels(newState);
         this.textContent = newState ? 'Hide Labels' : 'Show Labels';
+    }
+};
+
+document.getElementById('toggle-group-labels').onclick = function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        const newState = !chartInstance.showGroupLabels;
+        chartInstance.toggleGroupLabels(newState);
+        this.textContent = newState ? 'Hide Group Label' : 'Show Group Label';
     }
 };
 
