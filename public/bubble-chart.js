@@ -1399,8 +1399,8 @@ export class BubbleChart {
     }
     
     downloadHighRes() {
-        // Create a temporary high-resolution canvas (2x current size)
-        const scale = 2;
+        // Create a temporary high-resolution canvas (4x current size)
+        const scale = 4;
         const cssWidth = this.width;
         const cssHeight = this.height;
         const dpr = Math.max(1, window.devicePixelRatio || 1);
