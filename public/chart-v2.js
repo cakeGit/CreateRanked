@@ -29,6 +29,7 @@ let currentMax = 100;
 let chartType = 'bar';
 let currentSearch = "";
 let currentDisplayedEntriesCount = 1;
+let currentRowCount = 20;
 
 function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 20, sortDir = 'desc') {
     // Support both mods and authors endpoints
@@ -94,7 +95,7 @@ function renderChart(chartData) {
         if (!chartInstance || !(chartInstance instanceof ScrollableChart)) {
             chartInstance = new ScrollableChart('rankingChart');
         }
-        chartInstance.setData(chartData);
+        chartInstance.setData(chartData, currentRowCount);
     } else {
         // Switch to pie chart; dispose previous if it was a different type
         if (chartInstance && !(chartInstance instanceof PieChart) && typeof chartInstance.dispose === 'function') {
@@ -134,11 +135,15 @@ async function updateChart() {
         chartContainer.innerHTML = '<canvas id="rankingChart"></canvas>';
     }
     
-    // Set container height for bar chart
+    // Toggle row count visibility based on chart type
+    const rowCountLabel = document.getElementById('rowCountLabel');
+    const rowCountInput = document.getElementById('rowCount');
     if (chartType === 'bar') {
-        chartContainer.style.height = '600px';
+        rowCountLabel.style.display = '';
+        rowCountInput.style.display = '';
     } else {
-        chartContainer.style.height = '600px';
+        rowCountLabel.style.display = 'none';
+        rowCountInput.style.display = 'none';
     }
 
     if (chartData) {
@@ -253,7 +258,32 @@ function setSearchHandler() {
     };
 }
 
+function setRowCountHandler() {
+    const rowCountInput = document.getElementById('rowCount');
+    if (!rowCountInput) return;
+    
+    rowCountInput.addEventListener('keydown', function(e) {
+        // Allow numbers, navigation keys, and control keys
+        const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+        if (e.key && !/[0-9]/.test(e.key) && !allowedKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    });
+    
+    function validateAndUpdateRowCount(e) {
+        const value = parseInt(e.target.value) || 1;
+        // Clamp between 1 and 100
+        currentRowCount = Math.max(1, Math.min(100, value));
+        e.target.value = currentRowCount;
+        updateChart();
+    }
+    
+    rowCountInput.addEventListener('blur', validateAndUpdateRowCount);
+    rowCountInput.addEventListener('change', validateAndUpdateRowCount);
+}
+
 setStatNavbarHandlers();
 setSortBarHandlers();
 setSearchHandler();
+setRowCountHandler();
 updateChart();
