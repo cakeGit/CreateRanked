@@ -155,22 +155,26 @@ async function updateChart() {
     const rowCountInput = document.getElementById('rowCount');
     const togglePieBtn = document.getElementById('toggle-pie');
     const toggleLabelsBtn = document.getElementById('toggle-labels');
+    const bubbleControls = document.getElementById('bubble-controls');
 
     if (chartType === 'bar') {
         rowCountLabel.style.display = '';
         rowCountInput.style.display = '';
         togglePieBtn.style.display = '';
         toggleLabelsBtn.style.display = 'none';
+        if (bubbleControls) bubbleControls.style.display = 'none';
     } else if (chartType === 'pie') {
         rowCountLabel.style.display = 'none';
         rowCountInput.style.display = 'none';
         togglePieBtn.style.display = '';
         toggleLabelsBtn.style.display = 'none';
+        if (bubbleControls) bubbleControls.style.display = 'none';
     } else if (chartType === 'bubble') {
         rowCountLabel.style.display = 'none';
         rowCountInput.style.display = 'none';
         togglePieBtn.style.display = 'none';
         toggleLabelsBtn.style.display = '';
+        if (bubbleControls) bubbleControls.style.display = 'flex';
         // Sync button text with chart's current label state
         if (chartInstance && chartInstance instanceof BubbleChart) {
             toggleLabelsBtn.textContent = chartInstance.showLabels ? 'Hide Labels' : 'Show Labels';
@@ -303,6 +307,25 @@ document.getElementById('toggle-labels').onclick = function() {
         this.textContent = newState ? 'Hide Labels' : 'Show Labels';
     }
 };
+
+// Bubble chart zoom controls
+document.getElementById('zoom-in-btn')?.addEventListener('click', function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        chartInstance.zoomIn();
+    }
+});
+
+document.getElementById('zoom-out-btn')?.addEventListener('click', function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        chartInstance.zoomOut();
+    }
+});
+
+document.getElementById('reset-zoom-btn')?.addEventListener('click', function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        chartInstance.resetZoom();
+    }
+});
 
 function setSearchHandler() {
     const searchInput = document.getElementById('search-bar');
