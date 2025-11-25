@@ -46,7 +46,7 @@
                 <button id="mod_distribution_btn" class="stat-btn">Modding Distribution</button>
             </nav>
             <div id="sort-bar">
-                <span>Sort by:</span>
+                <span id="sortByLabel">Sort by:</span>
                 <button class="sort-btn" data-sort="downloads" data-for="mods">Downloads <span class="sort-indicator"></span></button>
                 <button class="sort-btn" data-sort="downloadsRate" data-for="mods">Download Rate <span class="sort-indicator"></span></button>
                 <button class="sort-btn" data-sort="name" data-for="mods">Name <span class="sort-indicator"></span></button>
@@ -57,11 +57,11 @@
                 <button class="sort-btn" data-sort="name" data-for="authors">Name <span class="sort-indicator"></span></button>
                 <button class="sort-btn" data-sort="time" data-for="authors">Time <span class="sort-indicator"></span></button>
                 <label for="maxEntries" style="margin-left:1em;">Max entries:</label>
-                <input type="number" id="maxEntries" min="1" max="1000" value="100" style="width:80px;">
+                <input type="number" id="maxEntries" min="1" max="2000" value="100" style="width:80px;">
                 <label for="rowCount" id="rowCountLabel" style="margin-left:1em;">Row count:</label>
                 <input type="number" id="rowCount" min="1" max="100" value="20" style="width:80px;">
                 <button id="toggle-pie" style="margin-left:1em;">Pie Chart</button>
-                <button id="toggle-labels" style="margin-left:1em; display:none;">Hide Labels</button>
+                <button id="toggle-labels" style="margin-left:1em; display:none;">Show Labels</button>
                 <button id="toggle-full-groups" style="margin-left:1em; display:none;">Include Full Groups</button>
             </div>
             <input type="text" id="search-bar" placeholder="Search mods or authors..." style="margin-bottom:1em;width:100%;max-width:400px;">
@@ -69,8 +69,10 @@
                 <canvas id="rankingChart"></canvas>
                 <div id="bubble-controls" style="display:none;">
                     <button id="zoom-in-btn" title="Zoom In">+</button>
-                    <button id="zoom-out-btn" title="Zoom Out">−</button>
+                    <button id="zoom-out-btn" title="Zoom Out">-</button>
                     <button id="reset-zoom-btn" title="Reset View">⟲</button>
+                    <button id="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+                    <button id="download-btn" title="Download High-Res Image">⬇</button>
                 </div>
             </div>
         </div>

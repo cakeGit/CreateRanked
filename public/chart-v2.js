@@ -107,6 +107,10 @@ function renderChart(chartData) {
         if (!chartInstance || !(chartInstance instanceof BubbleChart)) {
             chartInstance = new BubbleChart('rankingChart');
         }
+        // Allow the bubble chart to slice to the requested top N
+        if (chartInstance && typeof chartInstance.topNExplicit !== 'undefined') {
+            chartInstance.topNExplicit = currentMax;
+        }
         chartInstance.setData(chartData);
     } else {
         // Switch to pie chart; dispose previous if it was a different type
@@ -291,6 +295,8 @@ function setSortBarHandlers() {
 function updateSortBar() {
     const isAuthor = currentEndpoint.includes('author');
     const isBubble = chartType === 'bubble';
+    const sortLabel = document.getElementById('sortByLabel');
+    if (sortLabel) sortLabel.style.display = isBubble ? 'none' : '';
     document.querySelectorAll('.sort-btn').forEach(btn => {
         const forType = btn.getAttribute('data-for');
         if (isBubble) {
@@ -339,6 +345,18 @@ document.getElementById('zoom-out-btn')?.addEventListener('click', function() {
 document.getElementById('reset-zoom-btn')?.addEventListener('click', function() {
     if (chartInstance && chartInstance instanceof BubbleChart) {
         chartInstance.resetZoom();
+    }
+});
+
+document.getElementById('fullscreen-btn')?.addEventListener('click', function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        chartInstance.toggleFullscreen();
+    }
+});
+
+document.getElementById('download-btn')?.addEventListener('click', function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        chartInstance.downloadHighRes();
     }
 });
 

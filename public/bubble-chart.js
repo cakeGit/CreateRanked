@@ -13,7 +13,7 @@ export class BubbleChart {
         this.minBubblePx = 6; // lower bound for smallest bubbles
         this.warmupStepsDefault = 120; // run physics without drawing initially
         this.warmupSteps = 0;
-        this.topNExplicit = 100; // always show top N by downloadRate
+        this.topNExplicit = 100; // always show top N by downloadRate (default changed to 100)
         this.includeFullGroups = false; // whether to include all connected mods in groups
 
         // View/zoom state for smooth auto-fit
@@ -49,12 +49,35 @@ export class BubbleChart {
         this.cohesionStrength = 0.002; // base pull between all mods
         this.cohesionDecay = 200; // distance scale for exponential pull (updated on resize)
         
-        // Physics constants
-        this.friction = 0.5;
-        this.gravity = 0.4;
+    // Physics constants
+    this.friction = 0.4;
+
         this.collisionStrength = 0.2;
-        this.attractionStrength = 0.9; // stronger author connections
-        this.unrelatedRepulsion = 1.2; // soft push between nodes with no shared authors
+        this.attractionStrength = 0.9;
+        this.unrelatedRepulsion = 2.0;
+
+    this.neighborGravityCount = 0; // disabled
+    this.neighborGravityStrength = 0.015; // small per-tick pull (tweakable)
+    this.neighborGravityDamping = 0.02; // 0 = no damping, 1 = immediate velocity match
+    this.neighborGravityMaxDelta = 0.6;
+    // Optional, gentle global gravity toward canvas center for cohesion. It is
+    // intentionally scaled to avoid causing a central singularity. Set to 0 to disable.
+    // Increased default strength slightly and allow larger per-tick delta.
+    this.globalGravityStrength = 2.0;
+    this.globalGravityMaxDelta = 1.5;
+    // Note: global gravity is now a linear radial gradient where strength = dist / maxDist
+    // (clamped 0..1). Edge boost is applied on top of this and uses a fraction of the current
+    // maximum node distance (globalGravityEdgeStart).
+    // Edge boost: additional multiplier applied to gravity for nodes that are
+    // far from the canvas center (to pull stray/outer nodes back in more strongly)
+    // NOTE: globalGravityEdgeStart is now interpreted as a fraction of the
+    // maximum node distance from center (0..1), e.g., 0.6 starts boost at 60% of max distance.
+    this.globalGravityEdgeStart = 0.6; // fraction of max node distance where boost starts
+    this.globalGravityEdgeBoostFactor = 1.8; // extra multiplier at max distance
+    // Long-range cohesion: strengthen per-group pull for nodes far from their group leader
+    this.groupCohesionLongRangeThreshold = 2.0; // multiplier of targetRadius where boost starts
+    this.groupCohesionLongRangeMultiplier = 1.6; // per-unit multiplier for long-range gap
+    this.groupCohesionLongRangeMaxMultiplier = 6.0; // clamp multiplier to avoid extreme forces
         
         this.resizeObserver = new ResizeObserver(() => this.resize());
         this.resizeObserver.observe(this.canvas.parentElement);
@@ -101,15 +124,29 @@ export class BubbleChart {
 
     resize() {
         const parent = this.canvas.parentElement;
-        this.canvas.width = parent.clientWidth;
-        this.canvas.height = parent.clientHeight;
-        this.width = this.canvas.width;
-        this.height = this.canvas.height;
-        this.centerX = this.width / 2;
-        this.centerY = this.height / 2;
+        // Respect devicePixelRatio for crisp rendering
+        const dpr = Math.max(1, window.devicePixelRatio || 1);
+        const cssWidth = parent.clientWidth;
+        const cssHeight = parent.clientHeight;
+
+        // Visual size uses CSS pixels; internal buffer uses physical pixels
+        this.canvas.style.width = cssWidth + 'px';
+        this.canvas.style.height = cssHeight + 'px';
+        this.canvas.width = Math.round(cssWidth * dpr);
+        this.canvas.height = Math.round(cssHeight * dpr);
+
+        // Keep logical dimensions as CSS pixels for layout math
+        this.width = cssWidth;
+        this.height = cssHeight;
+        // Reset transform so drawing coordinates map to CSS pixels
+        if (this.ctx && typeof this.ctx.setTransform === 'function') {
+            this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+    this.centerX = this.width / 2;
+    this.centerY = this.height / 2;
 
         // Recalculate bubble radii on resize for dynamic scaling
-        this.updateRadiusScale();
+    this.updateRadiusScale();
 
         // Keep view center aligned and clamp scale after resize
         this.viewCenterX = this.centerX;
@@ -394,15 +431,98 @@ export class BubbleChart {
     updatePhysics() {
         const nodes = this.nodes;
         const len = nodes.length;
+        // Compute maximum distance from canvas center among nodes for linear gravity scaling
+        let maxDist = 0;
+        if (len > 0) {
+            for (let i = 0; i < len; i++) {
+                const n = nodes[i];
+                const dx = this.centerX - n.x;
+                const dy = this.centerY - n.y;
+                const d = Math.sqrt(dx * dx + dy * dy) || 0;
+                if (d > maxDist) maxDist = d;
+            }
+        }
+        if (maxDist <= 0) maxDist = 1; // Avoid divide-by-zero and degenerate cases
 
         for (let i = 0; i < len; i++) {
             const node = nodes[i];
 
-            // Center Gravity
-            const dx = this.centerX - node.x;
-            const dy = this.centerY - node.y;
-            node.vx += dx * this.gravity * 0.01;
-            node.vy += dy * this.gravity * 0.01;
+            if (this.neighborGravityStrength > 0 && (this.neighborGravityCount > 0)) {
+                const neighbors = [];
+                for (let j = 0; j < len; j++) {
+                    if (j === i) continue;
+                    const other = nodes[j];
+                    // Skip the aggregated 'Other' node when finding local neighbors
+                    if (!other || other.isOther) continue;
+                    const dxn = other.x - node.x;
+                    const dyn = other.y - node.y;
+                    const d2 = dxn * dxn + dyn * dyn;
+                    neighbors.push({ idx: j, d2, x: other.x, y: other.y, vx: other.vx, vy: other.vy });
+                }
+                if (neighbors.length > 0) {
+                    neighbors.sort((a, b) => a.d2 - b.d2);
+                    const k = Math.min(this.neighborGravityCount, neighbors.length);
+                    let cx = 0, cy = 0, avx = 0, avy = 0;
+                    for (let m = 0; m < k; m++) {
+                        const nb = neighbors[m];
+                        cx += nb.x;
+                        cy += nb.y;
+                        avx += nb.vx || 0;
+                        avy += nb.vy || 0;
+                    }
+                    cx /= k; cy /= k; avx /= k; avy /= k;
+
+                    const dxn = cx - node.x;
+                    const dyn = cy - node.y;
+                    const dist = Math.sqrt(dxn * dxn + dyn * dyn) || 1;
+                    const nx = dxn / dist;
+                    const ny = dyn / dist;
+
+                    // Spring force toward centroid, scaled by distance relative to cohesion decay
+                    let spring = this.neighborGravityStrength * Math.min(1, dist / Math.max(1, this.cohesionDecay));
+
+                    // Convert spring to delta velocity (soft spring): dx * spring
+                    let dvx = nx * spring;
+                    let dvy = ny * spring;
+
+                    // Viscous coupling: nudge node velocity toward neighbors' average
+                    const rvx = (avx - node.vx) * this.neighborGravityDamping;
+                    const rvy = (avy - node.vy) * this.neighborGravityDamping;
+                    dvx += rvx;
+                    dvy += rvy;
+
+                    // Clamp per-axis delta to avoid impulsive jumps
+                    const clamp = (v, lim) => Math.max(-lim, Math.min(lim, v));
+                    dvx = clamp(dvx, this.neighborGravityMaxDelta);
+                    dvy = clamp(dvy, this.neighborGravityMaxDelta);
+
+                    node.vx += dvx;
+                    node.vy += dvy;
+                }
+            }
+
+            if (this.globalGravityStrength > 0) {
+                const cx = this.centerX, cy = this.centerY;
+                const dx = cx - node.x;
+                const dy = cy - node.y;
+                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                // Linear gradient gravity: scale by distance relative to max node distance
+                // strength ranges from 0 (center) to 1 (outermost node)
+                let radialFactor = Math.min(1, Math.max(0, dist / maxDist));
+                let gStrength = this.computeGlobalGravityStrength(radialFactor, dist, maxDist);
+                // Edge boost handled in computeGlobalGravityStrength; no further per-node edge adjustment required here
+                // increase gravity effect for larger components to prevent center pull
+                const sizeScale = 1 / Math.max(1, Math.sqrt(node.componentSize || 1));
+                gStrength *= sizeScale;
+                let gvx = (dx / dist) * gStrength;
+                let gvy = (dy / dist) * gStrength;
+                // Clamp for stability
+                const clamp = (v, lim) => Math.max(-lim, Math.min(lim, v));
+                gvx = clamp(gvx, this.globalGravityMaxDelta);
+                gvy = clamp(gvy, this.globalGravityMaxDelta);
+                node.vx += gvx;
+                node.vy += gvy;
+            }
 
             // Drag/Friction (high to reduce jitter)
             const frictionMultiplier = (node.componentSize && node.componentSize > 5) ? 0.75 : 0.88;
@@ -467,35 +587,35 @@ export class BubbleChart {
                 const ny = dy / dist;
 
                 // Collision - gentle resolution
-                const minDist = n1.radius + n2.radius + 3; // +3 padding
+                const minDist = n1.radius + n2.radius + 5; // +3 padding
                 if (dist < minDist) {
                     // Gentle positional correction
                     const overlap = (minDist - dist);
-                    const correction = overlap * 0.5;
+                    const correction = overlap * 0.5 * this.collisionStrength;
                     n1.x -= nx * correction;
                     n1.y -= ny * correction;
                     n2.x += nx * correction;
                     n2.y += ny * correction;
 
-                    // Gentle repulsive impulse
-                    const rvx = n2.vx - n1.vx;
-                    const rvy = n2.vy - n1.vy;
-                    const relN = rvx * nx + rvy * ny;
-                    if (relN < 0) {
-                        const restitution = 0.1;
-                        const impulse = -(1 + restitution) * relN * 0.3;
-                        n1.vx -= nx * impulse;
-                        n1.vy -= ny * impulse;
-                        n2.vx += nx * impulse;
-                        n2.vy += ny * impulse;
-                    }
+                    // // Gentle repulsive impulse
+                    // const rvx = n2.vx - n1.vx;
+                    // const rvy = n2.vy - n1.vy;
+                    // const relN = rvx * nx + rvy * ny;
+                    // if (relN < 0) {
+                    //     const restitution = 0.1;
+                    //     const impulse = -(1 + restitution) * relN * 0.3;
+                    //     n1.vx -= nx * impulse;
+                    //     n1.vy -= ny * impulse;
+                    //     n2.vx += nx * impulse;
+                    //     n2.vy += ny * impulse;
+                    // }
                     
-                    // Gentle separation force
-                    const separationForce = overlap * 0.05;
-                    n1.vx -= nx * separationForce;
-                    n1.vy -= ny * separationForce;
-                    n2.vx += nx * separationForce;
-                    n2.vy += ny * separationForce;
+                    // // Gentle separation force
+                    // const separationForce = overlap * 0.05;
+                    // n1.vx -= nx * separationForce;
+                    // n1.vy -= ny * separationForce;
+                    // n2.vx += nx * separationForce;
+                    // n2.vy += ny * separationForce;
                 }
 
                 // Attraction (if sharing authors) or soft repulsion (if unrelated)
@@ -571,8 +691,21 @@ export class BubbleChart {
             }
         }
         
-        // Wall constraints (optional, but good to keep them in canvas)
-        // Actually, center gravity should handle this, but let's prevent flying off
+    }
+
+    // Expose a small helper for computing gravity strength from a radial factor
+    computeGlobalGravityStrength(radialFactor, dist, maxDist) {
+        // Base strength is linear in radialFactor
+        let gStrength = this.globalGravityStrength * radialFactor;
+        // Optional: edge boost (treat globalGravityEdgeStart as fraction of maxDist)
+        if (typeof this.globalGravityEdgeStart === 'number' && this.globalGravityEdgeStart > 0) {
+            const edgeStart = Math.max(0, Math.min(1, this.globalGravityEdgeStart)) * Math.max(1, maxDist);
+            if (dist > edgeStart) {
+                const extra = (dist - edgeStart) / Math.max(1, maxDist - edgeStart);
+                gStrength *= (1 + extra * this.globalGravityEdgeBoostFactor);
+            }
+        }
+        return gStrength;
     }
 
     // Compute desired view center and scale to fit all nodes smoothly
@@ -751,11 +884,11 @@ export class BubbleChart {
     }
 
     // Apply gentle cohesion force to keep groups together without hard snapping
+    // Now: attract nodes toward the largest element (leader) of their component
     applyGroupCohesion() {
         const componentNodes = new Map();
-        const componentCentroids = new Map();
-        
-        // Build component node lists and compute centroids
+
+        // Build component node lists
         for (const n of this.nodes) {
             if (n.isOther) continue;
             if (n.componentId == null || n.componentSize <= 1) continue;
@@ -764,62 +897,86 @@ export class BubbleChart {
             }
             componentNodes.get(n.componentId).push(n);
         }
-        
+
+        // For each component, choose the leader (largest node) and attract others toward it
         for (const [compId, nodes] of componentNodes) {
-            let sumX = 0, sumY = 0;
+            if (!nodes || nodes.length <= 1) continue;
+
+            // Find the leader (largest by radius)
+            let leader = nodes[0];
             for (const n of nodes) {
-                sumX += n.x;
-                sumY += n.y;
+                if ((n.radius || 0) > (leader.radius || 0)) leader = n;
             }
-            componentCentroids.set(compId, {
-                x: sumX / nodes.length,
-                y: sumY / nodes.length
-            });
-        }
-        
-        // Apply strong pull toward component centroid to keep groups together
-        for (const [compId, nodes] of componentNodes) {
-            const centroid = componentCentroids.get(compId);
-            const componentSize = nodes.length;
-            
-            // Calculate average radius of nodes in this group
+
+            // average radius for scaling; use geometric scaling for spacing
             const avgRadius = nodes.reduce((sum, n) => sum + n.radius, 0) / nodes.length;
-            
-            // Target radius for circular arrangement (scales with group size)
-            const targetRadius = avgRadius * Math.sqrt(componentSize) * 0.8;
-            
-            // Moderate cohesion force to center
-            const cohesionStrength = 0.08; // Gentle pull to center
-            const boundaryStrength = 0.25; // Moderate push outward
-            
+            const componentSize = nodes.length;
+
+            // A base target ring around leader to arrange nodes
+            const baseTargetRadius = leader.radius + Math.max(1, avgRadius * Math.sqrt(componentSize - 1) * 0.6);
+
+            // Strength parameters (tweak for nice-looking motion)
+            const cohesionStrength = 0.08; // pull nodes toward the leader target ring
+            const boundaryStrength = 0.25; // push outward when too close to leader
+            const leaderReaction = 0.08; // small reaction velocity applied to leader for conservation
+
+            // Precompute leader position to avoid self-affecting updates while iterating
+            const lx = leader.x, ly = leader.y;
+
             for (const n of nodes) {
-                const dx = n.x - centroid.x;
-                const dy = n.y - centroid.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                
-                if (dist > 0.1) {
-                    const nx = dx / dist;
-                    const ny = dy / dist;
-                    
-                    // Strong spring to target radius
-                    const distError = dist - targetRadius;
-                    const force = distError * cohesionStrength;
-                    n.vx -= nx * force;
-                    n.vy -= ny * force;
-                    
-                    // Moderate outward push if too close
-                    if (dist < targetRadius * 0.5) {
-                        const pushRatio = 1 - (dist / (targetRadius * 0.5));
-                        const pushForce = pushRatio * boundaryStrength * 2;
-                        n.vx += nx * pushForce;
-                        n.vy += ny * pushForce;
+                if (n === leader) continue; // skip the leader
+
+                const dx = n.x - lx;
+                const dy = n.y - ly;
+                const dist = Math.sqrt(dx * dx + dy * dy) || 0.0001;
+                const nx = dx / dist;
+                const ny = dy / dist;
+
+                // Target distance depends on both leader radius and relative node size
+                const sizeFactor = (n.radius || avgRadius) / Math.max(1, leader.radius || 1);
+                const targetRadius = baseTargetRadius * (0.75 + 0.5 * sizeFactor);
+
+                // Spring force to pull nodes toward target ring around leader
+                const distError = dist - targetRadius;
+                let force = distError * cohesionStrength;
+
+                // Long-range multiplier if node is very far from leader
+                if (distError > 0 && typeof this.groupCohesionLongRangeThreshold === 'number' && this.groupCohesionLongRangeThreshold > 0) {
+                    const t = Math.max(0.00001, targetRadius);
+                    const thr = this.groupCohesionLongRangeThreshold * t; // absolute distance threshold
+                    if (dist > thr) {
+                        const extraUnits = (dist / t) - this.groupCohesionLongRangeThreshold;
+                        let mult = 1 + (extraUnits * (this.groupCohesionLongRangeMultiplier || 1.0));
+                        const maxMult = this.groupCohesionLongRangeMaxMultiplier || 6.0;
+                        mult = Math.max(1, Math.min(maxMult, mult));
+                        force *= mult;
                     }
-                } else {
-                    // Node is at centroid, push it in a stable direction
-                    const angle = (nodes.indexOf(n) / nodes.length) * Math.PI * 2;
-                    n.vx += Math.cos(angle) * boundaryStrength * 2;
-                    n.vy += Math.sin(angle) * boundaryStrength * 2;
                 }
+
+                // Apply force to the node (pull toward leader if distError > 0, otherwise push outward)
+                n.vx -= nx * force;
+                n.vy -= ny * force;
+
+                // Moderate outward push if node is too close to leader
+                const minContact = leader.radius + n.radius + 6; // pad to keep readable gap
+                if (dist < minContact) {
+                    const pushRatio = 1 - (dist / minContact);
+                    const pushForce = pushRatio * boundaryStrength * 2;
+                    n.vx += nx * pushForce;
+                    n.vy += ny * pushForce;
+                }
+
+                // Optional light separation if node overlaps other nodes in same component
+                // This is handled elsewhere, but keep a small soft push for visual spacing
+                if (dist < n.radius + leader.radius + 2) {
+                    const smallPush = 0.02;
+                    n.vx += nx * smallPush;
+                    n.vy += ny * smallPush;
+                }
+
+                // Apply small reaction on leader to conserve momentum (damped)
+                leader.vx += nx * force * leaderReaction;
+                leader.vy += ny * force * leaderReaction;
             }
         }
     }
@@ -941,52 +1098,145 @@ export class BubbleChart {
             this.ctx.globalAlpha = 1.0;
 
             // Labels
-            if (this.showLabels) {
-                // Only show label if bubble is big enough or if it's the "Other" bubble
-                if ((screenR > 12 || node.isOther) && !isDimmed) {
+            if (this.showLabels && !isDimmed) {
+                // Calculate maximum font size that fits within circle bounds
+                const padding = 4; // pixels of padding inside circle
+                const maxTextHeight = (screenR * 2) - (padding * 2);
+                
+                // Start with comfortable font size of 12px minimum
+                let baseFontSize = Math.max(12, screenR * 0.35);
+                let subFontSize = baseFontSize * 0.8;
+                
+                // Try to fit with subtitle first
+                let includeSubtitle = true;
+                const spacing = baseFontSize * 0.4;
+                let totalHeight = baseFontSize + spacing + subFontSize;
+                
+                // If subtitle doesn't fit, try title only (centered)
+                if (totalHeight > maxTextHeight) {
+                    includeSubtitle = false;
+                    totalHeight = baseFontSize;
+                    
+                    // If title alone still doesn't fit, scale down
+                    if (totalHeight > maxTextHeight) {
+                        const scale = maxTextHeight / totalHeight;
+                        baseFontSize *= scale;
+                        subFontSize *= scale;
+                    }
+                } else if (totalHeight > maxTextHeight) {
+                    // Both don't fit, scale everything down proportionally
+                    const scale = maxTextHeight / totalHeight;
+                    baseFontSize *= scale;
+                    subFontSize *= scale;
+                }
+                
+                // Only render if text height is at least 8 pixels
+                if (baseFontSize >= 8) {
                     this.ctx.fillStyle = 'white';
                     this.ctx.textAlign = 'center';
                     this.ctx.textBaseline = 'middle';
                     
-                    // Scale font size with bubble radius (allow smaller text)
-                    const baseFontSize = Math.max(6, Math.min(16, screenR * 0.35));
-                    const subFontSize = Math.max(5, baseFontSize * 0.8);
+                    // Calculate positions based on whether we're showing subtitle
+                    let titleY, subY, titleMaxWidth, subMaxWidth;
+                    const innerRadius = screenR - padding;
                     
-                    // Name
-                    this.ctx.font = `bold ${baseFontSize}px Arial`;
-                    let name = node.name;
-                    
-                    // Adaptive truncation based on radius (more generous character limit)
-                    const maxChars = Math.floor(screenR / 3);
-                    if (name.length > maxChars) {
-                        // Try removing "Create" prefix before truncating
-                        const createPrefixMatch = name.match(/^Create(:|\s)/i);
-                        let nameWithoutPrefix = name;
-                        if (createPrefixMatch) {
-                            nameWithoutPrefix = name.substring(createPrefixMatch[0].length).trim();
-                        }
+                    if (includeSubtitle) {
+                        const finalSpacing = baseFontSize * 0.4;
+                        titleY = screenY - finalSpacing * 0.5;
+                        subY = screenY + finalSpacing * 0.5 + subFontSize * 0.3;
                         
-                        // Only use the name without prefix if it's not empty
-                        if (nameWithoutPrefix.length > 0 && nameWithoutPrefix.length <= maxChars) {
+                        const titleOffsetY = Math.abs(titleY - screenY);
+                        const subOffsetY = Math.abs(subY - screenY);
+                        
+                        titleMaxWidth = 2 * Math.sqrt(Math.max(0, innerRadius * innerRadius - titleOffsetY * titleOffsetY));
+                        subMaxWidth = 2 * Math.sqrt(Math.max(0, innerRadius * innerRadius - subOffsetY * subOffsetY));
+                    } else {
+                        // Title centered, no subtitle
+                        titleY = screenY;
+                        titleMaxWidth = 2 * innerRadius; // Full width at center
+                    }
+                    
+                    // Always remove "Create" prefix first (including "Create :" with space before colon)
+                    let name = node.name;
+                    const createPrefixMatch = name.match(/^Create\s*(:|\s)/i);
+                    if (createPrefixMatch) {
+                        const nameWithoutPrefix = name.substring(createPrefixMatch[0].length).trim();
+                        if (nameWithoutPrefix.length > 0) {
                             name = nameWithoutPrefix;
-                        } else if (nameWithoutPrefix.length > 0) {
-                            // Still need to truncate even after removing prefix
-                            name = nameWithoutPrefix.substring(0, Math.max(3, maxChars - 3)) + '...';
-                        } else {
-                            // Name is empty after removing prefix, use original truncation
-                            name = name.substring(0, Math.max(3, maxChars - 3)) + '...';
                         }
                     }
                     
-                    // Only show subtitle if bubble is large enough
-                    if (screenR > 20) {
-                        this.ctx.fillText(name, screenX, screenY - baseFontSize * 0.4);
+                    // Track if any truncation occurred
+                    let nameTruncated = false;
+                    
+                    // Measure text and scale font if needed (prefer scaling over truncation)
+                    this.ctx.font = `bold ${baseFontSize}px Arial`;
+                    let textWidth = this.ctx.measureText(name).width;
+                    
+                    // If text doesn't fit, scale font down to fit
+                    if (textWidth > titleMaxWidth) {
+                        const scaleFactor = titleMaxWidth / textWidth;
+                        baseFontSize *= scaleFactor;
+                        
+                        // Don't go below 4px font size
+                        if (baseFontSize < 4) {
+                            baseFontSize = 4;
+                            this.ctx.font = `bold ${baseFontSize}px Arial`;
+                            textWidth = this.ctx.measureText(name).width;
+                            
+                            // Only truncate if still doesn't fit at minimum font size
+                            if (textWidth > titleMaxWidth) {
+                                nameTruncated = true;
+                                const ellipsis = '...';
+                                const ellipsisWidth = this.ctx.measureText(ellipsis).width;
+                                
+                                // Binary search for optimal length
+                                let left = 0;
+                                let right = name.length;
+                                let bestFit = '';
+                                
+                                while (left <= right) {
+                                    const mid = Math.floor((left + right) / 2);
+                                    const testStr = name.substring(0, mid);
+                                    const testWidth = this.ctx.measureText(testStr).width + ellipsisWidth;
+                                    
+                                    if (testWidth <= titleMaxWidth) {
+                                        bestFit = testStr;
+                                        left = mid + 1;
+                                    } else {
+                                        right = mid - 1;
+                                    }
+                                }
+                                
+                                // Don't render if less than 4 original characters (7 total with "...")
+                                if (bestFit.length < 4) {
+                                    return; // Skip rendering this label entirely
+                                }
+                                
+                                name = bestFit + ellipsis;
+                            }
+                        } else {
+                            this.ctx.font = `bold ${baseFontSize}px Arial`;
+                        }
+                    }
+                    
+                    // Render title
+                    this.ctx.fillText(name, screenX, titleY);
+                    
+                    // Render subtitle only if we have space AND no truncation occurred
+                    if (includeSubtitle && !nameTruncated) {
                         this.ctx.font = `${subFontSize}px Arial`;
                         let sub = node.isOther ? `${node.count} mods` : `${Math.round(node.downloadRate)}/day`;
-                        this.ctx.fillText(sub, screenX, screenY + subFontSize * 0.5);
-                    } else {
-                        // Just name for smaller bubbles
-                        this.ctx.fillText(name, screenX, screenY);
+                        
+                        // Check if subtitle would be truncated
+                        let subWidth = this.ctx.measureText(sub).width;
+                        if (subWidth > subMaxWidth) {
+                            // Hide subtitle if it would need truncation
+                            includeSubtitle = false;
+                        } else {
+                            // Render subtitle only if it fits without truncation
+                            this.ctx.fillText(sub, screenX, subY);
+                        }
                     }
                 }
             }
@@ -1103,6 +1353,118 @@ export class BubbleChart {
         this.userZoom += (this.targetUserZoom - this.userZoom) * this.userZoomLerp;
     }
 
+    toggleFullscreen() {
+        const container = this.canvas.parentElement;
+        if (!document.fullscreenElement) {
+            // Enter fullscreen
+            container.requestFullscreen().catch(err => {
+                console.error('Error attempting to enable fullscreen:', err);
+            });
+            
+            // Listen for fullscreen change to trigger resize
+            const onFullscreenChange = () => {
+                if (document.fullscreenElement) {
+                    // Entered fullscreen - ensure canvas fills container and resize
+                    this.canvas.style.width = '100%';
+                    this.canvas.style.height = '100%';
+                    // Let resize observer recalc - also call resize for immediate effect
+                    // Use a small timeout to allow layout to apply in some browsers
+                    setTimeout(() => {
+                        this.resize();
+                        // Recalculate any derived values
+                        this.updateRadiusScale();
+                        this.cohesionDecay = Math.min(this.width, this.height) * 0.4;
+                        this.updateViewTarget();
+                    }, 50);
+                } else {
+                    // Exited fullscreen - clear explicit canvas style to go back to normal
+                    this.canvas.style.width = '';
+                    this.canvas.style.height = '';
+                    // Resize back to the parent container dimensions
+                    setTimeout(() => {
+                        this.resize();
+                    }, 50);
+                    document.removeEventListener('fullscreenchange', onFullscreenChange);
+                    document.removeEventListener('webkitfullscreenchange', onFullscreenChange);
+                    document.removeEventListener('mozfullscreenchange', onFullscreenChange);
+                }
+            };
+            
+            document.addEventListener('fullscreenchange', onFullscreenChange);
+            document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+            document.addEventListener('mozfullscreenchange', onFullscreenChange);
+        } else {
+            document.exitFullscreen();
+        }
+    }
+    
+    downloadHighRes() {
+        // Create a temporary high-resolution canvas (2x current size)
+        const scale = 2;
+        const cssWidth = this.width;
+        const cssHeight = this.height;
+        const dpr = Math.max(1, window.devicePixelRatio || 1);
+        const newDpr = dpr * scale;
+
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = Math.round(cssWidth * newDpr);
+        tempCanvas.height = Math.round(cssHeight * newDpr);
+        const tempCtx = tempCanvas.getContext('2d');
+        // Map CSS pixel drawing coordinates to high-res pixels
+        if (tempCtx && typeof tempCtx.setTransform === 'function') {
+            tempCtx.setTransform(newDpr, 0, 0, newDpr, 0, 0);
+        }
+
+        // Store original context and dimensions
+        const originalCtx = this.ctx;
+        const originalWidth = this.width;
+        const originalHeight = this.height;
+        const originalCenterX = this.centerX;
+        const originalCenterY = this.centerY;
+
+        // Freeze current nodes and animation so the render is based on the current state
+        const wasAnimating = !!this.animationFrame;
+        if (wasAnimating) {
+            cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+        }
+        const originalNodes = this.nodes;
+        // Create a shallow copy of nodes which captures their positions/velocities/radii
+        const nodesSnapshot = originalNodes.map(n => ({ ...n }));
+        // Temporarily render from the snapshot to make sure we don't recalc positions
+        this.nodes = nodesSnapshot;
+
+        // Temporarily use high-res canvas for rendering but keep logical width/height the same
+        this.ctx = tempCtx;
+        this.width = cssWidth;
+        this.height = cssHeight;
+        this.centerX = this.width / 2;
+        this.centerY = this.height / 2;
+
+        // Render one frame at high resolution using the snapshot
+        this.draw();
+
+        // Restore original context, nodes and dimensions
+        this.ctx = originalCtx;
+        this.width = originalWidth;
+        this.height = originalHeight;
+        this.centerX = originalCenterX;
+        this.centerY = originalCenterY;
+        this.nodes = originalNodes;
+        if (wasAnimating) this.animate();
+        
+        // Convert canvas to blob and trigger download
+        tempCanvas.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+            link.download = `bubble-chart-${timestamp}.png`;
+            link.href = url;
+            link.click();
+            URL.revokeObjectURL(url);
+        }, 'image/png');
+    }
+
     dispose() {
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
@@ -1179,22 +1541,22 @@ export class BubbleChart {
     }
     
     panUp() {
-        this.targetUserPanY -= 50 / this.userZoom;
+        this.targetUserPanY -= 50 / (this.targetUserZoom || this.userZoom || 1);
         this.clampPan();
     }
     
     panDown() {
-        this.targetUserPanY += 50 / this.userZoom;
+        this.targetUserPanY += 50 / (this.targetUserZoom || this.userZoom || 1);
         this.clampPan();
     }
     
     panLeft() {
-        this.targetUserPanX -= 50 / this.userZoom;
+        this.targetUserPanX -= 50 / (this.targetUserZoom || this.userZoom || 1);
         this.clampPan();
     }
     
     panRight() {
-        this.targetUserPanX += 50 / this.userZoom;
+        this.targetUserPanX += 50 / (this.targetUserZoom || this.userZoom || 1);
         this.clampPan();
     }
     
@@ -1225,10 +1587,13 @@ export class BubbleChart {
             const dx = e.clientX - this.panStartX;
             const dy = e.clientY - this.panStartY;
             
-            // Pan in framed space (screen pixels directly)
+            // Pan in framed space (screen pixels -> framed units).
+            // Scale by inverse of zoom so dragging is slower when zoomed in.
+            const zoomForPan = this.userZoom || this.targetUserZoom || 1;
+            const invZoom = 1 / Math.max(zoomForPan, 0.0001);
             // Direct manipulation - no smoothing during drag for responsive feel
-            this.targetUserPanX = this.lastPanX - dx;
-            this.targetUserPanY = this.lastPanY - dy;
+            this.targetUserPanX = this.lastPanX - dx * invZoom;
+            this.targetUserPanY = this.lastPanY - dy * invZoom;
             this.userPanX = this.targetUserPanX;
             this.userPanY = this.targetUserPanY;
             this.clampPan();
@@ -1253,19 +1618,22 @@ export class BubbleChart {
         
         if (!isPinchZoom) {
             // Pan mode - handle all trackpad scrolling (vertical and horizontal)
+            // Scale pan deltas by inverse zoom so scrolling remains in sync with scale
             const panSensitivity = 1.0;
-            this.targetUserPanX += e.deltaX * panSensitivity;
-            this.targetUserPanY += e.deltaY * panSensitivity;
+            const zoomForPan = this.targetUserZoom || this.userZoom || 1;
+            const invZoom = 1 / Math.max(zoomForPan, 0.0001);
+            this.targetUserPanX += e.deltaX * panSensitivity * invZoom;
+            this.targetUserPanY += e.deltaY * panSensitivity * invZoom;
             this.clampPan();
         } else {
             // Zoom mode - pinch zoom or ctrl+scroll
             const rect = this.canvas.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
-            
-            // Convert mouse position to canvas coordinates
-            const scaleX = this.canvas.width / rect.width;
-            const scaleY = this.canvas.height / rect.height;
+
+            // Convert mouse position to logical canvas (CSS pixels) coordinates
+            const scaleX = this.width / rect.width;
+            const scaleY = this.height / rect.height;
             const canvasX = mouseX * scaleX;
             const canvasY = mouseY * scaleY;
             
@@ -1288,11 +1656,11 @@ export class BubbleChart {
 
     // Mouse handlers
     onMouseMove(e) {
-        const rect = this.canvas.getBoundingClientRect();
-        const scaleX = this.canvas.width / rect.width;
-        const scaleY = this.canvas.height / rect.height;
-        const mouseX = (e.clientX - rect.left) * scaleX;
-        const mouseY = (e.clientY - rect.top) * scaleY;
+    const rect = this.canvas.getBoundingClientRect();
+    const scaleX = this.width / rect.width;
+    const scaleY = this.height / rect.height;
+    const mouseX = (e.clientX - rect.left) * scaleX;
+    const mouseY = (e.clientY - rect.top) * scaleY;
 
         // Convert screen -> framed view -> world coordinates
         // First undo user pan/zoom (screen -> framed view)
@@ -1343,8 +1711,8 @@ export class BubbleChart {
         const parentRect = this.canvas.parentElement.getBoundingClientRect();
         const offsetX = 12;
         const offsetY = 12;
-        const pageX = rect.left + (mouseX * (rect.width / this.canvas.width));
-        const pageY = rect.top + (mouseY * (rect.height / this.canvas.height));
+    const pageX = rect.left + mouseX; // mouseX is already in CSS pixels relative to rect
+    const pageY = rect.top + mouseY;
         const localX = pageX - parentRect.left;
         const localY = pageY - parentRect.top;
 
