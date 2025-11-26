@@ -3,7 +3,7 @@
 
 import { PieChart } from './pie-chart.js';
 import { ScrollableChart } from './bar-chart.js';
-import { BubbleChart } from './bubble-chart.js';
+import { BubbleChart } from './bubble-chart/bubble-chart-main.js';
 
 const fetchChartDataCache = new Map();
 
