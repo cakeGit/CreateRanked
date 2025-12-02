@@ -524,6 +524,7 @@ async function processMods() {
         return modData;
     });
 
+    // Build author stats
     const authorStats = new Map();
     enrichedMods.forEach(mod => {
         const authorNames = mod.authors || [];
@@ -557,6 +558,114 @@ async function processMods() {
         };
     });
 
+    // Build modding groups using Union-Find algorithm
+    const parent = new Map();
+    const rank = new Map();
+    
+    // Initialize each author as its own group
+    authors.forEach(author => {
+        parent.set(author.name, author.name);
+        rank.set(author.name, 0);
+    });
+    
+    // Find with path compression
+    function find(author) {
+        if (parent.get(author) !== author) {
+            parent.set(author, find(parent.get(author)));
+        }
+        return parent.get(author);
+    }
+    
+    // Union by rank
+    function union(author1, author2) {
+        const root1 = find(author1);
+        const root2 = find(author2);
+        
+        if (root1 === root2) return;
+        
+        const rank1 = rank.get(root1);
+        const rank2 = rank.get(root2);
+        
+        if (rank1 < rank2) {
+            parent.set(root1, root2);
+        } else if (rank1 > rank2) {
+            parent.set(root2, root1);
+        } else {
+            parent.set(root2, root1);
+            rank.set(root1, rank1 + 1);
+        }
+    }
+    
+    // Connect authors who work on the same mod
+    enrichedMods.forEach(mod => {
+        const authorNames = mod.authors || [];
+        if (authorNames.length > 1) {
+            for (let i = 1; i < authorNames.length; i++) {
+                union(authorNames[0], authorNames[i]);
+            }
+        }
+    });
+    
+    // Group authors by their root
+    const groupsMap = new Map();
+    authors.forEach(author => {
+        const root = find(author.name);
+        if (!groupsMap.has(root)) {
+            groupsMap.set(root, []);
+        }
+        groupsMap.get(root).push(author);
+    });
+    
+    // Calculate modding group statistics
+    const moddingGroups = Array.from(groupsMap.values()).map(groupAuthors => {
+        // Sort authors by downloadRate to determine group name
+        const sortedAuthors = [...groupAuthors].sort((a, b) => b.downloadRate - a.downloadRate);
+        
+        // Check if az_tech is in this group
+        const hasAzTech = groupAuthors.some(a => a.name.toLowerCase() === 'az_tech');
+        
+        // Generate group name
+        let groupName;
+        if (hasAzTech) {
+            // az_tech should be first, bold, with flag
+            const azTechAuthor = groupAuthors.find(a => a.name.toLowerCase() === 'az_tech');
+            const otherTop = sortedAuthors.filter(a => a.name.toLowerCase() !== 'az_tech').slice(0, 2);
+            const names = [azTechAuthor.name, ...otherTop.map(a => a.name)];
+            groupName = `**${azTechAuthor.name}** :flag_az:` + (otherTop.length > 0 ? `, ${otherTop.map(a => a.name).join(', ')}` : '');
+        } else {
+            // Take first 3 authors by download rate
+            const topAuthors = sortedAuthors.slice(0, 3);
+            groupName = topAuthors.map(a => a.name).join(', ');
+        }
+        
+        // Sum all statistics
+        let totalDownloadCount = 0;
+        let totalMods = 0;
+        let totalDays = 0;
+        let totalMonthlyDownloadRate = 0;
+        
+        groupAuthors.forEach(author => {
+            totalDownloadCount += author.downloadCount;
+            totalMods += author.mods;
+            totalDays += author.daysExisting * author.mods; // Weight by number of mods
+            if (author.downloadRateMonthly !== null) {
+                totalMonthlyDownloadRate += author.downloadRateMonthly;
+            }
+        });
+        
+        const averageDays = totalMods > 0 ? totalDays / totalMods : 1;
+        
+        return {
+            name: groupName,
+            authors: groupAuthors.map(a => a.name),
+            downloadCount: totalDownloadCount,
+            mods: totalMods,
+            downloadRate: Number((totalDownloadCount / averageDays).toFixed(2)),
+            daysExisting: Number(averageDays.toFixed(2)),
+            downloadRateMonthly: monthlyRateAvailable ? Number(totalMonthlyDownloadRate.toFixed(2)) : null,
+        };
+    });
+
     const result = {
         generatedAt: new Date().toISOString(),
         monthlyRate: monthlyRateAvailable ? 'available' : 'unavailable',
@@ -568,10 +677,12 @@ async function processMods() {
         generatedAt: result.generatedAt,
         monthlyRate: result.monthlyRate,
         authors,
+        moddingGroups,
     };
     await fs.writeFile(AUTHORS_OUTPUT_PATH, JSON.stringify(authorFileData, null, 2), 'utf-8');
     console.log(`Processed ${result.mods.length} mods and saved to ${MODS_OUTPUT_PATH}`);
     console.log(`Saved ${authors.length} unique authors to ${AUTHORS_OUTPUT_PATH}`);
+    console.log(`Saved ${moddingGroups.length} modding groups to ${AUTHORS_OUTPUT_PATH}`);
 
     await saveDiscoveredModIds(knownDiscoveredModIds);
     console.log(`Saved ${knownDiscoveredModIds.size} discovered mod IDs to ${DISCOVERED_MODS_PATH}`);

@@ -26,31 +26,36 @@ async function deletePreviousMessages(client, channelId) {
 }
 
 async function sendAzerbaijanRanking(authorFileData) {
-    // Read authors.json
+    // Read modding groups from authors.json
     const authorsData = authorFileData;
-    const authors = authorsData.authors;
+    const moddingGroups = authorsData.moddingGroups || [];
 
-    // Find Azerbaijan Technologies and its ranking by downloadRate
-    const sorted = [...authors].sort((a, b) => b.downloadRate - a.downloadRate);
-    const index = sorted.findIndex(a => a.name.toLowerCase() === 'az_tech');
-    if (index === -1) {
-        console.log('Azerbaijan Technologies not found in author list.');
+    if (moddingGroups.length === 0) {
+        console.log('No modding groups found in author data.');
         return;
     }
-    const azTech = sorted[index];
+
+    // Find Azerbaijan Technologies group and its ranking by downloadRate
+    const sorted = [...moddingGroups].sort((a, b) => b.downloadRate - a.downloadRate);
+    const index = sorted.findIndex(g => g.authors.some(a => a.toLowerCase() === 'az_tech'));
+    if (index === -1) {
+        console.log('Azerbaijan Technologies not found in modding groups.');
+        return;
+    }
+    const azTechGroup = sorted[index];
     const climbPercent = Math.ceil(((index+1) / sorted.length) * 100);
-    const domination = ((azTech.downloadRate / sorted[0].downloadRate) * 100).toFixed(2);
+    const domination = ((azTechGroup.downloadRate / sorted[0].downloadRate) * 100).toFixed(2);
 
     const adjacentRankings = sorted.slice(Math.max(0, index - 20), index + 3)
-        .map((author, i) => {
-            const rank = index - 20 + i;
-            const percent = ((author.downloadRate / sorted[0].downloadRate) * 100).toFixed(2);
-            const isAztech = author.name.toLowerCase() === 'azerbaijan_tech';
-            const surroundFormat = isAztech ? "**" : "";
-            return `⇒ ${surroundFormat}#${rank + 1} ${author.name + (isAztech ? " :flag_az: :heart:" : "")}${surroundFormat}\n-# ⠀       ${author.downloadRate} avrg. download/day | ${author.downloadCount} downloads | ${percent}% domination\n`;
+        .map((group, i) => {
+            const rank = Math.max(0, index - 20) + i;
+            const percent = ((group.downloadRate / sorted[0].downloadRate) * 100).toFixed(2);
+            const isAzTechGroup = group.authors.some(a => a.toLowerCase() === 'az_tech');
+            const surroundFormat = isAzTechGroup ? "**" : "";
+            return `⇒ ${surroundFormat}#${rank + 1} ${group.name}${surroundFormat}\n-# ⠀       ${group.downloadRate} avrg. download/day | ${group.downloadCount} downloads | ${percent}% domination\n`;
         }).join("");
         
-    const message = `# Azerbaijan Technologies Ranking\nAzerbaijan Technologies is ranked **#${index + 1}**, **${domination}% domination**, **top ${climbPercent}%** of ${sorted.length} authors\n-# ${azTech.downloadRate} downloads by time | ${azTech.downloadCount} total downloads | ${azTech.mods} mods published\n`;
+    const message = `# Azerbaijan Technologies Ranking\nAzerbaijan Technologies modding group is ranked **#${index + 1}**, **${domination}% domination**, **top ${climbPercent}%** of ${sorted.length} modding groups\n-# ${azTechGroup.downloadRate} downloads by time | ${azTechGroup.downloadCount} total downloads | ${azTechGroup.mods} mods published | ${azTechGroup.authors.length} authors\n`;
     console.log(message);
 
     // Send to Discord
