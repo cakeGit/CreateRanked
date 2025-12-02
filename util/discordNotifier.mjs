@@ -49,8 +49,8 @@ async function sendAzerbaijanRanking(authorFileData) {
     const azTechGroup = sorted[index];
     const topDownloadRate = sorted[0].downloadRate;
     
-    // Calculate diff to top (difference between top group and current group)
-    const diffToTop = (topDownloadRate - azTechGroup.downloadRate).toFixed(2);
+    // Calculate top share (percentage of top group's download rate)
+    const topShare = ((azTechGroup.downloadRate / topDownloadRate) * 100).toFixed(2);
     
     // Calculate share percentage
     const share = ((azTechGroup.downloadRate / totalDownloadRate) * 100).toFixed(2);
@@ -63,16 +63,16 @@ async function sendAzerbaijanRanking(authorFileData) {
     const adjacentRankings = sorted.slice(Math.max(0, index - 20), index + 3)
         .map((group, i) => {
             const rank = Math.max(0, index - 20) + i;
-            const groupDiffToTop = (topDownloadRate - group.downloadRate).toFixed(2);
+            const groupTopShare = ((group.downloadRate / topDownloadRate) * 100).toFixed(2);
             const groupShare = ((group.downloadRate / totalDownloadRate) * 100).toFixed(2);
             const isAzTechGroup = group.authors.some(a => a.toLowerCase() === 'az_tech');
             const surroundFormat = isAzTechGroup ? "**" : "";
             const topModText = group.topMod ? ` | top mod: ${group.topMod.name}` : '';
-            return `⇒ ${surroundFormat}#${rank + 1} ${group.name}${surroundFormat}\n-# ⠀       ${group.downloadRate} avrg. download/day | ${groupDiffToTop} diff to top | ${groupShare}% share${topModText}\n`;
+            return `⇒ ${surroundFormat}#${rank + 1} ${group.name}${surroundFormat}\n-# ⠀       ${group.downloadRate} avrg. download/day | ${groupTopShare}% top share | ${groupShare}% share${topModText}\n`;
         }).join("");
         
     const topModText = azTechGroup.topMod ? azTechGroup.topMod.name : 'N/A';
-    const message = `# Create modding group ranking\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${diffToTop} diff to top | ${share}% share | top mod: ${topModText}\n`;
+    const message = `# Create modding group ranking\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
     console.log(message);
 
     // Send to Discord
