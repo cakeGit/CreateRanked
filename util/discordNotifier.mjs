@@ -54,6 +54,11 @@ async function sendAzerbaijanRanking(authorFileData) {
     
     // Calculate share percentage
     const share = ((azTechGroup.downloadRate / totalDownloadRate) * 100).toFixed(2);
+    
+    // Find az_tech's position in individual authors ranking
+    const sortedAuthors = [...authors].sort((a, b) => b.downloadRate - a.downloadRate);
+    const authorIndex = sortedAuthors.findIndex(a => a.name.toLowerCase() === 'az_tech');
+    const authorRank = authorIndex !== -1 ? authorIndex + 1 : '?';
 
     const adjacentRankings = sorted.slice(Math.max(0, index - 20), index + 3)
         .map((group, i) => {
@@ -67,7 +72,7 @@ async function sendAzerbaijanRanking(authorFileData) {
         }).join("");
         
     const topModText = azTechGroup.topMod ? azTechGroup.topMod.name : 'N/A';
-    const message = `# Create modding group ranking\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${index + 1}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${diffToTop} diff to top | ${share}% share | top mod: ${topModText}\n`;
+    const message = `# Create modding group ranking\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${diffToTop} diff to top | ${share}% share | top mod: ${topModText}\n`;
     console.log(message);
 
     // Send to Discord
@@ -130,18 +135,25 @@ async function sendAzerbaijanRanking(authorFileData) {
         // If we couldn't edit, send new messages
         if (channel && channel.isTextBased()) {
             await channel.send(message);
-            await channel.send(`\n## Rankings:\n`);
-            const rankingMessages = adjacentRankings.split("\n");
-            let buffer = "";
-            for (const line of rankingMessages) {
-                if ((buffer + line + "\n").length > 1999) {
-                    await channel.send(buffer);
-                    buffer = "";
+            
+            // Send rankings message (split if necessary)
+            if (rankingsMessage.length <= 2000) {
+                await channel.send(rankingsMessage);
+            } else {
+                // Split into multiple messages if too long
+                await channel.send('## Rankings:');
+                const rankingLines = adjacentRankings.split("\n");
+                let buffer = "";
+                for (const line of rankingLines) {
+                    if ((buffer + line + "\n").length > 1999) {
+                        await channel.send(buffer);
+                        buffer = "";
+                    }
+                    buffer += line + "\n";
                 }
-                buffer += line + "\n";
-            }
-            if (buffer.trim().length > 0) {
-                await channel.send(buffer);
+                if (buffer.trim().length > 0) {
+                    await channel.send(buffer);
+                }
             }
             console.log('Sent ranking message to Discord.');
         } else {
