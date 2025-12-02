@@ -152,7 +152,7 @@ async function sendAzerbaijanRanking(authorFileData) {
         "July", "August", "September", "October", "November", "December"];
     const now = new Date();
     const monthName = monthNames[now.getMonth()];
-    const message = `# Create modding group ranking\n> *(Statistics for ${monthName})*\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
+    const message = `# Create modding group ranking\n*(Statistics for ${monthName})*\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
     console.log(message);
 
     // Send to Discord
