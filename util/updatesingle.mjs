@@ -638,6 +638,22 @@ async function processMods() {
             groupName = topAuthors.map(a => a.name).join(', ');
         }
         
+        // Get author names in this group
+        const groupAuthorNames = new Set(groupAuthors.map(a => a.name));
+        
+        // Find all mods by authors in this group
+        const groupMods = enrichedMods.filter(mod => 
+            mod.authors && mod.authors.some(author => groupAuthorNames.has(author))
+        );
+        
+        // Find the top mod by download count
+        let topMod = null;
+        if (groupMods.length > 0) {
+            topMod = groupMods.reduce((max, mod) => 
+                mod.downloadCount > max.downloadCount ? mod : max
+            );
+        }
+        
         // Sum all statistics
         let totalDownloadCount = 0;
         let totalMods = 0;
@@ -663,6 +679,7 @@ async function processMods() {
             downloadRate: Number((totalDownloadCount / averageDays).toFixed(2)),
             daysExisting: Number(averageDays.toFixed(2)),
             downloadRateMonthly: monthlyRateAvailable ? Number(totalMonthlyDownloadRate.toFixed(2)) : null,
+            topMod: topMod ? { name: topMod.name, downloadCount: topMod.downloadCount } : null,
         };
     });
 

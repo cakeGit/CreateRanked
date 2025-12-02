@@ -29,11 +29,15 @@ async function sendAzerbaijanRanking(authorFileData) {
     // Read modding groups from authors.json
     const authorsData = authorFileData;
     const moddingGroups = authorsData.moddingGroups || [];
+    const authors = authorsData.authors || [];
 
     if (moddingGroups.length === 0) {
         console.log('No modding groups found in author data.');
         return;
     }
+
+    // Calculate total download rate for share percentage
+    const totalDownloadRate = moddingGroups.reduce((sum, g) => sum + g.downloadRate, 0);
 
     // Find Azerbaijan Technologies group and its ranking by downloadRate
     const sorted = [...moddingGroups].sort((a, b) => b.downloadRate - a.downloadRate);
@@ -43,19 +47,27 @@ async function sendAzerbaijanRanking(authorFileData) {
         return;
     }
     const azTechGroup = sorted[index];
-    const climbPercent = Math.ceil(((index+1) / sorted.length) * 100);
-    const domination = ((azTechGroup.downloadRate / sorted[0].downloadRate) * 100).toFixed(2);
+    const topDownloadRate = sorted[0].downloadRate;
+    
+    // Calculate diff to top (difference between top group and current group)
+    const diffToTop = (topDownloadRate - azTechGroup.downloadRate).toFixed(2);
+    
+    // Calculate share percentage
+    const share = ((azTechGroup.downloadRate / totalDownloadRate) * 100).toFixed(2);
 
     const adjacentRankings = sorted.slice(Math.max(0, index - 20), index + 3)
         .map((group, i) => {
             const rank = Math.max(0, index - 20) + i;
-            const percent = ((group.downloadRate / sorted[0].downloadRate) * 100).toFixed(2);
+            const groupDiffToTop = (topDownloadRate - group.downloadRate).toFixed(2);
+            const groupShare = ((group.downloadRate / totalDownloadRate) * 100).toFixed(2);
             const isAzTechGroup = group.authors.some(a => a.toLowerCase() === 'az_tech');
             const surroundFormat = isAzTechGroup ? "**" : "";
-            return `⇒ ${surroundFormat}#${rank + 1} ${group.name}${surroundFormat}\n-# ⠀       ${group.downloadRate} avrg. download/day | ${group.downloadCount} downloads | ${percent}% domination\n`;
+            const topModText = group.topMod ? ` | top mod: ${group.topMod.name}` : '';
+            return `⇒ ${surroundFormat}#${rank + 1} ${group.name}${surroundFormat}\n-# ⠀       ${group.downloadRate} avrg. download/day | ${groupDiffToTop} diff to top | ${groupShare}% share${topModText}\n`;
         }).join("");
         
-    const message = `# Azerbaijan Technologies Ranking\nAzerbaijan Technologies modding group is ranked **#${index + 1}**, **${domination}% domination**, **top ${climbPercent}%** of ${sorted.length} modding groups\n-# ${azTechGroup.downloadRate} downloads by time | ${azTechGroup.downloadCount} total downloads | ${azTechGroup.mods} mods published | ${azTechGroup.authors.length} authors\n`;
+    const topModText = azTechGroup.topMod ? azTechGroup.topMod.name : 'N/A';
+    const message = `# Create modding group ranking\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${index + 1}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${diffToTop} diff to top | ${share}% share | top mod: ${topModText}\n`;
     console.log(message);
 
     // Send to Discord
@@ -67,8 +79,55 @@ async function sendAzerbaijanRanking(authorFileData) {
             console.error('Discord channel not found.');
             return;
         }
-        // await deletePreviousMessages(client, DISCORD_CHANNEL_ID);
-        // Send the message
+        
+        // Try to find and edit previous messages from this month
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+        
+        try {
+            const messages = await channel.messages.fetch({ limit: 50 });
+            const myMessages = messages.filter(msg => msg.author.id === client.user.id);
+            
+            // Find messages from this month
+            const thisMonthMessages = [];
+            for (const msg of myMessages.values()) {
+                const msgDate = new Date(msg.createdTimestamp);
+                if (msgDate.getMonth() === currentMonth && msgDate.getFullYear() === currentYear) {
+                    thisMonthMessages.push(msg);
+                }
+            }
+            
+            // Sort by creation time (oldest first)
+            thisMonthMessages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
+            
+            let message1ToEdit = thisMonthMessages[0];
+            let message2ToEdit = thisMonthMessages[1];
+            
+            const rankingsMessage = `## Rankings:\n${adjacentRankings}`;
+            
+            // Try to edit existing messages if found
+            if (message1ToEdit && message2ToEdit) {
+                try {
+                    // Check if new content fits in message limits
+                    if (message.length <= 2000 && rankingsMessage.length <= 2000) {
+                        await message1ToEdit.edit(message);
+                        await message2ToEdit.edit(rankingsMessage);
+                        console.log('Edited previous messages from this month.');
+                        client.destroy();
+                        return;
+                    } else {
+                        console.log('New content too long for editing, will send new messages.');
+                    }
+                } catch (err) {
+                    console.error('Failed to edit messages:', err);
+                }
+            }
+        } catch (err) {
+            console.error('Error fetching previous messages:', err);
+        }
+        
+        // If we couldn't edit, send new messages
         if (channel && channel.isTextBased()) {
             await channel.send(message);
             await channel.send(`\n## Rankings:\n`);
