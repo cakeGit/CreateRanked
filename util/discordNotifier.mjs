@@ -4,7 +4,7 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve('./.env') });
 
-const DISCORD_TOKEN = process.env.DISCORD_BOT_TOKEN;
+const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 const DISCORD_RETAIN_COUNT = Number(process.env.DISCORD_RETAIN_COUNT) || 2;
 const DISCORD_DELETE_BATCH = Number(process.env.DISCORD_DELETE_BATCH) || 100;
@@ -154,7 +154,7 @@ async function sendAzerbaijanRanking(authorFileData) {
     // Send to Discord
     const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
     if (!DISCORD_TOKEN) {
-        console.error('DISCORD_BOT_TOKEN not set in environment. Cannot log in to Discord.');
+        console.error('DISCORD_TOKEN not set in environment. Cannot log in to Discord.');
         return;
     }
     if (!DISCORD_CHANNEL_ID) {
