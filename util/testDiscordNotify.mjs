@@ -23,9 +23,9 @@ const sample = {
         await sendAzerbaijanRanking(sample);
         console.log('sendAzerbaijanRanking completed');
         // Test deletion: create a client and call deletePreviousMessages if available
-        if (process.env.DISCORD_BOT_TOKEN && process.env.DISCORD_CHANNEL_ID) {
+        if (process.env.DISCORD_TOKEN && process.env.DISCORD_CHANNEL_ID) {
             const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
-            await client.login(process.env.DISCORD_BOT_TOKEN);
+            await client.login(process.env.DISCORD_TOKEN);
             console.log(`Test client logged in: ${client.user?.tag}`);
             const retainCount = Number(process.env.DISCORD_RETAIN_COUNT) || 2;
             const batch = Number(process.env.DISCORD_DELETE_BATCH) || 100;

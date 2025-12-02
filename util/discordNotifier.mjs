@@ -189,34 +189,47 @@ async function sendAzerbaijanRanking(authorFileData) {
                 }
             }
             
-            // Sort by creation time (newest first) so we edit the latest messages, not the oldest
+            // Sort by creation time (newest first) so we pick the latest messages
             thisMonthMessages.sort((a, b) => b.createdTimestamp - a.createdTimestamp);
             
-            let message1ToEdit = thisMonthMessages[0];
-            let message2ToEdit = thisMonthMessages[1];
+            // We want header to always be the older of the two, and ranking to be the newer.
+            // Get the top two most recent messages (newest first) and then order those two ascending
+            const candidatePair = thisMonthMessages.slice(0, 2);
+            let messageHeaderToEdit = null;
+            let messageRankingToEdit = null;
+            if (candidatePair.length === 2) {
+                // Sort the pair oldest -> newest so index 0 is header
+                candidatePair.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
+                messageHeaderToEdit = candidatePair[0];
+                messageRankingToEdit = candidatePair[1];
+            } else if (candidatePair.length === 1) {
+                // Only one message present — prefer to keep it as header and send ranking new message
+                messageHeaderToEdit = candidatePair[0];
+                messageRankingToEdit = null;
+            }
             
             const rankingsMessage = `## Rankings:\n${adjacentRankings}`;
             console.log(`Found ${myMessages.size} bot messages in channel ${DISCORD_CHANNEL_ID}, ${thisMonthMessages.length} from this month.`);
-            if (message1ToEdit) console.log(`Most recent message to edit: id=${message1ToEdit.id} ts=${new Date(message1ToEdit.createdTimestamp).toISOString()} len=${message1ToEdit.content.length}`);
-            if (message2ToEdit) console.log(`Second recent message to edit: id=${message2ToEdit.id} ts=${new Date(message2ToEdit.createdTimestamp).toISOString()} len=${message2ToEdit.content.length}`);
+            if (messageHeaderToEdit) console.log(`Header message to edit: id=${messageHeaderToEdit.id} ts=${new Date(messageHeaderToEdit.createdTimestamp).toISOString()} len=${messageHeaderToEdit.content.length}`);
+            if (messageRankingToEdit) console.log(`Ranking message to edit: id=${messageRankingToEdit.id} ts=${new Date(messageRankingToEdit.createdTimestamp).toISOString()} len=${messageRankingToEdit.content.length}`);
             
             // Try to edit existing messages if found
-            if (message1ToEdit && message2ToEdit) {
+            if (messageHeaderToEdit && messageRankingToEdit) {
                 try {
                     // Check if new content fits in message limits
                     if (message.length <= 2000 && rankingsMessage.length <= 2000) {
                         // Only edit if content actually changes — helps debugging and reduces churn
-                        if (message1ToEdit.content !== message) {
-                            await message1ToEdit.edit(message);
-                            console.log(`Edited message ${message1ToEdit.id}`);
+                        if (messageHeaderToEdit.content !== message) {
+                            await messageHeaderToEdit.edit(message);
+                            console.log(`Edited header message ${messageHeaderToEdit.id}`);
                         } else {
-                            console.log(`Message ${message1ToEdit.id} content unchanged; skipping edit`);
+                            console.log(`Header message ${messageHeaderToEdit.id} content unchanged; skipping edit`);
                         }
-                        if (message2ToEdit.content !== rankingsMessage) {
-                            await message2ToEdit.edit(rankingsMessage);
-                            console.log(`Edited message ${message2ToEdit.id}`);
+                        if (messageRankingToEdit.content !== rankingsMessage) {
+                            await messageRankingToEdit.edit(rankingsMessage);
+                            console.log(`Edited ranking message ${messageRankingToEdit.id}`);
                         } else {
-                            console.log(`Message ${message2ToEdit.id} content unchanged; skipping edit`);
+                            console.log(`Ranking message ${messageRankingToEdit.id} content unchanged; skipping edit`);
                         }
                         console.log('Edited previous messages from this month.');
                         // Delete any excess bot messages (keep latest 2)
@@ -232,6 +245,46 @@ async function sendAzerbaijanRanking(authorFileData) {
                     }
                 } catch (err) {
                     console.error('Failed to edit messages:', err);
+                }
+            } else if (messageHeaderToEdit && !messageRankingToEdit) {
+                // Only one message for the month — update header and send ranking message
+                try {
+                    if (message.length <= 2000) {
+                        if (messageHeaderToEdit.content !== message) {
+                            await messageHeaderToEdit.edit(message);
+                            console.log(`Edited header message ${messageHeaderToEdit.id}`);
+                        } else {
+                            console.log(`Header message ${messageHeaderToEdit.id} content unchanged; skipping edit`);
+                        }
+                    }
+                    // Send ranking message as new message
+                    if (rankingsMessage.length <= 2000) {
+                        await channel.send(rankingsMessage);
+                    } else {
+                        await channel.send('## Rankings:');
+                        const rankingLines = adjacentRankings.split("\n");
+                        let buffer = "";
+                        for (const line of rankingLines) {
+                            if ((buffer + line + "\n").length > 1999) {
+                                await channel.send(buffer);
+                                buffer = "";
+                            }
+                            buffer += line + "\n";
+                        }
+                        if (buffer.trim().length > 0) {
+                            await channel.send(buffer);
+                        }
+                    }
+                    // Try to delete excess messages
+                    try {
+                        await deletePreviousMessages(client, DISCORD_CHANNEL_ID, DISCORD_RETAIN_COUNT, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
+                    } catch (err) {
+                        console.error('Failed to delete excess messages:', err);
+                    }
+                    client.destroy();
+                    return;
+                } catch (err) {
+                    console.error('Failed to update single header and send ranking:', err);
                 }
             }
         } catch (err) {
