@@ -440,6 +440,8 @@ async function logDataCollection(currentModCount, previousModCount, recoveredCou
     }
 }
 
+var modFileData = {};
+
 async function processMods() {
     await archivePreviousData();
 
@@ -689,6 +691,8 @@ async function processMods() {
         mods: enrichedMods,
     };
 
+    modFileData = result;
+
     await fs.writeFile(MODS_OUTPUT_PATH, JSON.stringify(result, null, 2), 'utf-8');
     authorFileData = {
         generatedAt: result.generatedAt,
@@ -731,7 +735,7 @@ async function processMods() {
 processMods().catch(err => {
     console.error('Error processing mods:', err);
 }).then(() => {
-    sendAzerbaijanRanking(authorFileData).catch(err => {
+    sendAzerbaijanRanking(authorFileData, modFileData).catch(err => {
         console.error('Error sending Discord message:', err);
     });
 });

@@ -101,19 +101,20 @@ async function deletePreviousMessages(client, channelId, retainCount = 2, filter
     }
 }
 
-async function sendAzerbaijanRanking(authorFileData) {
+async function sendAzerbaijanRanking(authorFileData, modFileData) {
     // Read modding groups from authors.json
     const authorsData = authorFileData;
     const moddingGroups = authorsData.moddingGroups || [];
     const authors = authorsData.authors || [];
+    const mods = modFileData.mods || [];
 
     if (moddingGroups.length === 0) {
         console.log('No modding groups found in author data.');
         return;
     }
 
-    // Calculate total download rate for share percentage
-    const totalDownloadRate = moddingGroups.reduce((sum, g) => sum + g.downloadRate, 0);
+    // Calculate total download rate for share percentage of all mods
+    const totalDownloadRate = mods.reduce((sum, mod) => sum + (mod.downloadRate || 0), 0);
 
     // Find Azerbaijan Technologies group and its ranking by downloadRate
     const sorted = [...moddingGroups].sort((a, b) => b.downloadRate - a.downloadRate);
