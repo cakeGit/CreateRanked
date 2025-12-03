@@ -656,18 +656,18 @@ async function processMods() {
             );
         }
         
-        // Sum all statistics
+        // Sum all statistics from the group's unique mods to avoid duplicate counting
+        // when a mod has multiple authors in the same group.
         let totalDownloadCount = 0;
-        let totalMods = 0;
+        let totalMods = groupMods.length;
         let totalDays = 0;
         let totalMonthlyDownloadRate = 0;
-        
-        groupAuthors.forEach(author => {
-            totalDownloadCount += author.downloadCount;
-            totalMods += author.mods;
-            totalDays += author.daysExisting * author.mods; // Weight by number of mods
-            if (author.downloadRateMonthly !== null) {
-                totalMonthlyDownloadRate += author.downloadRateMonthly;
+
+        groupMods.forEach(mod => {
+            totalDownloadCount += mod.downloadCount || 0;
+            totalDays += mod.daysExisting || 1; // Use 1 to avoid divide-by-zero weirdness
+            if (monthlyRateAvailable && mod.downloadRateMonthly !== null && mod.downloadRateMonthly !== undefined) {
+                totalMonthlyDownloadRate += mod.downloadRateMonthly;
             }
         });
         
