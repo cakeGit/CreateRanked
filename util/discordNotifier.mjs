@@ -258,6 +258,9 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
             }
 
             const rankingChunks = packBlocks(rankingBlocks, BLOCKS_PER_MSG, maxChars);
+            // Ensure we retain enough messages in the channel for header + all ranking chunks
+            const requiredMessageCount = 1 + rankingChunks.length; // 1 header + ranking chunks
+            const retainCountForDelete = Math.max(DISCORD_RETAIN_COUNT, requiredMessageCount);
             const rankingsMessage = rankingChunks.length > 0 ? `## Rankings:\n${rankingChunks[0]}` : '## Rankings:';
             console.log(`Found ${myMessages.size} bot messages in channel ${channelIdToUse}, ${thisMonthMessages.length} from this month.`);
             if (messageHeaderToEdit) console.log(`Header message to edit: id=${messageHeaderToEdit.id} ts=${new Date(messageHeaderToEdit.createdTimestamp).toISOString()} len=${messageHeaderToEdit.content.length}`);
@@ -315,7 +318,7 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
                     console.log('Edited previous messages from this month.');
                     // Delete any excess bot messages (keep latest DISCORD_RETAIN_COUNT)
                     try {
-                        await deletePreviousMessages(messenger, channelIdToUse, DISCORD_RETAIN_COUNT, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
+                        await deletePreviousMessages(messenger, channelIdToUse, retainCountForDelete, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
                     } catch (err) {
                         console.error('Failed to delete excess messages:', err);
                     }
@@ -343,9 +346,10 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
                 }
             }
             console.log('Sent ranking message to Discord.');
-            try {
-                // There might be old messages beyond the latest two — delete excess older ones.
-                await deletePreviousMessages(messenger, channelIdToUse, DISCORD_RETAIN_COUNT, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
+                try {
+                // There might be old messages beyond the latest ones — delete excess older ones while keeping
+                // at least the number of slots that hold the header + all ranking chunks
+                await deletePreviousMessages(messenger, channelIdToUse, retainCountForDelete, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
             } catch (err) {
                 console.error('Failed to delete excess messages after sending new messages:', err);
             }

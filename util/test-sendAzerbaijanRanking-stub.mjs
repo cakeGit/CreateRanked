@@ -23,11 +23,17 @@ const authorFileData = {
         { name: 'author3', downloadRate: 200 }
     ]
 };
-const modFileData = {
+    const modFileData = {
     mods: [
         { downloadRate: 300 }, { downloadRate: 250 }, { downloadRate: 200 }, { downloadRate: 150 }, { downloadRate: 100 }, { downloadRate: 80 }, { downloadRate: 60 }, { downloadRate: 40 }
     ]
 };
+
+// Expand modding groups to ensure rankingChunks length > DISCORD_RETAIN_COUNT
+for (let i = 0; i < 15; i++) {
+    const idx = 8 + i;
+    authorFileData.moddingGroups.push({ name: `Group-${idx}`, authors: [`author${idx}`], downloadRate: 20 + i});
+}
 
 // A small helper to create a fake message object
 function fakeMessage(content, authorId, id) {
