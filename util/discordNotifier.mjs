@@ -151,7 +151,7 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
         "July", "August", "September", "October", "November", "December"];
     const now = new Date();
     const monthName = monthNames[now.getMonth()];
-    const message = `# Create modding group ranking\n*Statistics for ${monthName} | Updated ${now.toLocaleDateString()} *\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
+    const message = `# Create modding group ranking\nStatistics for ${monthName} | Updated <t:${Math.floor(Date.now() / 1000)}:R>\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
     console.log(message);
 
     // Send using an abstract messenger
