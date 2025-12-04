@@ -200,15 +200,15 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
             thisMonthMessages.sort((a, b) => b.createdTimestamp - a.createdTimestamp);
             
             // We want to treat the oldest message as header, the rest as ranking blocks.
-            const thisMonthAsc = thisMonthMessages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
+            // Sort by creation time (newest first) so we pick the latest message as the header
+            thisMonthMessages.sort((a, b) => b.createdTimestamp - a.createdTimestamp);
             let messageHeaderToEdit = null;
             let existingRankingMessages = [];
-            if (thisMonthAsc.length > 0) {
-                messageHeaderToEdit = thisMonthAsc[0];
-                existingRankingMessages = thisMonthAsc.slice(1);
+            if (thisMonthMessages.length > 0) {
+                // the newest message from this month will act as the header; the rest are ranking blocks
+                messageHeaderToEdit = thisMonthMessages[0];
+                existingRankingMessages = thisMonthMessages.slice(1);
             }
-
-                await deletePreviousMessages(messenger, channelIdToUse, DISCORD_RETAIN_COUNT, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
             const BLOCKS_PER_MSG = 4; // aim to keep 3-4 blocks per message
             const maxChars = 2000;
             function packBlocks(blocks, maxBlocksPerMessage, maxCharsPerMessage) {
@@ -334,9 +334,7 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
         
             // If we couldn't edit, send new messages
         if (channel && channel.isTextBased()) {
-            await channel.send(message);
-
-            // Send ranking chunks; we already packed them to be <= 2000 chars
+            // Send ranking chunks first so that the header is the newest message
             if (Array.isArray(rankingChunks) && rankingChunks.length > 0) {
                 for (let i = 0; i < rankingChunks.length; i++) {
                     const chunk = i === 0 ? `## Rankings:\n${rankingChunks[i]}` : `${rankingChunks[i]}`;
@@ -345,8 +343,10 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
                     await new Promise(resolve => setTimeout(resolve, 150));
                 }
             }
+            // Finally send the header so it is the newest message and appears last in the channel
+            await channel.send(message);
             console.log('Sent ranking message to Discord.');
-                try {
+            try {
                 // There might be old messages beyond the latest ones — delete excess older ones while keeping
                 // at least the number of slots that hold the header + all ranking chunks
                 await deletePreviousMessages(messenger, channelIdToUse, retainCountForDelete, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
