@@ -252,60 +252,12 @@ class StubClient {
         console.log('FAIL: delete behavior did not match expectations.');
     }
 
-    // Now simulate the edit/create flow
-    console.log('\n--- Simulation start ---');
-    console.log('Header message (new):\n', message);
-    console.log('Ranking blocks count:', rankingBlocks.length);
-    console.log('Ranking chunks count:', rankingChunks.length);
-
-    // Simulate existing messages
-    // Pick header as the newest (most recent) message and make the rest ranking messages (older)
-    const thisMonthDesc = Array.from(channel._messages.values()).sort((a, b) => b.createdTimestamp - a.createdTimestamp);
-    const messageHeaderToEdit = thisMonthDesc.length > 0 ? thisMonthDesc[0] : null;
-    let existingRankingMessages = thisMonthDesc.length > 1 ? thisMonthDesc.slice(1) : [];
-
-    if (messageHeaderToEdit) {
-        console.log('\nEditing header if needed...');
-        if (messageHeaderToEdit.content !== message) {
-            messageHeaderToEdit.edit(message);
-            console.log('Edited header message content.');
-        } else {
-            console.log('Header unchanged.');
-        }
-        // Edit/create ranking chunks
-        for (let i = 0; i < rankingChunks.length; i++) {
-            const chunk = i === 0 ? `## Rankings:\n${rankingChunks[i]}` : `${rankingChunks[i]}`;
-            const existingMsg = existingRankingMessages[i];
-            if (existingMsg) {
-                if (existingMsg.content !== chunk) {
-                    existingMsg.edit(chunk);
-                }
-            } else {
-                const newMsg = await channel.send(chunk);
-                existingRankingMessages.push(newMsg);
-            }
-        }
-        // delete extras
-        if (existingRankingMessages.length > rankingChunks.length) {
-            for (let i = rankingChunks.length; i < existingRankingMessages.length; i++) {
-                await existingRankingMessages[i].delete();
-            }
-        }
-    } else {
-        // No header found -> send ranking chunks first so the header becomes the newest message
-        for (let i = 0; i < rankingChunks.length; i++) {
-            const chunk = i === 0 ? `## Rankings:\n${rankingChunks[i]}` : `${rankingChunks[i]}`;
-            await channel.send(chunk);
-        }
-        await channel.send(message);
-    }
-
-    console.log('\n--- Simulation end ---');
-
     console.log('\n--- Stub test finished ---\nSent messages:');
     console.log(channel.sent);
     console.log('\n--- Channel._messages map (id => content) at end:');
-    for (const [id, msg] of channel._messages.entries()) {
-        console.log(id, '-', msg.content, '-', new Date(msg.createdTimestamp).toISOString());
+    // Sort by timestamp to see order
+    const finalMessages = Array.from(channel._messages.values()).sort((a, b) => a.createdTimestamp - b.createdTimestamp);
+    for (const msg of finalMessages) {
+        console.log(msg.id, '-', msg.content.substring(0, 50).replace(/\n/g, '\\n'), '...', '-', new Date(msg.createdTimestamp).toISOString());
     }
 })();

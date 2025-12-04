@@ -17,7 +17,7 @@ const DISCORD_DELETE_MAX_FETCH = Number(process.env.DISCORD_DELETE_MAX_FETCH) ||
  * are not deleted. This keeps Discord clean by retaining only the most recent messages
  * for the active month.
  */
-async function deletePreviousMessages(messenger, channelId, retainCount = 2, filterThisMonth = true, batchSize = 100, maxFetch = 1000) {
+async function deletePreviousMessages(messenger, channelId, retainCount = 2, filterThisMonth = true, batchSize = 100, maxFetch = 1000, protectedIds = null) {
     const channel = await messenger.fetchChannel(channelId);
     if (!channel || !channel.isTextBased()) {
         console.error('Discord channel not found or not text-based.');
@@ -45,6 +45,7 @@ async function deletePreviousMessages(messenger, channelId, retainCount = 2, fil
         for (const msg of messages.values()) {
             // skip pinned messages to be safe
             if (msg.pinned) continue;
+            if (protectedIds && protectedIds.has(msg.id)) continue;
             if (msg.author.id === messenger.getUserId()) {
                 if (filterThisMonth) {
                     const msgDate = new Date(msg.createdTimestamp);
@@ -183,6 +184,7 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth();
         const currentYear = currentDate.getFullYear();
+
         try {
             const messages = await channel.messages.fetch({ limit: 50 });
             const myMessages = messages.filter(msg => msg.author.id === messenger.getUserId());
@@ -196,166 +198,104 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
                 }
             }
             
-            // Sort by creation time (newest first) so we pick the latest messages
-            thisMonthMessages.sort((a, b) => b.createdTimestamp - a.createdTimestamp);
+            // Sort by creation time (oldest first) to maintain order: Header -> Ranking 1 -> Ranking 2 ...
+            thisMonthMessages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
             
-            // We want to treat the oldest message as header, the rest as ranking blocks.
-            // Sort by creation time (newest first) so we pick the latest message as the header
-            thisMonthMessages.sort((a, b) => b.createdTimestamp - a.createdTimestamp);
             let messageHeaderToEdit = null;
             let existingRankingMessages = [];
+            
             if (thisMonthMessages.length > 0) {
-                // the newest message from this month will act as the header; the rest are ranking blocks
                 messageHeaderToEdit = thisMonthMessages[0];
                 existingRankingMessages = thisMonthMessages.slice(1);
             }
-            const BLOCKS_PER_MSG = 4; // aim to keep 3-4 blocks per message
-            const maxChars = 2000;
-            function packBlocks(blocks, maxBlocksPerMessage, maxCharsPerMessage) {
-                const packed = [];
-                let i = 0;
-                while (i < blocks.length) {
-                    let current = [];
-                    let currentLen = 0;
-                    while (i < blocks.length && current.length < maxBlocksPerMessage) {
-                        const nextBlock = blocks[i];
-                        // if this block alone exceeds max chars, split it by newline into smaller parts
-                        if (nextBlock.length > maxCharsPerMessage) {
-                            const subLines = nextBlock.split('\n');
-                            let subBuf = '';
-                            for (const line of subLines) {
-                                if ((subBuf + line + '\n').length > maxCharsPerMessage) {
-                                    if (subBuf.length > 0) packed.push(subBuf);
-                                    subBuf = line + '\n';
-                                } else {
-                                    subBuf += line + '\n';
-                                }
-                            }
-                            if (subBuf.trim().length > 0) packed.push(subBuf);
-                            i++;
-                            continue;
-                        }
-                        if (currentLen + nextBlock.length + 1 <= maxCharsPerMessage) {
-                            current.push(nextBlock);
-                            currentLen += nextBlock.length + 1; // account for separator
-                            i++;
-                        } else {
-                            break;
-                        }
-                    }
-                    if (current.length > 0) {
-                        packed.push(current.join('\n'));
-                    } else {
-                        // current block itself too big but not split earlier; just slice it
-                        const block = blocks[i];
-                        for (let start = 0; start < block.length; start += maxCharsPerMessage) {
-                            packed.push(block.slice(start, start + maxCharsPerMessage));
-                        }
-                        i++;
-                    }
+
+            // Prepare chunks
+            // We want to fit content into existing messages (up to ~1900 chars)
+            // But for new messages, we want padding (~1000 chars)
+            const fullRankingText = rankingBlocks.join('');
+            const chunks = [];
+            let currentText = fullRankingText;
+
+            // 1. Fill existing messages
+            for (const msg of existingRankingMessages) {
+                if (currentText.length === 0) break;
+                const limit = 1900; 
+                let splitIndex = limit;
+                if (currentText.length > limit) {
+                    const lastNewline = currentText.lastIndexOf('\n', limit);
+                    if (lastNewline > -1) splitIndex = lastNewline + 1;
+                } else {
+                    splitIndex = currentText.length;
                 }
-                return packed;
+                chunks.push(currentText.slice(0, splitIndex));
+                currentText = currentText.slice(splitIndex);
             }
 
-            const rankingChunks = packBlocks(rankingBlocks, BLOCKS_PER_MSG, maxChars);
-            // Ensure we retain enough messages in the channel for header + all ranking chunks
-            const requiredMessageCount = 1 + rankingChunks.length; // 1 header + ranking chunks
-            const retainCountForDelete = Math.max(DISCORD_RETAIN_COUNT, requiredMessageCount);
-            const rankingsMessage = rankingChunks.length > 0 ? `## Rankings:\n${rankingChunks[0]}` : '## Rankings:';
-            console.log(`Found ${myMessages.size} bot messages in channel ${channelIdToUse}, ${thisMonthMessages.length} from this month.`);
-            if (messageHeaderToEdit) console.log(`Header message to edit: id=${messageHeaderToEdit.id} ts=${new Date(messageHeaderToEdit.createdTimestamp).toISOString()} len=${messageHeaderToEdit.content.length}`);
-            if (existingRankingMessages.length > 0) console.log(`Existing ranking messages: ${existingRankingMessages.length}`);
-            
-            // Try to edit existing messages if found
+            // 2. Create new chunks if needed (with padding)
+            while (currentText.length > 0) {
+                const limit = 1000; // ~50% capacity for new messages
+                let splitIndex = limit;
+                if (currentText.length > limit) {
+                    const lastNewline = currentText.lastIndexOf('\n', limit);
+                    if (lastNewline > -1) splitIndex = lastNewline + 1;
+                } else {
+                    splitIndex = currentText.length;
+                }
+                chunks.push(currentText.slice(0, splitIndex));
+                currentText = currentText.slice(splitIndex);
+            }
+
+            console.log(`Found ${myMessages.size} bot messages, ${thisMonthMessages.length} from this month.`);
+            console.log(`Prepared ${chunks.length} ranking chunks.`);
+
+            // Edit or Send Header
             if (messageHeaderToEdit) {
-                try {
-                    // Edit header if needed
-                    if (messageHeaderToEdit.content !== message) {
-                        if (message.length <= maxChars) {
-                            await messageHeaderToEdit.edit(message);
-                            console.log(`Edited header message ${messageHeaderToEdit.id}`);
-                        } else {
-                            console.log(`Header content too long to edit; will send as new header message`);
-                        }
-                    } else {
-                        console.log(`Header message ${messageHeaderToEdit.id} content unchanged; skipping edit`);
-                    }
+                if (messageHeaderToEdit.content !== message) {
+                    await messageHeaderToEdit.edit(message);
+                    console.log(`Edited header message ${messageHeaderToEdit.id}`);
+                }
+            } else {
+                const newHeader = await channel.send(message);
+                console.log(`Sent new header message ${newHeader.id}`);
+                // Add a small delay to ensure timestamp order if we immediately send more
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
 
-                    // Now edit or create ranking messages according to rankingChunks
-                    // We will attempt to edit existing ranking messages in place and create or delete as needed
-                    for (let i = 0; i < rankingChunks.length; i++) {
-                        const chunk = i === 0 ? `## Rankings:\n${rankingChunks[i]}` : `${rankingChunks[i]}`;
-                        const existingMsg = existingRankingMessages[i];
-                        if (existingMsg) {
-                            if (existingMsg.content !== chunk) {
-                                await existingMsg.edit(chunk);
-                                console.log(`Edited ranking message ${existingMsg.id}`);
-                            } else {
-                                console.log(`Ranking message ${existingMsg.id} content unchanged; skipping edit`);
-                            }
-                        } else {
-                            // send new ranking chunk
-                            const newMsg = await channel.send(chunk);
-                            // small throttle
-                            await new Promise(resolve => setTimeout(resolve, 150));
-                            existingRankingMessages.push(newMsg);
-                            console.log(`Sent new ranking message ${newMsg.id}`);
-                        }
+            // Edit or Send Ranking Chunks
+            for (let i = 0; i < chunks.length; i++) {
+                const chunkContent = chunks[i];
+                if (i < existingRankingMessages.length) {
+                    // Edit existing
+                    const msg = existingRankingMessages[i];
+                    if (msg.content !== chunkContent) {
+                        await msg.edit(chunkContent);
+                        console.log(`Edited ranking message ${msg.id}`);
                     }
-
-                    // If there are more existing ranking messages than chunks, delete the extras
-                    if (existingRankingMessages.length > rankingChunks.length) {
-                        for (let i = rankingChunks.length; i < existingRankingMessages.length; i++) {
-                            try {
-                                await existingRankingMessages[i].delete();
-                                console.log(`Deleted extra ranking message ${existingRankingMessages[i].id}`);
-                            } catch (err) {
-                                console.error(`Failed deleting extra ranking message ${existingRankingMessages[i].id}:`, err);
-                            }
-                        }
-                    }
-
-                    console.log('Edited previous messages from this month.');
-                    // Delete any excess bot messages (keep latest DISCORD_RETAIN_COUNT)
-                    try {
-                        await deletePreviousMessages(messenger, channelIdToUse, retainCountForDelete, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
-                    } catch (err) {
-                        console.error('Failed to delete excess messages:', err);
-                    }
-                    messenger.destroy();
-                    return;
-                } catch (err) {
-                    console.error('Failed to edit messages:', err);
+                } else {
+                    // Send new
+                    const newMsg = await channel.send(chunkContent);
+                    console.log(`Sent new ranking message ${newMsg.id}`);
+                    await new Promise(resolve => setTimeout(resolve, 200));
                 }
             }
+
+            // Handle excess existing messages (if any)
+            // User requested "dont delete old ever", so we will just clear them or mark them as unused
+            if (existingRankingMessages.length > chunks.length) {
+                for (let i = chunks.length; i < existingRankingMessages.length; i++) {
+                    const msg = existingRankingMessages[i];
+                    const placeholder = "-(end of ranking)-";
+                    if (msg.content !== placeholder) {
+                        await msg.edit(placeholder);
+                        console.log(`Cleared excess ranking message ${msg.id}`);
+                    }
+                }
+            }
+
         } catch (err) {
-            console.error('Error fetching previous messages:', err);
+            console.error('Error managing messages:', err);
         }
         
-            // If we couldn't edit, send new messages
-        if (channel && channel.isTextBased()) {
-            // Send ranking chunks first so that the header is the newest message
-            if (Array.isArray(rankingChunks) && rankingChunks.length > 0) {
-                for (let i = 0; i < rankingChunks.length; i++) {
-                    const chunk = i === 0 ? `## Rankings:\n${rankingChunks[i]}` : `${rankingChunks[i]}`;
-                    await channel.send(chunk);
-                    // small throttle so we don't get rate-limited
-                    await new Promise(resolve => setTimeout(resolve, 150));
-                }
-            }
-            // Finally send the header so it is the newest message and appears last in the channel
-            await channel.send(message);
-            console.log('Sent ranking message to Discord.');
-            try {
-                // There might be old messages beyond the latest ones — delete excess older ones while keeping
-                // at least the number of slots that hold the header + all ranking chunks
-                await deletePreviousMessages(messenger, channelIdToUse, retainCountForDelete, true, DISCORD_DELETE_BATCH, DISCORD_DELETE_MAX_FETCH);
-            } catch (err) {
-                console.error('Failed to delete excess messages after sending new messages:', err);
-            }
-        } else {
-            console.error('Discord channel not found or not text-based.');
-        }
         messenger.destroy();
     } catch (err) {
         console.error('Discord client error:', err);
