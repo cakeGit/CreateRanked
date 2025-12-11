@@ -54,7 +54,9 @@ export class BubbleChart {
         this.cohesionDecay = 200; // distance scale for exponential pull (updated on resize)
 
         // Physics constants
-        this.friction = 0.4;
+        this.baseFriction = 0.4;
+        this.friction = this.baseFriction;
+        this.renderStartTime = null;
 
         this.collisionStrength = 0.2;
         this.attractionStrength = 0.9;
@@ -239,6 +241,20 @@ export class BubbleChart {
     }
 
     animate() {
+        if (!this.renderStartTime) {
+            this.renderStartTime = Date.now();
+        }
+        const elapsed = (Date.now() - this.renderStartTime) / 1000;
+        const duration = 6.0 * this.nodes.length / 100.0;
+        const startMult = 0.01;
+        const endMult = 10.0;
+
+        let mult = endMult;
+        if (elapsed < duration) {
+            mult = startMult + (endMult - startMult) * (elapsed / duration);
+        }
+        this.friction = 1 - Math.max(Math.min(Math.pow(this.baseFriction * mult, 3), 1), 0);
+
         this.updatePhysics();
         this.updateViewTarget();
         this.updateViewLerp();

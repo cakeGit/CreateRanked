@@ -68,9 +68,34 @@ export class ScrollableChart {
             this.render();
         };
 
+        // Touch handlers for mobile scrolling
+        this._touchStartY = 0;
+        this._onTouchStart = (e) => {
+            if (e.touches.length === 1) {
+                this._touchStartY = e.touches[0].clientY;
+            }
+        };
+
+        this._onTouchMove = (e) => {
+            if (e.touches.length === 1) {
+                // Prevent default to stop page scrolling while scrolling the chart
+                if (e.cancelable) e.preventDefault();
+                
+                const y = e.touches[0].clientY;
+                const deltaY = this._touchStartY - y;
+                this._touchStartY = y;
+                
+                this.scrollOffset += deltaY;
+                this.clampScroll();
+                this.render();
+            }
+        };
+
         this.canvas.addEventListener('wheel', this._onWheel, { passive: false });
         this.canvas.addEventListener('mousemove', this._onMouseMove);
         this.canvas.addEventListener('mouseleave', this._onMouseLeave);
+        this.canvas.addEventListener('touchstart', this._onTouchStart, { passive: true });
+        this.canvas.addEventListener('touchmove', this._onTouchMove, { passive: false });
         window.addEventListener('resize', this._onResize);
     }
 
@@ -80,6 +105,8 @@ export class ScrollableChart {
         if (this._onWheel) this.canvas.removeEventListener('wheel', this._onWheel);
         if (this._onMouseMove) this.canvas.removeEventListener('mousemove', this._onMouseMove);
         if (this._onMouseLeave) this.canvas.removeEventListener('mouseleave', this._onMouseLeave);
+        if (this._onTouchStart) this.canvas.removeEventListener('touchstart', this._onTouchStart);
+        if (this._onTouchMove) this.canvas.removeEventListener('touchmove', this._onTouchMove);
         if (this._onResize) window.removeEventListener('resize', this._onResize);
     }
     
