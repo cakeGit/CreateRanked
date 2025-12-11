@@ -19,6 +19,9 @@ export function setData(data) {
         cancelAnimationFrame(this.animationFrame);
     }
 
+    this.renderStartTime = null;
+    this.friction = this.baseFriction;
+
     if (!data || !data.items) return;
 
     // Store raw data for rebuilding when options change
