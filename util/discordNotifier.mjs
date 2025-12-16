@@ -191,29 +191,30 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth();
         const currentYear = currentDate.getFullYear();
+        const currentWeekVal = getWeekOfMonth(currentDate);
 
         try {
             const messages = await channel.messages.fetch({ limit: 50 });
             const myMessages = messages.filter(msg => msg.author.id === messenger.getUserId());
 
-            // Find messages from this month
-            const thisMonthMessages = [];
+            // Find messages from this week
+            const thisWeekMessages = [];
             for (const msg of myMessages.values()) {
                 const msgDate = new Date(msg.createdTimestamp);
-                if (msgDate.getMonth() === currentMonth && msgDate.getFullYear() === currentYear) {
-                    thisMonthMessages.push(msg);
+                if (msgDate.getMonth() === currentMonth && msgDate.getFullYear() === currentYear && getWeekOfMonth(msgDate) === currentWeekVal) {
+                    thisWeekMessages.push(msg);
                 }
             }
             
             // Sort by creation time (oldest first) to maintain order: Header -> Ranking 1 -> Ranking 2 ...
-            thisMonthMessages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
+            thisWeekMessages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
             
             let messageHeaderToEdit = null;
             let existingRankingMessages = [];
             
-            if (thisMonthMessages.length > 0) {
-                messageHeaderToEdit = thisMonthMessages[0];
-                existingRankingMessages = thisMonthMessages.slice(1);
+            if (thisWeekMessages.length > 0) {
+                messageHeaderToEdit = thisWeekMessages[0];
+                existingRankingMessages = thisWeekMessages.slice(1);
             }
 
             // Prepare chunks
@@ -252,7 +253,7 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
                 currentText = currentText.slice(splitIndex);
             }
 
-            console.log(`Found ${myMessages.size} bot messages, ${thisMonthMessages.length} from this month.`);
+            console.log(`Found ${myMessages.size} bot messages, ${thisWeekMessages.length} from this week.`);
             console.log(`Prepared ${chunks.length} ranking chunks.`);
 
             // Edit or Send Header
