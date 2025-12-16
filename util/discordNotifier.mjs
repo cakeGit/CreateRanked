@@ -6,9 +6,11 @@ dotenv.config({ path: path.resolve('./.env') });
 
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
-const DISCORD_RETAIN_COUNT = Number(process.env.DISCORD_RETAIN_COUNT) || 2;
-const DISCORD_DELETE_BATCH = Number(process.env.DISCORD_DELETE_BATCH) || 100;
-const DISCORD_DELETE_MAX_FETCH = Number(process.env.DISCORD_DELETE_MAX_FETCH) || 1000;
+
+function getWeekOfMonth(date) {
+    const day = date.getDate();
+    return Math.ceil(day / 7);
+}
 
 /**
  * Delete bot messages in a channel while retaining the latest `retainCount` messages.
@@ -27,6 +29,7 @@ async function deletePreviousMessages(messenger, channelId, retainCount = 2, fil
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
+    const currentWeek = getWeekOfMonth(currentDate);
 
     const accumulatedBotMessages = [];
     let beforeId = undefined;
@@ -49,7 +52,7 @@ async function deletePreviousMessages(messenger, channelId, retainCount = 2, fil
             if (msg.author.id === messenger.getUserId()) {
                 if (filterThisMonth) {
                     const msgDate = new Date(msg.createdTimestamp);
-                    if (msgDate.getMonth() === currentMonth && msgDate.getFullYear() === currentYear) {
+                    if (msgDate.getMonth() === currentMonth && msgDate.getFullYear() === currentYear && getWeekOfMonth(msgDate) === currentWeek) {
                         accumulatedBotMessages.push(msg);
                     }
                 } else {
@@ -67,7 +70,10 @@ async function deletePreviousMessages(messenger, channelId, retainCount = 2, fil
         // If we've encountered messages older than the current month and we were filtering this month: we can stop
         if (filterThisMonth) {
             const oldestDate = new Date(oldestMessage.createdTimestamp);
-            if (oldestDate.getFullYear() < currentYear || (oldestDate.getFullYear() === currentYear && oldestDate.getMonth() < currentMonth)) {
+            const oldestWeek = getWeekOfMonth(oldestDate);
+            if (oldestDate.getFullYear() < currentYear || 
+                (oldestDate.getFullYear() === currentYear && oldestDate.getMonth() < currentMonth) ||
+                (oldestDate.getFullYear() === currentYear && oldestDate.getMonth() === currentMonth && oldestWeek < currentWeek)) {
                 reachedBoundary = true;
             }
         }
@@ -152,7 +158,8 @@ async function sendAzerbaijanRanking(authorFileData, modFileData, messengerOverr
         "July", "August", "September", "October", "November", "December"];
     const now = new Date();
     const monthName = monthNames[now.getMonth()];
-    const message = `# Create modding group ranking\nStatistics for ${monthName} | Updated <t:${Math.floor(Date.now() / 1000)}:R>\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
+    const currentWeek = getWeekOfMonth(now);
+    const message = `# Create modding group ranking\nStatistics for week ${currentWeek} of ${monthName}  | Updated <t:${Math.floor(Date.now() / 1000)}:R>\nAz Tech is ranked **#${index + 1}** out of **${sorted.length}** modding groups (**#${authorRank}** out of **${authors.length}** individual authors)\n-# ${azTechGroup.downloadRate} downloads by time | ${topShare}% top share | ${share}% share | top mod: ${topModText}\n`;
     console.log(message);
 
     // Send using an abstract messenger
