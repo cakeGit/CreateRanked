@@ -633,7 +633,7 @@ async function processMods() {
             const azTechAuthor = groupAuthors.find(a => a.name.toLowerCase() === 'az_tech');
             const otherTop = sortedAuthors.filter(a => a.name.toLowerCase() !== 'az_tech').slice(0, 2);
             const names = [azTechAuthor.name, ...otherTop.map(a => a.name)];
-            groupName = `${azTechAuthor.name} :flag_az:` + (otherTop.length > 0 ? `, ${otherTop.map(a => a.name).join(', ')}` : '');
+            groupName = `${azTechAuthor.name} 🇦🇿` + (otherTop.length > 0 ? `, ${otherTop.map(a => a.name).join(', ')}` : '');
         } else {
             // Take first 3 authors by download rate
             const topAuthors = sortedAuthors.slice(0, 3);

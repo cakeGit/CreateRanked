@@ -24,6 +24,7 @@ async function fetchChartData(apiUrl) {
 }
 
 let currentEndpoint = '/api/mods.json';
+let currentMode = 'mod';
 let currentSort = 'downloads';
 let currentSortDir = 'desc'; 
 let currentMax = 100;
@@ -34,8 +35,12 @@ let currentRowCount = 20;
 
 function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 20, sortDir = 'desc') {
     // Support both mods and authors endpoints
-    const dataKey = rawData.mods ? "mods" : (rawData.authors ? "authors" : null);
-    if (!rawData || !rawData[dataKey]) return null;
+    let dataKey = null;
+    if (currentMode === 'mod' || currentMode === 'chart') dataKey = "mods";
+    else if (currentMode === 'author') dataKey = "authors";
+    else if (currentMode === 'group') dataKey = "moddingGroups";
+    
+    if (!rawData || !dataKey || !rawData[dataKey]) return null;
     let fullItems = [...rawData[dataKey]];
 
     // Map legacy sort keys to new schema
@@ -68,7 +73,8 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
         // For bar/pie: filter list
         items = items.filter(item =>
             (item.name && item.name.toLowerCase().includes(searchLower)) ||
-            (item.author && item.author.toLowerCase().includes(searchLower))
+            (item.author && item.author.toLowerCase().includes(searchLower)) ||
+            (item.authors && item.authors.some(a => a.toLowerCase().includes(searchLower)))
         );
     }
 
@@ -77,7 +83,7 @@ function transformInfoToChartData(rawData, sortKey = "downloads", maxEntries = 2
     return {
         items: items,
         sortKey: mappedSortKey,
-        isAuthor: !!rawData.authors,
+        isAuthor: currentMode === 'author' || currentMode === 'group',
         searchTerm: searchLower
     };
 }
@@ -146,7 +152,7 @@ async function updateChart() {
     const chartData = transformInfoToChartData(rawData, currentSort, maxEntries, currentSortDir);
     const chartContainer = document.getElementById('rankingChart').parentElement;
     
-    currentDisplayedEntriesCount = chartData.items.length;
+    currentDisplayedEntriesCount = chartData ? chartData.items.length : 0;
     
     // Ensure canvas element exists
     let canvas = document.getElementById('rankingChart');
@@ -206,32 +212,41 @@ async function updateChart() {
 function setStatNavbarHandlers() {
     const modBtn = document.getElementById('mod_ranking_btn');
     const authorBtn = document.getElementById('author_ranking_btn');
-    const distBtn = document.getElementById('mod_distribution_btn');
+    const groupBtn = document.getElementById('group_ranking_btn');
+    const chartBtn = document.getElementById('group_chart_btn');
 
     function setActive(mode) {
-        modBtn.classList.remove('active');
-        authorBtn.classList.remove('active');
-        distBtn.classList.remove('active');
+        modBtn?.classList.remove('active');
+        authorBtn?.classList.remove('active');
+        groupBtn?.classList.remove('active');
+        chartBtn?.classList.remove('active');
+
+        currentMode = mode;
 
         if (mode === 'mod') {
-            modBtn.classList.add('active');
+            modBtn?.classList.add('active');
             currentEndpoint = '/api/mods.json';
             if (chartType === 'bubble') chartType = 'bar';
         } else if (mode === 'author') {
-            authorBtn.classList.add('active');
+            authorBtn?.classList.add('active');
             currentEndpoint = '/api/authors.json';
             if (chartType === 'bubble') chartType = 'bar';
-        } else if (mode === 'dist') {
-            distBtn.classList.add('active');
+        } else if (mode === 'group') {
+            groupBtn?.classList.add('active');
+            currentEndpoint = '/api/authors.json';
+            if (chartType === 'bubble') chartType = 'bar';
+        } else if (mode === 'chart') {
+            chartBtn?.classList.add('active');
             currentEndpoint = '/api/mods.json';
             chartType = 'bubble';
         }
         updateSortBar();
         updateChart();
     }
-    modBtn.onclick = () => setActive('mod');
-    authorBtn.onclick = () => setActive('author');
-    distBtn.onclick = () => setActive('dist');
+    if (modBtn) modBtn.onclick = () => setActive('mod');
+    if (authorBtn) authorBtn.onclick = () => setActive('author');
+    if (groupBtn) groupBtn.onclick = () => setActive('group');
+    if (chartBtn) chartBtn.onclick = () => setActive('chart');
 }
 
 function setSortBarHandlers() {
@@ -278,8 +293,12 @@ function setSortBarHandlers() {
         // Fetch the current data to determine the max possible entries
         const rawData = await fetchChartData(currentEndpoint);
 
-        // Determine if we're on mods or authors
-        const dataKey = rawData?.mods ? "mods" : (rawData?.authors ? "authors" : null);
+        // Determine if we're on mods, authors or groups
+        let dataKey = null;
+        if (currentMode === 'mod') dataKey = "mods";
+        else if (currentMode === 'author') dataKey = "authors";
+        else if (currentMode === 'group') dataKey = "moddingGroups";
+
         const totalEntries = rawData && dataKey && Array.isArray(rawData[dataKey]) ? rawData[dataKey].length : 1;
 
         // Clamp to available entries
@@ -296,7 +315,7 @@ function setSortBarHandlers() {
 }
 
 function updateSortBar() {
-    const isAuthor = currentEndpoint.includes('author');
+    const isAuthorOrGroup = currentMode === 'author' || currentMode === 'group';
     const isBubble = chartType === 'bubble';
     const sortLabel = document.getElementById('sortByLabel');
     if (sortLabel) sortLabel.style.display = isBubble ? 'none' : '';
@@ -305,7 +324,7 @@ function updateSortBar() {
         if (isBubble) {
             btn.style.display = 'none';
         } else {
-            btn.style.display = (isAuthor && forType === 'authors') || (!isAuthor && forType === 'mods') ? '' : 'none';
+            btn.style.display = (isAuthorOrGroup && forType === 'authors') || (!isAuthorOrGroup && forType === 'mods') ? '' : 'none';
         }
     });
 }
