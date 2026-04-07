@@ -56,6 +56,16 @@ export function draw() {
             (framedY - this.userPanY) * this.userZoom + this.height / 2;
         const screenR = Math.max(1, framedR * this.userZoom);
 
+        // Cull nodes that are completely outside the visible canvas view
+        if (
+            screenX + screenR < 0 ||
+            screenX - screenR > this.width ||
+            screenY + screenR < 0 ||
+            screenY - screenR > this.height
+        ) {
+            return;
+        }
+
         // Highlight nodes that have the same exact author set as hoverNode
         let isHighlight = false;
         let isDimmed = false;

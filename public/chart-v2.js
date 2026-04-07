@@ -202,9 +202,21 @@ async function updateChart() {
     }
 
     if (chartData) {
+        // Remove any old error messages
+        const oldErr = chartContainer.querySelector('.error-msg');
+        if (oldErr) oldErr.remove();
+        
         renderChart(chartData);
     } else {
-        chartContainer.innerHTML += "<div style='color:red'>Failed to load chart data.</div>";
+        // Show error safely without innerHTML += which destroys canvas
+        let errDiv = chartContainer.querySelector('.error-msg');
+        if (!errDiv) {
+            errDiv = document.createElement('div');
+            errDiv.className = 'error-msg';
+            errDiv.style.color = 'red';
+            chartContainer.appendChild(errDiv);
+        }
+        errDiv.textContent = 'Failed to load chart data.';
     }
 }
 
@@ -295,7 +307,7 @@ function setSortBarHandlers() {
 
         // Determine if we're on mods, authors or groups
         let dataKey = null;
-        if (currentMode === 'mod') dataKey = "mods";
+        if (currentMode === 'mod' || currentMode === 'chart') dataKey = "mods";
         else if (currentMode === 'author') dataKey = "authors";
         else if (currentMode === 'group') dataKey = "moddingGroups";
 
@@ -387,6 +399,12 @@ document.getElementById('fullscreen-btn')?.addEventListener('click', function() 
 document.getElementById('download-btn')?.addEventListener('click', function() {
     if (chartInstance && chartInstance instanceof BubbleChart) {
         chartInstance.downloadHighRes();
+    }
+});
+
+document.getElementById('download-svg-btn')?.addEventListener('click', function() {
+    if (chartInstance && chartInstance instanceof BubbleChart) {
+        chartInstance.exportSVG();
     }
 });
 

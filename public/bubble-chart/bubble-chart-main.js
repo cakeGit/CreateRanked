@@ -1,4 +1,3 @@
-import * as Physics from './physics.js';
 import * as Renderer from './renderer.js';
 import * as Interactions from './interactions.js';
 import * as Data from './data.js';
@@ -15,10 +14,28 @@ export class BubbleChart {
         this.centerY = this.height / 2;
         this.showLabels = false; // default: labels hidden
         this.minBubblePx = 6; // lower bound for smallest bubbles
-        this.warmupStepsDefault = 120; // run physics without drawing initially
+        this.warmupStepsDefault = 250; // run physics without drawing initially
         this.warmupSteps = 0;
         this.topNExplicit = 100; // always show top N by downloadRate (default changed to 100)
         this.includeFullGroups = false; // whether to include all connected mods in groups
+
+        // Loading screen & worker control
+        this.simulationComplete = false;
+        this.totalWarmupSteps = 0;
+        this.completedWarmupSteps = 0;
+        this.currentChunkSteps = 0;
+        this.lastMessageTime = 0;
+        this.loadingMessages = [
+            "Calculating graph",
+            "Reorienting charge drive",
+            "Combulationizing",
+            "Crunching the numbers",
+            "Burning some books",
+            "Feeding the hamsters",
+            "Reticulating splines",
+            "Mining more andesite",
+            "Mixing it up",
+        ];
 
         // View/zoom state for smooth auto-fit
         this.viewScale = 1;
@@ -28,8 +45,8 @@ export class BubbleChart {
         this.targetCenterX = this.centerX;
         this.targetCenterY = this.centerY;
         this.zoomLerp = 0.1; // smoothing factor for scale/center
-        this.minViewScale = 0.3;
-        this.maxViewScale = 2.0;
+        this.minViewScale = 0.05;
+        this.maxViewScale = 10.0;
         this.fitPadding = 0.9; // leave 10% margin when fitting
 
         // User-controlled pan and zoom (independent of auto-framing)
@@ -41,8 +58,8 @@ export class BubbleChart {
         this.targetUserZoom = 1.0;
         this.userPanLerp = 0.3; // Smoothing factor for pan
         this.userZoomLerp = 0.15; // Smoothing factor for zoom
-        this.minUserZoom = 0.2;
-        this.maxUserZoom = 5.0;
+        this.minUserZoom = 0.05;
+        this.maxUserZoom = 30.0;
         this.isPanning = false;
         this.panStartX = 0;
         this.panStartY = 0;
@@ -223,39 +240,108 @@ export class BubbleChart {
 
     runWarmup(steps) {
         const s = Math.max(0, steps | 0);
-        for (let i = 0; i < s; i++) {
-            this.updatePhysics();
-        }
-        // Run 30 ticks (0.5 seconds) - let animation handle the rest
-        for (let i = 0; i < 30; i++) {
-            this.updatePhysics();
-        }
-        // After warmup, set view to current target to avoid initial jump
-        this.updateViewTarget();
-        this.viewCenterX = this.targetCenterX;
-        this.viewCenterY = this.targetCenterY;
-        this.viewScale = this.targetScale;
-        this.warmupSteps = 0;
-        // Draw once immediately to show settled state
+        this.totalWarmupSteps = s;
+        this.completedWarmupSteps = 0;
+        this.simulationComplete = false;
+        
+        const overlay = document.getElementById('loading-overlay');
+        if (overlay) overlay.style.display = 'flex';
+        
+        const fill = document.getElementById('loading-progress-fill');
+        if (fill) fill.style.width = '0%';
+        
+        const text = document.getElementById('loading-text');
+        if (text) text.innerText = "Initializing...";
+        
         this.draw();
+    }
+
+    initWorker() {
+        this.worker = new Worker('./bubble-chart/physics-worker.js');
+        this.physicsUpdating = false;
+        this.worker.onmessage = (e) => {
+            this.nodes = e.data.nodes;
+            this.completedWarmupSteps += this.currentChunkSteps;
+            this.physicsUpdating = false;
+
+            if (this.completedWarmupSteps >= this.totalWarmupSteps && !this.simulationComplete) {
+                this.simulationComplete = true;
+                const overlay = document.getElementById('loading-overlay');
+                if (overlay) overlay.style.display = 'none';
+            }
+        };
     }
 
     animate() {
         if (!this.renderStartTime) {
             this.renderStartTime = Date.now();
         }
-        const elapsed = (Date.now() - this.renderStartTime) / 1000;
-        const duration = 6.0 * this.nodes.length / 100.0;
-        const startMult = 0.01;
-        const endMult = 10.0;
-
-        let mult = endMult;
-        if (elapsed < duration) {
-            mult = startMult + (endMult - startMult) * (elapsed / duration);
+        
+        if (!this.worker) {
+            this.initWorker();
         }
-        this.friction = 1 - Math.max(Math.min(Math.pow(this.baseFriction * mult, 3), 1), 0);
 
-        this.updatePhysics();
+        // Step-count based progress ratio, updated every frame from completedWarmupSteps
+        const progressRatio = this.totalWarmupSteps > 0
+            ? Math.min(this.completedWarmupSteps / this.totalWarmupSteps, 1.0)
+            : 1.0;
+
+        // Update progress bar every frame (smooth, not dependent on worker reply speed)
+        if (!this.simulationComplete) {
+            const fill = document.getElementById('loading-progress-fill');
+            if (fill) fill.style.width = Math.round(progressRatio * 100) + '%';
+
+            // Rotate messages every ~2 seconds
+            const now = Date.now();
+            if (now - this.lastMessageTime > 2000) {
+                this.lastMessageTime = now;
+                const text = document.getElementById('loading-text');
+                if (text) {
+                    text.innerText = this.loadingMessages[Math.floor(Math.random() * this.loadingMessages.length)] + "...";
+                }
+            }
+        }
+
+        // Friction: starts at 0.92 (nodes move freely), eases to ~0 as steps complete.
+        // Simple linear decay so it never hits 0 before all steps are done.
+        this.friction = 0.92 * (1 - progressRatio);
+
+        if (!this.physicsUpdating && !this.simulationComplete) {
+            this.currentChunkSteps = Math.min(4, this.totalWarmupSteps - this.completedWarmupSteps);
+            if (this.currentChunkSteps <= 0) {
+                this.simulationComplete = true;
+            } else {
+                this.physicsUpdating = true;
+                this.worker.postMessage({
+                    nodes: this.nodes,
+                    steps: this.currentChunkSteps,
+                    config: {
+                        centerX: this.centerX,
+                        centerY: this.centerY,
+                        width: this.width,
+                        height: this.height,
+                        neighborGravityStrength: this.neighborGravityStrength,
+                        neighborGravityCount: this.neighborGravityCount,
+                        neighborGravityDamping: this.neighborGravityDamping,
+                        neighborGravityMaxDelta: this.neighborGravityMaxDelta,
+                        cohesionDecay: this.cohesionDecay,
+                        globalGravityStrength: this.globalGravityStrength,
+                        globalGravityMaxDelta: this.globalGravityMaxDelta,
+                        globalGravityEdgeStart: this.globalGravityEdgeStart,
+                        globalGravityEdgeBoostFactor: this.globalGravityEdgeBoostFactor,
+                        friction: this.friction,
+                        collisionStrength: this.collisionStrength,
+                        attractionStrength: this.attractionStrength,
+                        unrelatedRepulsion: this.unrelatedRepulsion,
+                        cohesionStrength: this.cohesionStrength,
+                        groupCohesionLongRangeThreshold: this.groupCohesionLongRangeThreshold,
+                        groupCohesionLongRangeMultiplier: this.groupCohesionLongRangeMultiplier,
+                        groupCohesionLongRangeMaxMultiplier: this.groupCohesionLongRangeMaxMultiplier
+                    }
+                });
+            }
+        }
+
         this.updateViewTarget();
         this.updateViewLerp();
         this.updateUserViewLerp();
@@ -264,6 +350,10 @@ export class BubbleChart {
     }
 
     dispose() {
+        if (this.worker) {
+            this.worker.terminate();
+            this.worker = null;
+        }
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
         }
@@ -281,7 +371,6 @@ export class BubbleChart {
 }
 
 // Mixin methods
-Object.assign(BubbleChart.prototype, Physics);
 Object.assign(BubbleChart.prototype, Renderer);
 Object.assign(BubbleChart.prototype, Interactions);
 Object.assign(BubbleChart.prototype, Data);

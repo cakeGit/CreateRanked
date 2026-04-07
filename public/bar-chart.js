@@ -192,7 +192,7 @@ export class ScrollableChart {
         ctx.fillRect(0, 0, this.width, this.height);
         
         const items = this.data.items;
-        const maxValue = Math.max(...items.map(item => this.getValueForSort(item)));
+        const maxValue = Math.max(1, ...items.map(item => this.getValueForSort(item)));
         const barWidth = this.width - this.leftPadding - this.rightPadding;
         
         // Calculate visible range

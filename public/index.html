@@ -70,12 +70,19 @@
             <input type="text" id="search-bar" placeholder="Search mods, authors or groups..." style="margin-bottom:1em;width:100%;max-width:400px;">
             <div id="chartContainer" style="position:relative;height:95vh;width:100%;">
                 <canvas id="rankingChart"></canvas>
+                <div id="loading-overlay" style="display:none; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255,255,255,0.9); z-index:20; flex-direction:column; justify-content:center; align-items:center; color:#222; font-family:monospace; border:1.5px solid #e6e6e6;">
+                    <div id="loading-text" style="font-size:24px; margin-bottom:20px; font-weight:bold; text-align:center;">Initializing...</div>
+                    <div style="width:50%; max-width:400px; height:20px; background:#eee; border:1px solid #e6e6e6; border-radius:0; overflow:hidden;">
+                        <div id="loading-progress-fill" style="width:0%; height:100%; background:#2167a0; transition:width 0.1s ease-out;"></div>
+                    </div>
+                </div>
                 <div id="bubble-controls" style="display:none;">
                     <button id="zoom-in-btn" title="Zoom In">+</button>
                     <button id="zoom-out-btn" title="Zoom Out">-</button>
                     <button id="reset-zoom-btn" title="Reset View">⟲</button>
                     <button id="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
                     <button id="download-btn" title="Download High-Res Image">⬇</button>
+                    <button id="download-svg-btn" title="Download SVG Vector">⬇</button>
                 </div>
             </div>
         </div>
